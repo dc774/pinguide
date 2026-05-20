@@ -5,7 +5,9 @@ from __future__ import annotations
 import chromadb
 import openai
 from dotenv import load_dotenv
-from flask import Flask, jsonify, request
+import os
+
+from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 
 load_dotenv()
@@ -70,6 +72,14 @@ def _build_user_message(question: str, chunks: list[str], metadatas: list[dict])
         parts.append(f"{header}\n{chunk}")
     parts.append(f"Question: {question}")
     return "\n\n".join(parts)
+
+
+_FRONTEND = os.path.join(os.path.dirname(__file__), "..", "frontend", "index.html")
+
+
+@app.get("/")
+def index():
+    return send_file(os.path.abspath(_FRONTEND))
 
 
 @app.get("/health")
