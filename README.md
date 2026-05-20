@@ -116,7 +116,14 @@ pinguide-rag/
 
 ## Deployment
 
-The app is deployed on [Render.com](https://render.com) as a Python web service. Set the three environment variables in the Render dashboard and mount a persistent disk at `/vector_store` to survive deploys.
+The app is deployed on [Render.com](https://render.com) as a Python web service.
+
+- **Build command:** `pip install -r requirements.txt`
+- **Start command:** `gunicorn api.app:app --timeout 120`
+- **Environment variables:** set `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `OPDB_API_KEY` in the Render dashboard
+- **Disk:** mount at `/vector_store` to persist ChromaDB between deploys
+
+`gunicorn.conf.py` in the project root sets `workers = 1` and `timeout = 120`. One worker keeps memory usage within Render's free 512 MB limit; the longer timeout prevents kills on slow cold-start queries.
 
 Note: Render's free tier spins down after 15 minutes of inactivity, so the first query after a quiet period will be slow (~30 seconds). Fine for personal use.
 
