@@ -1,6 +1,5 @@
 venv/
 .env
-vector_store/
 data/raw/
 __pycache__/
 *.pyc
