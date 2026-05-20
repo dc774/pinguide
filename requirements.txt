@@ -1,0 +1,27 @@
+# RAG framework
+llama-index
+llama-index-embeddings-openai
+llama-index-llms-anthropic
+llama-index-vector-stores-chroma
+
+# Vector store
+chromadb
+
+# LLM + embedding providers
+anthropic
+openai
+
+# Scraping
+requests
+beautifulsoup4
+
+# Pinball metadata
+open-pinball-db
+
+# API server
+flask
+flask-cors
+gunicorn
+
+# Config
+python-dotenv

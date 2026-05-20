@@ -1,0 +1,200 @@
+"""Scrape Tiltforums rulesheet wiki pages and save per-game JSON to data/raw/."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+import time
+from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit
+
+import requests
+from bs4 import BeautifulSoup, NavigableString, Tag
+
+MASTER_LIST_URL = "https://tiltforums.com/t/rulesheet-master-list/7230"
+USER_AGENT = "pinguide-rag scraper (personal RAG project)"
+
+RULESHEET_URL_RE = re.compile(r"^https?://tiltforums\.com/t/[^/]+/\d+/?$")
+TITLE_SUFFIX_RE = re.compile(r"\s*\(?\s*(?:wiki|rulesheet)s?\s*\)?\s*$", re.IGNORECASE)
+URL_SLUG_SUFFIX_RE = re.compile(r"[-_](?:rulesheet|wiki)$", re.IGNORECASE)
+MFR_PINBALL_SUFFIX_RE = re.compile(r"\s+pinball\s*$", re.IGNORECASE)
+
+
+def _get_json(url: str) -> dict:
+    json_url = url.rstrip("/") + ".json"
+    r = requests.get(json_url, headers={"User-Agent": USER_AGENT}, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+
+def is_rulesheet_url(url: str) -> bool:
+    if not url:
+        return False
+    parts = urlsplit(url)
+    cleaned = urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+    return bool(RULESHEET_URL_RE.match(cleaned))
+
+
+def _normalize_url(url: str) -> str:
+    parts = urlsplit(url)
+    return urlunsplit(("https", parts.netloc, parts.path.rstrip("/"), "", ""))
+
+
+def slugify(title: str) -> str:
+    s = re.sub(r"[^a-zA-Z0-9]+", "_", title).strip("_").lower()
+    return s or "unknown"
+
+
+def _likely_filename(url: str) -> str:
+    """Best-effort guess of output filename from URL slug, used only for skip-check."""
+    parts = url.rstrip("/").split("/")
+    slug = parts[-2] if len(parts) >= 2 else ""
+    prev = None
+    while slug != prev:
+        prev = slug
+        slug = URL_SLUG_SUFFIX_RE.sub("", slug)
+    return f"{slugify(slug)}.json"
+
+
+def clean_game_title(title: str) -> str:
+    cleaned = title.strip()
+    prev = None
+    while cleaned != prev:
+        prev = cleaned
+        cleaned = TITLE_SUFFIX_RE.sub("", cleaned).strip()
+    return cleaned
+
+
+def fetch_master_list() -> list[dict]:
+    data = _get_json(MASTER_LIST_URL)
+    cooked = data["post_stream"]["posts"][0]["cooked"]
+    soup = BeautifulSoup(cooked, "html.parser")
+
+    results: list[dict] = []
+    seen: set[str] = set()
+    current_mfr = ""
+
+    for el in soup.descendants:
+        if not isinstance(el, Tag):
+            continue
+        if el.name == "h2":
+            raw = el.get_text(strip=True)
+            current_mfr = MFR_PINBALL_SUFFIX_RE.sub("", raw).strip(": ") or raw
+        elif el.name == "a":
+            href = el.get("href") or ""
+            if not is_rulesheet_url(href):
+                continue
+            normalized = _normalize_url(href)
+            if normalized in seen:
+                continue
+            seen.add(normalized)
+            results.append({"url": normalized, "manufacturer": current_mfr})
+
+    return results
+
+
+def parse_sections(cooked_html: str) -> dict:
+    soup = BeautifulSoup(cooked_html, "html.parser")
+    sections: dict[str, list[str]] = {}
+    current = "Introduction"
+
+    for child in soup.children:
+        if isinstance(child, NavigableString):
+            text = str(child).strip()
+            if text:
+                sections.setdefault(current, []).append(text)
+            continue
+        if not isinstance(child, Tag):
+            continue
+        if child.name == "h2":
+            current = child.get_text(strip=True) or current
+            continue
+        text = child.get_text("\n", strip=True)
+        if text:
+            sections.setdefault(current, []).append(text)
+
+    return {k: "\n\n".join(v) for k, v in sections.items() if v}
+
+
+def fetch_rulesheet(url: str, manufacturer: str) -> dict:
+    data = _get_json(url)
+    title = (data.get("title") or "").strip()
+    posts = data.get("post_stream", {}).get("posts", [])
+    if not posts:
+        raise ValueError("topic has no posts")
+    cooked = posts[0].get("cooked") or ""
+    if not cooked:
+        raise ValueError("first post is empty")
+    return {
+        "game": clean_game_title(title),
+        "manufacturer": manufacturer,
+        "url": url,
+        "sections": parse_sections(cooked),
+    }
+
+
+def save_rulesheet(data: dict, out_dir: Path) -> Path:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / f"{slugify(data['game'])}.json"
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    return path
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Scrape Tiltforums rulesheet wikis.")
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Only process the first N rulesheet links")
+    parser.add_argument("--out", type=Path, default=Path("data/raw"),
+                        help="Output directory (default: data/raw)")
+    parser.add_argument("--delay", type=float, default=2.0,
+                        help="Seconds between requests (default: 2.0)")
+    parser.add_argument("--force", action="store_true",
+                        help="Re-scrape even when output file already exists")
+    args = parser.parse_args()
+
+    print(f"Fetching master list from {MASTER_LIST_URL}", flush=True)
+    try:
+        entries = fetch_master_list()
+    except Exception as e:
+        print(f"ERROR fetching master list: {e}", file=sys.stderr)
+        return 1
+    print(f"Found {len(entries)} rulesheet links", flush=True)
+
+    if args.limit is not None:
+        entries = entries[: args.limit]
+        print(f"Limiting to first {len(entries)}", flush=True)
+
+    saved = skipped = errors = 0
+    total = len(entries)
+
+    for i, entry in enumerate(entries, 1):
+        prefix = f"[{i}/{total}]"
+        url = entry["url"]
+
+        if not args.force:
+            guess_path = args.out / _likely_filename(url)
+            if guess_path.exists():
+                print(f"{prefix} {guess_path.stem} — skipped (exists)", flush=True)
+                skipped += 1
+                continue
+
+        try:
+            data = fetch_rulesheet(url, entry["manufacturer"])
+            save_rulesheet(data, args.out)
+            print(f"{prefix} {data['game']} — saved", flush=True)
+            saved += 1
+        except Exception as e:
+            print(f"{prefix} {url} — ERROR: {e}", file=sys.stderr, flush=True)
+            errors += 1
+
+        time.sleep(args.delay)
+
+    print(f"Done. saved={saved} skipped={skipped} errors={errors}", flush=True)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:tiltforums.com)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('game:', d['game']\\); print\\('manufacturer:', d['manufacturer']\\); print\\('sections:', list\\(d['sections'].keys\\(\\)\\)\\)\")",
+      "Bash(open *)"
+    ]
+  }
+}

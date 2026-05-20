@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinguide</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin-top: 0.4rem;
+      font-size: 0.875rem;
+      color: #666;
+    }
+
+    .query-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .query-form input {
+      flex: 1;
+      padding: 0.65rem 0.9rem;
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .query-form input:focus {
+      border-color: #555;
+    }
+
+    .query-form input::placeholder {
+      color: #444;
+    }
+
+    .query-form button {
+      padding: 0.65rem 1.2rem;
+      background: #e8a020;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .query-form button:hover:not(:disabled) {
+      background: #f0b030;
+    }
+
+    .query-form button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .loader {
+      display: none;
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #555;
+      font-size: 0.875rem;
+    }
+
+    .loader.hidden { display: none; }
+
+    .loader-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .loader-dots span {
+      width: 5px;
+      height: 5px;
+      background: #555;
+      border-radius: 50%;
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+
+    .loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    .results {
+      margin-top: 2rem;
+      display: none;
+    }
+
+    .results.visible { display: block; }
+
+    .answer-block {
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      line-height: 1.65;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .sources-heading {
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #555;
+    }
+
+    .sources-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .source-chip {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.6rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .source-chip .game {
+      color: #ccc;
+      font-weight: 600;
+    }
+
+    .source-chip .sep {
+      color: #3a3a3a;
+    }
+
+    .error-block {
+      margin-top: 2rem;
+      padding: 0.9rem 1.1rem;
+      background: #1e0a0a;
+      border: 1px solid #4a1a1a;
+      border-radius: 6px;
+      color: #e06060;
+      font-size: 0.875rem;
+      display: none;
+    }
+
+    .error-block.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Pinguide</h1>
+      <p>Ask anything about pinball machines — rules, modes, strategies.</p>
+    </header>
+
+    <form class="query-form" id="queryForm">
+      <input
+        type="text"
+        id="questionInput"
+        placeholder="e.g. How does multiball work in Metallica?"
+        autocomplete="off"
+        autofocus
+      >
+      <button type="submit" id="submitBtn">Ask</button>
+    </form>
+
+    <div class="loader hidden" id="loader">
+      <div class="loader-dots">
+        <span></span><span></span><span></span>
+      </div>
+      Thinking…
+    </div>
+
+    <div class="error-block" id="errorBlock"></div>
+
+    <div class="results" id="results">
+      <div class="answer-block" id="answerBlock"></div>
+      <div id="sourcesSection">
+        <div class="sources-heading">Sources</div>
+        <div class="sources-list" id="sourcesList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('queryForm');
+    const input = document.getElementById('questionInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const loader = document.getElementById('loader');
+    const results = document.getElementById('results');
+    const answerBlock = document.getElementById('answerBlock');
+    const sourcesList = document.getElementById('sourcesList');
+    const sourcesSection = document.getElementById('sourcesSection');
+    const errorBlock = document.getElementById('errorBlock');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const question = input.value.trim();
+      if (!question) return;
+
+      // Reset state
+      results.classList.remove('visible');
+      errorBlock.classList.remove('visible');
+      errorBlock.textContent = '';
+      answerBlock.textContent = '';
+      sourcesList.innerHTML = '';
+      loader.classList.remove('hidden');
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('http://localhost:5001/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question }),
+        });
+
+        if (!res.ok) {
+          throw new Error(`Server error: ${res.status} ${res.statusText}`);
+        }
+
+        const data = await res.json();
+
+        answerBlock.textContent = data.answer ?? '(no answer returned)';
+
+        const sources = data.sources ?? [];
+        if (sources.length > 0) {
+          sourcesSection.style.display = '';
+          sources.forEach((src) => {
+            const chip = document.createElement('div');
+            chip.className = 'source-chip';
+
+            const parts = [];
+            if (src.game) parts.push(`<span class="game">${esc(src.game)}</span>`);
+            if (src.manufacturer) parts.push(`<span>${esc(src.manufacturer)}</span>`);
+            if (src.section_name) parts.push(`<span>${esc(src.section_name)}</span>`);
+
+            chip.innerHTML = parts.join('<span class="sep">·</span>');
+            sourcesList.appendChild(chip);
+          });
+        } else {
+          sourcesSection.style.display = 'none';
+        }
+
+        results.classList.add('visible');
+      } catch (err) {
+        errorBlock.textContent = err.message || 'Something went wrong. Is the API running?';
+        errorBlock.classList.add('visible');
+      } finally {
+        loader.classList.add('hidden');
+        submitBtn.disabled = false;
+      }
+    });
+
+    function esc(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+  </script>
+</body>
+</html>
