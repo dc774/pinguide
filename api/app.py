@@ -6,6 +6,7 @@ import chromadb
 import openai
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
@@ -17,7 +18,8 @@ CORS(app)
 
 _openai = openai.OpenAI()
 
-_chroma = chromadb.PersistentClient(path="vector_store")
+_VECTOR_STORE = Path(__file__).parent.parent / "vector_store"
+_chroma = chromadb.PersistentClient(path=str(_VECTOR_STORE))
 _collection = _chroma.get_collection("rulesheets")
 
 # Sorted longest-first so greedy matching picks the most specific name first
