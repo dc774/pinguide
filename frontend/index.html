@@ -34,7 +34,7 @@
     header p {
       margin-top: 0.4rem;
       font-size: 0.875rem;
-      color: #666;
+      color: #999;
     }
 
     .query-form {
@@ -59,7 +59,19 @@
     }
 
     .query-form input::placeholder {
-      color: #444;
+      color: #888;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .query-form button {
@@ -90,7 +102,7 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      color: #555;
+      color: #999;
       font-size: 0.875rem;
     }
 
@@ -104,7 +116,7 @@
     .loader-dots span {
       width: 5px;
       height: 5px;
-      background: #555;
+      background: #999;
       border-radius: 50%;
       animation: bounce 1.2s infinite ease-in-out;
     }
@@ -142,7 +154,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #555;
+      color: #999;
     }
 
     .sources-list {
@@ -152,8 +164,9 @@
     }
 
     .source-chip {
-      display: inline-flex;
+      display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 0.3rem 0.6rem;
       background: #1a1a1a;
       border: 1px solid #2a2a2a;
@@ -163,13 +176,33 @@
       color: #888;
     }
 
+    .source-badge {
+      margin-left: auto;
+      font-size: 0.68rem;
+      color: #888;
+      border: 1px solid #333;
+      border-radius: 3px;
+      padding: 0.1rem 0.35rem;
+      white-space: nowrap;
+    }
+
     .source-chip .game {
       color: #ccc;
       font-weight: 600;
     }
 
     .source-chip .sep {
-      color: #3a3a3a;
+      color: #888;
+    }
+
+    a.source-chip {
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+
+    a.source-chip:hover {
+      border-color: #555;
     }
 
     .error-block {
@@ -194,6 +227,7 @@
     </header>
 
     <form class="query-form" id="queryForm">
+      <label class="sr-only" for="questionInput">Your question</label>
       <input
         type="text"
         id="questionInput"
@@ -265,18 +299,45 @@
         const sources = data.sources ?? [];
         if (sources.length > 0) {
           sourcesSection.style.display = '';
-          sources.forEach((src) => {
-            const chip = document.createElement('div');
+
+          // Deduplicate by game+section_name, cap at 5
+          const seen = new Set();
+          const deduped = [];
+          for (const src of sources) {
+            const key = `${src.game}|${src.section_name}`;
+            if (!seen.has(key)) {
+              seen.add(key);
+              deduped.push(src);
+            }
+            if (deduped.length === 5) break;
+          }
+
+          for (const src of deduped) {
+            const chip = document.createElement(src.url ? 'a' : 'div');
             chip.className = 'source-chip';
+            if (src.url) {
+              chip.href = src.url;
+              chip.target = '_blank';
+              chip.rel = 'noopener noreferrer';
+            }
 
-            const parts = [];
-            if (src.game) parts.push(`<span class="game">${esc(src.game)}</span>`);
-            if (src.manufacturer) parts.push(`<span>${esc(src.manufacturer)}</span>`);
-            if (src.section_name) parts.push(`<span>${esc(src.section_name)}</span>`);
+            let section = (src.section_name || '').replace(/:\s*$/, '').trim();
+            if (section === 'Machine Metadata') section = 'Machine Info';
+            const parts = [`<span class="game">${esc(src.game)}</span>`];
+            if (section) parts.push(`<span>${esc(section)}</span>`);
 
-            chip.innerHTML = parts.join('<span class="sep">·</span>');
+            chip.innerHTML = parts.join('<span class="sep" aria-hidden="true">—</span>');
+
+            const label = sourceLabel(src.url);
+            if (label) {
+              const badge = document.createElement('span');
+              badge.className = 'source-badge';
+              badge.textContent = label;
+              chip.appendChild(badge);
+            }
+
             sourcesList.appendChild(chip);
-          });
+          }
         } else {
           sourcesSection.style.display = 'none';
         }
@@ -293,6 +354,14 @@
 
     function esc(str) {
       return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function sourceLabel(url) {
+      if (!url) return 'OPDB';
+      if (url.includes('tiltforums.com')) return 'Tiltforums ↗';
+      if (url.includes('pinball.org')) return 'PAPA ↗';
+      if (url.includes('silverballmania.com')) return "Bob's Guide ↗";
+      return '↗';
     }
   </script>
 </body>

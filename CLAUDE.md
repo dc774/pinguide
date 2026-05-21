@@ -130,6 +130,17 @@ OPDB_API_KEY=your_key_here          # Free at opdb.org
 
 ---
 
+## Code Standards
+
+- **Accessibility (WCAG AA)** — All frontend HTML/CSS/JS must meet WCAG AA accessibility
+  guidelines without needing to be asked. This includes:
+  - Color contrast ratios: ≥ 4.5:1 for normal text, ≥ 3:1 for large text and non-text UI
+  - Form labels: every input must have an associated `<label>` (visible or `.sr-only`)
+  - Semantic HTML: use appropriate elements (`<button>`, `<nav>`, `<header>`, etc.)
+  - Keyboard navigation: all interactive elements must be reachable and operable by keyboard
+
+---
+
 ## Known Limitations (Phase 1)
 
 - **No image support** — Physical layout questions ("where is X on the playfield") will

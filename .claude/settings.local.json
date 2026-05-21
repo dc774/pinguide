@@ -3,7 +3,15 @@
     "allow": [
       "WebFetch(domain:tiltforums.com)",
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('game:', d['game']\\); print\\('manufacturer:', d['manufacturer']\\); print\\('sections:', list\\(d['sections'].keys\\(\\)\\)\\)\")",
-      "Bash(open *)"
+      "Bash(open *)",
+      "WebFetch(domain:opdb.org)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.papapinball.com)",
+      "WebFetch(domain:www.replayfoundation.org)",
+      "WebFetch(domain:papapinball.com)",
+      "WebFetch(domain:pinball.org)",
+      "WebFetch(domain:rules.silverballmania.com)"
     ]
   }
 }

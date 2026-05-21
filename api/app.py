@@ -117,6 +117,7 @@ def query():
                 "game": m["game"],
                 "manufacturer": m["manufacturer"],
                 "section_name": m["section_name"],
+                "url": m.get("url", ""),
             }
             for m in metadatas
         ]
