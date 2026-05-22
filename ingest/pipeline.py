@@ -118,9 +118,9 @@ def main() -> int:
 
     import shutil
     print("Clearing existing vector store...", flush=True)
-    if VECTOR_STORE_DIR.exists():
-        shutil.rmtree(VECTOR_STORE_DIR)
-    VECTOR_STORE_DIR.mkdir(parents=True)
+    VECTOR_STORE_DIR.mkdir(parents=True, exist_ok=True)
+    for item in VECTOR_STORE_DIR.iterdir():
+        shutil.rmtree(item) if item.is_dir() else item.unlink()
 
     chroma_client = chromadb.PersistentClient(path=str(VECTOR_STORE_DIR))
     collection = chroma_client.get_or_create_collection(COLLECTION_NAME)
