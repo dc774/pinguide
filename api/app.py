@@ -20,7 +20,7 @@ _openai = openai.OpenAI()
 
 _VECTOR_STORE = Path(__file__).parent.parent / "vector_store"
 _chroma = chromadb.PersistentClient(path=str(_VECTOR_STORE))
-_collection = _chroma.get_collection("rulesheets")
+_collection = _chroma.get_or_create_collection("rulesheets")
 
 # Sorted longest-first so greedy matching picks the most specific name first
 # (e.g. "Star Wars: Fall of the Empire" before "Star Wars").
