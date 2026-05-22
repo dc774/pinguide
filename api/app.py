@@ -35,8 +35,9 @@ _KNOWN_GAMES: list[str] = sorted(
 
 _EMBED_MODEL = "text-embedding-3-small"
 _CHAT_MODEL = "gpt-4o-mini"  # TEMPORARY — swap back to claude-haiku-4-5-20251001
-_TOP_K = 10        # candidates fetched from vector store
-_RERANK_TOP_N = 5  # top results kept after reranking
+_TOP_K = 10             # candidates fetched per game from vector store
+_RERANK_TOP_N = 5       # top results kept after reranking (single game)
+_RERANK_TOP_N_MULTI = 8 # top results kept when multiple game variants are in scope
 
 _SYSTEM_PROMPT = (
     f"You are a pinball machine expert assistant. This system covers roughly "
@@ -131,33 +132,48 @@ def _extract_games(question: str) -> list[str]:
 
 
 def _retrieve(embedding: list[float], games: list[str]) -> tuple[list[str], list[dict]]:
+    if len(games) > 1:
+        # Query each game variant separately so all are represented in the
+        # candidate pool before reranking. A single $in query lets one game
+        # monopolise all TOP_K slots by vector similarity alone.
+        per_game_k = max(4, _TOP_K // len(games))
+        all_docs: list[str] = []
+        all_metas: list[dict] = []
+        for game in games:
+            results = _collection.query(
+                query_embeddings=[embedding],
+                n_results=per_game_k,
+                where={"game": {"$eq": game}},
+            )
+            all_docs.extend(results["documents"][0])
+            all_metas.extend(results["metadatas"][0])
+        return all_docs, all_metas
+
     kwargs: dict = {"query_embeddings": [embedding], "n_results": _TOP_K}
     if len(games) == 1:
         kwargs["where"] = {"game": {"$eq": games[0]}}
-    elif len(games) > 1:
-        kwargs["where"] = {"game": {"$in": games}}
     results = _collection.query(**kwargs)
     return results["documents"][0], results["metadatas"][0]
 
 
-def _rerank(question: str, chunks: list[str], metadatas: list[dict]) -> tuple[list[str], list[dict]]:
-    """Rerank chunks with Voyage AI and return the top _RERANK_TOP_N results.
+def _rerank(question: str, chunks: list[str], metadatas: list[dict], top_n: int) -> tuple[list[str], list[dict]]:
+    """Rerank chunks with Voyage AI and return the top top_n results.
 
     Falls back to the original ordering if the API key is absent or the call fails.
     """
     if _voyage is None or not chunks:
-        return chunks[:_RERANK_TOP_N], metadatas[:_RERANK_TOP_N]
+        return chunks[:top_n], metadatas[:top_n]
     try:
         result = _voyage.rerank(
             query=question,
             documents=chunks,
             model="rerank-2",
-            top_k=_RERANK_TOP_N,
+            top_k=top_n,
         )
         idxs = [r.index for r in result.results]
         return [chunks[i] for i in idxs], [metadatas[i] for i in idxs]
     except Exception:
-        return chunks[:_RERANK_TOP_N], metadatas[:_RERANK_TOP_N]
+        return chunks[:top_n], metadatas[:top_n]
 
 
 def _build_user_message(question: str, chunks: list[str], metadatas: list[dict]) -> str:
@@ -212,7 +228,8 @@ def query():
         games = _extract_games(question)
         embedding = _hyde_embed(question, games)
         chunks, metadatas = _retrieve(embedding, games)
-        chunks, metadatas = _rerank(question, chunks, metadatas)
+        top_n = _RERANK_TOP_N_MULTI if len(games) > 1 else _RERANK_TOP_N
+        chunks, metadatas = _rerank(question, chunks, metadatas, top_n)
         user_message = _build_user_message(question, chunks, metadatas)
 
         message = _openai.chat.completions.create(
