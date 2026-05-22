@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import chromadb
 import openai
 import voyageai
@@ -38,9 +39,13 @@ _TOP_K = 10        # candidates fetched from vector store
 _RERANK_TOP_N = 5  # top results kept after reranking
 
 _SYSTEM_PROMPT = (
-    "You are a pinball machine expert assistant. All questions refer to pinball machines "
-    "and their rules, modes, and strategies — not to bands, films, or other topics those "
-    "names may refer to. Answer using ONLY the rulesheet excerpts provided below. "
+    f"You are a pinball machine expert assistant. This system covers roughly "
+    f"{len(_KNOWN_GAMES)} machines across Tiltforums, PAPA, and Bob's Guide rulesheet archives. "
+    "All questions refer to pinball machines and their rules, modes, and strategies — not to "
+    "bands, films, or other topics those names may refer to. Answer using ONLY the rulesheet "
+    "excerpts provided below. "
+    "If asked how many machines are covered or what machines are available, answer using the "
+    "count above — do not say you don't know. "
     "If the question is just a game name with no specific question, provide a concise "
     "overview of that machine's main modes and strategy using the excerpts, and invite a "
     "follow-up question. "
@@ -101,16 +106,22 @@ def _extract_games(question: str) -> list[str]:
     manufacturer-stripped short name), then expands to include any games
     whose short name shares the same prefix — e.g. "Trident" → "Trident 2022",
     "Godzilla" → "Stern Godzilla", "Metallica" → "Metallica Remastered".
+
+    Uses word-boundary matching to avoid e.g. "Now" matching inside "know".
     """
     q = question.lower()
+
+    def _word_in(name: str) -> bool:
+        return bool(re.search(r'\b' + re.escape(name) + r'\b', q))
+
     matched = next(
-        (g for g in _KNOWN_GAMES if g.lower() in q and g.lower() not in _MATCH_BLOCKLIST),
+        (g for g in _KNOWN_GAMES if _word_in(g.lower()) and g.lower() not in _MATCH_BLOCKLIST),
         None,
     )
     if matched is None:
         matched = next(
             (g for g in _KNOWN_GAMES
-             if _short_name(g).lower() in q and _short_name(g).lower() not in _MATCH_BLOCKLIST),
+             if _word_in(_short_name(g).lower()) and _short_name(g).lower() not in _MATCH_BLOCKLIST),
             None,
         )
     if matched is None:
@@ -163,6 +174,11 @@ def _build_user_message(question: str, chunks: list[str], metadatas: list[dict])
 
 
 _FRONTEND = os.path.join(os.path.dirname(__file__), "..", "frontend", "index.html")
+
+
+@app.get("/robots.txt")
+def robots():
+    return "User-agent: *\nDisallow: /\n", 200, {"Content-Type": "text/plain"}
 
 
 @app.get("/")
