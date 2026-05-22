@@ -116,12 +116,13 @@ def main() -> int:
     nodes = splitter.get_nodes_from_documents(all_documents)
     print(f"Split into {len(nodes)} nodes", flush=True)
 
+    import shutil
+    print("Clearing existing vector store...", flush=True)
+    if VECTOR_STORE_DIR.exists():
+        shutil.rmtree(VECTOR_STORE_DIR)
+    VECTOR_STORE_DIR.mkdir(parents=True)
+
     chroma_client = chromadb.PersistentClient(path=str(VECTOR_STORE_DIR))
-    print("Clearing existing collection...", flush=True)
-    try:
-        chroma_client.delete_collection(COLLECTION_NAME)
-    except Exception:
-        pass
     collection = chroma_client.get_or_create_collection(COLLECTION_NAME)
 
     vector_store = ChromaVectorStore(chroma_collection=collection)
