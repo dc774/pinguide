@@ -14,8 +14,9 @@ from open_pinball_db import Client
 OUT_DIR = Path("data/raw/opdb")
 
 # Matches variant keywords at the end of a machine name
+# "Premium/LE" must come before "Premium" and "LE" to avoid partial stripping
 MODEL_TYPE_RE = re.compile(
-    r"[\s\(]*(Pro|Premium|Limited Edition|LE|Home|Vault Edition)\s*\)?\s*$",
+    r"[\s\(]*(Pro|Premium/LE|Premium|Limited Edition|LE|Home|Vault Edition)\s*\)?\s*$",
     re.IGNORECASE,
 )
 

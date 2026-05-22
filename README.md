@@ -1,17 +1,80 @@
 # Pinguide
 
-A RAG (Retrieval-Augmented Generation) system for answering questions about pinball machines. Ask it anything — rules, modes, strategies, scoring — and it answers using real rulesheets and guides as its knowledge base rather than making things up.
+A RAG (Retrieval-Augmented Generation) system that answers questions about pinball machines using real rulesheets and strategy guides as its knowledge base. Ask anything about rules, modes, scoring, or strategy — it finds the relevant source material and generates a grounded answer.
 
-Built as a personal project for pinball enthusiasts. Not commercial.
+**Live:** [pinguide.info](https://pinguide.info)
+
+Built as a personal project. Not commercial.
+
+---
+
+## Table of contents
+
+- [What it covers](#what-it-covers)
+- [How it works](#how-it-works)
+- [Retrieval strategy](#retrieval-strategy)
+- [The system prompt](#the-system-prompt)
+- [Tech stack](#tech-stack)
+- [Costs](#costs)
+- [Project structure](#project-structure)
+- [Local setup](#local-setup)
+- [Deployment](#deployment)
+- [Planned](#planned)
+
+---
+
+## What it covers
+
+| Source | What it is | Machines |
+|---|---|---|
+| [Tiltforums wiki rulesheets](https://tiltforums.com/c/game-specific/rulesheet-wikis/18) | Community rule wikis for modern machines | ~95 |
+| [PAPA rulesheet archive](https://papa.org) | Classic machine rulesheets | ~141 |
+| [Bob's Guide](https://rules.silverballmania.com) | Strategy guides for classic and EM-era machines | ~412 |
+| [Open Pinball Database](https://opdb.org) | Machine metadata: manufacturer, year, model variants | ~2,366 |
+
+About **15,600 indexed chunks** in total.
 
 ---
 
 ## How it works
 
-1. **Scrape** — Fetches rulesheets from Tiltforums, PAPA, and Bob's Guide, plus machine metadata from the Open Pinball Database (OPDB).
-2. **Ingest** — Chunks the scraped text by section, generates embeddings via OpenAI, and stores everything in a local ChromaDB vector store.
-3. **Query** — When you ask a question, it embeds your query, retrieves the most relevant rulesheet sections, and passes them as context to Claude to generate a grounded answer.
-4. **Serve** — A Flask API exposes a `/query` endpoint. A plain HTML frontend sends questions and displays answers with source attribution.
+Three steps, run once to build the knowledge base:
+
+1. **Scrape** — four scrapers fetch rulesheets and machine metadata and save structured JSON to `data/raw/`
+2. **Ingest** — chunks each source by section, generates embeddings via OpenAI, and stores everything in a ChromaDB vector store (~380 MB on disk)
+3. **Query** — at runtime, extracts the machine name from the question, retrieves the top 10 most relevant chunks, reranks them, and passes the best 5 to the LLM as context
+
+We chunk by natural section boundaries (Modes, Multiball, Strategy, etc.) rather than fixed token windows, so each chunk is about one coherent topic.
+
+---
+
+## Retrieval strategy
+
+Three techniques work together:
+
+**Game name filtering** — when a question names a specific machine, retrieval is restricted to chunks from that machine only. The system handles manufacturer-prefixed titles ("Stern Godzilla" vs. "Godzilla") and expands to variants (e.g. "Trident" also retrieves "Trident 2022"). General questions with no machine name get global retrieval.
+
+**HyDE (Hypothetical Document Embeddings)** — pinball questions use everyday language; rulesheets use domain-specific terminology. Before searching, the LLM writes a short hypothetical rulesheet excerpt that would answer the question, and we embed that instead of the raw question. This closes the vocabulary gap and significantly improves retrieval precision.
+
+**Reranking** — after retrieving 10 candidates by vector similarity, Voyage AI's `rerank-2` cross-encoder scores each (question, chunk) pair for true relevance and reorders them. The top 5 go to the LLM.
+
+---
+
+## The system prompt
+
+The LLM's behavior is shaped by a system prompt, which continues to evolve as we learn what produces better answers:
+
+```
+You are a pinball machine expert assistant. All questions refer to pinball machines
+and their rules, modes, and strategies — not to bands, films, or other topics those
+names may refer to. Answer using ONLY the rulesheet excerpts provided below.
+If the question is just a game name with no specific question, provide a concise
+overview of that machine's main modes and strategy using the excerpts, and invite a
+follow-up question.
+If the excerpts cover more than one distinct machine, briefly note which machine each
+piece of advice applies to. If the excerpts don't contain enough information to answer
+confidently, say so — do not speculate.
+```
 
 ---
 
@@ -22,81 +85,28 @@ Built as a personal project for pinball enthusiasts. Not commercial.
 | RAG framework | LlamaIndex |
 | Vector store | ChromaDB (on disk) |
 | Embeddings | OpenAI `text-embedding-3-small` |
+| Reranking | Voyage AI `rerank-2` |
 | LLM | Anthropic Claude Haiku |
 | API | Flask + flask-cors |
 | Frontend | Plain HTML/CSS/JS |
-| Deployment | Render.com |
+| Deployment | Railway + Cloudflare |
 
 ---
 
-## Local setup
+## Costs
 
-### Prerequisites
+**One-time:** embedding the full corpus costs about $0.25 in OpenAI credits.
 
-- Python 3.11
-- API keys for [Anthropic](https://console.anthropic.com), [OpenAI](https://platform.openai.com), and [OPDB](https://opdb.org) (all free tiers work)
+**Per query:**
 
-### 1. Clone and create a virtual environment
+| Step | Cost |
+|---|---|
+| HyDE generation | ~$0.0001 |
+| Voyage reranking | ~$0.0002 |
+| Answer generation | ~$0.001 |
+| **Total** | **~$0.001–0.002** |
 
-```bash
-git clone <repo-url>
-cd pinguide-rag
-
-python3.11 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Add your API keys
-
-Copy the example env file and fill in your keys:
-
-```bash
-cp .env.example .env
-```
-
-Open `.env` and add:
-
-```
-ANTHROPIC_API_KEY=your_key_here
-OPENAI_API_KEY=your_key_here
-OPDB_API_KEY=your_key_here
-```
-
-### 4. Scrape the rulesheets (one-time)
-
-This fetches rulesheets from Tiltforums and saves them to `data/raw/`. It takes a few minutes depending on how many machines are listed.
-
-```bash
-python -m scraper.tiltforums
-```
-
-You can also pull machine metadata from OPDB:
-
-```bash
-python -m scraper.opdb
-```
-
-### 5. Ingest into the vector store (one-time)
-
-This chunks the scraped text, generates embeddings, and writes them to `vector_store/`. It costs a small amount in OpenAI embedding credits (roughly $0.50 for the full corpus).
-
-```bash
-python -m ingest.pipeline
-```
-
-### 6. Run the API
-
-```bash
-flask --app api/app run --port 5001
-```
-
-The API will be available at `http://localhost:5001`. Open `frontend/index.html` in your browser to use the UI.
+At 10 queries a day, monthly cost is well under $1.
 
 ---
 
@@ -104,33 +114,58 @@ The API will be available at `http://localhost:5001`. Open `frontend/index.html`
 
 ```
 pinguide-rag/
-├── scraper/        # Scripts to fetch rulesheets and machine metadata
-├── ingest/         # Chunking, embedding, and ChromaDB storage
-├── api/            # Flask app — POST /query endpoint
-├── frontend/       # Single-page HTML UI
-├── data/raw/       # Scraped source files (gitignored)
-└── vector_store/   # ChromaDB data (gitignored)
+├── scraper/          # tiltforums.py, papa.py, bobs_guide.py, opdb.py
+├── ingest/           # pipeline.py — chunk, embed, store
+├── api/              # app.py — Flask /query endpoint
+├── frontend/         # index.html — single-page UI
+├── data/raw/         # scraped JSON (committed to git)
+└── vector_store/     # ChromaDB data (Railway Volume — not in git)
+```
+
+---
+
+## Local setup
+
+**Prerequisites:** Python 3.11, API keys for [Anthropic](https://console.anthropic.com), [OpenAI](https://platform.openai.com), [OPDB](https://opdb.org), and [Voyage AI](https://voyageai.com).
+
+```bash
+git clone <repo-url>
+cd pinguide-rag
+python3.11 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env   # then fill in your keys
+```
+
+Scraped data is already committed, so you can go straight to ingest:
+
+```bash
+python -m ingest.pipeline   # ~$0.25 in OpenAI embedding credits
+flask --app api/app run --port 5001
+```
+
+To re-scrape fresh data first:
+
+```bash
+python -m scraper.tiltforums
+python -m scraper.papa
+python -m scraper.bobs_guide
+python -m scraper.opdb
 ```
 
 ---
 
 ## Deployment
 
-The app is deployed on [Render.com](https://render.com) as a Python web service.
+Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data lives on a 500 MB Railway Volume (not in git) and is updated by SSHing into the service and re-running `python -m ingest.pipeline` after data changes.
 
-- **Build command:** `pip install -r requirements.txt`
-- **Start command:** `gunicorn api.app:app --timeout 120`
-- **Environment variables:** set `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `OPDB_API_KEY` in the Render dashboard
-- **Disk:** mount at `/vector_store` to persist ChromaDB between deploys
-
-`gunicorn.conf.py` in the project root sets `workers = 1` and `timeout = 120`. One worker keeps memory usage within Render's free 512 MB limit; the longer timeout prevents kills on slow cold-start queries.
-
-Note: Render's free tier spins down after 15 minutes of inactivity, so the first query after a quiet period will be slow (~30 seconds). Fine for personal use.
+- **Build:** `pip install -r requirements.txt`
+- **Start:** `gunicorn api.app:app --timeout 120`
+- **Environment variables:** set all API keys in the Railway dashboard
+- **Domain:** `pinguide.info` via Cloudflare DNS
 
 ---
 
-## Notes
+## Planned
 
-- The scrape and ingest steps only need to run once (or when you want fresh data). The Flask API only does retrieval and LLM calls at query time.
-- Very new machine releases may not have a Tiltforums rulesheet yet.
-- Physical layout questions ("where is the spinner?") are weaker — image support is planned for a future phase.
+Playfield diagram support for layout questions ("where is the left ramp?"), which requires image embeddings and a multimodal retrieval path.

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import chromadb
 import openai
+import voyageai
 from dotenv import load_dotenv
 import os
 from pathlib import Path
@@ -17,6 +18,7 @@ app = Flask(__name__)
 CORS(app)
 
 _openai = openai.OpenAI()
+_voyage = voyageai.Client() if os.getenv("VOYAGE_API_KEY") else None
 
 _VECTOR_STORE = Path(__file__).parent.parent / "vector_store"
 _chroma = chromadb.PersistentClient(path=str(_VECTOR_STORE))
@@ -32,12 +34,19 @@ _KNOWN_GAMES: list[str] = sorted(
 
 _EMBED_MODEL = "text-embedding-3-small"
 _CHAT_MODEL = "gpt-4o-mini"  # TEMPORARY — swap back to claude-haiku-4-5-20251001
-_TOP_K = 10
+_TOP_K = 10        # candidates fetched from vector store
+_RERANK_TOP_N = 5  # top results kept after reranking
 
 _SYSTEM_PROMPT = (
-    "You are a pinball expert assistant. Answer the user's question using ONLY the "
-    "rulesheet excerpts provided below. If the excerpts don't contain enough information "
-    "to answer confidently, say so — do not speculate."
+    "You are a pinball machine expert assistant. All questions refer to pinball machines "
+    "and their rules, modes, and strategies — not to bands, films, or other topics those "
+    "names may refer to. Answer using ONLY the rulesheet excerpts provided below. "
+    "If the question is just a game name with no specific question, provide a concise "
+    "overview of that machine's main modes and strategy using the excerpts, and invite a "
+    "follow-up question. "
+    "If the excerpts cover more than one distinct machine, briefly note which machine each "
+    "piece of advice applies to. If the excerpts don't contain enough information to answer "
+    "confidently, say so — do not speculate."
 )
 
 
@@ -46,21 +55,98 @@ def _embed(text: str) -> list[float]:
     return resp.data[0].embedding
 
 
-def _extract_game(question: str) -> str | None:
-    """Return the canonical game name if the question mentions a known game, else None."""
+def _hyde_embed(question: str, games: list[str]) -> list[float]:
+    """HyDE: embed a hypothetical rulesheet answer rather than the raw question.
+
+    Pinball questions use everyday language; rulesheets use domain-specific
+    terminology. Generating a hypothetical excerpt in rulesheet style before
+    embedding dramatically narrows the vocabulary gap and improves retrieval.
+    """
+    game_hint = f" for {min(games, key=len)}" if games else ""
+    prompt = (
+        f"Write a short excerpt from a pinball machine rulesheet{game_hint} "
+        f"that directly answers this question: {question}\n\n"
+        "Use technical rulesheet language. 2-4 sentences. No preamble."
+    )
+    resp = _openai.chat.completions.create(
+        model=_CHAT_MODEL,
+        max_tokens=150,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return _embed(resp.choices[0].message.content.strip())
+
+
+_MFR_PREFIXES = (
+    "Stern ", "Williams ", "Bally ", "Gottlieb ", "Data East ",
+    "Sega ", "Jersey Jack ", "Chicago Gaming ", "Spooky ",
+)
+
+# Generic words that appear in game names but also mean the hobby itself —
+# blocking them prevents false-positive game filters on general questions.
+_MATCH_BLOCKLIST = frozenset({"pinball"})
+
+
+def _short_name(game: str) -> str:
+    """Strip a leading manufacturer prefix from a game name."""
+    for pfx in _MFR_PREFIXES:
+        if game.startswith(pfx):
+            return game[len(pfx):]
+    return game
+
+
+def _extract_games(question: str) -> list[str]:
+    """Return all game names relevant to the question.
+
+    Finds the longest game name present in the query (by full name or by
+    manufacturer-stripped short name), then expands to include any games
+    whose short name shares the same prefix — e.g. "Trident" → "Trident 2022",
+    "Godzilla" → "Stern Godzilla", "Metallica" → "Metallica Remastered".
+    """
     q = question.lower()
-    for game in _KNOWN_GAMES:  # longest-first — picks most specific match
-        if game.lower() in q:
-            return game
-    return None
+    matched = next(
+        (g for g in _KNOWN_GAMES if g.lower() in q and g.lower() not in _MATCH_BLOCKLIST),
+        None,
+    )
+    if matched is None:
+        matched = next(
+            (g for g in _KNOWN_GAMES
+             if _short_name(g).lower() in q and _short_name(g).lower() not in _MATCH_BLOCKLIST),
+            None,
+        )
+    if matched is None:
+        return []
+    short = _short_name(matched).lower()
+    return [g for g in _KNOWN_GAMES if _short_name(g).lower().startswith(short)]
 
 
-def _retrieve(embedding: list[float], game: str | None = None) -> tuple[list[str], list[dict]]:
+def _retrieve(embedding: list[float], games: list[str]) -> tuple[list[str], list[dict]]:
     kwargs: dict = {"query_embeddings": [embedding], "n_results": _TOP_K}
-    if game:
-        kwargs["where"] = {"game": {"$eq": game}}
+    if len(games) == 1:
+        kwargs["where"] = {"game": {"$eq": games[0]}}
+    elif len(games) > 1:
+        kwargs["where"] = {"game": {"$in": games}}
     results = _collection.query(**kwargs)
     return results["documents"][0], results["metadatas"][0]
+
+
+def _rerank(question: str, chunks: list[str], metadatas: list[dict]) -> tuple[list[str], list[dict]]:
+    """Rerank chunks with Voyage AI and return the top _RERANK_TOP_N results.
+
+    Falls back to the original ordering if the API key is absent or the call fails.
+    """
+    if _voyage is None or not chunks:
+        return chunks[:_RERANK_TOP_N], metadatas[:_RERANK_TOP_N]
+    try:
+        result = _voyage.rerank(
+            query=question,
+            documents=chunks,
+            model="rerank-2",
+            top_k=_RERANK_TOP_N,
+        )
+        idxs = [r.index for r in result.results]
+        return [chunks[i] for i in idxs], [metadatas[i] for i in idxs]
+    except Exception:
+        return chunks[:_RERANK_TOP_N], metadatas[:_RERANK_TOP_N]
 
 
 def _build_user_message(question: str, chunks: list[str], metadatas: list[dict]) -> str:
@@ -89,6 +175,16 @@ def health():
     return jsonify({"status": "ok"})
 
 
+@app.get("/stats")
+def stats():
+    metadatas = _collection.get(
+        where={"section_name": {"$ne": "Machine Metadata"}},
+        include=["metadatas"],
+    )["metadatas"]
+    machine_count = len({m["game"] for m in metadatas})
+    return jsonify({"machines": machine_count})
+
+
 @app.post("/query")
 def query():
     body = request.get_json(silent=True) or {}
@@ -97,9 +193,10 @@ def query():
         return jsonify({"error": "question is required"}), 400
 
     try:
-        embedding = _embed(question)
-        game = _extract_game(question)
-        chunks, metadatas = _retrieve(embedding, game)
+        games = _extract_games(question)
+        embedding = _hyde_embed(question, games)
+        chunks, metadatas = _retrieve(embedding, games)
+        chunks, metadatas = _rerank(question, chunks, metadatas)
         user_message = _build_user_message(question, chunks, metadatas)
 
         message = _openai.chat.completions.create(

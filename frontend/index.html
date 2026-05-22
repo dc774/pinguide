@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinguide</title>
+  <title>Pinguide — AI-powered pinball guide</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,9 +32,16 @@
     }
 
     header p {
-      margin-top: 0.4rem;
+      margin-top: 1.2rem;
       font-size: 0.875rem;
       color: #999;
+      line-height: 1.5em;
+    }
+
+    header hr {
+      border-color: #555;
+      width: 100%;
+      margin: 16px 0 0;
     }
 
     .query-form {
@@ -222,8 +229,10 @@
 <body>
   <div class="container">
     <header>
-      <h1>Pinguide</h1>
-      <p>Ask anything about pinball machines — rules, modes, strategies.</p>
+      <h1><a href="https://pinguide.info" style="color:inherit;text-decoration:none;">Pinguide</a></h1>
+      <p>Ask anything about a specific pinball machine — rules, modes, scoring, and strategy. Answers are sourced from real rulesheets and strategy guides across hundreds of machines and powered by AI.</p>
+      <hr>
+      <p id="machineCount" style="margin-top:0.4rem;font-size:0.75rem;color:#888;font-style:italic;"></p>
     </header>
 
     <form class="query-form" id="queryForm">
@@ -257,6 +266,10 @@
   </div>
 
   <script>
+    fetch('/stats').then(r => r.json()).then(d => {
+      if (d.machines) document.getElementById('machineCount').textContent = `${d.machines} machines served`;
+    }).catch(() => {});
+
     const form = document.getElementById('queryForm');
     const input = document.getElementById('questionInput');
     const submitBtn = document.getElementById('submitBtn');
@@ -309,7 +322,7 @@
               seen.add(key);
               deduped.push(src);
             }
-            if (deduped.length === 5) break;
+            if (deduped.length === 10) break;
           }
 
           for (const src of deduped) {
