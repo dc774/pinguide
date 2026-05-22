@@ -157,7 +157,7 @@ python -m scraper.opdb
 
 ## Deployment
 
-Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data lives on a 500 MB Railway Volume (not in git) and is updated by SSHing into the service and re-running `python -m ingest.pipeline` after data changes.
+Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data lives on a 5 GB Railway Volume (not in git) and is updated by SSHing into the service and re-running `python -m ingest.pipeline` after data changes.
 
 - **Build:** `pip install -r requirements.txt`
 - **Start:** `gunicorn api.app:app --timeout 120`
