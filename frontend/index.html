@@ -308,7 +308,7 @@
 
         const data = await res.json();
 
-        answerBlock.textContent = data.answer ?? '(no answer returned)';
+        answerBlock.innerHTML = renderMarkdown(data.answer ?? '(no answer returned)');
 
         const sources = data.sources ?? [];
         if (sources.length > 0) {
@@ -368,6 +368,15 @@
 
     function esc(str) {
       return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function renderMarkdown(raw) {
+      // Escape HTML, then render **bold** and *italic* only.
+      // white-space: pre-wrap on .answer-block preserves newlines and indentation.
+      return raw
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
     }
 
     function sourceLabel(url) {

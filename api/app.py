@@ -25,10 +25,15 @@ _VECTOR_STORE = Path(__file__).parent.parent / "vector_store"
 _chroma = chromadb.PersistentClient(path=str(_VECTOR_STORE))
 _collection = _chroma.get_or_create_collection("rulesheets")
 
+# Only include games that have real rulesheet sections (not just OPDB metadata).
+# OPDB-only variants (e.g. "Metallica Road Case") would otherwise inflate the
+# prefix expansion in _extract_games(), flooding retrieval with metadata noise.
 # Sorted longest-first so greedy matching picks the most specific name first
 # (e.g. "Star Wars: Fall of the Empire" before "Star Wars").
+_all_metadatas = _collection.get(include=["metadatas"])["metadatas"]
 _KNOWN_GAMES: list[str] = sorted(
-    {m["game"] for m in _collection.get(include=["metadatas"])["metadatas"] if "game" in m},
+    {m["game"] for m in _all_metadatas
+     if "game" in m and m.get("section_name") != "Machine Metadata"},
     key=len,
     reverse=True,
 )
@@ -50,9 +55,12 @@ _SYSTEM_PROMPT = (
     "If the question is just a game name with no specific question, provide a concise "
     "overview of that machine's main modes and strategy using the excerpts, and invite a "
     "follow-up question. "
-    "If the excerpts cover more than one distinct machine, briefly note which machine each "
-    "piece of advice applies to. If the excerpts don't contain enough information to answer "
-    "confidently, say so — do not speculate."
+    "When excerpts from multiple distinct machines are present (e.g. an original and a "
+    "remastered version), you MUST structure your answer with a clearly labeled heading for "
+    "EACH machine — for example '**Metallica**' followed by '**Metallica Remastered**' — "
+    "and list each machine's information under its own heading. Never blend information from "
+    "different machines into a single undifferentiated list. "
+    "If the excerpts don't contain enough information to answer confidently, say so — do not speculate."
 )
 
 
