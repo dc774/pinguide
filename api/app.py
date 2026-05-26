@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import anthropic
 import chromadb
 import openai
 import voyageai
@@ -19,6 +20,7 @@ app = Flask(__name__)
 CORS(app)
 
 _openai = openai.OpenAI()
+_anthropic = anthropic.Anthropic()
 _voyage = voyageai.Client() if os.getenv("VOYAGE_API_KEY") else None
 
 _VECTOR_STORE = Path(__file__).parent.parent / "vector_store"
@@ -39,7 +41,7 @@ _KNOWN_GAMES: list[str] = sorted(
 )
 
 _EMBED_MODEL = "text-embedding-3-small"
-_CHAT_MODEL = "gpt-4o-mini"  # TEMPORARY — swap back to claude-haiku-4-5-20251001
+_CHAT_MODEL = "claude-haiku-4-5-20251001"
 _TOP_K = 10             # candidates fetched per game from vector store
 _RERANK_TOP_N = 5       # top results kept after reranking (single game)
 _RERANK_TOP_N_MULTI = 8 # top results kept when multiple game variants are in scope
@@ -82,12 +84,12 @@ def _hyde_embed(question: str, games: list[str]) -> list[float]:
         f"that directly answers this question: {question}\n\n"
         "Use technical rulesheet language. 2-4 sentences. No preamble."
     )
-    resp = _openai.chat.completions.create(
+    resp = _anthropic.messages.create(
         model=_CHAT_MODEL,
         max_tokens=150,
         messages=[{"role": "user", "content": prompt}],
     )
-    return _embed(resp.choices[0].message.content.strip())
+    return _embed(resp.content[0].text.strip())
 
 
 _MFR_PREFIXES = (
@@ -240,15 +242,13 @@ def query():
         chunks, metadatas = _rerank(question, chunks, metadatas, top_n)
         user_message = _build_user_message(question, chunks, metadatas)
 
-        message = _openai.chat.completions.create(
+        message = _anthropic.messages.create(
             model=_CHAT_MODEL,
             max_tokens=1024,
-            messages=[
-                {"role": "system", "content": _SYSTEM_PROMPT},
-                {"role": "user", "content": user_message},
-            ],
+            system=_SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_message}],
         )
-        answer = message.choices[0].message.content
+        answer = message.content[0].text
 
         sources = [
             {
