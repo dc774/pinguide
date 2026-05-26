@@ -42,7 +42,7 @@ Three steps, run once to build the knowledge base:
 
 1. **Scrape** — four scrapers fetch rulesheets and machine metadata and save structured JSON to `data/raw/`
 2. **Ingest** — chunks each source by section, generates embeddings via OpenAI, and stores everything in a ChromaDB vector store (~380 MB on disk)
-3. **Query** — at runtime, extracts the machine name from the question, retrieves the top 10 most relevant chunks, reranks them, and passes the best 5 to the LLM as context
+3. **Query** — at runtime, extracts the machine name from the question, retrieves the top candidates (per game variant, to guarantee equal representation), reranks them, and passes the best 5–8 to the LLM as context
 
 We chunk by natural section boundaries (Modes, Multiball, Strategy, etc.) rather than fixed token windows, so each chunk is about one coherent topic.
 
@@ -56,7 +56,7 @@ Three techniques work together:
 
 **HyDE (Hypothetical Document Embeddings)** — pinball questions use everyday language; rulesheets use domain-specific terminology. Before searching, the LLM writes a short hypothetical rulesheet excerpt that would answer the question, and we embed that instead of the raw question. This closes the vocabulary gap and significantly improves retrieval precision.
 
-**Reranking** — after retrieving 10 candidates by vector similarity, Voyage AI's `rerank-2` cross-encoder scores each (question, chunk) pair for true relevance and reorders them. The top 5 go to the LLM.
+**Reranking** — after retrieval, Voyage AI's `rerank-2` cross-encoder scores each (question, chunk) pair for true relevance and reorders them. The top 5 go to the LLM for single-machine questions; when multiple variants of the same machine are in scope (e.g. Metallica and Metallica Remastered), each is queried separately and the top 8 go to the LLM, ensuring both versions are covered in the answer.
 
 ---
 
@@ -65,16 +65,25 @@ Three techniques work together:
 The LLM's behavior is shaped by a system prompt, which continues to evolve as we learn what produces better answers:
 
 ```
-You are a pinball machine expert assistant. All questions refer to pinball machines
-and their rules, modes, and strategies — not to bands, films, or other topics those
-names may refer to. Answer using ONLY the rulesheet excerpts provided below.
+You are a pinball machine expert assistant. This system covers roughly N machines
+across Tiltforums, PAPA, and Bob's Guide rulesheet archives. All questions refer to
+pinball machines and their rules, modes, and strategies — not to bands, films, or
+other topics those names may refer to. Answer using ONLY the rulesheet excerpts
+provided below.
+If asked how many machines are covered or what machines are available, answer using
+the count above — do not say you don't know.
 If the question is just a game name with no specific question, provide a concise
 overview of that machine's main modes and strategy using the excerpts, and invite a
 follow-up question.
-If the excerpts cover more than one distinct machine, briefly note which machine each
-piece of advice applies to. If the excerpts don't contain enough information to answer
-confidently, say so — do not speculate.
+When excerpts from multiple distinct machines are present (e.g. an original and a
+remastered version), you MUST structure your answer with a clearly labeled heading
+for EACH machine and list each machine's information under its own heading. Never
+blend information from different machines into a single undifferentiated list.
+If the excerpts don't contain enough information to answer confidently, say so —
+do not speculate.
 ```
+
+The machine count (N) is injected at startup from the live vector store, so it stays accurate as new machines are added.
 
 ---
 
