@@ -241,16 +241,36 @@ def query():
         chunks, metadatas = _retrieve(embedding, games)
         top_n = _RERANK_TOP_N_MULTI if len(games) > 1 else _RERANK_TOP_N
         chunks, metadatas = _rerank(question, chunks, metadatas, top_n)
-        user_message = _build_user_message(question, chunks, metadatas)
 
-        message = _anthropic.messages.create(
-            model=_CHAT_MODEL,
-            max_tokens=1024,
-            temperature=0,
-            system=_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_message}],
-        )
-        answer = message.content[0].text
+        if len(games) > 1:
+            # Make one LLM call per game variant so each gets its own focused
+            # context. Stitching in code guarantees the per-machine structure
+            # regardless of LLM variability.
+            answer_parts: list[str] = []
+            for game in games:
+                game_chunks = [c for c, m in zip(chunks, metadatas) if m["game"] == game]
+                game_metas = [m for m in metadatas if m["game"] == game]
+                if not game_chunks:
+                    continue
+                msg = _anthropic.messages.create(
+                    model=_CHAT_MODEL,
+                    max_tokens=1024,
+                    temperature=0,
+                    system=_SYSTEM_PROMPT,
+                    messages=[{"role": "user", "content": _build_user_message(question, game_chunks, game_metas)}],
+                )
+                answer_parts.append(f"**{game}**\n\n{msg.content[0].text}")
+            answer = "\n\n---\n\n".join(answer_parts)
+        else:
+            user_message = _build_user_message(question, chunks, metadatas)
+            message = _anthropic.messages.create(
+                model=_CHAT_MODEL,
+                max_tokens=1024,
+                temperature=0,
+                system=_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_message}],
+            )
+            answer = message.content[0].text
 
         sources = [
             {

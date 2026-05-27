@@ -155,6 +155,12 @@
       word-break: break-word;
     }
 
+    .answer-block hr {
+      border: none;
+      border-top: 1px solid #2e2e2e;
+      margin: 1.25rem 0;
+    }
+
     .sources-heading {
       margin-top: 1.5rem;
       margin-bottom: 0.75rem;
@@ -371,12 +377,13 @@
     }
 
     function renderMarkdown(raw) {
-      // Escape HTML, then render **bold** and *italic* only.
+      // Escape HTML, then render **bold**, *italic*, and --- dividers.
       // white-space: pre-wrap on .answer-block preserves newlines and indentation.
       return raw
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+        .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
+        .replace(/^---$/gm, '<hr>');
     }
 
     function sourceLabel(url) {
