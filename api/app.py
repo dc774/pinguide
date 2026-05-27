@@ -268,7 +268,7 @@ def query():
                     messages=[{"role": "user", "content": _build_user_message(question, game_chunks, game_metas)}],
                 )
                 answer_parts.append(f"**{game}**\n\n{msg.content[0].text}")
-            answer = "\n\n---\n\n".join(answer_parts)
+            answer = "\n---\n".join(answer_parts)
         else:
             user_message = _build_user_message(question, chunks, metadatas)
             message = _anthropic.messages.create(
