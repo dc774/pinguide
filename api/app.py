@@ -246,8 +246,16 @@ def query():
             # Make one LLM call per game variant so each gets its own focused
             # context. Stitching in code guarantees the per-machine structure
             # regardless of LLM variability.
-            answer_parts: list[str] = []
-            for game in games:
+            # Sort shortest-first so the original precedes variants (e.g.
+            # "Metallica" before "Metallica Remastered").
+            ordered_games = sorted(games, key=len)
+            names = " and ".join(f"**{g}**" for g in ordered_games)
+            intro = (
+                f"There are {len(ordered_games)} machines with this title — {names} — "
+                f"which may have different rules and modes. Here's each one covered separately."
+            )
+            answer_parts: list[str] = [intro]
+            for game in ordered_games:
                 game_chunks = [c for c, m in zip(chunks, metadatas) if m["game"] == game]
                 game_metas = [m for m in metadatas if m["game"] == game]
                 if not game_chunks:
