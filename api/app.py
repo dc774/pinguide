@@ -87,6 +87,7 @@ def _hyde_embed(question: str, games: list[str]) -> list[float]:
     resp = _anthropic.messages.create(
         model=_CHAT_MODEL,
         max_tokens=150,
+        temperature=0,
         messages=[{"role": "user", "content": prompt}],
     )
     return _embed(resp.content[0].text.strip())
@@ -245,6 +246,7 @@ def query():
         message = _anthropic.messages.create(
             model=_CHAT_MODEL,
             max_tokens=1024,
+            temperature=0,
             system=_SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_message}],
         )
