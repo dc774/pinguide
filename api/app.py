@@ -260,14 +260,16 @@ def query():
                 game_metas = [m for m in metadatas if m["game"] == game]
                 if not game_chunks:
                     continue
+                user_msg = _build_user_message(question, game_chunks, game_metas)
+                user_msg += f"\n\nDo NOT start your response with a bold game title heading. The heading **{game}** is already provided. Begin directly with the answer content."
                 msg = _anthropic.messages.create(
                     model=_CHAT_MODEL,
                     max_tokens=1024,
                     temperature=0,
                     system=_SYSTEM_PROMPT,
-                    messages=[{"role": "user", "content": _build_user_message(question, game_chunks, game_metas)}],
+                    messages=[{"role": "user", "content": user_msg}],
                 )
-                answer_parts.append(f"**{game}**\n\n{msg.content[0].text}")
+                answer_parts.append(f"**{game}**\n\n{msg.content[0].text.strip()}")
             answer = "\n---\n".join(answer_parts)
         else:
             user_message = _build_user_message(question, chunks, metadatas)
