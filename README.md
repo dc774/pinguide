@@ -169,7 +169,7 @@ python -m scraper.opdb
 Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data lives on a 5 GB Railway Volume (not in git) and is updated by SSHing into the service and re-running `python -m ingest.pipeline` after data changes.
 
 - **Build:** `pip install -r requirements.txt`
-- **Start:** `gunicorn api.app:app --timeout 120`
+- **Start:** `gunicorn api.app:app` (single worker and 120s timeout are set in `gunicorn.conf.py`)
 - **Environment variables:** set all API keys in the Railway dashboard
 - **Domain:** `pinguide.info` via Cloudflare DNS
 
