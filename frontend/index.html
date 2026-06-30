@@ -12,62 +12,78 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #0f0f0f;
       color: #e0e0e0;
-      min-height: 100vh;
-      padding: 2rem 1rem;
+      min-height: 100dvh;
     }
 
     .container {
+      width: 100%;
       max-width: 720px;
       margin: 0 auto;
+      padding: 1.5rem 1rem 0;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
     }
 
-    header {
-      margin-bottom: 2.5rem;
+    header { flex-shrink: 0; margin-bottom: 0.5rem; }
+
+    .header-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
     header h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.02em;
     }
 
-    header p {
-      margin-top: 1.2rem;
+    header h1 a { color: inherit; text-decoration: none; }
+
+    header p.desc {
+      margin-top: 0.9rem;
       font-size: 0.875rem;
       color: #999;
       line-height: 1.5em;
     }
 
     header hr {
-      border-color: #555;
+      border: none;
+      border-top: 1px solid #555;
       width: 100%;
-      margin: 16px 0 0;
+      margin: 14px 0 0;
     }
 
-    .query-form {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .query-form input {
-      flex: 1;
-      padding: 0.65rem 0.9rem;
-      background: #1a1a1a;
-      border: 1px solid #2e2e2e;
-      border-radius: 6px;
-      color: #e0e0e0;
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-
-    .query-form input:focus {
-      border-color: #555;
-    }
-
-    .query-form input::placeholder {
+    .machine-count {
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
       color: #888;
+      font-style: italic;
+    }
+
+    .new-chat {
+      flex-shrink: 0;
+      padding: 0.4rem 0.85rem;
+      background: transparent;
+      color: #e0e0e0;
+      border: 1px solid #444;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .new-chat:hover:not(:disabled) { border-color: #777; background: #1a1a1a; }
+    .new-chat:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    :focus-visible {
+      outline: 2px solid #f0b030;
+      outline-offset: 2px;
     }
 
     .sr-only {
@@ -82,89 +98,69 @@
       border: 0;
     }
 
-    .query-form button {
-      padding: 0.65rem 1.2rem;
-      background: #e8a020;
-      color: #000;
-      border: none;
-      border-radius: 6px;
+    /* Messages flow in normal document order; the window scrolls, not this. */
+    .chat {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .empty-state {
+      margin: auto;
+      text-align: center;
+      color: #777;
       font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
+      line-height: 1.6;
+      padding: 1rem;
     }
 
-    .query-form button:hover:not(:disabled) {
-      background: #f0b030;
-    }
+    .message { display: flex; flex-direction: column; max-width: 100%; }
+    .message.user { align-items: flex-end; }
+    .message.assistant { align-items: flex-start; }
 
-    .query-form button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .loader {
-      display: none;
-      margin-top: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: #999;
-      font-size: 0.875rem;
-    }
-
-    .loader.hidden { display: none; }
-
-    .loader-dots {
-      display: flex;
-      gap: 4px;
-    }
-
-    .loader-dots span {
-      width: 5px;
-      height: 5px;
-      background: #999;
-      border-radius: 50%;
-      animation: bounce 1.2s infinite ease-in-out;
-    }
-
-    .loader-dots span:nth-child(2) { animation-delay: 0.2s; }
-    .loader-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes bounce {
-      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-      40% { transform: scale(1); opacity: 1; }
-    }
-
-    .results {
-      margin-top: 2rem;
-      display: none;
-    }
-
-    .results.visible { display: block; }
-
-    .answer-block {
-      background: #1a1a1a;
-      border: 1px solid #2e2e2e;
-      border-radius: 8px;
-      padding: 1.25rem 1.4rem;
+    .bubble {
+      max-width: 88%;
+      padding: 0.75rem 1rem;
+      border-radius: 14px;
       line-height: 1.65;
       font-size: 0.95rem;
       white-space: pre-wrap;
       word-break: break-word;
     }
 
-    .answer-block hr {
+    .message.user .bubble {
+      background: #e8a020;
+      color: #1a1a1a;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message.assistant .bubble {
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      color: #e0e0e0;
+      border-bottom-left-radius: 4px;
+    }
+
+    .bubble hr {
       border: none;
-      border-top: 1px solid #2e2e2e;
-      margin: 1.5rem 0;
+      border-top: 1px solid #3a3a3a;
+      margin: 1rem 0;
+    }
+
+    .bubble strong { color: #fff; }
+
+    /* Per-message sources */
+    .sources {
+      margin-top: 0.6rem;
+      max-width: 88%;
+      align-self: flex-start;
     }
 
     .sources-heading {
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -182,32 +178,26 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 0.3rem 0.6rem;
-      background: #1a1a1a;
+      background: #161616;
       border: 1px solid #2a2a2a;
       border-radius: 6px;
-      padding: 0.5rem 0.8rem;
-      font-size: 0.8rem;
-      color: #888;
+      padding: 0.45rem 0.7rem;
+      font-size: 0.78rem;
+      color: #999;
     }
 
     .source-badge {
       margin-left: auto;
-      font-size: 0.68rem;
-      color: #888;
+      font-size: 0.66rem;
+      color: #999;
       border: 1px solid #333;
       border-radius: 3px;
       padding: 0.1rem 0.35rem;
       white-space: nowrap;
     }
 
-    .source-chip .game {
-      color: #ccc;
-      font-weight: 600;
-    }
-
-    .source-chip .sep {
-      color: #888;
-    }
+    .source-chip .game { color: #ccc; font-weight: 600; }
+    .source-chip .sep { color: #777; }
 
     a.source-chip {
       text-decoration: none;
@@ -215,34 +205,102 @@
       transition: border-color 0.15s;
     }
 
-    a.source-chip:hover {
-      border-color: #555;
+    a.source-chip:hover { border-color: #666; }
+
+    /* Thinking indicator */
+    .thinking { display: flex; align-items: center; gap: 0.6rem; color: #999; font-size: 0.875rem; }
+    .loader-dots { display: flex; gap: 4px; }
+    .loader-dots span {
+      width: 5px; height: 5px; background: #999; border-radius: 50%;
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+    .loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .loader-dots span { animation: none; opacity: 0.7; }
     }
 
     .error-block {
-      margin-top: 2rem;
-      padding: 0.9rem 1.1rem;
+      flex-shrink: 0;
+      margin: 0.5rem 0;
+      padding: 0.75rem 1rem;
       background: #1e0a0a;
       border: 1px solid #4a1a1a;
       border-radius: 6px;
-      color: #e06060;
-      font-size: 0.875rem;
+      color: #f08a8a;
+      font-size: 0.85rem;
       display: none;
     }
 
     .error-block.visible { display: block; }
+
+    /* Composer sticks to the bottom of the viewport as the page scrolls */
+    .composer {
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.75rem 0 1.25rem;
+      background: #0f0f0f;
+      border-top: 1px solid #1f1f1f;
+    }
+
+    .composer input {
+      flex: 1;
+      padding: 0.7rem 0.95rem;
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 8px;
+      color: #e0e0e0;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .composer input:focus { border-color: #666; }
+    .composer input::placeholder { color: #888; }
+
+    .composer button {
+      padding: 0.7rem 1.3rem;
+      background: #e8a020;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .composer button:hover:not(:disabled) { background: #f0b030; }
+    .composer button:disabled { opacity: 0.5; cursor: not-allowed; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1><a href="https://pinguide.info" style="color:inherit;text-decoration:none;">Pinguide</a></h1>
-      <p>Ask anything about a specific pinball machine — rules, modes, scoring, and strategy. Answers are sourced from real rulesheets and strategy guides across hundreds of machines and powered by AI.</p>
+      <div class="header-top">
+        <h1><a href="https://pinguide.info">Pinguide</a></h1>
+        <button type="button" class="new-chat" id="newChatBtn">New chat</button>
+      </div>
+      <p class="desc">Ask anything about a specific pinball machine — rules, modes, scoring, and strategy. Answers are sourced from real rulesheets and strategy guides across hundreds of machines and powered by AI.</p>
       <hr>
-      <p id="machineCount" style="margin-top:0.4rem;font-size:0.75rem;color:#888;font-style:italic;"></p>
+      <p class="machine-count" id="machineCount"></p>
     </header>
 
-    <form class="query-form" id="queryForm">
+    <main class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation">
+      <p class="empty-state" id="emptyState">Ask a question below to start the conversation.<br>For example: &ldquo;How does multiball work in Metallica?&rdquo;</p>
+    </main>
+
+    <div class="error-block" id="errorBlock" role="alert"></div>
+
+    <form class="composer" id="queryForm">
       <label class="sr-only" for="questionInput">Your question</label>
       <input
         type="text"
@@ -253,23 +311,6 @@
       >
       <button type="submit" id="submitBtn">Ask</button>
     </form>
-
-    <div class="loader hidden" id="loader">
-      <div class="loader-dots">
-        <span></span><span></span><span></span>
-      </div>
-      Thinking…
-    </div>
-
-    <div class="error-block" id="errorBlock"></div>
-
-    <div class="results" id="results">
-      <div class="answer-block" id="answerBlock"></div>
-      <div id="sourcesSection">
-        <div class="sources-heading">Sources</div>
-        <div class="sources-list" id="sourcesList"></div>
-      </div>
-    </div>
   </div>
 
   <script>
@@ -280,32 +321,35 @@
     const form = document.getElementById('queryForm');
     const input = document.getElementById('questionInput');
     const submitBtn = document.getElementById('submitBtn');
-    const loader = document.getElementById('loader');
-    const results = document.getElementById('results');
-    const answerBlock = document.getElementById('answerBlock');
-    const sourcesList = document.getElementById('sourcesList');
-    const sourcesSection = document.getElementById('sourcesSection');
+    const newChatBtn = document.getElementById('newChatBtn');
+    const chat = document.getElementById('chat');
     const errorBlock = document.getElementById('errorBlock');
+
+    // Authoritative conversation sent to the server as `history` each turn.
+    // The server returns the updated, capped history, which we adopt here.
+    let conversation = [];
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const question = input.value.trim();
       if (!question) return;
 
-      // Reset state
-      results.classList.remove('visible');
       errorBlock.classList.remove('visible');
       errorBlock.textContent = '';
-      answerBlock.textContent = '';
-      sourcesList.innerHTML = '';
-      loader.classList.remove('hidden');
+      removeEmptyState();
+
+      appendMessage('user', question);
+      input.value = '';
+      input.disabled = true;
       submitBtn.disabled = true;
+
+      const thinking = appendThinking();
 
       try {
         const res = await fetch('/query', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question }),
+          body: JSON.stringify({ question, history: conversation }),
         });
 
         if (!res.ok) {
@@ -313,72 +357,144 @@
         }
 
         const data = await res.json();
+        thinking.remove();
 
-        answerBlock.innerHTML = renderMarkdown(data.answer ?? '(no answer returned)');
+        appendMessage('assistant', data.answer ?? '(no answer returned)', data.sources ?? []);
 
-        const sources = data.sources ?? [];
-        if (sources.length > 0) {
-          sourcesSection.style.display = '';
-
-          // Deduplicate by game+section_name, cap at 5
-          const seen = new Set();
-          const deduped = [];
-          for (const src of sources) {
-            const key = `${src.game}|${src.section_name}`;
-            if (!seen.has(key)) {
-              seen.add(key);
-              deduped.push(src);
-            }
-            if (deduped.length === 10) break;
-          }
-
-          for (const src of deduped) {
-            const chip = document.createElement(src.url ? 'a' : 'div');
-            chip.className = 'source-chip';
-            if (src.url) {
-              chip.href = src.url;
-              chip.target = '_blank';
-              chip.rel = 'noopener noreferrer';
-            }
-
-            let section = (src.section_name || '').replace(/:\s*$/, '').trim();
-            if (section === 'Machine Metadata') section = 'Machine Info';
-            const parts = [`<span class="game">${esc(src.game)}</span>`];
-            if (section) parts.push(`<span>${esc(section)}</span>`);
-
-            chip.innerHTML = parts.join('<span class="sep" aria-hidden="true">—</span>');
-
-            const label = sourceLabel(src.url);
-            if (label) {
-              const badge = document.createElement('span');
-              badge.className = 'source-badge';
-              badge.textContent = label;
-              chip.appendChild(badge);
-            }
-
-            sourcesList.appendChild(chip);
-          }
-        } else {
-          sourcesSection.style.display = 'none';
-        }
-
-        results.classList.add('visible');
+        // Adopt the server's updated history as the source of truth.
+        conversation = Array.isArray(data.history) ? data.history : conversation;
       } catch (err) {
+        thinking.remove();
         errorBlock.textContent = err.message || 'Something went wrong. Is the API running?';
         errorBlock.classList.add('visible');
+        scrollToBottom();
       } finally {
-        loader.classList.add('hidden');
+        input.disabled = false;
         submitBtn.disabled = false;
+        input.focus();
       }
     });
 
+    newChatBtn.addEventListener('click', () => {
+      conversation = [];
+      chat.innerHTML = '';
+      const hint = document.createElement('p');
+      hint.className = 'empty-state';
+      hint.id = 'emptyState';
+      hint.innerHTML = 'Ask a question below to start the conversation.<br>For example: &ldquo;How does multiball work in Metallica?&rdquo;';
+      chat.appendChild(hint);
+      errorBlock.classList.remove('visible');
+      errorBlock.textContent = '';
+      input.value = '';
+      input.focus();
+    });
+
+    function removeEmptyState() {
+      const el = document.getElementById('emptyState');
+      if (el) el.remove();
+    }
+
+    function appendMessage(role, text, sources) {
+      const msg = document.createElement('div');
+      msg.className = `message ${role}`;
+
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      if (role === 'assistant') {
+        bubble.innerHTML = renderMarkdown(text);
+      } else {
+        bubble.textContent = text;
+      }
+      msg.appendChild(bubble);
+
+      if (role === 'assistant' && sources && sources.length > 0) {
+        msg.appendChild(buildSources(sources));
+      }
+
+      chat.appendChild(msg);
+      scrollToBottom();
+      return msg;
+    }
+
+    function appendThinking() {
+      const msg = document.createElement('div');
+      msg.className = 'message assistant';
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble thinking';
+      bubble.setAttribute('aria-label', 'Thinking');
+      bubble.innerHTML = '<span class="loader-dots"><span></span><span></span><span></span></span> Thinking…';
+      msg.appendChild(bubble);
+      chat.appendChild(msg);
+      scrollToBottom();
+      return msg;
+    }
+
+    function buildSources(sources) {
+      const wrap = document.createElement('div');
+      wrap.className = 'sources';
+
+      const heading = document.createElement('div');
+      heading.className = 'sources-heading';
+      heading.textContent = 'Sources';
+      wrap.appendChild(heading);
+
+      const list = document.createElement('div');
+      list.className = 'sources-list';
+
+      // Deduplicate by game + section, cap at 10.
+      const seen = new Set();
+      const deduped = [];
+      for (const src of sources) {
+        const key = `${src.game}|${src.section_name}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          deduped.push(src);
+        }
+        if (deduped.length === 10) break;
+      }
+
+      for (const src of deduped) {
+        const chip = document.createElement(src.url ? 'a' : 'div');
+        chip.className = 'source-chip';
+        if (src.url) {
+          chip.href = src.url;
+          chip.target = '_blank';
+          chip.rel = 'noopener noreferrer';
+        }
+
+        let section = (src.section_name || '').replace(/:\s*$/, '').trim();
+        if (section === 'Machine Metadata') section = 'Machine Info';
+        const parts = [`<span class="game">${esc(src.game)}</span>`];
+        if (section) parts.push(`<span>${esc(section)}</span>`);
+        chip.innerHTML = parts.join('<span class="sep" aria-hidden="true">—</span>');
+
+        const label = sourceLabel(src.url);
+        if (label) {
+          const badge = document.createElement('span');
+          badge.className = 'source-badge';
+          badge.textContent = label;
+          chip.appendChild(badge);
+        }
+
+        list.appendChild(chip);
+      }
+
+      wrap.appendChild(list);
+      return wrap;
+    }
+
+    function scrollToBottom() {
+      // The window scrolls (not an inner container), so drive the page scroll.
+      window.scrollTo(0, document.documentElement.scrollHeight);
+    }
+
     function esc(str) {
-      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
     function renderMarkdown(raw) {
       // Escape HTML, then render **bold**, *italic*, and --- dividers.
-      // white-space: pre-wrap on .answer-block preserves newlines and indentation.
+      // white-space: pre-wrap on .bubble preserves newlines and indentation.
       return raw
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')

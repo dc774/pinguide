@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 import chromadb
@@ -16,9 +18,44 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 RAW_DIR = Path("data/raw")
 PAPA_DIR = Path("data/raw/papa")
 BOBS_DIR = Path("data/raw/bobs")
-OPDB_DIR = Path("data/raw/opdb")
+STERN_DIR = Path("data/raw/stern")
+CGC_DIR = Path("data/raw/cgc")
 VECTOR_STORE_DIR = Path("vector_store")
 COLLECTION_NAME = "rulesheets"
+
+# Rulesheet sources define the canonical machine names. Manufacturer pages are
+# supplementary: their game names (from page <h1> / slug) often differ from the
+# rulesheet naming for the same machine (e.g. "Godzilla" vs "Stern Godzilla",
+# "Kiss" vs "KISS"), so they are reconciled onto a canonical name before ingest.
+RULESHEET_SOURCES = [(RAW_DIR, "tiltforums"), (PAPA_DIR, "papa"), (BOBS_DIR, "bobs")]
+SUPPLEMENTARY_SOURCES = [(STERN_DIR, "stern"), (CGC_DIR, "cgc")]
+
+_MFR_PREFIXES = (
+    "stern ", "williams ", "bally ", "gottlieb ", "data east ",
+    "sega ", "jersey jack ", "chicago gaming ", "spooky ",
+)
+
+
+def _canonical_key(name: str) -> str:
+    """Normalize a game title so the same machine matches across sources.
+
+    Lowercases, drops a subtitle after ':', drops a rulesheet-title tail
+    ('... Rulesheet Version ...'), strips a trailing 'Pinball'/'rules' word and a
+    leading manufacturer prefix. "Stern Godzilla", "Godzilla" and
+    "Godzilla Pinball" all reduce to "godzilla".
+    """
+    s = name.lower().strip()
+    s = s.split(":", 1)[0]
+    s = re.split(r"\brulesheet\b", s, maxsplit=1)[0]
+    s = s.strip()
+    for suffix in (" pinball", " rules"):
+        if s.endswith(suffix):
+            s = s[: -len(suffix)]
+    for prefix in _MFR_PREFIXES:
+        if s.startswith(prefix):
+            s = s[len(prefix):]
+            break
+    return re.sub(r"\s+", " ", s).strip()
 
 
 def load_documents(raw_dir: Path) -> tuple[int, list[Document]]:
@@ -45,67 +82,57 @@ def load_documents(raw_dir: Path) -> tuple[int, list[Document]]:
     return len(files), documents
 
 
-def load_opdb_documents(opdb_dir: Path) -> tuple[int, list[Document]]:
-    files = sorted(opdb_dir.glob("*.json"))
-    documents: list[Document] = []
-
-    for path in files:
-        data = json.loads(path.read_text(encoding="utf-8"))
-        game = (data.get("game") or "").strip()
-        if not game:
-            continue
-
-        manufacturer = data.get("manufacturer") or ""
-        year = data.get("year")
-        model_type = data.get("model_type") or ""
-
-        parts = [f"Game: {game}."]
-        if manufacturer:
-            parts.append(f"Manufacturer: {manufacturer}.")
-        if year:
-            parts.append(f"Year: {year}.")
-        if model_type:
-            parts.append(f"Model type: {model_type}.")
-
-        documents.append(
-            Document(
-                text=" ".join(parts),
-                metadata={
-                    "game": game,
-                    "manufacturer": manufacturer,
-                    "url": "",
-                    "section_name": "Machine Metadata",
-                },
-            )
-        )
-
-    return len(files), documents
-
-
 def main() -> int:
-    load_dotenv()
+    # override=True so .env wins over any stale key exported in the shell. See
+    # the matching note in api/app.py. Safe in production (no .env is deployed).
+    load_dotenv(override=True)
 
     Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small")
     Settings.llm = None
 
-    sources = [
-        (RAW_DIR,  "tiltforums",    load_documents),
-        (PAPA_DIR, "papa",          load_documents),
-        (BOBS_DIR, "bobs",          load_documents),
-        (OPDB_DIR, "opdb metadata", load_opdb_documents),
-    ]
-
     all_documents: list[Document] = []
     total_files = 0
     print("Loading documents...", flush=True)
-    for src_dir, label, loader in sources:
+
+    # Pass 1: rulesheet sources establish the canonical machine names.
+    for src_dir, label in RULESHEET_SOURCES:
         if not src_dir.exists():
             print(f"  {src_dir}/ not found — skipping", flush=True)
             continue
-        n, docs = loader(src_dir)
+        n, docs = load_documents(src_dir)
         print(f"  {src_dir}/ → {n} files, {len(docs)} documents [{label}]", flush=True)
         total_files += n
         all_documents.extend(docs)
+
+    # Map each canonical key to its rulesheet name. Skip keys claimed by more than
+    # one distinct rulesheet name (ambiguous), so a supplementary page is only
+    # merged when the target machine is unambiguous.
+    key_to_names: dict[str, set[str]] = defaultdict(set)
+    for doc in all_documents:
+        key_to_names[_canonical_key(doc.metadata["game"])].add(doc.metadata["game"])
+    canonical_by_key = {k: next(iter(v)) for k, v in key_to_names.items() if len(v) == 1}
+
+    # Pass 2: supplementary (manufacturer) sources, reconciled onto canonical names.
+    merges: dict[str, str] = {}
+    for src_dir, label in SUPPLEMENTARY_SOURCES:
+        if not src_dir.exists():
+            print(f"  {src_dir}/ not found — skipping", flush=True)
+            continue
+        n, docs = load_documents(src_dir)
+        for doc in docs:
+            game = doc.metadata["game"]
+            canon = canonical_by_key.get(_canonical_key(game))
+            if canon and canon != game:
+                doc.metadata["game"] = canon
+                merges[game] = canon
+        print(f"  {src_dir}/ → {n} files, {len(docs)} documents [{label}]", flush=True)
+        total_files += n
+        all_documents.extend(docs)
+
+    if merges:
+        print(f"Reconciled {len(merges)} manufacturer entries onto existing machines:", flush=True)
+        for src, canon in sorted(merges.items()):
+            print(f"    {src!r} → {canon!r}", flush=True)
 
     if not all_documents:
         print("No documents found. Run the scrapers first.", file=sys.stderr)

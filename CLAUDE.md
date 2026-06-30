@@ -38,9 +38,10 @@ pinguide-rag/
 ├── scraper/
 │   ├── __init__.py
 │   ├── tiltforums.py       # Scrape Tiltforums wiki rulesheets (primary source)
-│   ├── opdb.py             # OPDB API client — machine metadata and model variants
 │   ├── papa.py             # PAPA rulesheet archive — pre-2000 machines
-│   └── bobs_guide.py       # Bob's Guide — classic/EM era strategy
+│   ├── bobs_guide.py       # Bob's Guide — classic/EM era strategy
+│   ├── stern.py            # Stern official game pages — new releases, edition differences
+│   └── cgc.py              # Chicago Gaming official pages — CGC remakes
 ├── ingest/
 │   ├── __init__.py
 │   └── pipeline.py         # Load scraped data → chunk → embed → store in Chroma
@@ -65,18 +66,34 @@ pinguide-rag/
   - Format: Structured wiki pages with sections (Layout, Modes, Multiball, Wizard Modes)
   - How to get: Scrape via BeautifulSoup
 
-### Machine Metadata
-- **OPDB (Open Pinball Database)** — `https://opdb.org`
-  - Free API, requires free account + token
-  - Python client: `pip install open-pinball-db`
-  - Covers: manufacturer, year, model variants (Pro/Premium/LE), OPDB IDs
-  - Best for: answering "differences between Pro and Premium" questions
-
 ### Legacy/Classic Machines
 - **PAPA rulesheet archive** — linked from Tiltforums master list
   - Pre-2000 machines, text format, easy to scrape
 - **Bob's Guide** — `https://rules.silverballmania.com/guide`
   - Classic/EM era strategy, clean single site, easy to scrape
+
+### Manufacturer Official Pages (permitted; marketing-depth)
+- **Stern Pinball** — `https://sternpinball.com/game/<slug>/`
+  - robots.txt allows general crawling (blocks GPTBot/ChatGPT-User/Amazonbot/Scrapy, NOT ClaudeBot)
+  - Discover game URLs from `https://sternpinball.com/game-sitemap.xml` (the /games/ index is JS-rendered)
+  - Prose lives in `.t_wysiwyg` blocks. Value: new releases not yet on Tiltforums, edition (Premium/LE) differences, physical-feature vocabulary. NOT deep rules.
+- **Chicago Gaming (CGC)** — `https://www.chicago-gaming.com/coinop/<slug>`
+  - robots.txt allows general crawling (disallows only /images)
+  - Discover from the homepage nav (the XML sitemap omits Cactus Canyon and Pulp Fiction)
+  - Covers the 5 CGC remakes.
+
+> **Name reconciliation (important):** Manufacturer pages name games from the page `<h1>`/slug
+> (e.g. "Godzilla", "Kiss"), which often differs from the rulesheet naming for the same machine
+> ("Stern Godzilla", "KISS"). To avoid duplicate machine entries, `ingest/pipeline.py` loads the
+> rulesheet sources FIRST to fix canonical names, then reconciles each manufacturer entry onto a
+> canonical name via `_canonical_key()` (lowercase; strip subtitle after ':', a trailing
+> "Pinball"/"rules", a "...Rulesheet..." tail, and a leading manufacturer prefix). A manufacturer
+> page with no canonical match stays a standalone machine (the intended value: brand-new releases).
+> The reconciliation list is printed on every ingest — review it; subtitle matches (e.g.
+> "Transformers" → "Transformers: More Than Meets the Eye") are the ones to sanity-check.
+
+> **Note on AI-blocked sources:** Pinside, MatchPlay/Pintips, IPDB, and GameFAQs all explicitly
+> block AI crawlers in robots.txt and must NOT be scraped. OPDB was removed (thin metadata only).
 
 ---
 
@@ -86,7 +103,6 @@ pinguide-rag/
 # .env
 ANTHROPIC_API_KEY=your_key_here
 OPENAI_API_KEY=your_key_here        # For embeddings only
-OPDB_API_KEY=your_key_here          # Free at opdb.org
 ```
 
 ---
@@ -94,7 +110,7 @@ OPDB_API_KEY=your_key_here          # Free at opdb.org
 ## How the RAG Pipeline Works
 
 ```
-1. SCRAPE    → Fetch rulesheet pages from Tiltforums, OPDB, PAPA, Bob's Guide
+1. SCRAPE    → Fetch pages from Tiltforums, PAPA, Bob's Guide, Stern, Chicago Gaming
                Save raw text to data/raw/
 
 2. INGEST    → Load raw text files
@@ -102,15 +118,17 @@ OPDB_API_KEY=your_key_here          # Free at opdb.org
                Generate embeddings via OpenAI text-embedding-3-small
                Store chunks + embeddings in ChromaDB at vector_store/
 
-3. QUERY     → User submits question via frontend or API
-               Embed the question
-               Retrieve top-N relevant chunks from Chroma
-               Build prompt: system instructions + retrieved chunks + user question
-               Send to Claude Haiku
-               Return answer
+3. QUERY     → User submits question (+ prior chat history) via frontend or API
+               Resolve machine(s) in scope, carrying context forward on follow-ups
+               Embed the question (HyDE), retrieve + rerank top-N chunks from Chroma
+               One machine in scope: single Claude call (system + chunks + recent history)
+               Multiple distinct machines: one Claude call per machine, stitched under
+               per-machine headings in code (guarantees structure regardless of the model)
+               Return answer + updated (capped) history
 
 4. SERVE     → Flask app exposes POST /query endpoint
-               Frontend (index.html) sends fetch() to /query, displays response
+               Frontend (index.html) is a multi-turn chat: sends fetch() to /query with
+               the running conversation, renders message bubbles, supports follow-ups
 ```
 
 ---
@@ -155,18 +173,22 @@ OPDB_API_KEY=your_key_here          # Free at opdb.org
 ## Development Phases
 
 - **Phase 1 (current)** — Text-only RAG. Scrape, ingest, query, deploy.
-- **Phase 2** — Add playfield diagram images as context for layout questions.
+- **Phase 2 (deferred)** — Playfield layout support for location questions. Favored approach:
+  generate per-machine "Playfield Layout" text offline from a top-down image via a vision-capable
+  Claude model, ingest as an ordinary section (existing text retrieval then answers location
+  questions). Blocker: no permitted source of top-down playfield images. IPDB/Pinside block AI,
+  Wikimedia Commons has none usable, and search results grant no rights. Only viable via
+  owner-supplied images for a curated set; deferred until those exist.
 
 ---
 
 ## Build Order
 
-1. `scraper/tiltforums.py` — scrape the master list, then each rulesheet page
-2. `scraper/opdb.py` — pull machine metadata from OPDB API
-3. `ingest/pipeline.py` — chunk + embed + store scraped data
-4. `api/app.py` — Flask query endpoint
-5. `frontend/index.html` — simple UI
-6. Deploy to Render
+1. `scraper/*.py` — scrape each source (tiltforums, papa, bobs_guide, stern, cgc)
+2. `ingest/pipeline.py` — chunk + embed + store scraped data
+3. `api/app.py` — Flask query endpoint (multi-turn chat with history)
+4. `frontend/index.html` — chat UI
+5. Deploy to Render
 
 ---
 
@@ -197,5 +219,5 @@ flask --app api/app run
 - Runtime: Python 3.11
 - Build command: `pip install -r requirements.txt`
 - Start command: `gunicorn api.app:app`
-- Environment variables: set in Render dashboard (ANTHROPIC_API_KEY, OPENAI_API_KEY, OPDB_API_KEY)
+- Environment variables: set in Render dashboard (ANTHROPIC_API_KEY, OPENAI_API_KEY)
 - Disk: mount at `/vector_store` to persist ChromaDB between deploys

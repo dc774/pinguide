@@ -15,9 +15,6 @@ openai
 requests
 beautifulsoup4
 
-# Pinball metadata
-open-pinball-db
-
 # API server
 flask
 flask-cors

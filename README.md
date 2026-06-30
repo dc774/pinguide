@@ -30,9 +30,10 @@ Built as a personal project. Not commercial.
 | [Tiltforums wiki rulesheets](https://tiltforums.com/c/game-specific/rulesheet-wikis/18) | Community rule wikis for modern machines | ~95 |
 | [PAPA rulesheet archive](https://papa.org) | Classic machine rulesheets | ~141 |
 | [Bob's Guide](https://rules.silverballmania.com) | Strategy guides for classic and EM-era machines | ~412 |
-| [Open Pinball Database](https://opdb.org) | Machine metadata: manufacturer, year, model variants | ~2,366 |
+| [Stern Pinball](https://sternpinball.com) | Official pages for current Stern machines: overview, gameplay features, edition (Premium/LE) differences | ~79 |
+| [Chicago Gaming](https://www.chicago-gaming.com) | Official pages for CGC remakes (Medieval Madness, Attack from Mars, Monster Bash, Cactus Canyon, Pulp Fiction) | 5 |
 
-About **15,600 indexed chunks** in total.
+About **13,400 indexed chunks** in total.
 
 ---
 
@@ -123,7 +124,7 @@ At 10 queries a day, monthly cost is well under $1.
 
 ```
 pinguide-rag/
-├── scraper/          # tiltforums.py, papa.py, bobs_guide.py, opdb.py
+├── scraper/          # tiltforums.py, papa.py, bobs_guide.py, stern.py, cgc.py
 ├── ingest/           # pipeline.py — chunk, embed, store
 ├── api/              # app.py — Flask /query endpoint
 ├── frontend/         # index.html — single-page UI
@@ -135,7 +136,7 @@ pinguide-rag/
 
 ## Local setup
 
-**Prerequisites:** Python 3.11, API keys for [Anthropic](https://console.anthropic.com), [OpenAI](https://platform.openai.com), [OPDB](https://opdb.org), and [Voyage AI](https://voyageai.com).
+**Prerequisites:** Python 3.11, API keys for [Anthropic](https://console.anthropic.com), [OpenAI](https://platform.openai.com), and [Voyage AI](https://voyageai.com).
 
 ```bash
 git clone <repo-url>
@@ -159,7 +160,8 @@ To re-scrape fresh data first:
 python -m scraper.tiltforums
 python -m scraper.papa
 python -m scraper.bobs_guide
-python -m scraper.opdb
+python -m scraper.stern
+python -m scraper.cgc
 ```
 
 ---
@@ -177,4 +179,6 @@ Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data li
 
 ## Planned
 
-Playfield diagram support for layout questions ("where is the left ramp?"), which requires image embeddings and a multimodal retrieval path.
+Playfield layout support for location questions ("where is the snake scoop in Metallica Remastered?"). The current text rulesheets describe elements by *function* (what the Snake does), not *position* (where it is), so these questions are weak today.
+
+A feasibility review favors generating per-machine "Playfield Layout" text **offline** from a top-down playfield image via a vision-capable Claude model, then ingesting it as an ordinary section so the existing text retrieval answers location questions (no per-query vision cost, no frontend change). The technique is sound; the blocker is **sourcing permitted top-down playfield images**. The good sources (IPDB, Pinside) block AI use, Wikimedia Commons has no usable images for these machines, and a Google-style search confers no usage rights. The only viable path is owner-supplied images for a curated set of machines. **Deferred** until such images are available.

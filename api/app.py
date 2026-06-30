@@ -14,7 +14,11 @@ from pathlib import Path
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 
-load_dotenv()
+# override=True makes .env authoritative for local dev, so a stale key exported
+# in the shell (e.g. ANTHROPIC_API_KEY in ~/.zshrc) can't silently win. Safe in
+# production: .env is gitignored and never deployed, so there is nothing to load
+# and the platform-injected env vars (Railway dashboard) are left untouched.
+load_dotenv(override=True)
 
 app = Flask(__name__)
 CORS(app)
@@ -27,15 +31,12 @@ _VECTOR_STORE = Path(__file__).parent.parent / "vector_store"
 _chroma = chromadb.PersistentClient(path=str(_VECTOR_STORE))
 _collection = _chroma.get_or_create_collection("rulesheets")
 
-# Only include games that have real rulesheet sections (not just OPDB metadata).
-# OPDB-only variants (e.g. "Metallica Road Case") would otherwise inflate the
-# prefix expansion in _extract_games(), flooding retrieval with metadata noise.
+# Every game with a chunk in the store is a real rulesheet game.
 # Sorted longest-first so greedy matching picks the most specific name first
 # (e.g. "Star Wars: Fall of the Empire" before "Star Wars").
 _all_metadatas = _collection.get(include=["metadatas"])["metadatas"]
 _KNOWN_GAMES: list[str] = sorted(
-    {m["game"] for m in _all_metadatas
-     if "game" in m and m.get("section_name") != "Machine Metadata"},
+    {m["game"] for m in _all_metadatas if "game" in m},
     key=len,
     reverse=True,
 )
@@ -45,24 +46,32 @@ _CHAT_MODEL = "claude-haiku-4-5-20251001"
 _TOP_K = 10             # candidates fetched per game from vector store
 _RERANK_TOP_N = 5       # top results kept after reranking (single game)
 _RERANK_TOP_N_MULTI = 8 # top results kept when multiple game variants are in scope
+_MAX_HISTORY = 20       # prior chat messages sent to the LLM for context
 
 _SYSTEM_PROMPT = (
     f"You are a pinball machine expert assistant. This system covers roughly "
-    f"{len(_KNOWN_GAMES)} machines across Tiltforums, PAPA, and Bob's Guide rulesheet archives. "
-    "All questions refer to pinball machines and their rules, modes, and strategies — not to "
-    "bands, films, or other topics those names may refer to. Answer using ONLY the rulesheet "
-    "excerpts provided below. "
-    "If asked how many machines are covered or what machines are available, answer using the "
-    "count above — do not say you don't know. "
-    "If the question is just a game name with no specific question, provide a concise "
-    "overview of that machine's main modes and strategy using the excerpts, and invite a "
-    "follow-up question. "
-    "When excerpts from multiple distinct machines are present (e.g. an original and a "
-    "remastered version), you MUST structure your answer with a clearly labeled heading for "
-    "EACH machine — for example '**Metallica**' followed by '**Metallica Remastered**' — "
-    "and list each machine's information under its own heading. Never blend information from "
-    "different machines into a single undifferentiated list. "
-    "If the excerpts don't contain enough information to answer confidently, say so — do not speculate."
+    f"{len(_KNOWN_GAMES)} machines, drawing on community rulesheets, strategy guides, and "
+    "official manufacturer pages. "
+    "Questions are about pinball machines and their rules, modes, and strategies, not the "
+    "bands, films, or other things those names may also refer to. "
+    "Each excerpt below is labeled with its machine (GAME), manufacturer, and section, so "
+    "attribute information to the correct machine. Some excerpts come from manufacturer "
+    "marketing pages; prefer concrete gameplay, scoring, and mode detail over promotional language. "
+    "Ground specific factual claims about a machine, exact scoring values, mode and wizard-mode "
+    "names, multiball rules, layout, in the excerpts. For these specifics, if the excerpts don't "
+    "contain the answer, say so rather than inventing details; do not guess scoring numbers or "
+    "rule mechanics from general knowledge. "
+    "For general pinball questions (how flippers or nudging work, history, terminology, how to "
+    "improve), for conversational replies, and for machines not covered by the excerpts, you may "
+    "use your own knowledge. When you answer from general knowledge rather than a provided "
+    "rulesheet, make that clear (for example, note that it isn't from a sourced rulesheet) so the "
+    "user knows it is not verified against this system's sources. "
+    "This is a conversation: for a follow-up that does not name a machine, stay with the "
+    "machine already under discussion. "
+    "If asked how many machines are covered or which machines are available, answer using the "
+    "count above; do not say you don't know. "
+    "If the message is just a machine name with no specific question, give a concise overview "
+    "of that machine's main modes and strategy from the excerpts, and invite a follow-up."
 )
 
 
@@ -187,6 +196,43 @@ def _rerank(question: str, chunks: list[str], metadatas: list[dict], top_n: int)
         return chunks[:top_n], metadatas[:top_n]
 
 
+def _clean_history(raw: object) -> list[dict]:
+    """Validate an incoming chat history into well-formed message dicts.
+
+    Keeps only {"role": "user"|"assistant", "content": <non-empty str>} entries
+    and drops anything malformed, so a bad client payload can't break the LLM call.
+    """
+    if not isinstance(raw, list):
+        return []
+    cleaned: list[dict] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        role = item.get("role")
+        content = item.get("content")
+        if role in ("user", "assistant") and isinstance(content, str) and content.strip():
+            cleaned.append({"role": role, "content": content})
+    return cleaned
+
+
+def _games_in_context(question: str, history: list[dict]) -> list[str]:
+    """Resolve the machine(s) in scope, carrying context forward on follow-ups.
+
+    If the latest question names a machine, that wins. Otherwise scan the
+    conversation backward and reuse the most recently discussed machine, so a
+    nameless follow-up ("how does its wizard mode work?") stays scoped to it.
+    """
+    games = _extract_games(question)
+    if games:
+        return games
+    for msg in reversed(history):
+        if msg["role"] == "user":
+            prior = _extract_games(msg["content"])
+            if prior:
+                return prior
+    return []
+
+
 def _build_user_message(question: str, chunks: list[str], metadatas: list[dict]) -> str:
     parts: list[str] = []
     for chunk, meta in zip(chunks, metadatas):
@@ -220,10 +266,7 @@ def health():
 
 @app.get("/stats")
 def stats():
-    metadatas = _collection.get(
-        where={"section_name": {"$ne": "Machine Metadata"}},
-        include=["metadatas"],
-    )["metadatas"]
+    metadatas = _collection.get(include=["metadatas"])["metadatas"]
     machine_count = len({m["game"] for m in metadatas})
     return jsonify({"machines": machine_count})
 
@@ -235,52 +278,67 @@ def query():
     if not question:
         return jsonify({"error": "question is required"}), 400
 
+    history = _clean_history(body.get("history"))
+
     try:
-        games = _extract_games(question)
+        games = _games_in_context(question, history)
         embedding = _hyde_embed(question, games)
         chunks, metadatas = _retrieve(embedding, games)
         top_n = _RERANK_TOP_N_MULTI if len(games) > 1 else _RERANK_TOP_N
         chunks, metadatas = _rerank(question, chunks, metadatas, top_n)
 
-        if len(games) > 1:
-            # Make one LLM call per game variant so each gets its own focused
-            # context. Stitching in code guarantees the per-machine structure
-            # regardless of LLM variability.
-            # Sort shortest-first so the original precedes variants (e.g.
-            # "Metallica" before "Metallica Remastered").
-            ordered_games = sorted(games, key=len)
-            names = " and ".join(f"**{g}**" for g in ordered_games)
-            intro = (
-                f"There are {len(ordered_games)} machines with this title — {names} — "
-                f"which may have different rules and modes. Here's each one covered separately."
-            )
-            answer_parts: list[str] = [intro]
-            for game in ordered_games:
+        recent = history[-_MAX_HISTORY:]
+        if recent and recent[0]["role"] == "assistant":
+            # The Anthropic API requires the first message to be from the user.
+            recent = recent[1:]
+
+        # Distinct machines that actually survived retrieval + reranking, ordered
+        # shortest-name-first so an original precedes its variants (e.g. "Metallica"
+        # before "Metallica Remastered").
+        present_games = [
+            g for g in sorted(games, key=len)
+            if any(m["game"] == g for m in metadatas)
+        ]
+
+        if len(present_games) > 1:
+            # Make one LLM call per machine and stitch the results under per-machine
+            # headings. Doing the structure in code guarantees it regardless of model
+            # variability; the recent turns still give each call conversational context.
+            names = " and ".join(f"**{g}**" for g in present_games)
+            answer_parts = [
+                f"There are {len(present_games)} machines with this title ({names}), which "
+                "can have different rules and modes. Here is each one, covered separately."
+            ]
+            for game in present_games:
                 game_chunks = [c for c, m in zip(chunks, metadatas) if m["game"] == game]
                 game_metas = [m for m in metadatas if m["game"] == game]
-                if not game_chunks:
-                    continue
                 user_msg = _build_user_message(question, game_chunks, game_metas)
-                user_msg += f"\n\nDo NOT start your response with a bold game title heading. The heading **{game}** is already provided. Begin directly with the answer content."
+                user_msg += (
+                    f"\n\nAnswer ONLY about {game}. Do not begin with a bold title heading; "
+                    f"the heading '**{game}**' is already shown above your answer. Start "
+                    "directly with the content."
+                )
                 msg = _anthropic.messages.create(
                     model=_CHAT_MODEL,
                     max_tokens=1024,
                     temperature=0,
                     system=_SYSTEM_PROMPT,
-                    messages=[{"role": "user", "content": user_msg}],
+                    messages=recent + [{"role": "user", "content": user_msg}],
                 )
                 answer_parts.append(f"**{game}**\n\n{msg.content[0].text.strip()}")
-            answer = "\n---\n".join(answer_parts)
+            answer = "\n\n---\n\n".join(answer_parts)
         else:
+            # Single conversational call: recent turns give follow-up context, the
+            # latest question carries its retrieved excerpts.
             user_message = _build_user_message(question, chunks, metadatas)
-            message = _anthropic.messages.create(
+            response = _anthropic.messages.create(
                 model=_CHAT_MODEL,
                 max_tokens=1024,
                 temperature=0,
                 system=_SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": user_message}],
+                messages=recent + [{"role": "user", "content": user_message}],
             )
-            answer = message.content[0].text
+            answer = response.content[0].text
 
         sources = [
             {
@@ -292,7 +350,14 @@ def query():
             for m in metadatas
         ]
 
-        return jsonify({"answer": answer, "sources": sources})
+        # Store the clean question (not the excerpt-laden message) so history
+        # stays lean, and cap the total so the payload returned to (and re-sent
+        # by) the client can't grow unbounded over a long session.
+        updated_history = (history + [
+            {"role": "user", "content": question},
+            {"role": "assistant", "content": answer},
+        ])[-_MAX_HISTORY:]
+        return jsonify({"answer": answer, "sources": sources, "history": updated_history})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
