@@ -138,6 +138,12 @@ def _short_name(game: str) -> str:
     return game
 
 
+def _norm(text: str) -> str:
+    """Lowercase, drop apostrophes, turn other punctuation into spaces, collapse whitespace."""
+    text = re.sub(r"['‘’]", "", text.lower())
+    return " ".join(re.sub(r"[^\w\s]", " ", text).split())
+
+
 def _extract_games(question: str) -> list[str]:
     """Return all game names relevant to the question.
 
@@ -147,11 +153,14 @@ def _extract_games(question: str) -> list[str]:
     "Godzilla" → "Stern Godzilla", "Metallica" → "Metallica Remastered".
 
     Uses word-boundary matching to avoid e.g. "Now" matching inside "know".
+    Punctuation is ignored on both sides, so "Avengers Infinity Quest" matches
+    "Avengers: Infinity Quest" instead of falling back to the 2012 "Avengers".
     """
-    q = question.lower()
+    q = _norm(question)
 
     def _word_in(name: str) -> bool:
-        return bool(re.search(r'\b' + re.escape(name) + r'\b', q))
+        name = _norm(name)
+        return bool(name) and bool(re.search(r'\b' + re.escape(name) + r'\b', q))
 
     matched = next(
         (g for g in _KNOWN_GAMES if _word_in(g.lower()) and g.lower() not in _MATCH_BLOCKLIST),
@@ -165,8 +174,8 @@ def _extract_games(question: str) -> list[str]:
         )
     if matched is None:
         return []
-    short = _short_name(matched).lower()
-    return [g for g in _KNOWN_GAMES if _short_name(g).lower().startswith(short)]
+    short = _norm(_short_name(matched))
+    return [g for g in _KNOWN_GAMES if _norm(_short_name(g)).startswith(short)]
 
 
 def _retrieve(embedding: list[float], games: list[str]) -> tuple[list[str], list[dict]]:

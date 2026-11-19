@@ -14,7 +14,7 @@ Personal project. Not commercial. Low traffic (owner + a few friends).
 
 | Layer | Tool | Why |
 |---|---|---|
-| Language | Python 3.11 | Required by LlamaIndex |
+| Language | Python 3.11 (pinned for Railway in `.python-version`) | Required by LlamaIndex; same version locally and in production |
 | RAG framework | LlamaIndex | Handles chunking, embedding, retrieval |
 | Vector store | ChromaDB | Runs in-process, persists to disk, no separate DB needed |
 | Embeddings | OpenAI text-embedding-3-small | Cheap, high quality, ~$0.50 one-time for full corpus |
@@ -97,11 +97,14 @@ pinguide-rag/
 > (e.g. "Godzilla", "Kiss"), which often differs from the rulesheet naming for the same machine
 > ("Stern Godzilla", "KISS"). To avoid duplicate machine entries, `ingest/pipeline.py` loads the
 > rulesheet sources FIRST to fix canonical names, then reconciles each manufacturer entry onto a
-> canonical name via `_canonical_key()` (lowercase; strip subtitle after ':', a trailing
-> "Pinball"/"rules", a "...Rulesheet..." tail, and a leading manufacturer prefix). A manufacturer
-> page with no canonical match stays a standalone machine (the intended value: brand-new releases).
-> The reconciliation list is printed on every ingest — review it; subtitle matches (e.g.
-> "Transformers" → "Transformers: More Than Meets the Eye") are the ones to sanity-check.
+> canonical name via `_canonical_key()` (lowercase; fold accents; drop apostrophes, a trailing
+> "Pinball"/"rules", a "...Rulesheet..." tail, and a leading manufacturer prefix). Subtitles after
+> ':' are KEPT, because Stern reuses franchise names for different machines ("Avengers" 2012 vs
+> "Avengers: Infinity Quest" 2020; same for Transformers and Avatar). If the full manufacturer
+> title has no match, its subtitle alone is tried ("Star Wars: The Mandalorian" → "The
+> Mandalorian"). A manufacturer page with no canonical match stays a standalone machine (the
+> intended value: brand-new releases). The reconciliation list is printed on every ingest:
+> review it, especially the subtitle matches.
 
 > **Note on AI-blocked sources:** Pinside, MatchPlay/Pintips, IPDB, and GameFAQs all explicitly
 > block AI crawlers in robots.txt and must NOT be scraped. OPDB was removed (thin metadata only).
@@ -255,6 +258,10 @@ flask --app api/app run
 4. Optional local test: `python -m ingest.pipeline`, then run the API and check the
    printed reconciliation list
 5. Commit and push; Railway redeploys the code
-6. Rebuild the production store: `railway ssh`, then `python -m ingest.pipeline` from the
-   app root. Restart the service afterwards (machine list is cached at startup)
+6. Rebuild the production store (a deploy does NOT do this; the store is on the Volume).
+   Open a shell in the service: Railway dashboard → pinguide service → Console tab (or
+   `railway ssh`). It starts in `/app`. Plain `python` is not on the PATH there; run
+   `.venv/bin/python -m ingest.pipeline` (about 5 minutes; live queries fail meanwhile).
+   Then restart: Deployments tab → ⋮ on the active deployment → Restart (machine list is
+   cached at startup)
 7. Verify: `curl https://pinguide.info/stats` matches the local machine count

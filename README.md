@@ -169,7 +169,7 @@ python -m scraper.cgc
 
 ## Deployment
 
-Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data lives on a 5 GB Railway Volume (not in git) and is updated by SSHing into the service and re-running `python -m ingest.pipeline` after data changes.
+Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data lives on a 5 GB Railway Volume (not in git) and is **not** rebuilt by a deploy: after data changes, open the service's Console in the Railway dashboard, run `.venv/bin/python -m ingest.pipeline`, then restart the service.
 
 - **Build:** `pip install -r requirements.txt`
 - **Start:** `gunicorn api.app:app` (single worker and 120s timeout are set in `gunicorn.conf.py`)

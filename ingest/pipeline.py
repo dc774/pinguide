@@ -47,16 +47,16 @@ _MFR_PREFIXES = (
 def _canonical_key(name: str) -> str:
     """Normalize a game title so the same machine matches across sources.
 
-    Lowercases, drops a subtitle after ':', drops a rulesheet-title tail
-    ('... Rulesheet Version ...'), strips a trailing 'Pinball'/'rules' word and a
-    leading manufacturer prefix. "Stern Godzilla", "Godzilla" and
-    "Godzilla Pinball" all reduce to "godzilla".
+    Lowercases, drops a rulesheet-title tail ('... Rulesheet Version ...'),
+    strips a trailing 'Pinball'/'rules' word and a leading manufacturer prefix.
+    "Stern Godzilla", "Godzilla" and "Godzilla Pinball" all reduce to "godzilla".
+    A subtitle after ':' is kept, because Stern reuses franchise names for
+    different machines ("Avengers" 2012 vs "Avengers: Infinity Quest" 2020).
     """
     # Fold accents ("Pokémon" -> "pokemon") and drop apostrophes, straight or
     # curly ("Batman '66" -> "batman 66", "Elvira’s" -> "elviras").
     s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
     s = re.sub(r"['‘’]", "", s.lower()).strip()
-    s = s.split(":", 1)[0]
     s = re.split(r"\brulesheet\b", s, maxsplit=1)[0]
     s = s.strip()
     for suffix in (" pinball", " rules"):
