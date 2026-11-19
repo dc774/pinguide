@@ -18,9 +18,10 @@ Personal project. Not commercial. Low traffic (owner + a few friends).
 | RAG framework | LlamaIndex | Handles chunking, embedding, retrieval |
 | Vector store | ChromaDB | Runs in-process, persists to disk, no separate DB needed |
 | Embeddings | OpenAI text-embedding-3-small | Cheap, high quality, ~$0.50 one-time for full corpus |
-| LLM | Anthropic Claude (claude-haiku-4-5) | Cheap per query, good Q&A quality |
-| API server | Flask | Simple, lightweight |
-| Deployment | Render.com free tier | Zero config, deploys from GitHub |
+| LLM | Anthropic Claude (claude-haiku-5-5, effort "low") | Cheap per query, good Q&A quality |
+| Reranking | Voyage AI rerank-2 | Reorders retrieved chunks by true relevance |
+| API server | Flask + gunicorn | Simple, lightweight |
+| Deployment | Railway (app + Volume for ChromaDB), Cloudflare DNS | Deploys from GitHub `main` |
 | Frontend | Plain HTML/JS | Single page, no framework |
 
 ---
@@ -73,10 +74,13 @@ pinguide-rag/
   - Classic/EM era strategy, clean single site, easy to scrape
 
 ### Manufacturer Official Pages (permitted; marketing-depth)
-- **Stern Pinball** — `https://sternpinball.com/game/<slug>/`
+- **Stern Pinball:** `https://www.sternpinball.com/game/<slug>/`
   - robots.txt allows general crawling (blocks GPTBot/ChatGPT-User/Amazonbot/Scrapy, NOT ClaudeBot)
-  - Discover game URLs from `https://sternpinball.com/game-sitemap.xml` (the /games/ index is JS-rendered)
-  - Prose lives in `.t_wysiwyg` blocks. Value: new releases not yet on Tiltforums, edition (Premium/LE) differences, physical-feature vocabulary. NOT deep rules.
+  - Discover game URLs from `https://www.sternpinball.com/sitemap.xml` (main /game/<slug>/ pages only)
+  - Since Nov 2026 the site is Next.js/Plasmic: content is the CMS record embedded in the page's
+    `__NEXT_DATA__` queryCache (description, playfield features, per-edition cabinet features).
+    Older games have no CMS content; their June 2026 files are kept. Value: new releases,
+    edition (Premium/LE) differences, physical-feature vocabulary. NOT deep rules.
 - **Chicago Gaming (CGC)** — `https://www.chicago-gaming.com/coinop/<slug>`
   - robots.txt allows general crawling (disallows only /images)
   - Discover from the homepage nav (the XML sitemap omits Cactus Canyon and Pulp Fiction)
@@ -103,6 +107,7 @@ pinguide-rag/
 # .env
 ANTHROPIC_API_KEY=your_key_here
 OPENAI_API_KEY=your_key_here        # For embeddings only
+VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vector order)
 ```
 
 ---
@@ -140,9 +145,14 @@ OPENAI_API_KEY=your_key_here        # For embeddings only
 - **Scrape once, query many times** — The scrape + ingest is a one-time (or periodic) job.
   The Flask API only does retrieval + LLM calls at query time.
 - **ChromaDB on disk** — Keeps it simple. No separate vector DB service to manage.
-  On Render, persists to the service's disk.
-- **Claude Haiku for queries** — Cheapest Claude model, sufficient for Q&A tasks.
-  Keeps per-query cost under $0.001.
+  On Railway, persists to a Railway Volume.
+- **Claude Haiku 5.5 for queries** (`claude-haiku-5-5`). Cheapest Claude model, sufficient
+  for Q&A. It thinks by default and rejects `temperature`, so calls send
+  `output_config={"effort": "low"}` and no sampling parameters, and answer text is read
+  by block type (`_text()` in `api/app.py`), never `content[0]`.
+- **Pinned dependencies:** `requirements.txt` pins exact versions so Railway installs what
+  was tested locally. In particular, `anthropic` 2.x switches to API version 2026-10-21;
+  upgrade it deliberately and test locally first.
 - **OpenAI for embeddings only** — text-embedding-3-small is the best price/quality ratio
   for embeddings. This is the only reason OpenAI is in the stack.
 
@@ -165,8 +175,9 @@ OPENAI_API_KEY=your_key_here        # For embeddings only
   be weak. Image/diagram support is planned for Phase 2.
 - **Tiltforums wikis only cover machines that have been documented** — Very new releases
   may not have a wiki rulesheet yet.
-- **Render free tier sleeps** — After 15 minutes of inactivity, the service spins down.
-  First query after sleep will be slow (~30s). Fine for personal use.
+- **Re-ingest causes brief downtime:** `ingest/pipeline.py` wipes the store before
+  rebuilding, so production queries fail while it runs, and the app caches its machine list
+  at startup, so the service must be restarted afterwards.
 
 ---
 
@@ -188,7 +199,7 @@ OPENAI_API_KEY=your_key_here        # For embeddings only
 2. `ingest/pipeline.py` — chunk + embed + store scraped data
 3. `api/app.py` — Flask query endpoint (multi-turn chat with history)
 4. `frontend/index.html` — chat UI
-5. Deploy to Render
+5. Deploy to Railway
 
 ---
 
@@ -213,11 +224,30 @@ flask --app api/app run
 
 ---
 
-## Deployment (Render.com)
+## Deployment (Railway + Cloudflare)
 
-- Service type: Web Service
-- Runtime: Python 3.11
+- Railway Python web service, deployed from GitHub `dc774/pinguide`
 - Build command: `pip install -r requirements.txt`
-- Start command: `gunicorn api.app:app`
-- Environment variables: set in Render dashboard (ANTHROPIC_API_KEY, OPENAI_API_KEY)
-- Disk: mount at `/vector_store` to persist ChromaDB between deploys
+- Start command: `gunicorn api.app:app` (1 worker, 120s timeout in `gunicorn.conf.py`)
+- Environment variables: set in the Railway dashboard (ANTHROPIC_API_KEY, OPENAI_API_KEY, VOYAGE_API_KEY)
+- ChromaDB lives on a Railway Volume (not in git); `data/raw/` IS in git
+- DNS: Cloudflare. `pinguide.info` is DNS-only to Railway; `www` is proxied
+
+## Refreshing the Data (periodic)
+
+1. `railway login` and `railway link` (once per machine; the login expires)
+2. Scrape. Scrapers skip existing files unless `--force`:
+   ```bash
+   python -m scraper.tiltforums --force   # wikis are edited continuously
+   python -m scraper.stern --force
+   python -m scraper.cgc --force
+   python -m scraper.papa                 # static archive: new entries only
+   python -m scraper.bobs_guide           # static archive: new entries only
+   ```
+3. Review `git status` / `git diff --stat data/raw`
+4. Optional local test: `python -m ingest.pipeline`, then run the API and check the
+   printed reconciliation list
+5. Commit and push; Railway redeploys the code
+6. Rebuild the production store: `railway ssh`, then `python -m ingest.pipeline` from the
+   app root. Restart the service afterwards (machine list is cached at startup)
+7. Verify: `curl https://pinguide.info/stats` matches the local machine count

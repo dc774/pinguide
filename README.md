@@ -96,7 +96,7 @@ The machine count (N) is injected at startup from the live vector store, so it s
 | Vector store | ChromaDB (on disk) |
 | Embeddings | OpenAI `text-embedding-3-small` |
 | Reranking | Voyage AI `rerank-2` |
-| LLM | Anthropic Claude Haiku |
+| LLM | Anthropic Claude Haiku 5.5 |
 | API | Flask + flask-cors |
 | Frontend | Plain HTML/CSS/JS |
 | Deployment | Railway + Cloudflare |

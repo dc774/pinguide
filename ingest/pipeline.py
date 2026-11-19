@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
@@ -44,7 +45,10 @@ def _canonical_key(name: str) -> str:
     leading manufacturer prefix. "Stern Godzilla", "Godzilla" and
     "Godzilla Pinball" all reduce to "godzilla".
     """
-    s = name.lower().strip()
+    # Fold accents ("Pokémon" -> "pokemon") and drop apostrophes, straight or
+    # curly ("Batman '66" -> "batman 66", "Elvira’s" -> "elviras").
+    s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    s = re.sub(r"['‘’]", "", s.lower()).strip()
     s = s.split(":", 1)[0]
     s = re.split(r"\brulesheet\b", s, maxsplit=1)[0]
     s = s.strip()
@@ -110,7 +114,8 @@ def main() -> int:
     key_to_names: dict[str, set[str]] = defaultdict(set)
     for doc in all_documents:
         key_to_names[_canonical_key(doc.metadata["game"])].add(doc.metadata["game"])
-    canonical_by_key = {k: next(iter(v)) for k, v in key_to_names.items() if len(v) == 1}
+    # An empty key (e.g. a title with no Latin characters) must never match.
+    canonical_by_key = {k: next(iter(v)) for k, v in key_to_names.items() if k and len(v) == 1}
 
     # Pass 2: supplementary (manufacturer) sources, reconciled onto canonical names.
     merges: dict[str, str] = {}
@@ -122,6 +127,10 @@ def main() -> int:
         for doc in docs:
             game = doc.metadata["game"]
             canon = canonical_by_key.get(_canonical_key(game))
+            if canon is None and ":" in game:
+                # Franchise-prefixed titles: "Star Wars: The Mandalorian" matches
+                # the rulesheet "The Mandalorian" by its subtitle.
+                canon = canonical_by_key.get(_canonical_key(game.split(":", 1)[1]))
             if canon and canon != game:
                 doc.metadata["game"] = canon
                 merges[game] = canon

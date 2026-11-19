@@ -42,7 +42,12 @@ _KNOWN_GAMES: list[str] = sorted(
 )
 
 _EMBED_MODEL = "text-embedding-3-small"
-_CHAT_MODEL = "claude-haiku-4-5-20251001"
+_CHAT_MODEL = "claude-haiku-5-5"
+# Haiku 5.5 thinks by default; "low" effort keeps Q&A fast and cheap, and lets
+# the model skip thinking on simple requests. It also rejects temperature, so no
+# sampling parameters are sent.
+_EFFORT = "low"
+_NO_ANSWER = "Sorry, I couldn't produce an answer to that. Please try rephrasing your question."
 _TOP_K = 10             # candidates fetched per game from vector store
 _RERANK_TOP_N = 5       # top results kept after reranking (single game)
 _RERANK_TOP_N_MULTI = 8 # top results kept when multiple game variants are in scope
@@ -75,6 +80,16 @@ _SYSTEM_PROMPT = (
 )
 
 
+def _text(response) -> str:
+    """Return the answer text from a Claude response.
+
+    Reads blocks by type, not position: the response can start with thinking
+    blocks, and a refusal (stop_reason "refusal") can carry no text at all, in
+    which case this returns "".
+    """
+    return "".join(b.text for b in response.content if b.type == "text").strip()
+
+
 def _embed(text: str) -> list[float]:
     resp = _openai.embeddings.create(model=_EMBED_MODEL, input=text)
     return resp.data[0].embedding
@@ -93,13 +108,16 @@ def _hyde_embed(question: str, games: list[str]) -> list[float]:
         f"that directly answers this question: {question}\n\n"
         "Use technical rulesheet language. 2-4 sentences. No preamble."
     )
+    # max_tokens leaves room for thinking, which counts toward the cap; the
+    # prompt itself keeps the excerpt short.
     resp = _anthropic.messages.create(
         model=_CHAT_MODEL,
-        max_tokens=150,
-        temperature=0,
+        max_tokens=1024,
+        output_config={"effort": _EFFORT},
         messages=[{"role": "user", "content": prompt}],
     )
-    return _embed(resp.content[0].text.strip())
+    # Fall back to the raw question if no excerpt came back.
+    return _embed(_text(resp) or question)
 
 
 _MFR_PREFIXES = (
@@ -320,12 +338,12 @@ def query():
                 )
                 msg = _anthropic.messages.create(
                     model=_CHAT_MODEL,
-                    max_tokens=1024,
-                    temperature=0,
+                    max_tokens=2048,
+                    output_config={"effort": _EFFORT},
                     system=_SYSTEM_PROMPT,
                     messages=recent + [{"role": "user", "content": user_msg}],
                 )
-                answer_parts.append(f"**{game}**\n\n{msg.content[0].text.strip()}")
+                answer_parts.append(f"**{game}**\n\n{_text(msg) or _NO_ANSWER}")
             answer = "\n\n---\n\n".join(answer_parts)
         else:
             # Single conversational call: recent turns give follow-up context, the
@@ -333,12 +351,12 @@ def query():
             user_message = _build_user_message(question, chunks, metadatas)
             response = _anthropic.messages.create(
                 model=_CHAT_MODEL,
-                max_tokens=1024,
-                temperature=0,
+                max_tokens=2048,
+                output_config={"effort": _EFFORT},
                 system=_SYSTEM_PROMPT,
                 messages=recent + [{"role": "user", "content": user_message}],
             )
-            answer = response.content[0].text
+            answer = _text(response) or _NO_ANSWER
 
         sources = [
             {
