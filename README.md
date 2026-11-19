@@ -27,13 +27,14 @@ Built as a personal project. Not commercial.
 
 | Source | What it is | Machines |
 |---|---|---|
-| [Tiltforums wiki rulesheets](https://tiltforums.com/c/game-specific/rulesheet-wikis/18) | Community rule wikis for modern machines | ~95 |
+| [Pinball Rulesheets](https://pinballrulesheets.com) | Community rulesheets for modern machines (successor to the Tiltforums wikis; CC0 repo [heyrocker/pinballrules](https://github.com/heyrocker/pinballrules)) | ~91 |
+| Tiltforums archive | 6 older Tiltforums rulesheets not carried over to the new site (Tiltforums closed in 2026) | 6 |
 | [PAPA rulesheet archive](https://papa.org) | Classic machine rulesheets | ~141 |
-| [Bob's Guide](https://rules.silverballmania.com) | Strategy guides for classic and EM-era machines | ~412 |
-| [Stern Pinball](https://sternpinball.com) | Official pages for current Stern machines: overview, gameplay features, edition (Premium/LE) differences | ~79 |
+| [Bob's Guide](https://rules.silverballmania.com) | Strategy guides for classic and EM-era machines | ~413 |
+| [Stern Pinball](https://sternpinball.com) | Official pages for current Stern machines: overview, gameplay features, edition (Premium/LE) differences | ~81 |
 | [Chicago Gaming](https://www.chicago-gaming.com) | Official pages for CGC remakes (Medieval Madness, Attack from Mars, Monster Bash, Cactus Canyon, Pulp Fiction) | 5 |
 
-About **13,400 indexed chunks** in total.
+About **13,600 indexed chunks** in total.
 
 ---
 
@@ -41,7 +42,7 @@ About **13,400 indexed chunks** in total.
 
 Three steps, run once to build the knowledge base:
 
-1. **Scrape** — four scrapers fetch rulesheets and machine metadata and save structured JSON to `data/raw/`
+1. **Scrape** — five scrapers fetch rulesheets and manufacturer pages and save structured JSON to `data/raw/`
 2. **Ingest** — chunks each source by section, generates embeddings via OpenAI, and stores everything in a ChromaDB vector store (~380 MB on disk)
 3. **Query** — at runtime, extracts the machine name from the question, retrieves the top candidates (per game variant, to guarantee equal representation), reranks them, and passes the best 5–8 to the LLM as context
 
@@ -67,7 +68,7 @@ The LLM's behavior is shaped by a system prompt, which continues to evolve as we
 
 ```
 You are a pinball machine expert assistant. This system covers roughly N machines
-across Tiltforums, PAPA, and Bob's Guide rulesheet archives. All questions refer to
+across community rulesheets, strategy guides, and manufacturer pages. All questions refer to
 pinball machines and their rules, modes, and strategies — not to bands, films, or
 other topics those names may refer to. Answer using ONLY the rulesheet excerpts
 provided below.
@@ -124,7 +125,7 @@ At 10 queries a day, monthly cost is well under $1.
 
 ```
 pinguide-rag/
-├── scraper/          # tiltforums.py, papa.py, bobs_guide.py, stern.py, cgc.py
+├── scraper/          # pinballrules.py, papa.py, bobs_guide.py, stern.py, cgc.py
 ├── ingest/           # pipeline.py — chunk, embed, store
 ├── api/              # app.py — Flask /query endpoint
 ├── frontend/         # index.html — single-page UI
@@ -157,7 +158,7 @@ flask --app api/app run --port 5001
 To re-scrape fresh data first:
 
 ```bash
-python -m scraper.tiltforums
+python -m scraper.pinballrules
 python -m scraper.papa
 python -m scraper.bobs_guide
 python -m scraper.stern

@@ -38,7 +38,7 @@ pinguide-rag/
 ├── .gitignore
 ├── scraper/
 │   ├── __init__.py
-│   ├── tiltforums.py       # Scrape Tiltforums wiki rulesheets (primary source)
+│   ├── pinballrules.py     # pinballrulesheets.com (CC0 GitHub repo), primary source
 │   ├── papa.py             # PAPA rulesheet archive — pre-2000 machines
 │   ├── bobs_guide.py       # Bob's Guide — classic/EM era strategy
 │   ├── stern.py            # Stern official game pages — new releases, edition differences
@@ -61,14 +61,21 @@ pinguide-rag/
 ## Data Sources
 
 ### Primary (modern machines)
-- **Tiltforums wiki rulesheets** — `https://tiltforums.com/c/game-specific/rulesheet-wikis/18`
-  - Master list: `https://tiltforums.com/t/rulesheet-master-list/7230`
+- **pinballrulesheets.com** (successor to the Tiltforums wiki rulesheets; Tiltforums closed
+  2026-09-01). Source is the GitHub repo `heyrocker/pinballrules`, license CC0 (public domain).
+  - `scraper/pinballrules.py` downloads the repo tarball once and reads `docs/<manufacturer>/*.md`
+    in memory: front matter gives title/manufacturer, `## ` headings give sections. Skips
+    `docs/contribute` and `docs/other` (reference lists, not machines). Rulesheets sharing an
+    `opdb_id` are de-duplicated. It rewrites `data/raw/pinballrules/` fully on each run.
+  - `data/raw/tiltforums/` is a frozen archive of the 6 old Tiltforums rulesheets the new repo
+    doesn't carry (Doctor Who, Fathom Revisited, Junkyard, Trident 2022, World Cup Soccer,
+    WrestleMania). There is no scraper for it any more.
   - Covers: Stern, Jersey Jack, Spooky, Chicago Gaming Company (Pulp Fiction), Williams, etc.
   - Format: Structured wiki pages with sections (Layout, Modes, Multiball, Wizard Modes)
   - How to get: Scrape via BeautifulSoup
 
 ### Legacy/Classic Machines
-- **PAPA rulesheet archive** — linked from Tiltforums master list
+- **PAPA rulesheet archive** (`pinball.org`; host broken since late 2026, files kept)
   - Pre-2000 machines, text format, easy to scrape
 - **Bob's Guide** — `https://rules.silverballmania.com/guide`
   - Classic/EM era strategy, clean single site, easy to scrape
@@ -115,7 +122,7 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 ## How the RAG Pipeline Works
 
 ```
-1. SCRAPE    → Fetch pages from Tiltforums, PAPA, Bob's Guide, Stern, Chicago Gaming
+1. SCRAPE    → Fetch pinballrulesheets.com, PAPA, Bob's Guide, Stern, Chicago Gaming
                Save raw text to data/raw/
 
 2. INGEST    → Load raw text files
@@ -173,7 +180,7 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 
 - **No image support** — Physical layout questions ("where is X on the playfield") will
   be weak. Image/diagram support is planned for Phase 2.
-- **Tiltforums wikis only cover machines that have been documented** — Very new releases
+- **Community rulesheets only cover machines that have been documented**: very new releases
   may not have a wiki rulesheet yet.
 - **Re-ingest causes brief downtime:** `ingest/pipeline.py` wipes the store before
   rebuilding, so production queries fail while it runs, and the app caches its machine list
@@ -195,7 +202,7 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 
 ## Build Order
 
-1. `scraper/*.py` — scrape each source (tiltforums, papa, bobs_guide, stern, cgc)
+1. `scraper/*.py`: scrape each source (pinballrules, papa, bobs_guide, stern, cgc)
 2. `ingest/pipeline.py` — chunk + embed + store scraped data
 3. `api/app.py` — Flask query endpoint (multi-turn chat with history)
 4. `frontend/index.html` — chat UI
@@ -213,7 +220,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Run scraper (one-time)
-python -m scraper.tiltforums
+python -m scraper.pinballrules
 
 # Run ingest (one-time, after scraping)
 python -m ingest.pipeline
@@ -238,7 +245,7 @@ flask --app api/app run
 1. `railway login` and `railway link` (once per machine; the login expires)
 2. Scrape. Scrapers skip existing files unless `--force`:
    ```bash
-   python -m scraper.tiltforums --force   # wikis are edited continuously
+   python -m scraper.pinballrules         # whole repo, edited daily; always a full refresh
    python -m scraper.stern --force
    python -m scraper.cgc --force
    python -m scraper.papa                 # static archive: new entries only

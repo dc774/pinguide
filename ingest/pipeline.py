@@ -17,10 +17,14 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
 
 RAW_DIR = Path("data/raw")
-PAPA_DIR = Path("data/raw/papa")
-BOBS_DIR = Path("data/raw/bobs")
-STERN_DIR = Path("data/raw/stern")
-CGC_DIR = Path("data/raw/cgc")
+PINBALLRULES_DIR = RAW_DIR / "pinballrules"
+# Tiltforums closed in Sept 2026. The few machines not carried over to
+# pinballrulesheets.com are kept here as a frozen archive.
+TILTFORUMS_DIR = RAW_DIR / "tiltforums"
+PAPA_DIR = RAW_DIR / "papa"
+BOBS_DIR = RAW_DIR / "bobs"
+STERN_DIR = RAW_DIR / "stern"
+CGC_DIR = RAW_DIR / "cgc"
 VECTOR_STORE_DIR = Path("vector_store")
 COLLECTION_NAME = "rulesheets"
 
@@ -28,7 +32,10 @@ COLLECTION_NAME = "rulesheets"
 # supplementary: their game names (from page <h1> / slug) often differ from the
 # rulesheet naming for the same machine (e.g. "Godzilla" vs "Stern Godzilla",
 # "Kiss" vs "KISS"), so they are reconciled onto a canonical name before ingest.
-RULESHEET_SOURCES = [(RAW_DIR, "tiltforums"), (PAPA_DIR, "papa"), (BOBS_DIR, "bobs")]
+RULESHEET_SOURCES = [
+    (PINBALLRULES_DIR, "pinballrules"), (TILTFORUMS_DIR, "tiltforums"),
+    (PAPA_DIR, "papa"), (BOBS_DIR, "bobs"),
+]
 SUPPLEMENTARY_SOURCES = [(STERN_DIR, "stern"), (CGC_DIR, "cgc")]
 
 _MFR_PREFIXES = (
@@ -101,7 +108,7 @@ def main() -> int:
     # Pass 1: rulesheet sources establish the canonical machine names.
     for src_dir, label in RULESHEET_SOURCES:
         if not src_dir.exists():
-            print(f"  {src_dir}/ not found — skipping", flush=True)
+            print(f"  {src_dir}/ not found, skipping", flush=True)
             continue
         n, docs = load_documents(src_dir)
         print(f"  {src_dir}/ → {n} files, {len(docs)} documents [{label}]", flush=True)
@@ -121,7 +128,7 @@ def main() -> int:
     merges: dict[str, str] = {}
     for src_dir, label in SUPPLEMENTARY_SOURCES:
         if not src_dir.exists():
-            print(f"  {src_dir}/ not found — skipping", flush=True)
+            print(f"  {src_dir}/ not found, skipping", flush=True)
             continue
         n, docs = load_documents(src_dir)
         for doc in docs:

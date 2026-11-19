@@ -503,10 +503,13 @@
     }
 
     function sourceLabel(url) {
-      if (!url) return 'OPDB';
+      if (!url) return '';
+      if (url.includes('pinballrulesheets.com')) return 'Pinball Rulesheets ↗';
       if (url.includes('tiltforums.com')) return 'Tiltforums ↗';
       if (url.includes('pinball.org')) return 'PAPA ↗';
       if (url.includes('silverballmania.com')) return "Bob's Guide ↗";
+      if (url.includes('sternpinball.com')) return 'Stern ↗';
+      if (url.includes('chicago-gaming.com')) return 'Chicago Gaming ↗';
       return '↗';
     }
   </script>
