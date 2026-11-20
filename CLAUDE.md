@@ -1,12 +1,16 @@
-# pinguide-rag — Architecture & Developer Guide
+# pinguide-rag: Architecture & Developer Guide
 
 ## What This Is
 
-A RAG (Retrieval-Augmented Generation) system that answers pinball machine questions using
-scraped rulesheets, guides, and machine metadata as its knowledge base. The system retrieves
-relevant documents and passes them as context to Claude to generate grounded, accurate answers.
+Pinguide (pinguide.info) is a claude.ai-style AI pinball companion: a streaming chat with a
+history sidebar that answers any pinball question as an expert would (rules and strategy,
+technique, tournaments, buying, repair, collecting, history, news). For specific machines it
+draws on a RAG library of scraped rulesheets, guides and machine profiles (about 2,000
+machines); for current events it searches the web. Signing in (Google or an email link) is
+optional and only adds saved chat history.
 
-Personal project. Not commercial. Low traffic (owner + a few friends).
+Personal project. Not commercial (no payments; an optional "Buy me a coffee" tip link only).
+Low traffic (owner + a few friends).
 
 ---
 
@@ -18,11 +22,13 @@ Personal project. Not commercial. Low traffic (owner + a few friends).
 | RAG framework | LlamaIndex | Handles chunking, embedding, retrieval |
 | Vector store | ChromaDB | Runs in-process, persists to disk, no separate DB needed |
 | Embeddings | OpenAI text-embedding-3-small | Cheap, high quality, ~$0.50 one-time for full corpus |
-| LLM | Anthropic Claude (claude-haiku-5-5, effort "low") | Cheap per query, good Q&A quality |
+| LLM | Anthropic Claude (claude-haiku-5-5; answers at effort "medium", helper calls "low") | Cheap per query, good Q&A quality |
+| Web search | Anthropic server-side `web_search_20250305` tool | Current info (news, prices, events); capped per answer, per visitor and site-wide |
 | Reranking | Voyage AI rerank-2 | Reorders retrieved chunks by true relevance |
-| API server | Flask + gunicorn | Simple, lightweight |
+| API server | Flask + gunicorn (gthread, 8 threads) | Answers stream as Server-Sent Events; threads let several stream at once |
+| Accounts + chats | SQLite (stdlib `sqlite3`) on the Railway Volume; Authlib (Google), Resend (email links) | No extra database service |
 | Deployment | Railway (app + Volume for ChromaDB), Cloudflare DNS | Deploys from GitHub `main` |
-| Frontend | Plain HTML/JS | Single page, no framework |
+| Frontend | Plain HTML/CSS/JS; marked + DOMPurify from cdnjs (pinned, SRI) | Single page, no framework or build step |
 
 ---
 
@@ -30,7 +36,7 @@ Personal project. Not commercial. Low traffic (owner + a few friends).
 
 ```
 pinguide-rag/
-├── CLAUDE.md               # This file — read at the start of every session
+├── CLAUDE.md               # This file: read at the start of every session
 ├── README.md
 ├── requirements.txt        # All Python dependencies
 ├── .env.example            # Template for required env vars (committed)
@@ -39,9 +45,9 @@ pinguide-rag/
 ├── scraper/
 │   ├── __init__.py
 │   ├── pinballrules.py     # pinballrulesheets.com (CC0 GitHub repo), primary source
-│   ├── papa.py             # PAPA rulesheet archive — pre-2000 machines
-│   ├── bobs_guide.py       # Bob's Guide — classic/EM era strategy
-│   ├── stern.py            # Stern official game pages — new releases, edition differences
+│   ├── papa.py             # PAPA rulesheet archive: pre-2000 machines
+│   ├── bobs_guide.py       # Bob's Guide: classic/EM era strategy
+│   ├── stern.py            # Stern official game pages: new releases, edition differences
 │   ├── cgc.py              # Chicago Gaming official pages: CGC remakes
 │   ├── kineticist.py       # Kineticist API: profiles for ~1,780 games + tutorial transcripts
 │   └── makers.py           # Smaller makers' sites (Multimorphic, Spooky, Turner, ...)
@@ -50,12 +56,19 @@ pinguide-rag/
 │   └── pipeline.py         # Load scraped data → chunk → embed → store in Chroma
 ├── api/
 │   ├── __init__.py
-│   └── app.py              # Flask app — single /query POST endpoint
+│   ├── app.py              # Flask app: streaming /api/chat, retrieval, web search, chat routes
+│   ├── auth.py             # Sign-in: Google OpenID Connect, email links, session, account routes
+│   └── db.py               # SQLite: users, conversations, messages, sign-in tokens, usage counters
 ├── data/
 │   └── raw/                # Raw scraped text/JSON files (gitignored if large)
-├── vector_store/           # ChromaDB persisted data (gitignored)
+├── vector_store/           # ChromaDB persisted data (gitignored); app/ holds the SQLite database
+├── docs/                   # logo.png and screenshot.png for the README
+├── gunicorn.conf.py        # 1 worker, gthread with 8 threads, 120s timeout
 └── frontend/
-    └── index.html          # Simple query UI — text input, results display
+    ├── index.html          # Page layout: sidebar, chat, composer, footer, sign-in dialog
+    ├── app.css             # Styles (dark theme, WCAG AA contrast, phone drawer)
+    ├── app.js              # Chat state, streaming reader, Markdown, sidebar, account
+    └── logo.png, favicon.png, apple-touch-icon.png   # made from the owner's logo artwork
 ```
 
 ---
@@ -79,7 +92,7 @@ pinguide-rag/
 ### Legacy/Classic Machines
 - **PAPA rulesheet archive** (`pinball.org`; host broken since late 2026, files kept)
   - Pre-2000 machines, text format, easy to scrape
-- **Bob's Guide** — `https://rules.silverballmania.com/guide`
+- **Bob's Guide**: `https://rules.silverballmania.com/guide`
   - Classic/EM era strategy, clean single site, easy to scrape
 
 ### Manufacturer Official Pages (permitted; marketing-depth)
@@ -90,7 +103,7 @@ pinguide-rag/
     `__NEXT_DATA__` queryCache (description, playfield features, per-edition cabinet features).
     Older games have no CMS content; their June 2026 files are kept. Value: new releases,
     edition (Premium/LE) differences, physical-feature vocabulary. NOT deep rules.
-- **Chicago Gaming (CGC)** — `https://www.chicago-gaming.com/coinop/<slug>`
+- **Chicago Gaming (CGC)**: `https://www.chicago-gaming.com/coinop/<slug>`
   - robots.txt allows general crawling (disallows only /images)
   - Discover from the homepage nav (the XML sitemap omits Cactus Canyon and Pulp Fiction)
   - Covers the 5 CGC remakes.
@@ -119,8 +132,9 @@ pinguide-rag/
   key (60/min, 2,000/day per IP). The website itself is behind a Vercel bot checkpoint; never
   scrape it, use only the API.
 - **Terms:** personal projects permitted; any page showing the data must show visible
-  attribution, "Data provided by Kineticist" linked to kineticist.com (the header credit in
-  `frontend/index.html`; do not remove it). Don't build a competing database.
+  attribution linked to kineticist.com, worded exactly "Data provided by Kineticist" or
+  "Powered by the Kineticist API" (the footer uses the second, since Kineticist is one source
+  of several; `frontend/index.html`, do not remove it). Don't build a competing database.
 - `scraper/kineticist.py` saves per game: Profile, Design Team, Editions, and, when the game has
   a "Keys to the game" tutorial image, a transcript ("Getting Started (Kineticist tutorial)")
   made once by Claude Haiku 5.5 vision. Transcripts are cached in the JSON (`tutorials`), so
@@ -150,11 +164,16 @@ pinguide-rag/
 ## Environment Variables
 
 ```
-# .env
+# .env (see .env.example for the full list with defaults)
 ANTHROPIC_API_KEY=your_key_here
 OPENAI_API_KEY=your_key_here        # For embeddings only
 VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vector order)
+SECRET_KEY=long_random_string       # Signs the session cookie; without it sign-ins reset on restart
+GOOGLE_CLIENT_ID= / GOOGLE_CLIENT_SECRET=   # Google sign-in (button hidden when unset)
+RESEND_API_KEY= / MAIL_FROM=        # Email sign-in links (unset: the link is printed to the log)
+PINGUIDE_SUPPORT_URL=               # "Buy me a coffee" link (https; hidden when unset)
 ```
+Limits and the database path have `PINGUIDE_*` overrides, listed in `.env.example`.
 
 ---
 
@@ -166,37 +185,70 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
                Save raw text to data/raw/
 
 2. INGEST    → Load raw text files
-               Chunk by section (not fixed token windows — rulesheets have natural sections)
+               Chunk by section (not fixed token windows: rulesheets have natural sections)
                Generate embeddings via OpenAI text-embedding-3-small
                Store chunks + embeddings in ChromaDB at vector_store/
 
-3. QUERY     → User submits question (+ prior chat history) via frontend or API
+3. ANSWER   → POST /api/chat streams Server-Sent Events (status, search, thinking, text,
+               sources, done, error). History: sent by the browser for visitors who aren't
+               signed in; loaded from SQLite for signed-in users (the browser sends the
+               conversation id and how many earlier messages to keep, for Edit/Retry)
                Resolve machine(s) in scope, carrying context forward on follow-ups
-               Embed the question (HyDE), retrieve + rerank top-N chunks from Chroma
-               One machine in scope: single Claude call (system + chunks + recent history)
-               Multiple distinct machines: one Claude call per machine, stitched under
-               per-machine headings in code (guarantees structure regardless of the model)
-               Return answer + updated (capped) history
+               Machine in scope: HyDE embed, retrieve + rerank top-N chunks from Chroma,
+               attach them as "library excerpts". No machine: no retrieval (see below)
+               Claude Haiku 5.5 streams the answer with adaptive thinking (summary shown in
+               a "Thought process" panel) and the web_search tool when budget remains
+               Multiple distinct machines: one Claude call per machine, streamed one after
+               another under per-machine headings set in code
+               First answer of a chat: a short Haiku call writes the chat title
+               Signed in: the question and answer (even a stopped, partial one) are saved
 
-4. SERVE     → Flask app exposes POST /query endpoint
-               Frontend (index.html) is a multi-turn chat: sends fetch() to /query with
-               the running conversation, renders message bubbles, supports follow-ups
+4. SERVE     → Frontend (index.html + app.js): sidebar of chats (Today / Previous 7 days /
+               Older, search, rename, delete), streamed Markdown answers, Stop, Copy,
+               Retry, Edit, source chips (library + web), sign-in dialog, footer
 ```
 
 ---
 
 ## Key Design Decisions
 
-- **Chunk by section, not token count** — Rulesheets have natural section boundaries
+- **Chunk by section, not token count**: Rulesheets have natural section boundaries
   (modes, multiball, wizard modes). Chunking by section keeps related info together.
-- **Scrape once, query many times** — The scrape + ingest is a one-time (or periodic) job.
+- **Scrape once, query many times**: The scrape + ingest is a one-time (or periodic) job.
   The Flask API only does retrieval + LLM calls at query time.
-- **ChromaDB on disk** — Keeps it simple. No separate vector DB service to manage.
+- **ChromaDB on disk**: Keeps it simple. No separate vector DB service to manage.
   On Railway, persists to a Railway Volume.
 - **Claude Haiku 5.5 for queries** (`claude-haiku-5-5`). Cheapest Claude model, sufficient
-  for Q&A. It thinks by default and rejects `temperature`, so calls send
-  `output_config={"effort": "low"}` and no sampling parameters, and answer text is read
-  by block type (`_text()` in `api/app.py`), never `content[0]`.
+  for Q&A. It thinks by default and rejects `temperature`, so calls send `output_config`
+  effort ("medium" for answers, "low" for HyDE and titles) and no sampling parameters, and
+  answer text is read by block type (`_text()` in `api/app.py`), never `content[0]`.
+- **Thinking is shown, never replayed:** answers use `thinking={"type": "adaptive",
+  "display": "summarized"}`; the summary is streamed to the page and saved for display, but
+  history goes back to Claude as plain user/assistant text. So Edit and Retry (which cut the
+  history) can't trip the API's preserved-thinking rules.
+- **Library only when a machine is in scope.** For general questions the nearest chunks come
+  from arbitrary machines and pulled answers off topic even with prompt rules against it, so
+  general questions are answered from the model's own knowledge plus web search.
+- **Web search tool version:** `web_search_20250305`. The newer `web_search_20260209`
+  (dynamic filtering) is not documented for Haiku, and in testing Haiku 5.5 sent it malformed
+  calls (`{"params": {...}}`, code snippets) that failed 2 of 3 times.
+- **Web search limits** (approved 2026-11-20, env-overridable): 3 searches per answer;
+  25/day per anonymous IP; 100/day per signed-in user; 300/day for the whole site (about $3,
+  the real cap on cost). Counted in the SQLite `usage` table. Past a limit the answer runs
+  without search and the prompt tells the model to say current info couldn't be checked.
+  Searches exclude the AI-blocked sites (`_BLOCKED_DOMAINS`).
+- **Accounts:** optional. Keyed by email, so Google and email-link sign-ins share one account.
+  Email links: random token, only its SHA-256 stored, single use, 15 minutes; the link opens
+  a page with a Sign in button (POST) so email scanners can't use the token up. 5 emails per
+  hour per address and per IP. Session: signed cookie, HttpOnly, Secure, SameSite=Lax, 30
+  days. "Delete account" removes the user and all chats (ON DELETE CASCADE).
+- **Security:** every conversation query is scoped to its owner (another user's id answers
+  404, including posting into it). State-changing requests with a foreign `Origin` get 403;
+  the API is JSON-only and no CORS is granted. Answers are rendered with marked and
+  sanitized by DOMPurify (they can quote web pages); links open in a new tab with noopener.
+- **The database shares the Volume with Chroma:** `vector_store/app/pinguide.db` (Railway
+  mounts the Volume at `/app/vector_store`). `ingest/pipeline.py` skips the `app/` folder when
+  it wipes the store; never remove that guard.
 - **Pinned dependencies:** `requirements.txt` pins exact versions so Railway installs what
   was tested locally. In particular, `anthropic` 2.x switches to API version 2026-10-21;
   upgrade it deliberately and test locally first.
@@ -205,14 +257,14 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
   auto-selected by name, so "What is a jackpot?" isn't narrowed to the 1970s game. The list is
   the titles appearing as ordinary words in at least 10% of other machines' rulesheets;
   recompute it if the corpus changes a lot.
-- **OpenAI for embeddings only** — text-embedding-3-small is the best price/quality ratio
+- **OpenAI for embeddings only**: text-embedding-3-small is the best price/quality ratio
   for embeddings. This is the only reason OpenAI is in the stack.
 
 ---
 
 ## Code Standards
 
-- **Accessibility (WCAG AA)** — All frontend HTML/CSS/JS must meet WCAG AA accessibility
+- **Accessibility (WCAG AA)**: All frontend HTML/CSS/JS must meet WCAG AA accessibility
   guidelines without needing to be asked. This includes:
   - Color contrast ratios: ≥ 4.5:1 for normal text, ≥ 3:1 for large text and non-text UI
   - Form labels: every input must have an associated `<label>` (visible or `.sr-only`)
@@ -221,9 +273,9 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 
 ---
 
-## Known Limitations (Phase 1)
+## Known Limitations
 
-- **No image support** — Physical layout questions ("where is X on the playfield") will
+- **No image support**: Physical layout questions ("where is X on the playfield") will
   be weak. Image/diagram support is planned for Phase 2.
 - **Community rulesheets only cover machines that have been documented**: very new releases
   may not have a wiki rulesheet yet.
@@ -235,6 +287,11 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
   dated "Code Update Notes, posted <date>: ..." sections.
 - **Big franchises fan out:** "Star Wars" matches about 6 machines (each era's game is its own
   machine), and each gets its own Claude call, so those answers are long and slower.
+- **Edit keeps no old versions:** editing a message or retrying an answer replaces what
+  followed it (claude.ai keeps versions you can flip between).
+- **Visitors who aren't signed in lose chats when the tab closes** (they live in memory).
+- **Answers stream for up to a minute and hold a gunicorn thread each** (8 threads), so more
+  than 8 simultaneous answers queue.
 - **Re-ingest causes brief downtime:** `ingest/pipeline.py` wipes the store before
   rebuilding, so production queries fail while it runs, and the app caches its machine list
   at startup, so the service must be restarted afterwards.
@@ -243,8 +300,8 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 
 ## Development Phases
 
-- **Phase 1 (current)** — Text-only RAG. Scrape, ingest, query, deploy.
-- **Phase 2 (deferred)** — Playfield layout support for location questions. Favored approach:
+- **Phase 1 (current)**: Text-only RAG. Scrape, ingest, query, deploy.
+- **Phase 2 (deferred)**: Playfield layout support for location questions. Favored approach:
   generate per-machine "Playfield Layout" text offline from a top-down image via a vision-capable
   Claude model, ingest as an ordinary section (existing text retrieval then answers location
   questions). Blocker: no permitted source of top-down playfield images. IPDB/Pinside block AI,
@@ -256,9 +313,9 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 ## Build Order
 
 1. `scraper/*.py`: scrape each source (pinballrules, papa, bobs_guide, stern, cgc)
-2. `ingest/pipeline.py` — chunk + embed + store scraped data
-3. `api/app.py` — Flask query endpoint (multi-turn chat with history)
-4. `frontend/index.html` — chat UI
+2. `ingest/pipeline.py`: chunk + embed + store scraped data
+3. `api/app.py`, `api/auth.py`, `api/db.py`: streaming chat, accounts, saved chats
+4. `frontend/`: chat UI
 5. Deploy to Railway
 
 ---
@@ -278,9 +335,12 @@ python -m scraper.pinballrules
 # Run ingest (one-time, after scraping)
 python -m ingest.pipeline
 
-# Run API
-flask --app api/app run
+# Run API (gunicorn, as in production; streaming needs a threaded server)
+gunicorn -c gunicorn.conf.py -b 127.0.0.1:5002 api.app:app
 ```
+Without `RESEND_API_KEY`, email sign-in links are printed to the server log. Google sign-in
+works locally once `http://localhost:5002/auth/google/callback` is an authorized redirect
+URI on the OAuth client.
 
 ---
 
@@ -288,9 +348,15 @@ flask --app api/app run
 
 - Railway Python web service, deployed from GitHub `dc774/pinguide`
 - Build command: `pip install -r requirements.txt`
-- Start command: `gunicorn api.app:app` (1 worker, 120s timeout in `gunicorn.conf.py`)
-- Environment variables: set in the Railway dashboard (ANTHROPIC_API_KEY, OPENAI_API_KEY, VOYAGE_API_KEY)
-- ChromaDB lives on a Railway Volume (not in git); `data/raw/` IS in git
+- Start command: `gunicorn api.app:app` (settings in `gunicorn.conf.py`)
+- Environment variables: set in the Railway dashboard (ANTHROPIC_API_KEY, OPENAI_API_KEY,
+  VOYAGE_API_KEY, SECRET_KEY, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, RESEND_API_KEY,
+  MAIL_FROM, PINGUIDE_SUPPORT_URL)
+- ChromaDB and the SQLite database live on the Railway Volume `pinguide-volume`, mounted at
+  `/app/vector_store` (not in git); `data/raw/` IS in git
+- Google OAuth client (Google Cloud Console): authorized redirect URIs
+  `https://pinguide.info/auth/google/callback` and `http://localhost:5002/auth/google/callback`
+- Resend: the sending domain `pinguide.info` is verified with DNS records in Cloudflare
 - DNS: Cloudflare. `pinguide.info` is DNS-only to Railway; `www` is proxied
 
 ## Refreshing the Data (periodic)

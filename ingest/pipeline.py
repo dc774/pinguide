@@ -29,6 +29,8 @@ STERN_DIR = RAW_DIR / "stern"
 CGC_DIR = RAW_DIR / "cgc"
 KINETICIST_DIR = RAW_DIR / "kineticist"
 VECTOR_STORE_DIR = Path("vector_store")
+# The app's SQLite database lives in vector_store/app/ (see api/db.py).
+APP_DATA_DIRNAME = "app"
 COLLECTION_NAME = "rulesheets"
 
 # Rulesheet sources define the canonical machine names. Manufacturer pages and
@@ -231,6 +233,8 @@ def main(dry_run: bool = False) -> int:
     print("Clearing existing vector store...", flush=True)
     VECTOR_STORE_DIR.mkdir(parents=True, exist_ok=True)
     for item in VECTOR_STORE_DIR.iterdir():
+        if item.name == APP_DATA_DIRNAME:
+            continue  # accounts and saved chats (api/db.py) share the Volume: never wipe them
         shutil.rmtree(item) if item.is_dir() else item.unlink()
 
     chroma_client = chromadb.PersistentClient(path=str(VECTOR_STORE_DIR))

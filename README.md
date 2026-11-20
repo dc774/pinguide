@@ -1,21 +1,25 @@
+<p align="center"><img src="docs/logo.png" alt="Pinguide logo" width="160"></p>
+
 # Pinguide
 
-A RAG (Retrieval-Augmented Generation) system that answers questions about pinball machines using real rulesheets and strategy guides as its knowledge base. Ask anything about rules, modes, scoring, or strategy — it finds the relevant source material and generates a grounded answer.
+An AI pinball companion in the style of claude.ai. Ask anything about pinball: rules, modes and strategy for a specific machine, playing technique, tournaments, buying and repairing machines, collecting, history, or the latest news. Answers stream in as they're written, with the model's thought process available in a collapsible panel. For specific machines Pinguide draws on a library of real rulesheets, strategy guides and machine profiles (about 2,000 machines); for anything current it searches the web.
 
 **Live:** [pinguide.info](https://pinguide.info)
 
-Built as a personal project. Not commercial.
+![Pinguide welcome screen: chat sidebar, logo, suggested questions and the message box](docs/screenshot.png)
+
+Built as a personal project. Not commercial (an optional "Buy me a coffee" tip link only).
 
 ---
 
 ## Table of contents
 
-- [What it covers](#what-it-covers)
+- [Features](#features)
+- [What the library covers](#what-the-library-covers)
 - [How it works](#how-it-works)
 - [Retrieval strategy](#retrieval-strategy)
-- [The system prompt](#the-system-prompt)
 - [Tech stack](#tech-stack)
-- [Costs](#costs)
+- [Costs and limits](#costs-and-limits)
 - [Project structure](#project-structure)
 - [Local setup](#local-setup)
 - [Deployment](#deployment)
@@ -23,7 +27,18 @@ Built as a personal project. Not commercial.
 
 ---
 
-## What it covers
+## Features
+
+- Chat history in a left sidebar (Today / Previous 7 days / Older), with search, rename and delete
+- Optional sign-in (Google or an emailed link) to save chats across devices; without an account you can still chat, nothing is saved
+- Streaming answers with a Stop button; Markdown formatting; Copy, Retry and Edit
+- "Thought process" panel (the model's reasoning summary) and "Searched the web for ..." lines
+- Source chips for library rulesheets and web pages
+- Phone layout with a slide-out sidebar; keyboard accessible, WCAG AA contrast
+
+---
+
+## What the library covers
 
 | Source | What it is | Machines |
 |---|---|---|
@@ -42,52 +57,28 @@ About **2,000 machines** and **18,800 indexed chunks** in total. Many machines (
 
 ## How it works
 
-Three steps, run once to build the knowledge base:
+Built once (and refreshed now and then):
 
-1. **Scrape**: seven scrapers fetch rulesheets, manufacturer pages and Kineticist profiles and save structured JSON to `data/raw/`
-2. **Ingest** — chunks each source by section, generates embeddings via OpenAI, and stores everything in a ChromaDB vector store (~380 MB on disk)
-3. **Query** — at runtime, extracts the machine name from the question, retrieves the top candidates (per game variant, to guarantee equal representation), reranks them, and passes the best 5–8 to the LLM as context
+1. **Scrape:** seven scrapers fetch rulesheets, manufacturer pages and Kineticist profiles and save structured JSON to `data/raw/`
+2. **Ingest:** chunks each source by section, generates embeddings via OpenAI, and stores everything in a ChromaDB vector store (~380 MB on disk)
 
-We chunk by natural section boundaries (Modes, Multiball, Strategy, etc.) rather than fixed token windows, so each chunk is about one coherent topic.
+For each message:
+
+3. **Answer:** `POST /api/chat` streams Server-Sent Events. If the question (or the conversation so far) names a machine, the library is searched for that machine and the best excerpts are attached. Claude Haiku 5.5 then streams its answer, thinking first and calling web search when it needs current information. The first answer of a chat also gets a short generated title. For signed-in users the exchange is saved in SQLite.
+
+General questions with no machine named skip the library: its nearest chunks would come from arbitrary machines and pull the answer off topic, so the model answers as an expert from its own knowledge, plus the web.
 
 ---
 
 ## Retrieval strategy
 
-Three techniques work together:
+Used when a machine is in scope:
 
-**Game name filtering** — when a question names a specific machine, retrieval is restricted to chunks from that machine only. The system handles manufacturer-prefixed titles ("Stern Godzilla" vs. "Godzilla") and expands to variants (e.g. "Trident" also retrieves "Trident 2022"). General questions with no machine name get global retrieval.
+**Game name filtering:** retrieval is restricted to chunks from the named machine. The system handles manufacturer-prefixed titles ("Stern Godzilla" vs. "Godzilla") and expands to variants (e.g. "Trident" also retrieves "Trident 2022"). Follow-ups that don't name a machine stay with the one under discussion.
 
-**HyDE (Hypothetical Document Embeddings)** — pinball questions use everyday language; rulesheets use domain-specific terminology. Before searching, the LLM writes a short hypothetical rulesheet excerpt that would answer the question, and we embed that instead of the raw question. This closes the vocabulary gap and significantly improves retrieval precision.
+**HyDE (Hypothetical Document Embeddings):** pinball questions use everyday language; rulesheets use domain-specific terminology. Before searching, the LLM writes a short hypothetical rulesheet excerpt that would answer the question, and we embed that instead of the raw question.
 
-**Reranking** — after retrieval, Voyage AI's `rerank-2` cross-encoder scores each (question, chunk) pair for true relevance and reorders them. The top 5 go to the LLM for single-machine questions; when multiple variants of the same machine are in scope (e.g. Metallica and Metallica Remastered), each is queried separately and the top 8 go to the LLM, ensuring both versions are covered in the answer.
-
----
-
-## The system prompt
-
-The LLM's behavior is shaped by a system prompt, which continues to evolve as we learn what produces better answers:
-
-```
-You are a pinball machine expert assistant. This system covers roughly N machines
-across community rulesheets, strategy guides, and manufacturer pages. All questions refer to
-pinball machines and their rules, modes, and strategies — not to bands, films, or
-other topics those names may refer to. Answer using ONLY the rulesheet excerpts
-provided below.
-If asked how many machines are covered or what machines are available, answer using
-the count above — do not say you don't know.
-If the question is just a game name with no specific question, provide a concise
-overview of that machine's main modes and strategy using the excerpts, and invite a
-follow-up question.
-When excerpts from multiple distinct machines are present (e.g. an original and a
-remastered version), you MUST structure your answer with a clearly labeled heading
-for EACH machine and list each machine's information under its own heading. Never
-blend information from different machines into a single undifferentiated list.
-If the excerpts don't contain enough information to answer confidently, say so —
-do not speculate.
-```
-
-The machine count (N) is injected at startup from the live vector store, so it stays accurate as new machines are added.
+**Reranking:** Voyage AI's `rerank-2` cross-encoder scores each (question, chunk) pair and reorders them. The top 5 go to the LLM for one machine; when several machines share a title (e.g. Metallica and Metallica Remastered), each is queried separately, the top 8 are kept, and each machine gets its own answer section.
 
 ---
 
@@ -99,27 +90,27 @@ The machine count (N) is injected at startup from the live vector store, so it s
 | Vector store | ChromaDB (on disk) |
 | Embeddings | OpenAI `text-embedding-3-small` |
 | Reranking | Voyage AI `rerank-2` |
-| LLM | Anthropic Claude Haiku 5.5 |
-| API | Flask + flask-cors |
-| Frontend | Plain HTML/CSS/JS |
+| LLM | Anthropic Claude Haiku 5.5, with adaptive thinking and the web search tool |
+| API | Flask + gunicorn (threaded, streaming) |
+| Accounts and saved chats | SQLite; Authlib (Google sign-in); Resend (email links) |
+| Frontend | Plain HTML/CSS/JS, marked + DOMPurify |
 | Deployment | Railway + Cloudflare |
 
 ---
 
-## Costs
+## Costs and limits
 
-**One-time:** embedding the full corpus costs about $0.25 in OpenAI credits.
+**One-time:** embedding the full corpus costs about $0.40 in OpenAI credits.
 
-**Per query:**
+**Per answer** (estimates from testing; Claude Haiku 5.5 is $0.10 / $0.50 per million input/output tokens):
 
-| Step | Cost |
+| Answer | Cost |
 |---|---|
-| HyDE generation | ~$0.0001 |
-| Voyage reranking | ~$0.0002 |
-| Answer generation | ~$0.001 |
-| **Total** | **~$0.001–0.002** |
+| No web search | ~$0.002 |
+| With web search | ~$0.012 to $0.025 ($0.01 per search plus reading the results) |
+| Chat title (first answer only) | ~$0.0002 |
 
-At 10 queries a day, monthly cost is well under $1.
+**Web search limits** (each can be changed with an environment variable): 3 searches per answer, 25 per day for each visitor who isn't signed in, 100 per day for each signed-in user, and 300 per day for the whole site (about $3). Past a limit, answers still work, without searching.
 
 ---
 
@@ -128,11 +119,12 @@ At 10 queries a day, monthly cost is well under $1.
 ```
 pinguide-rag/
 ├── scraper/          # pinballrules.py, kineticist.py, makers.py, papa.py, bobs_guide.py, stern.py, cgc.py
-├── ingest/           # pipeline.py — chunk, embed, store
-├── api/              # app.py — Flask /query endpoint
-├── frontend/         # index.html — single-page UI
+├── ingest/           # pipeline.py: chunk, embed, store
+├── api/              # app.py (streaming chat), auth.py (sign-in), db.py (SQLite)
+├── frontend/         # index.html, app.css, app.js, logo and icons
+├── docs/             # logo and screenshot for this README
 ├── data/raw/         # scraped JSON (committed to git)
-└── vector_store/     # ChromaDB data (Railway Volume — not in git)
+└── vector_store/     # ChromaDB data + app/pinguide.db (Railway Volume, not in git)
 ```
 
 ---
@@ -153,9 +145,11 @@ cp .env.example .env   # then fill in your keys
 Scraped data is already committed, so you can go straight to ingest:
 
 ```bash
-python -m ingest.pipeline   # ~$0.25 in OpenAI embedding credits
-flask --app api/app run --port 5001
+python -m ingest.pipeline   # ~$0.40 in OpenAI embedding credits
+gunicorn -c gunicorn.conf.py -b 127.0.0.1:5002 api.app:app
 ```
+
+Then open http://localhost:5002. Without `RESEND_API_KEY`, email sign-in links are printed in the server output instead of being emailed. Google sign-in needs `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`; the button is hidden without them.
 
 To re-scrape fresh data first:
 
@@ -175,11 +169,11 @@ python -m scraper.makers       # after kineticist (uses its game names)
 
 ## Deployment
 
-Runs on [Railway](https://railway.com) as a Python web service. ChromaDB data lives on a 5 GB Railway Volume (not in git) and is **not** rebuilt by a deploy: after data changes, open the service's Console in the Railway dashboard, run `.venv/bin/python -m ingest.pipeline`, then restart the service.
+Runs on [Railway](https://railway.com) as a Python web service. ChromaDB and the SQLite database live on a 5 GB Railway Volume mounted at `/app/vector_store` (not in git). The ingest never touches the database folder. The vector store is **not** rebuilt by a deploy: after data changes, open the service's Console in the Railway dashboard, run `.venv/bin/python -m ingest.pipeline`, then restart the service.
 
 - **Build:** `pip install -r requirements.txt`
-- **Start:** `gunicorn api.app:app` (single worker and 120s timeout are set in `gunicorn.conf.py`)
-- **Environment variables:** set all API keys in the Railway dashboard
+- **Start:** `gunicorn api.app:app` (settings in `gunicorn.conf.py`)
+- **Environment variables:** API keys, `SECRET_KEY`, Google and Resend settings, and the optional `PINGUIDE_SUPPORT_URL` (see `.env.example`)
 - **Domain:** `pinguide.info` via Cloudflare DNS
 
 ---

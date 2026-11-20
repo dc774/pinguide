@@ -4,526 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Pinguide — AI-powered pinball guide</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f0f0f;
-      color: #e0e0e0;
-      min-height: 100dvh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 1.5rem 1rem 0;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header { flex-shrink: 0; margin-bottom: 0.5rem; }
-
-    .header-top {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.02em;
-    }
-
-    header h1 a { color: inherit; text-decoration: none; }
-
-    header p.desc {
-      margin-top: 0.9rem;
-      font-size: 0.875rem;
-      color: #999;
-      line-height: 1.5em;
-    }
-
-    header hr {
-      border: none;
-      border-top: 1px solid #555;
-      width: 100%;
-      margin: 14px 0 0;
-    }
-
-    .machine-count {
-      margin-top: 0.4rem;
-      font-size: 0.75rem;
-      color: #888;
-      font-style: italic;
-    }
-
-    /* Kineticist's API terms require visible attribution with a link. */
-    .credit {
-      margin-top: 0.2rem;
-      font-size: 0.75rem;
-      color: #888;
-    }
-    .credit a { color: #bbb; text-decoration: underline; }
-    .credit a:hover, .credit a:focus-visible { color: #fff; }
-
-    .new-chat {
-      flex-shrink: 0;
-      padding: 0.4rem 0.85rem;
-      background: transparent;
-      color: #e0e0e0;
-      border: 1px solid #444;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    .new-chat:hover:not(:disabled) { border-color: #777; background: #1a1a1a; }
-    .new-chat:disabled { opacity: 0.5; cursor: not-allowed; }
-
-    :focus-visible {
-      outline: 2px solid #f0b030;
-      outline-offset: 2px;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    /* Messages flow in normal document order; the window scrolls, not this. */
-    .chat {
-      flex: 1 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-
-    .empty-state {
-      margin: auto;
-      text-align: center;
-      color: #777;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      padding: 1rem;
-    }
-
-    .message { display: flex; flex-direction: column; max-width: 100%; }
-    .message.user { align-items: flex-end; }
-    .message.assistant { align-items: flex-start; }
-
-    .bubble {
-      max-width: 88%;
-      padding: 0.75rem 1rem;
-      border-radius: 14px;
-      line-height: 1.65;
-      font-size: 0.95rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .message.user .bubble {
-      background: #e8a020;
-      color: #1a1a1a;
-      border-bottom-right-radius: 4px;
-    }
-
-    .message.assistant .bubble {
-      background: #1a1a1a;
-      border: 1px solid #2e2e2e;
-      color: #e0e0e0;
-      border-bottom-left-radius: 4px;
-    }
-
-    .bubble hr {
-      border: none;
-      border-top: 1px solid #3a3a3a;
-      margin: 1rem 0;
-    }
-
-    .bubble strong { color: #fff; }
-
-    /* Per-message sources */
-    .sources {
-      margin-top: 0.6rem;
-      max-width: 88%;
-      align-self: flex-start;
-    }
-
-    .sources-heading {
-      margin-bottom: 0.5rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #999;
-    }
-
-    .sources-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .source-chip {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.3rem 0.6rem;
-      background: #161616;
-      border: 1px solid #2a2a2a;
-      border-radius: 6px;
-      padding: 0.45rem 0.7rem;
-      font-size: 0.78rem;
-      color: #999;
-    }
-
-    .source-badge {
-      margin-left: auto;
-      font-size: 0.66rem;
-      color: #999;
-      border: 1px solid #333;
-      border-radius: 3px;
-      padding: 0.1rem 0.35rem;
-      white-space: nowrap;
-    }
-
-    .source-chip .game { color: #ccc; font-weight: 600; }
-    .source-chip .sep { color: #777; }
-
-    a.source-chip {
-      text-decoration: none;
-      cursor: pointer;
-      transition: border-color 0.15s;
-    }
-
-    a.source-chip:hover { border-color: #666; }
-
-    /* Thinking indicator */
-    .thinking { display: flex; align-items: center; gap: 0.6rem; color: #999; font-size: 0.875rem; }
-    .loader-dots { display: flex; gap: 4px; }
-    .loader-dots span {
-      width: 5px; height: 5px; background: #999; border-radius: 50%;
-      animation: bounce 1.2s infinite ease-in-out;
-    }
-    .loader-dots span:nth-child(2) { animation-delay: 0.2s; }
-    .loader-dots span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes bounce {
-      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-      40% { transform: scale(1); opacity: 1; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .loader-dots span { animation: none; opacity: 0.7; }
-    }
-
-    .error-block {
-      flex-shrink: 0;
-      margin: 0.5rem 0;
-      padding: 0.75rem 1rem;
-      background: #1e0a0a;
-      border: 1px solid #4a1a1a;
-      border-radius: 6px;
-      color: #f08a8a;
-      font-size: 0.85rem;
-      display: none;
-    }
-
-    .error-block.visible { display: block; }
-
-    /* Composer sticks to the bottom of the viewport as the page scrolls */
-    .composer {
-      position: sticky;
-      bottom: 0;
-      z-index: 10;
-      display: flex;
-      gap: 0.5rem;
-      padding: 0.75rem 0 1.25rem;
-      background: #0f0f0f;
-      border-top: 1px solid #1f1f1f;
-    }
-
-    .composer input {
-      flex: 1;
-      padding: 0.7rem 0.95rem;
-      background: #1a1a1a;
-      border: 1px solid #2e2e2e;
-      border-radius: 8px;
-      color: #e0e0e0;
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-
-    .composer input:focus { border-color: #666; }
-    .composer input::placeholder { color: #888; }
-
-    .composer button {
-      padding: 0.7rem 1.3rem;
-      background: #e8a020;
-      color: #1a1a1a;
-      border: none;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-
-    .composer button:hover:not(:disabled) { background: #f0b030; }
-    .composer button:disabled { opacity: 0.5; cursor: not-allowed; }
-  </style>
+  <title>Pinguide: your AI pinball companion</title>
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.12/marked.min.js"
+          integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+"
+          crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"
+          integrity="sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla+3"
+          crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="/static/app.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="header-top">
-        <h1><a href="https://pinguide.info">Pinguide</a></h1>
-        <button type="button" class="new-chat" id="newChatBtn">New chat</button>
+  <a class="skip-link" href="#composerInput">Skip to message box</a>
+
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar" aria-label="Chats">
+      <div class="sidebar-top">
+        <a class="brand" href="/">Pinguide</a>
+        <button type="button" class="icon-btn" id="sidebarClose" aria-label="Close sidebar">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
       </div>
-      <p class="desc">Ask anything about a specific pinball machine: rules, modes, scoring, and strategy. Answers are sourced from real rulesheets, strategy guides, manufacturer pages, and machine profiles, and powered by AI.</p>
-      <hr>
-      <p class="machine-count" id="machineCount"></p>
-      <p class="credit">Data provided by <a href="https://www.kineticist.com">Kineticist</a></p>
-    </header>
 
-    <main class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation">
-      <p class="empty-state" id="emptyState">Ask a question below to start the conversation.<br>For example: &ldquo;How does multiball work in Metallica?&rdquo;</p>
-    </main>
+      <button type="button" class="new-chat" id="newChat">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        New chat
+      </button>
 
-    <div class="error-block" id="errorBlock" role="alert"></div>
+      <div class="chat-search">
+        <label class="sr-only" for="chatSearch">Search chats</label>
+        <input type="search" id="chatSearch" placeholder="Search chats" autocomplete="off">
+      </div>
 
-    <form class="composer" id="queryForm">
-      <label class="sr-only" for="questionInput">Your question</label>
-      <input
-        type="text"
-        id="questionInput"
-        placeholder="e.g. How does multiball work in Metallica?"
-        autocomplete="off"
-        autofocus
-      >
-      <button type="submit" id="submitBtn">Ask</button>
-    </form>
+      <nav class="chat-list" id="chatList" aria-label="Chat history"></nav>
+
+      <a class="support-link" id="supportSidebar" hidden target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">&#9749;</span> Support Pinguide
+      </a>
+      <div class="account" id="account"></div>
+    </aside>
+    <div class="scrim" id="scrim" hidden></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="icon-btn" id="menuBtn" aria-label="Show sidebar"
+                aria-controls="sidebar" aria-expanded="true">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <h1 class="chat-title" id="chatTitle">New chat</h1>
+      </header>
+
+      <main class="messages" id="messages" aria-label="Conversation">
+        <div class="thread" id="thread"></div>
+      </main>
+
+      <div class="composer-wrap">
+        <form class="composer" id="composer">
+          <label class="sr-only" for="composerInput">Message Pinguide</label>
+          <textarea id="composerInput" rows="1" placeholder="Ask anything about pinball"
+                    aria-describedby="composerHint"></textarea>
+          <button type="submit" class="send-btn" id="sendBtn" aria-label="Send message">
+            <svg class="icon-send" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="icon-stop" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor"/></svg>
+          </button>
+        </form>
+        <p class="hint" id="composerHint">Enter to send, Shift+Enter for a new line. Pinguide is AI and can make mistakes.</p>
+        <footer class="site-footer">
+          &copy; <span id="year"></span> Pinguide
+          <span aria-hidden="true">·</span>
+          Powered by the <a href="https://www.kineticist.com">Kineticist API</a>
+          <span id="machineCount"></span>
+          <span id="supportFooter" hidden>
+            <span aria-hidden="true">·</span>
+            <a id="supportFooterLink" target="_blank" rel="noopener noreferrer">Buy me a coffee</a>
+          </span>
+        </footer>
+      </div>
+    </div>
   </div>
 
-  <script>
-    fetch('/stats').then(r => r.json()).then(d => {
-      if (d.machines) document.getElementById('machineCount').textContent = `${d.machines} machines served`;
-    }).catch(() => {});
+  <dialog id="signinDialog" aria-labelledby="signinTitle">
+    <h2 id="signinTitle">Sign in to save your chats</h2>
+    <p class="dialog-note">Your chats are kept on Pinguide and appear in the sidebar on any device. Chatting without an account still works; nothing is saved.</p>
+    <p class="error-text" id="signinError" role="alert" hidden></p>
+    <a class="btn primary block" id="googleBtn" href="/auth/google" hidden>Continue with Google</a>
+    <p class="or" id="signinOr" hidden>or</p>
+    <form id="emailForm" class="email-form">
+      <label for="emailInput">Email address</label>
+      <input type="email" id="emailInput" autocomplete="email" required maxlength="254">
+      <button type="submit" class="btn primary block">Email me a sign-in link</button>
+    </form>
+    <p class="dialog-note" id="emailSent" role="status"></p>
+    <div class="dialog-actions"><button type="button" class="btn" id="signinClose">Close</button></div>
+  </dialog>
 
-    const form = document.getElementById('queryForm');
-    const input = document.getElementById('questionInput');
-    const submitBtn = document.getElementById('submitBtn');
-    const newChatBtn = document.getElementById('newChatBtn');
-    const chat = document.getElementById('chat');
-    const errorBlock = document.getElementById('errorBlock');
-
-    // Authoritative conversation sent to the server as `history` each turn.
-    // The server returns the updated, capped history, which we adopt here.
-    let conversation = [];
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const question = input.value.trim();
-      if (!question) return;
-
-      errorBlock.classList.remove('visible');
-      errorBlock.textContent = '';
-      removeEmptyState();
-
-      appendMessage('user', question);
-      input.value = '';
-      input.disabled = true;
-      submitBtn.disabled = true;
-
-      const thinking = appendThinking();
-
-      try {
-        const res = await fetch('/query', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question, history: conversation }),
-        });
-
-        if (!res.ok) {
-          throw new Error(`Server error: ${res.status} ${res.statusText}`);
-        }
-
-        const data = await res.json();
-        thinking.remove();
-
-        appendMessage('assistant', data.answer ?? '(no answer returned)', data.sources ?? []);
-
-        // Adopt the server's updated history as the source of truth.
-        conversation = Array.isArray(data.history) ? data.history : conversation;
-      } catch (err) {
-        thinking.remove();
-        errorBlock.textContent = err.message || 'Something went wrong. Is the API running?';
-        errorBlock.classList.add('visible');
-        scrollToBottom();
-      } finally {
-        input.disabled = false;
-        submitBtn.disabled = false;
-        input.focus();
-      }
-    });
-
-    newChatBtn.addEventListener('click', () => {
-      conversation = [];
-      chat.innerHTML = '';
-      const hint = document.createElement('p');
-      hint.className = 'empty-state';
-      hint.id = 'emptyState';
-      hint.innerHTML = 'Ask a question below to start the conversation.<br>For example: &ldquo;How does multiball work in Metallica?&rdquo;';
-      chat.appendChild(hint);
-      errorBlock.classList.remove('visible');
-      errorBlock.textContent = '';
-      input.value = '';
-      input.focus();
-    });
-
-    function removeEmptyState() {
-      const el = document.getElementById('emptyState');
-      if (el) el.remove();
-    }
-
-    function appendMessage(role, text, sources) {
-      const msg = document.createElement('div');
-      msg.className = `message ${role}`;
-
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      if (role === 'assistant') {
-        bubble.innerHTML = renderMarkdown(text);
-      } else {
-        bubble.textContent = text;
-      }
-      msg.appendChild(bubble);
-
-      if (role === 'assistant' && sources && sources.length > 0) {
-        msg.appendChild(buildSources(sources));
-      }
-
-      chat.appendChild(msg);
-      scrollToBottom();
-      return msg;
-    }
-
-    function appendThinking() {
-      const msg = document.createElement('div');
-      msg.className = 'message assistant';
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble thinking';
-      bubble.setAttribute('aria-label', 'Thinking');
-      bubble.innerHTML = '<span class="loader-dots"><span></span><span></span><span></span></span> Thinking…';
-      msg.appendChild(bubble);
-      chat.appendChild(msg);
-      scrollToBottom();
-      return msg;
-    }
-
-    function buildSources(sources) {
-      const wrap = document.createElement('div');
-      wrap.className = 'sources';
-
-      const heading = document.createElement('div');
-      heading.className = 'sources-heading';
-      heading.textContent = 'Sources';
-      wrap.appendChild(heading);
-
-      const list = document.createElement('div');
-      list.className = 'sources-list';
-
-      // Deduplicate by game + section, cap at 10.
-      const seen = new Set();
-      const deduped = [];
-      for (const src of sources) {
-        const key = `${src.game}|${src.section_name}`;
-        if (!seen.has(key)) {
-          seen.add(key);
-          deduped.push(src);
-        }
-        if (deduped.length === 10) break;
-      }
-
-      for (const src of deduped) {
-        const chip = document.createElement(src.url ? 'a' : 'div');
-        chip.className = 'source-chip';
-        if (src.url) {
-          chip.href = src.url;
-          chip.target = '_blank';
-          chip.rel = 'noopener noreferrer';
-        }
-
-        let section = (src.section_name || '').replace(/:\s*$/, '').trim();
-        if (section === 'Machine Metadata') section = 'Machine Info';
-        const parts = [`<span class="game">${esc(src.game)}</span>`];
-        if (section) parts.push(`<span>${esc(section)}</span>`);
-        chip.innerHTML = parts.join('<span class="sep" aria-hidden="true">—</span>');
-
-        const label = sourceLabel(src.url);
-        if (label) {
-          const badge = document.createElement('span');
-          badge.className = 'source-badge';
-          badge.textContent = label;
-          chip.appendChild(badge);
-        }
-
-        list.appendChild(chip);
-      }
-
-      wrap.appendChild(list);
-      return wrap;
-    }
-
-    function scrollToBottom() {
-      // The window scrolls (not an inner container), so drive the page scroll.
-      window.scrollTo(0, document.documentElement.scrollHeight);
-    }
-
-    function esc(str) {
-      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
-    function renderMarkdown(raw) {
-      // Escape HTML, then render **bold**, *italic*, and --- dividers.
-      // white-space: pre-wrap on .bubble preserves newlines and indentation.
-      return raw
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
-        .replace(/\n---\n/g, '<hr>');
-    }
-
-    function sourceLabel(url) {
-      if (!url) return '';
-      if (url.includes('pinballrulesheets.com')) return 'Pinball Rulesheets ↗';
-      if (url.includes('tiltforums.com')) return 'Tiltforums ↗';
-      if (url.includes('pinball.org')) return 'PAPA ↗';
-      if (url.includes('silverballmania.com')) return "Bob's Guide ↗";
-      if (url.includes('sternpinball.com')) return 'Stern ↗';
-      if (url.includes('chicago-gaming.com')) return 'Chicago Gaming ↗';
-      if (url.includes('kineticist.com')) return 'Kineticist ↗';
-      // Other sources (smaller manufacturers): show the site's own name.
-      try { return new URL(url).hostname.replace(/^www\./, '') + ' ↗'; } catch { return '↗'; }
-    }
-  </script>
+  <div class="sr-only" id="srStatus" role="status" aria-live="polite"></div>
 </body>
 </html>
