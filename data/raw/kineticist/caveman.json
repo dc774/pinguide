@@ -1,0 +1,13 @@
+{
+  "game": "Caveman",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/caveman",
+  "sections": {
+    "Profile": "\"Caveman\" is a pinball machine released by D. Gottlieb & Co. in September 1982, notable for being the first hybrid game to combine pinball with a video game. It features a wide body cabinet with a 13-inch video monitor embedded in the playfield and includes four flippers but no ramps or multiball. A total of 1,800 units were produced.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Prehistoric, Video Game, Solid State, History, Hybrid pinball, 1980s",
+    "Design Team": "- Mechanics: Jim Weisz\n- Software: John Buras\n- Design: John Buras\n- Art: David Moore\n- Software: Joel Krieger\n- Art: Jeff Lee\n- Art: Terry Doerzaph\n- Art: Richard Tracy\n- Sound: Craig Beierwaltes\n- Software: Frank Starshak",
+    "Editions": "- Caveman: 1,800 made, released 1982-01-09, model number PV810, Gottlieb System 80A"
+  },
+  "opdb_group": "R768",
+  "rules_url": "",
+  "tutorials": []
+}

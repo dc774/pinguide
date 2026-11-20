@@ -1,0 +1,12 @@
+{
+  "game": "Escape",
+  "manufacturer": "Jac Van Ham",
+  "url": "https://www.kineticist.com/games/pinball/escape",
+  "sections": {
+    "Profile": "Escape, produced by Jac van Ham in 1987, is a solid-state pinball machine from the Netherlands. The game features two flippers, three pop bumpers, and a captive ball.\n\n- Manufacturer: Jac Van Ham\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Boats, Helicopters, Spy, Original Theme, Solid State, 1980s",
+    "Editions": "- Escape: released 1987-01-01"
+  },
+  "opdb_group": "5v9V",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "RollerCoaster Tycoon",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/rollercoaster-tycoon",
+  "sections": {
+    "Profile": "The \"RollerCoaster Tycoon\" pinball machine, released by Stern in 2002, is designed by Pat Lawlor and based on the popular PC game series. The machine features four flippers, three colorful ramps, and a variety of targets and bumpers that simulate the excitement of an amusement park. Notable toys include a solenoid-actuated troll doll in a dunk tank, which adds a quirky element to the gameplay.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2002\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Roller Coaster, Video Game, 2000s, Licensed, Solid State, Theme park",
+    "Design Team": "- Design: Pat Lawlor\n- Art: John Youssi\n- Animation: Greg Dunlap\n- Mechanics: John Krutsch\n- Software: Louis Koziarz\n- Music: Chris Granner\n- Sound: Chris Granner",
+    "Editions": "- RollerCoaster Tycoon: released 2002-01-08, model number 78, Sega/Stern Whitestar"
+  },
+  "opdb_group": "rybw",
+  "rules_url": "",
+  "tutorials": []
+}

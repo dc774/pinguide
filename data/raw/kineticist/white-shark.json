@@ -1,0 +1,13 @@
+{
+  "game": "White Shark",
+  "manufacturer": "Bell Games",
+  "url": "https://www.kineticist.com/games/pinball/white-shark",
+  "sections": {
+    "Profile": "White Shark, produced by Bell Coin Matic in 1979, is a solid-state pinball machine featuring artwork by Michele Martinelli. The game includes two flippers, three pop bumpers, two slingshots, a five-bank drop target, four standup targets, a kick-out hole, and a spinning target. Notably, it was designed as a conversion kit for Europlay's 'Jaws' pinball machine, allowing operators to update existing cabinets with new gameplay and artwork.\n\n- Manufacturer: Bell Games\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Conversion Kit, Sharks, Swimming, Scuba Diving, Solid State, Water, 1980s",
+    "Design Team": "- Art: Michele Martinelli\n- Art: B. Kobra",
+    "Editions": "- Cosmodrome: released 1980-01-01\n- White Shark: released 1980-01-01, Bally MPU AS-2518-17"
+  },
+  "opdb_group": "509D",
+  "rules_url": "",
+  "tutorials": []
+}

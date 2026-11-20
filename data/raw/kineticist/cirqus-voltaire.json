@@ -1,0 +1,19 @@
+{
+  "game": "Cirqus Voltaire",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/cirqus-voltaire",
+  "sections": {
+    "Profile": "Cirqus Voltaire, designed by John Popadiuk and released by Bally in 1997, is a pinball machine that stands out for its unique and vibrant circus-themed gameplay. The game features a distinctive neon light along the right-hand ramp and a pop bumper that rises from the middle of the playfield, adding to its visual appeal. The central gameplay element is the Ringmaster, a taunting head that emerges from the playfield, challenging players to hit it to progress. Players must complete nine marvels, such as Juggler Multiball and Ringmaster Frenzie, to ultimately \"Join the Cirqus\" and activate the wizard mode.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1997\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Carnival, Circus, Original Theme, 1990s, Solid State",
+    "Design Team": "- Animation: Adam Rhine\n- Art: Linda Deal\n- Callouts: Jon Hey\n- Software: Cameron Silver\n- Design: Cameron Silver\n- Callouts: Cameron Silver\n- Mechanics: Louis Toy\n- Design: John Popadiuk\n- Concept: John Popadiuk\n- Callouts: Rob Berry\n- Music: Rob Berry\n- Sound: Rob Berry\n- Animation: Brian Morris\n- Mechanics: Jack Skalon\n- Callouts: Cathy Schenkelberg\n- Music: Dave Zabriskie",
+    "Editions": "- Cirqus Voltaire (Classic): released 2026-09-01\n- Cirqus Voltaire (Ringmaster): released 2026-09-01\n- Cirqus Voltaire: 2,704 made, released 1997-01-01, model number 50062, Williams WPC-95",
+    "Getting Started (Kineticist tutorial)": "- Hit the WOW targets in the top right to raise the Ringmaster, then hit him 5 times to defeat him. A free multiball is given for the 2nd, 3rd, and 4th defeats; defeating 4 Ringmasters is the most time consuming requirement for Join the Cirqus wizard mode.\n- The left ramp gives progress toward two different multiballs: hitting the standup targets on either side of the ramp lights locks for Highwire Multiball, while shots to the unlit ramp progress towards Strike an Arc Multiball.\n- Two further multiballs are potentially available at the left orbit: Juggler Multiball for repeated left shots, or Neon Multiball from the Side Show mystery award. The latter is lit by hitting standup targets on either side of the Ringmaster.\n- Completing the 9 \"Marvel\" tasks shown near the flippers qualifies Join the Cirqus wizard mode. Marvels are earned by playing Highwire and Juggler Multiballs, defeating all 4 Ringmasters, and making repeated shots to features like the right orbit, Menagerie ball, and right spinner."
+  },
+  "opdb_group": "RVjJ",
+  "rules_url": "",
+  "tutorials": [
+    {
+      "image": "https://media.kineticist.com/4db36e74-cc0a-4c80-aa05-e960ccef3f00.png",
+      "text": "- Hit the WOW targets in the top right to raise the Ringmaster, then hit him 5 times to defeat him. A free multiball is given for the 2nd, 3rd, and 4th defeats; defeating 4 Ringmasters is the most time consuming requirement for Join the Cirqus wizard mode.\n- The left ramp gives progress toward two different multiballs: hitting the standup targets on either side of the ramp lights locks for Highwire Multiball, while shots to the unlit ramp progress towards Strike an Arc Multiball.\n- Two further multiballs are potentially available at the left orbit: Juggler Multiball for repeated left shots, or Neon Multiball from the Side Show mystery award. The latter is lit by hitting standup targets on either side of the Ringmaster.\n- Completing the 9 \"Marvel\" tasks shown near the flippers qualifies Join the Cirqus wizard mode. Marvels are earned by playing Highwire and Juggler Multiballs, defeating all 4 Ringmasters, and making repeated shots to features like the right orbit, Menagerie ball, and right spinner."
+    }
+  ]
+}

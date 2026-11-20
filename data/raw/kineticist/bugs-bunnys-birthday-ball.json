@@ -1,0 +1,13 @@
+{
+  "game": "Bugs Bunny's Birthday Ball",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/bugs-bunnys-birthday-ball",
+  "sections": {
+    "Profile": "Bugs Bunny's Birthday Ball is a 1990 pinball machine designed by John Trudeau with artwork by Python Anghelo. Celebrating Bugs Bunny's 50th anniversary, the game features iconic Looney Tunes characters and vibrant, cartoon-themed artwork.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1990–1991\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Looney Tunes, Good Times, Licensed, Cartoon, 1990s, Solid State",
+    "Design Team": "- Art: John Youssi\n- Design: John Trudeau\n- Concept: John Trudeau\n- Mechanics: Jack Skalon\n- Software: Dwight Sullivan\n- Art: Python Anghelo\n- Concept: Python Anghelo\n- Software: Dan Lee\n- Music: Paul Heitsch\n- Sound: Paul Heitsch",
+    "Editions": "- Bugs Bunny's Birthday Ball: 2,250 made, released 1990-12-03, model number 20009, Williams System 11C"
+  },
+  "opdb_group": "RozL",
+  "rules_url": "",
+  "tutorials": []
+}

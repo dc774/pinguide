@@ -1,0 +1,13 @@
+{
+  "game": "ROCs",
+  "manufacturer": "Multimorphic",
+  "url": "https://www.kineticist.com/games/pinball/rocs-2020",
+  "sections": {
+    "Profile": "ROCs is an innovative pinball game developed by Multimorphic, released in 2017. Designed as an application for the P3 Pinball Platform, it combines traditional pinball mechanics with a dynamic, interactive playfield display. Players use real balls, flippers, and bumpers to defend a power source from ROCs (robots), while activating laser beams and collecting power-ups to maintain flipper strength.\n\n- Manufacturer: Multimorphic\n- Years made: 2020\n- In production: yes\n- Type: Solid State\n- Display: LCD\n- Players: 1\n- Tags: Single Player, 2020s, Original Theme, Solid State, P3, Module Game",
+    "Design Team": "- Art: Rory Cernuda\n- Software: BJ Wilson\n- Art: BJ Wilson\n- Animation: BJ Wilson\n- Concept: BJ Wilson\n- Sound: BJ Wilson\n- Concept: Gerry Stellenberg\n- Music: Scott Danesi",
+    "Editions": "- ROCs: released 2020-07-01, Multimorphic P3-ROC"
+  },
+  "opdb_group": "d22x",
+  "rules_url": "",
+  "tutorials": []
+}

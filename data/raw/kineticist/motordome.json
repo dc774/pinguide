@@ -1,0 +1,13 @@
+{
+  "game": "Motordome",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/motordome",
+  "sections": {
+    "Profile": "Motordome , released by Bally in 1986, is a four-player solid-state game with a motorbike racing theme, designed by Greg Kmiec with artwork by Tony Ramunni. Its playfield is built around a tall system of clear ramps with a flipper of their own on the upper level, players pick one of three skill levels before the first ball, and 2,000 were built.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Racing, Sports, Solid State, Motorcycles, 1980s",
+    "Design Team": "- Art: Tony Ramunni\n- Software: Rehman Merchant\n- Design: Greg Kmiec\n- Sound: Bob Libbe",
+    "Editions": "- Motordome: 2,000 made, released 1986-05-01, model number 0E14, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "r8PN",
+  "rules_url": "",
+  "tutorials": []
+}

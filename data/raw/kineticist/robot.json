@@ -1,0 +1,13 @@
+{
+  "game": "Robot",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/robot",
+  "sections": {
+    "Profile": "The Robot pinball machine, released by Zaccaria in 1985, is a solid-state game that stands out with its futuristic robot theme and innovative gameplay features. Designed for up to four players, it incorporates a unique elevated ball shooter lane and a \"Robot Bridge,\" which, when crossed, activates five rising robot targets on the playfield.\n\n- Manufacturer: Zaccaria\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Solid State, Robots, 1980s",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Robot: released 1985-01-01, Zaccaria Generation 2"
+  },
+  "opdb_group": "5Wjk",
+  "rules_url": "",
+  "tutorials": []
+}

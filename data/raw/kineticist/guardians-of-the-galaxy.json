@@ -1,0 +1,13 @@
+{
+  "game": "Guardians of the Galaxy",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/guardians-of-the-galaxy",
+  "sections": {
+    "Profile": "The \"Guardians of the Galaxy\" pinball machine, produced by Stern Pinball in October 2017, is based on the popular Marvel movie franchise. Designed by John Borg, this machine features two flippers, two ramps, and the Stern SPIKE 2 System. It offers dynamic gameplay with six multiball modes and interactive elements such as a motorized orb toy and Groot’s mouth, which locks balls for multiball play.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2017\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Fictional Character, 2010s, Licensed, Solid State, Comics, Superhero, Marvel",
+    "Design Team": "- Software: Waison Cheng\n- Art: Christopher Franchi\n- Design: John Borg\n- Animation: Zac Stark\n- Software: Mike Kyzivat\n- Software: Lonnie D. Ropp\n- Music: Ken Hale\n- Sound: Ken Hale\n- Mechanics: Robert Blakeman",
+    "Editions": "- Guardians of the Galaxy (Pro): MSRP $6,199, released 2017-11-01, model number PINBALL I-00L5 * GOTG PRO, Stern SPIKE 2 System\n- Guardians of the Galaxy (Premium): MSRP $7,899, released 2017-12-01, model number PINBALL I-00L7 * GOTG PREM, Stern SPIKE 2 System\n- Guardians of the Galaxy (LE): MSRP $8,999, 600 made, released 2017-12-01, model number PINBALL I-00L6 * GOTG LE, Stern SPIKE 2 System"
+  },
+  "opdb_group": "RWvz",
+  "rules_url": "https://pinballrulesheets.com/stern/guardians-of-the-galaxy-pinball-rulesheet.html",
+  "tutorials": []
+}

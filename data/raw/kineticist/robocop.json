@@ -1,0 +1,13 @@
+{
+  "game": "Robocop",
+  "manufacturer": "Data East USA Inc.",
+  "url": "https://www.kineticist.com/games/pinball/robocop",
+  "sections": {
+    "Profile": "The Robocop pinball machine, released by Data East in 1989, is based on the popular sci-fi action movie of the same name. Designed by Joe Kaminkow and Ed Cebula, with artwork by Kevin O'Connor, this game features engaging elements like a jump ramp, spot targets, eject holes, multi-ball, and more. It stands out with its alphanumeric display and voice call-outs from the movie soundtrack.\n\n- Manufacturer: Data East USA Inc.\n- Years made: 1989\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Violence, Licensed, Solid State, Crime, 1980s",
+    "Design Team": "- Art: Kevin O'Connor\n- Animation: Hudson Graphics\n- Design: Ed Cebula\n- Software: Rob Quinn\n- Design: Joe Kaminkow\n- Music: Mark Cross\n- Sound: Mark Cross\n- Music: Scott Stevenson\n- Sound: Scott Stevenson",
+    "Editions": "- Robocop: 1,500 made, released 1989-11-01, model number 500-5506-01, DataEast/Sega Version 2"
+  },
+  "opdb_group": "rlxe",
+  "rules_url": "https://pinballrulesheets.com/data-east/robocop-rulesheet.html",
+  "tutorials": []
+}

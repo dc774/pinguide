@@ -1,0 +1,13 @@
+{
+  "game": "Heist",
+  "manufacturer": "Multimorphic",
+  "url": "https://www.kineticist.com/games/pinball/heist-2020",
+  "sections": {
+    "Profile": "\"Heist\" by Multimorphic is a pinball game integrated with the P3 modular platform, released in 2020. Set in the crime-ridden Ocean City, players join Maggie Machado and her crew to topple the city's corrupt overlord, Mr. Big.\n\n- Manufacturer: Multimorphic\n- Years made: 2020\n- In production: yes\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: 2020s, Original Theme, Solid State, P3, Module Game, Crime",
+    "Design Team": "- Design: Stephen Silver\n- Animation: Stephen Silver\n- Sound: Stephen Silver\n- Software: Thomas Law\n- Art: Jose Fernandez\n- Mechanics: TJ Weaver\n- Concept: TJ Weaver\n- Mechanics: Trey Jones\n- Software: BJ Wilson\n- Sound: BJ Wilson\n- Software: Greg Goldey\n- Sound: Greg Goldey\n- Mechanics: Les Pitt\n- Music: Jonas Hornqvist",
+    "Editions": "- Heist: released 2020-03-01, Multimorphic P3-ROC"
+  },
+  "opdb_group": "18pJ",
+  "rules_url": "https://pinballrulesheets.com/multimorphic/heist-rulesheet.html",
+  "tutorials": []
+}

@@ -33,8 +33,10 @@ Built as a personal project. Not commercial.
 | [Bob's Guide](https://rules.silverballmania.com) | Strategy guides for classic and EM-era machines | ~413 |
 | [Stern Pinball](https://sternpinball.com) | Official pages for current Stern machines: overview, gameplay features, edition (Premium/LE) differences | ~81 |
 | [Chicago Gaming](https://www.chicago-gaming.com) | Official pages for CGC remakes (Medieval Madness, Attack from Mars, Monster Bash, Cactus Canyon, Pulp Fiction) | 5 |
+| [Kineticist](https://www.kineticist.com) ([API](https://www.kineticist.com/docs/api)) | Machine profiles: description, years, design team, editions with price and production run, and for 66 games a transcribed "keys to the game" tutorial. Data provided by Kineticist. | ~1,780 |
+| Smaller makers | Official pages from Multimorphic (26 P3 games), Spooky, Pinball Brothers, Dutch Pinball, Turner, American Pinball, and Barrels of Fun code update notes | ~55 |
 
-About **13,600 indexed chunks** in total.
+About **2,000 machines** and **18,800 indexed chunks** in total. Many machines (about 1,100) have only a Kineticist profile, not a full rulesheet, and answers say so.
 
 ---
 
@@ -42,7 +44,7 @@ About **13,600 indexed chunks** in total.
 
 Three steps, run once to build the knowledge base:
 
-1. **Scrape** — five scrapers fetch rulesheets and manufacturer pages and save structured JSON to `data/raw/`
+1. **Scrape**: seven scrapers fetch rulesheets, manufacturer pages and Kineticist profiles and save structured JSON to `data/raw/`
 2. **Ingest** — chunks each source by section, generates embeddings via OpenAI, and stores everything in a ChromaDB vector store (~380 MB on disk)
 3. **Query** — at runtime, extracts the machine name from the question, retrieves the top candidates (per game variant, to guarantee equal representation), reranks them, and passes the best 5–8 to the LLM as context
 
@@ -125,7 +127,7 @@ At 10 queries a day, monthly cost is well under $1.
 
 ```
 pinguide-rag/
-├── scraper/          # pinballrules.py, papa.py, bobs_guide.py, stern.py, cgc.py
+├── scraper/          # pinballrules.py, kineticist.py, makers.py, papa.py, bobs_guide.py, stern.py, cgc.py
 ├── ingest/           # pipeline.py — chunk, embed, store
 ├── api/              # app.py — Flask /query endpoint
 ├── frontend/         # index.html — single-page UI
@@ -163,7 +165,11 @@ python -m scraper.papa
 python -m scraper.bobs_guide
 python -m scraper.stern
 python -m scraper.cgc
+python -m scraper.kineticist   # about an hour; transcribes tutorial images once (ANTHROPIC_API_KEY)
+python -m scraper.makers       # after kineticist (uses its game names)
 ```
+
+`python -m ingest.pipeline --dry-run` prints the machine-name reconciliation and machine count without embedding anything.
 
 ---
 

@@ -1,0 +1,19 @@
+{
+  "game": "Genesis (D. Gottlieb, 1986)",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/genesis",
+  "sections": {
+    "Profile": "The Genesis pinball machine, released by Gottlieb in 1986, offers a unique blend of sci-fi and robot-themed gameplay. Designed by John Trudeau, it features intricate artwork by Don Marshall, Ken Hale, and Larry Day, with Ken Hale also handling sound and music. The game is set in a futuristic lab where players are tasked with assembling a robot by hitting various targets and ramps.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Solid State, Campy, Fantasy, Sci-Fi, Horror, 1980s",
+    "Design Team": "- Design: John Trudeau\n- Concept: John Trudeau\n- Art: Ken Hale\n- Music: Ken Hale\n- Sound: Ken Hale\n- Software: John Buras\n- Art: Larry Day\n- Art: Don Marshall",
+    "Editions": "- Genesis: 3,500 made, released 1986-01-09, model number 705, Gottlieb System 80B",
+    "Getting Started (Kineticist tutorial)": "Getting Started\n\n- Collect body parts by shooting the ramps, orbits, and top lanes. Each body part that hasn't been completed this cycle awards 50k and advances the playfield multiplier by +1x.\n- After completing a body part that hasn't been completed yet, shoot the flashing ramp to lock a ball and then start multiball by plunging the ball. The playfield multiplier is doubled during multiball.\n- Complete enough body parts on one ball for extra ball (500k in comp).\n- Once all four parts are completed, shoot the lifeforce vari-target strongly to bring the robot to life for 130k, light special, and reset the body part cycle while maintaining the built-up playfield multiplier. Special is worth 500k in comp.\n- The vari-target scores up to 40k based on how hard it was hit. It can also spot a body part letter in the one that is closest to completion, if lit via either inlane (1 letter for all parts if they have equal progress).\n- Complete the 1-2-3 drop targets from left to right to collect a letter in all body parts."
+  },
+  "opdb_group": "r2wz",
+  "rules_url": "",
+  "tutorials": [
+    {
+      "image": "https://media.kineticist.com/games/genesis-1986/tutorial/68961e5160a5681d423d7dd1_s8XoZFHQLxvSc0hXYzRAMqpA9-qHwCk_k2e8MPio5Is.png",
+      "text": "Getting Started\n\n- Collect body parts by shooting the ramps, orbits, and top lanes. Each body part that hasn't been completed this cycle awards 50k and advances the playfield multiplier by +1x.\n- After completing a body part that hasn't been completed yet, shoot the flashing ramp to lock a ball and then start multiball by plunging the ball. The playfield multiplier is doubled during multiball.\n- Complete enough body parts on one ball for extra ball (500k in comp).\n- Once all four parts are completed, shoot the lifeforce vari-target strongly to bring the robot to life for 130k, light special, and reset the body part cycle while maintaining the built-up playfield multiplier. Special is worth 500k in comp.\n- The vari-target scores up to 40k based on how hard it was hit. It can also spot a body part letter in the one that is closest to completion, if lit via either inlane (1 letter for all parts if they have equal progress).\n- Complete the 1-2-3 drop targets from left to right to collect a letter in all body parts."
+    }
+  ]
+}

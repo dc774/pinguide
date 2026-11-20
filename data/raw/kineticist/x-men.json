@@ -1,0 +1,13 @@
+{
+  "game": "X-Men",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/x-men",
+  "sections": {
+    "Profile": "The \"X-Men\" pinball machine by Stern, released in 2012, is designed by John Borg and offers a rich experience based on the popular Marvel comic series. The game is available in Pro, Wolverine LE, and Magneto LE versions, each with distinct features and artwork.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2012\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2010s, Licensed, Solid State, Comics, Fantasy",
+    "Design Team": "- Software: Waison Cheng\n- Design: John Borg\n- Concept: John Borg\n- Mechanics: John Borg\n- Mechanics: John Rotharmel\n- Software: Lonnie D. Ropp\n- Art: Stephen Jensen\n- Music: David Thiel\n- Sound: David Thiel\n- Art: Kevin O'Connor\n- Software: Mike Kyzivat\n- Animation: Rory O'Donnell\n- Animation: Mark Galvez\n- Mechanics: Mike Redoble\n- Animation: Tom Kyzivat",
+    "Editions": "- X-Men: MSRP $5,699, released 2012-08-13, model number I-00D1, Stern S.A.M. Board System\n- X-Men (LE): MSRP $7,999, released 2012-09-01, Stern S.A.M. Board System\n- X-Men Magneto (LE): MSRP $7,999, 250 made, released 2012-06-01, model number PINBALL I-00D2, Stern S.A.M. Board System\n- X-Men Wolverine (LE): MSRP $7,999, 300 made, released 2012-06-01, model number PINBALL I-00D2, Stern S.A.M. Board System"
+  },
+  "opdb_group": "rj6X",
+  "rules_url": "https://pinballrulesheets.com/stern/x-men-stern-2012.html",
+  "tutorials": []
+}

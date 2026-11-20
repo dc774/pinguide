@@ -1,0 +1,13 @@
+{
+  "game": "Oktoberfest",
+  "manufacturer": "American Pinball",
+  "url": "https://www.kineticist.com/games/pinball/oktoberfest-2018",
+  "sections": {
+    "Profile": "\"Oktoberfest\" by American Pinball, released in October 2018, immerses players in a vibrant festival atmosphere. Designed by Joe Balcer, this machine features three flippers, three ramps, and six multiball modes. Key gameplay elements include the Corkscrew Rollercoaster, a Shack & Beer Barrel with 3-ball lock mechanisms, and Otto the Bartender, an interactive target and ball lock assembly. Players can explore over a dozen tents, collect beer steins, and enjoy a variety of mini-games and modes.\n\n- Manufacturer: American Pinball\n- Years made: 2018\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Drinking, Good Times, 2010s, Cartoon, Circus, Festival, Fair, Solid State, Humor, Theme park",
+    "Design Team": "- Art: Jeff Busch\n- Software: Joe Schober\n- Design: Joe Balcer\n- Animation: Ish Raneses\n- Software: Josh Kugler\n- Music: Matt Kern\n- Sound: Matt Kern",
+    "Editions": "- Oktoberfest: MSRP $7,395, released 2018-10-01, model number GAM0002, Multimorphic P3-ROC"
+  },
+  "opdb_group": "LWBV",
+  "rules_url": "https://pinballrulesheets.com/american-pinball/oktoberfest-pinball-on-tap-rulesheet.html",
+  "tutorials": []
+}

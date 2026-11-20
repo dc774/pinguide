@@ -1,0 +1,13 @@
+{
+  "game": "Spy Hunter",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/spy-hunter",
+  "sections": {
+    "Profile": "The \"Spy Hunter\" pinball machine, produced by Bally in 1984, is themed after the popular video game of the same name. Designed by Greg Kmiec with artwork by Tony Ramunni, the game features a distinctive spy and adventure motif.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1984–1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Spy, Space, Solid State, Adventure, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: Greg Kmiec\n- Art: Tony Ramunni",
+    "Editions": "- Saturn 2: 1,200 made, released 1985-01-08, model number 12838, Bally MPU AS-2518-35\n- Spy Hunter: 2,300 made, released 1984-01-01, model number 0A17, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "Rwl7",
+  "rules_url": "",
+  "tutorials": []
+}

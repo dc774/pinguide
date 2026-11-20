@@ -1,0 +1,13 @@
+{
+  "game": "Night Rider",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/night-rider",
+  "sections": {
+    "Profile": "The Night Rider pinball machine, produced by Bally in 1976, is notable for being released in both electro-mechanical (EM) and solid-state (SS) versions. Designed by Greg Kmiec with art by Paul Faris, this game features a transportation theme centered around trucking. The game was among the last to use mechanical score reels before the transition to digital displays, marking a significant period in pinball history.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1976\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 4\n- Tags: Travel, Transportation, Original Theme, Logistics, Trucking, 1970s, Single level playfield",
+    "Design Team": "- Art: Paul Faris\n- Design: Greg Kmiec",
+    "Editions": "- Night Rider (EM): 4,155 made, released 1976-11-01, model number 1074\n- Night Rider: 7,000 made, released 1976-12-01, model number 1074-E, Bally MPU AS-2518-17"
+  },
+  "opdb_group": "ryQj",
+  "rules_url": "",
+  "tutorials": []
+}

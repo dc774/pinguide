@@ -1,0 +1,13 @@
+{
+  "game": "Harley Davidson (Bally Manufacturing, 1991)",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/harley-davidson",
+  "sections": {
+    "Profile": "The \"Harley Davidson\" pinball machine, released by Bally in February 1991, features a design by Barry Oursler and Mark Sprenger. This solid-state game utilizes the Williams WPC system, marking the first Bally machine to do so. The playfield artwork includes iconic Harley-Davidson imagery, such as a fuel tank and handlebars, creating an immersive biker-themed experience.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1991\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Licensed, Sports, 1990s, Solid State, Branding, Motorcycles",
+    "Design Team": "- Software: Jim Strompolis\n- Art: Mark Sprenger\n- Concept: Mark Sprenger\n- Design: Barry Oursler\n- Mechanics: Gerald Hedberg\n- Music: Dan Forden\n- Sound: Dan Forden",
+    "Editions": "- Harley Davidson: 2,187 made, released 1991-02-01, model number 20001, Williams WPC (Alpha Numeric)"
+  },
+  "opdb_group": "r2L0",
+  "rules_url": "",
+  "tutorials": []
+}

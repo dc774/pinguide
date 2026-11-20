@@ -1,0 +1,13 @@
+{
+  "game": "Hurricane",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/hurricane",
+  "sections": {
+    "Profile": "The \"Hurricane\" pinball machine, released by Williams in August 1991, is the third and final installment in Barry Oursler's amusement park-themed trilogy, following \"Comet\" and \"Cyclone.\" Designed by Barry Oursler with artwork by John Youssi and Python Anghelo, the game features vibrant carnival-themed visuals and a variety of engaging mechanical features.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1991\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Good Times, Backbox Gimmick, Carnival, Circus, Original Theme, Fair, 1990s, Solid State",
+    "Design Team": "- Art: Kevin O'Connor\n- Software: Mark Penacho\n- Design: Barry Oursler\n- Mechanics: Gerald Hedberg\n- Art: John Youssi\n- Art: Python Anghelo\n- Animation: Tony Goskie\n- Music: Paul Heitsch\n- Sound: Paul Heitsch\n- Animation: Tim Coman",
+    "Editions": "- Hurricane: released 1991-08-08, model number 50012, Williams WPC (Dot Matrix)"
+  },
+  "opdb_group": "rX09",
+  "rules_url": "",
+  "tutorials": []
+}

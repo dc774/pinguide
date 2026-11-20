@@ -1,0 +1,11 @@
+{
+  "game": "Bride of Pinbot 2.0",
+  "manufacturer": "Dutch Pinball",
+  "url": "https://dutchpinball.com/games/bride-of-pinbot-2-0",
+  "sections": {
+    "Introduction": "One pin, two games. Choose to play the original game or 2.0 with the press of a button! Based on P-ROC technology, Dutch Pinball developed a game conversion for The Machine: Bride of Pinbot. PIN*BOT is bored on his planet because his Bride has run out of battery power. PIN*BOT commands you to load up the Space Shuttle with new batteries and deliver them to Planet PIN*BOT (Multiball 1). Then unload and insert the batteries and activate the Bride (Multiball 2). Finally raise her heartbeat and make her live (Metamorphosis).",
+    "Key Features": "- Player profiles, high score tracking & trophies\n- Online high scores on your own personal Live page\n- Upgrade Kit includes: Dutch Pinball software, Mini-PC, P-ROC controller board, new speaker panel, color display, Hi-Fi speaker set, 2.1 amplifier, and cables",
+    "Download Software": "BoP 2.0 v1.21 (Latest - Delta Update) zip 334 MB Latest Changelog html Installation Guide pdf 12 MB Score Cards pdf 3,5 MB Rules Logic Diagram pdf 54 KB Zotac BIOS Settings pdf 1,9 MB Gigabyte BRIX BIOS Settings pdf 1,4 MB Zotac Boot Error Fix pdf 1,6 MB Wallpaper - Dutch Pinball Logo jpg 107 KB Wallpaper - Dutch Pinball Live jpg 289 KB\nBoP 2.0 v1.21 (Latest - Delta Update) zip 334 MB\nWallpaper - Dutch Pinball Logo jpg 107 KB\nWallpaper - Dutch Pinball Live jpg 289 KB\n- 01 Download the .zip file of the latest software version (without renaming or extracting).\n- 02 Copy the .zip file to the root of a USB memory stick (not in a subfolder).\n- 03 Start your BoP 2.0 machine and insert the USB stick in a free USB port of the mini computer.\n- 04 Enter the Service Menu and go to \"Software Menu\" → \"USB Update\".\n- 05 Select the version you want to install from the list.\n- 06 Wait for \"downloading\" and \"installing\" to finish.\n- 07 Select the new version and confirm by pressing the Volume + button.\n- 08 The game will restart using the new version.\nWhen you install an update, the previous version stays available so you can switch back.\nAll profiles, settings, highscores, and trophies carry over when updating.",
+    "Owner Area": "Register Your Game Report Issue Support Documents Find a Distributor"
+  }
+}

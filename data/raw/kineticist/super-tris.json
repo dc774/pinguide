@@ -1,0 +1,13 @@
+{
+  "game": "Super Tris",
+  "manufacturer": "C.E.A. Electronics Corporation",
+  "url": "https://www.kineticist.com/games/pinball/super-tris",
+  "sections": {
+    "Profile": "The \"Super Tris\" pinball machine, produced by C.E.A. Electronics Corporation in 1979, features a music-themed backglass that replicates the artwork from Gottlieb's 1972 \"King Rock.\" The game includes two flippers, two pop bumpers, eight standup targets, a kick-out hole, and a messenger ball, with dual inlanes on both the left and right sides. The artwork for \"Super Tris\" was created by Gordon Morison.\n\n- Manufacturer: C.E.A. Electronics Corporation\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 1\n- Tags: Single Player, Good Times, Card games, Original Theme, 1970s, Solid State, Music",
+    "Design Team": "- Art: Gordon Morison",
+    "Editions": "- Super Tris: released 1979-01-01"
+  },
+  "opdb_group": "RLpx",
+  "rules_url": "",
+  "tutorials": []
+}

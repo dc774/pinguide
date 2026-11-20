@@ -1,0 +1,13 @@
+{
+  "game": "Victory",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/victory",
+  "sections": {
+    "Profile": "\"Victory\" is a pinball machine released by D. Gottlieb & Co. in October 1987, featuring a racing theme. The game includes four flippers, two ramps, and a single multiball mode. Designed by John Trudeau and John Borg, it is part of the Gottlieb System 80B series with a production run of 3,315 units.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Racing, Sports, Solid State, Cars, 1980s",
+    "Design Team": "- Mechanics: John Borg\n- Design: John Trudeau\n- Art: Constantino Mitchell\n- Software: John Buras\n- Art: Jeanine Mitchell\n- Music: Dave Zabriskie\n- Sound: Dave Zabriskie",
+    "Editions": "- Victory: 3,315 made, released 1987-10-01, model number 710, Gottlieb System 80B"
+  },
+  "opdb_group": "rdBk",
+  "rules_url": "",
+  "tutorials": []
+}

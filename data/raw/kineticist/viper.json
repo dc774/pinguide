@@ -1,0 +1,13 @@
+{
+  "game": "Viper",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/viper",
+  "sections": {
+    "Profile": "\"Viper,\" released by Stern Electronics in October 1981, is a wide-body pinball machine featuring a solid-state design and digital displays. It includes three flippers, no ramps, and supports multiball play with up to three balls. Designed by Joe Joos Jr. with artwork by Keith Parkinson, only 438 units were produced, making it a rare find.\n\n- Manufacturer: Stern Electronics\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Snakes, Original Theme, Stern Electronics, Solid State, Playfield Gimmick, Widebody, 1980s",
+    "Design Team": "- Art: Keith Parkinson\n- Design: Joe Joos Jr.\n- Mechanics: Joe Joos Jr.",
+    "Editions": "- Viper: 438 made, released 1981-01-01, model number 148, Stern M-200 MPU"
+  },
+  "opdb_group": "5vXB",
+  "rules_url": "",
+  "tutorials": []
+}

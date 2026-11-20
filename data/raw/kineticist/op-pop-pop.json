@@ -1,0 +1,13 @@
+{
+  "game": "Op-Pop-Pop",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/op-pop-pop",
+  "sections": {
+    "Profile": "The \"Op-Pop-Pop\" pinball machine, released by Bally Manufacturing Co. in April 1969, is a single-player, electro-mechanical game featuring a distinctive psychedelic art theme. Designed by Ted Zale with artwork by Christian Marche, it incorporates unique gameplay elements such as zipper flippers—flippers that close together to prevent the ball from draining—five mushroom bumpers, a bagatelle in the upper playfield, and a left drop lane.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1969\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Original Theme, Single level playfield",
+    "Design Team": "- Animation: Ted Zale\n- Design: Ted Zale\n- Mechanics: Ted Zale\n- Concept: Ted Zale\n- Art: Christian Marche",
+    "Editions": "- Op-Pop-Pop: 1,050 made, released 1969-04-01, model number 833"
+  },
+  "opdb_group": "4k30",
+  "rules_url": "",
+  "tutorials": []
+}

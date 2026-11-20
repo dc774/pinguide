@@ -1,0 +1,13 @@
+{
+  "game": "The Bally Game Show",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/the-bally-game-show",
+  "sections": {
+    "Profile": "The \"Game Show\" pinball machine, released by Bally in April 1990, was designed by Dan Langlois and Peter Perry with art by Tim Elliot. It features two flippers, three pop bumpers, and two ramps, with a quirky game show theme that includes a bell ringing mechanism.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1990\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Game Show, 1990s, Solid State, TV Show, Comedy",
+    "Design Team": "- Art: Tim Elliott\n- Callouts: Ed Boon\n- Design: Dan Langlois\n- Design: Peter Perry\n- Music: Jon Hey\n- Sound: Jon Hey",
+    "Editions": "- The Bally Game Show: 2,500 made, released 1990-01-04, model number 2003, Williams System 11C"
+  },
+  "opdb_group": "5V92",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Blues Brothers",
+  "manufacturer": "Homepin",
+  "url": "https://www.kineticist.com/games/pinball/blues-brothers-2025",
+  "sections": {
+    "Profile": "\"Blues Brothers,\" announced by Homepin in April 2024, is a full-sized, mechanical pinball machine themed around the iconic 1980 film \"The Blues Brothers.\" This machine is notable for its open-source software, allowing end users to modify and customize gameplay experiences.\n\n- Manufacturer: Homepin\n- Years made: 2025\n- In production: yes\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: 2020s, Licensed, Solid State, Comedy, Chicago",
+    "Design Team": "- Mechanics: Mike Kalinowski\n- Software: Dick Hamill\n- Art: Neil Fraser",
+    "Editions": "- Blues Brothers: released 2025-01-13"
+  },
+  "opdb_group": "kBZD",
+  "rules_url": "",
+  "tutorials": []
+}

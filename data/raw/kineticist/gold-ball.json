@@ -1,0 +1,13 @@
+{
+  "game": "Gold Ball",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/gold-ball",
+  "sections": {
+    "Profile": "Gold Ball , released by Bally in 1983, is a four-player solid-state game designed by George Christian with artwork by Tony Ramunni. Alongside the usual silver ball it carries a gold-colored one, which the game releases at random as an extra ball and which triples all playfield scores while it is in play; 1,750 were built.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1983\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Pinball, Original Theme, Solid State, Fantasy, Sci-Fi, Single level playfield, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: George Christian\n- Art: Tony Ramunni",
+    "Editions": "- Gold Ball: 1,750 made, released 1983-01-01, model number 0371, Bally MPU AS-2518-133"
+  },
+  "opdb_group": "rjlx",
+  "rules_url": "",
+  "tutorials": []
+}

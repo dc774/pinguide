@@ -1,0 +1,13 @@
+{
+  "game": "Viking (Bally Manufacturing, 1980)",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/viking",
+  "sections": {
+    "Profile": "\"Viking,\" a pinball machine released by Bally in 1980, is known for its detailed Viking theme and engaging gameplay. Designed by Jim Patla with artwork by Kevin O'Connor, this machine features two flippers, four pop bumpers, two kick-out holes, two stand-up targets, a spinning target, and both a 3-bank and a 4-in-line drop target setup. A unique feature of this machine is the bounce-back outlanes, which allow players to nudge a draining ball back into play through gates.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Vikings, Solid State, History, 1980s",
+    "Design Team": "- Design: Jim Patla\n- Software: Rehman Merchant\n- Art: Kevin O'Connor",
+    "Editions": "- Viking: 2,600 made, released 1979-12-04, model number 1198, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "57kN",
+  "rules_url": "",
+  "tutorials": []
+}

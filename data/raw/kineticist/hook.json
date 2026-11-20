@@ -1,0 +1,13 @@
+{
+  "game": "Hook",
+  "manufacturer": "Data East USA Inc.",
+  "url": "https://www.kineticist.com/games/pinball/hook",
+  "sections": {
+    "Profile": "The \"Hook\" pinball machine, manufactured by Data East and released in January 1992, is based on the popular movie about Peter Pan and Tinkerbell. Designed by Tim Seckel with artwork by Paul Faris and music by Brian Schmidt, this game features vibrant, detailed graphics and an engaging soundtrack. It has a two-flipper layout with two ramps and a three-ball multiball mode.\n\n- Manufacturer: Data East USA Inc.\n- Years made: 1992\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Fictional Character, Licensed, Pirates, 1990s, Solid State",
+    "Design Team": "- Art: Paul Faris\n- Design: Tim Seckel\n- Software: Neil Falconer\n- Music: Brian Schmidt\n- Sound: Brian Schmidt",
+    "Editions": "- Hook: 6,705 made, released 1992-05-03, model number 500-5519-01, DataEast/Sega Version 3"
+  },
+  "opdb_group": "42EQ",
+  "rules_url": "",
+  "tutorials": []
+}

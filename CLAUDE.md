@@ -42,7 +42,9 @@ pinguide-rag/
 │   ├── papa.py             # PAPA rulesheet archive — pre-2000 machines
 │   ├── bobs_guide.py       # Bob's Guide — classic/EM era strategy
 │   ├── stern.py            # Stern official game pages — new releases, edition differences
-│   └── cgc.py              # Chicago Gaming official pages — CGC remakes
+│   ├── cgc.py              # Chicago Gaming official pages: CGC remakes
+│   ├── kineticist.py       # Kineticist API: profiles for ~1,780 games + tutorial transcripts
+│   └── makers.py           # Smaller makers' sites (Multimorphic, Spooky, Turner, ...)
 ├── ingest/
 │   ├── __init__.py
 │   └── pipeline.py         # Load scraped data → chunk → embed → store in Chroma
@@ -103,11 +105,45 @@ pinguide-rag/
 > "Avengers: Infinity Quest" 2020; same for Transformers and Avatar). If the full manufacturer
 > title has no match, its subtitle alone is tried ("Star Wars: The Mandalorian" → "The
 > Mandalorian"). A manufacturer page with no canonical match stays a standalone machine (the
-> intended value: brand-new releases). The reconciliation list is printed on every ingest:
-> review it, especially the subtitle matches.
+> intended value: brand-new releases), and the sources after it can merge onto it (Kineticist's
+> "Queen" joins Pinball Brothers' "Queen Pinball"). Kineticist profiles are matched EXACTLY first,
+> by OPDB group ID or rulesheet link against `data/raw/pinballrules/` (`_exact_matches()`),
+> because Kineticist repeats titles across eras; names are the fallback. `_canonical_key()` also
+> ignores spaces, punctuation and a leading "The" ("Whitewater" = "White Water"), and rulesheet
+> titles that differ only that way are unified into one machine under the most readable name
+> (that step keeps the maker prefix, so "Stern Jurassic Park" stays apart from "Jurassic Park"). The reconciliation list
+> is printed on every ingest: review it, especially the subtitle matches.
 
-> **Note on AI-blocked sources:** Pinside, MatchPlay/Pintips, IPDB, and GameFAQs all explicitly
-> block AI crawlers in robots.txt and must NOT be scraped. OPDB was removed (thin metadata only).
+### Kineticist (game profiles for ~1,780 machines)
+- Official API, free in early access: https://www.kineticist.com/docs/api. Catalog reads need no
+  key (60/min, 2,000/day per IP). The website itself is behind a Vercel bot checkpoint; never
+  scrape it, use only the API.
+- **Terms:** personal projects permitted; any page showing the data must show visible
+  attribution, "Data provided by Kineticist" linked to kineticist.com (the header credit in
+  `frontend/index.html`; do not remove it). Don't build a competing database.
+- `scraper/kineticist.py` saves per game: Profile, Design Team, Editions, and, when the game has
+  a "Keys to the game" tutorial image, a transcript ("Getting Started (Kineticist tutorial)")
+  made once by Claude Haiku 5.5 vision. Transcripts are cached in the JSON (`tutorials`), so
+  `--force` refreshes the data without paying for images again. AVIF images are converted to
+  PNG with Pillow. One full run is about 1,800 API calls and takes about an hour; if the daily
+  cap is hit it stops cleanly, and a re-run resumes (existing files are skipped).
+- Titles Kineticist uses more than once are saved as "Title (Maker, Year)".
+
+### Smaller manufacturers (`scraper/makers.py`, `data/raw/<maker>/`)
+- Multimorphic, Spooky, Pinball Brothers, Dutch Pinball, Turner, American Pinball, Barrels of
+  Fun. robots.txt allowed all of them and none signals against AI (2026-11-20); each request
+  is checked against robots.txt at run time. Excluded: Haggis and Quetzal (broken HTTPS
+  certificates), Jersey Jack (its Shopify store answers scripts with 429 "local_rate_limited";
+  do not work around it).
+- Games come from each site's own listing pages, sitemap or feed. Spooky and Barrels of Fun
+  have no clean "this is a game" signal, so their game names come from the Kineticist files
+  (`kineticist_games()`): run `scraper.kineticist` first.
+- Adds new releases (Dungeon Crawler Carl, Yukon Yeti, Queen, 26 Multimorphic P3 games, ...)
+  and code update notes. Marketing depth, not full rules.
+
+> **Note on AI-blocked sources:** Pinside, MatchPlay/Pintips, IPDB, GameFAQs and Pinball Primer
+> all explicitly block AI crawlers in robots.txt (or the author objects) and must NOT be scraped.
+> OPDB was removed (thin metadata only); Kineticist's richer profiles replace it.
 
 ---
 
@@ -125,7 +161,8 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 ## How the RAG Pipeline Works
 
 ```
-1. SCRAPE    → Fetch pinballrulesheets.com, PAPA, Bob's Guide, Stern, Chicago Gaming
+1. SCRAPE    → Fetch pinballrulesheets.com, PAPA, Bob's Guide, Stern, Chicago Gaming,
+               the Kineticist API, and smaller manufacturers' sites
                Save raw text to data/raw/
 
 2. INGEST    → Load raw text files
@@ -163,6 +200,11 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
 - **Pinned dependencies:** `requirements.txt` pins exact versions so Railway installs what
   was tested locally. In particular, `anthropic` 2.x switches to API version 2026-10-21;
   upgrade it deliberately and test locally first.
+- **Name-match blocklist** (`_MATCH_BLOCKLIST` in `api/app.py`, approved by the owner):
+  machine titles that are also everyday pinball words ("Jackpot", "Action", "Wizard!") are not
+  auto-selected by name, so "What is a jackpot?" isn't narrowed to the 1970s game. The list is
+  the titles appearing as ordinary words in at least 10% of other machines' rulesheets;
+  recompute it if the corpus changes a lot.
 - **OpenAI for embeddings only** — text-embedding-3-small is the best price/quality ratio
   for embeddings. This is the only reason OpenAI is in the stack.
 
@@ -185,6 +227,14 @@ VOYAGE_API_KEY=your_key_here        # For reranking (optional; falls back to vec
   be weak. Image/diagram support is planned for Phase 2.
 - **Community rulesheets only cover machines that have been documented**: very new releases
   may not have a wiki rulesheet yet.
+- **Most machines are profile-only:** about 1,100 machines come only from Kineticist
+  (description, years, credits, editions, sometimes a tutorial). The system prompt tells the
+  model to say when no detailed rulesheet is available rather than guess.
+- **Code update notes retrieve poorly:** HyDE drafts a rulesheet-style passage, so a question
+  like "what changed in the latest code update?" tends to pull rulesheet chunks instead of the
+  dated "Code Update Notes, posted <date>: ..." sections.
+- **Big franchises fan out:** "Star Wars" matches about 6 machines (each era's game is its own
+  machine), and each gets its own Claude call, so those answers are long and slower.
 - **Re-ingest causes brief downtime:** `ingest/pipeline.py` wipes the store before
   rebuilding, so production queries fail while it runs, and the app caches its machine list
   at startup, so the service must be restarted afterwards.
@@ -249,19 +299,22 @@ flask --app api/app run
 2. Scrape. Scrapers skip existing files unless `--force`:
    ```bash
    python -m scraper.pinballrules         # whole repo, edited daily; always a full refresh
+   python -m scraper.kineticist --force   # ~1 hour; tutorial transcripts are reused
+   python -m scraper.makers               # needs the Kineticist files; rewrites each maker
    python -m scraper.stern --force
    python -m scraper.cgc --force
    python -m scraper.papa                 # static archive: new entries only
    python -m scraper.bobs_guide           # static archive: new entries only
    ```
 3. Review `git status` / `git diff --stat data/raw`
-4. Optional local test: `python -m ingest.pipeline`, then run the API and check the
-   printed reconciliation list
+4. Review names for free: `python -m ingest.pipeline --dry-run` prints the rulesheet name
+   unifications, the reconciliation list and the machine count without embedding. Then the
+   optional local test: `python -m ingest.pipeline`, and run the API
 5. Commit and push; Railway redeploys the code
 6. Rebuild the production store (a deploy does NOT do this; the store is on the Volume).
    Open a shell in the service: Railway dashboard → pinguide service → Console tab (or
    `railway ssh`). It starts in `/app`. Plain `python` is not on the PATH there; run
-   `.venv/bin/python -m ingest.pipeline` (about 5 minutes; live queries fail meanwhile).
+   `.venv/bin/python -m ingest.pipeline` (about 10 minutes; live queries fail meanwhile).
    Then restart: Deployments tab → ⋮ on the active deployment → Restart (machine list is
    cached at startup)
 7. Verify: `curl https://pinguide.info/stats` matches the local machine count

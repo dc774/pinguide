@@ -1,0 +1,13 @@
+{
+  "game": "Meteor",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/meteor",
+  "sections": {
+    "Profile": "\"Meteor,\" released by Stern Electronics in 1979, is a classic pinball machine designed by Steve Kirk with artwork by Jorge Obregon and Leslie Kaip. It is inspired by the movie \"Meteor,\" featuring a space theme where players aim to destroy an impending meteor threat.\n\n- Manufacturer: Stern Electronics\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Licensed, Space, Stern Electronics, 1970s, Solid State, Kirk Post, Rockets",
+    "Design Team": "- Art: Jorge Obregon\n- Design: Steve Kirk\n- Art: Leslie Kaip\n- Software: Alan McNeil",
+    "Editions": "- Meteor: 7,939 made, released 1979-01-09, model number 113, Stern M-200 MPU\n- Meteor: released 1979-01-09"
+  },
+  "opdb_group": "5b38",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2018/08/Meteor-Rulecard.jpg",
+  "tutorials": []
+}

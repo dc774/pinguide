@@ -1,0 +1,13 @@
+{
+  "game": "Breakshot",
+  "manufacturer": "Capcom Coin-Op Inc.",
+  "url": "https://www.kineticist.com/games/pinball/breakshot",
+  "sections": {
+    "Profile": "\"Breakshot,\" produced by Capcom in May 1996, offers a modern take on classic electromechanical (EM) pinball aesthetics combined with contemporary gameplay features. Designed by Greg Kmiec, this machine features a billiards theme with a straightforward playfield layout, avoiding ramps and opting for a more traditional single-level design.\n\n- Manufacturer: Capcom Coin-Op Inc.\n- Years made: 1996\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Pool (Billiards), Sports, Original Theme, 1990s, Solid State, Single level playfield",
+    "Design Team": "- Callouts: Chris Granner\n- Software: Bill Pfutzenreuter\n- Design: Greg Kmiec\n- Animation: Kevin Loza\n- Mechanics: Chris Shipman\n- Art: Paul Mazur\n- Callouts: Jeff Powell\n- Music: Jeff Powell\n- Sound: Jeff Powell\n- Art: Hugh van Zanten\n- Art: Stan Fukuoka\n- Animation: Denise Wallner\n- Mechanics: Chuck Biddlecom\n- Software: Tony Defeo",
+    "Editions": "- Breakshot: 1,000 made, released 1996-05-01, model number BRK3002, Capcom A0015405"
+  },
+  "opdb_group": "43oE",
+  "rules_url": "",
+  "tutorials": []
+}

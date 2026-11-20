@@ -1,0 +1,13 @@
+{
+  "game": "Sorcerer",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/sorcerer",
+  "sections": {
+    "Profile": "The \"Sorcerer\" pinball machine, released by Williams in 1985, is a fantasy-themed game designed by Mark Ritchie with striking artwork by Pam Erickson. Known for its captivating light show and multiball play, it features three flippers, three pop bumpers, two spinners, and a 3-bank drop target. The game's distinctive \"Second Chance\" post and the flashing eyes of the sorcerer on the back panel add to its unique appeal.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Wizards, Magic, Original Theme, Solid State, Dragons, Fantasy, 1980s",
+    "Design Team": "- Design: Mark Ritchie\n- Art: Pam Erickson\n- Software: Ed Suchocki\n- Software: Dave Rzepka",
+    "Editions": "- Sorcerer: 3,700 made, released 1985-03-01, model number 532, Williams System 9"
+  },
+  "opdb_group": "4qxv",
+  "rules_url": "",
+  "tutorials": []
+}

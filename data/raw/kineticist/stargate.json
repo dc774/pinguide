@@ -1,0 +1,13 @@
+{
+  "game": "Stargate",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/stargate",
+  "sections": {
+    "Profile": "The \"Stargate\" pinball machine, created by Gottlieb in 1995, is inspired by the popular 1994 science fiction film of the same name. Designed by Jon Norris and Ray Tanzer, it features intricate artwork by Constantino Mitchell and engaging sound effects that capture the movie's atmosphere. The game is known for its unique mechanical elements, such as a pyramid that rises and a glider that extends over the playfield.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1995\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Myth and Legend, Licensed, Space, 1990s, Solid State",
+    "Design Team": "- Mechanics: Wesley Chang\n- Art: Constantino Mitchell\n- Design: Jon Norris\n- Software: Allen Edwall\n- Animation: Rand Paulin\n- Mechanics: Marion Czyz\n- Animation: Alycen Hareas\n- Design: Ray Tanzer\n- Animation: Vecennia Jordan\n- Art: Jeanine Mitchell\n- Sound: Craig Beierwaltes\n- Music: Duane Decker\n- Art: David Moore",
+    "Editions": "- Stargate: 3,600 made, released 1995-03-01, model number 742, Gottlieb System 3"
+  },
+  "opdb_group": "50pv",
+  "rules_url": "",
+  "tutorials": []
+}

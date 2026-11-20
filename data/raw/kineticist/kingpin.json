@@ -1,0 +1,13 @@
+{
+  "game": "Kingpin",
+  "manufacturer": "Capcom Coin-Op Inc.",
+  "url": "https://www.kineticist.com/games/pinball/kingpin",
+  "sections": {
+    "Profile": "Kingpin, developed by Capcom Coin-Op, Inc. in December 1996, is a rare pinball machine with a gangster theme. Designed by Mark Ritchie, the game features two flippers, two ramps, and a three-ball multiball. Notably, only nine prototype units were produced before Capcom ceased its pinball operations, making Kingpin highly sought after among collectors.\n\n- Manufacturer: Capcom Coin-Op Inc.\n- Years made: 1996\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Original Theme, 1990s, Solid State, Mafia, Limited Production, Guns, Police, Crime, Monsters",
+    "Design Team": "- Mechanics: Chris Shipman\n- Software: Bill Pfutzenreuter\n- Design: Mark Ritchie\n- Callouts: Mark Ritchie\n- Animation: Kevin Loza\n- Art: Stan Fukuoka\n- Callouts: Chris Granner\n- Music: Chris Granner\n- Sound: Chris Granner\n- Software: Steven King\n- Animation: Denise Wallner\n- Mechanics: Kathy Adams\n- Software: Tony Defeo",
+    "Editions": "- Kingpin: 9 made, released 1996-12-01, model number KP3005, Capcom A0015405"
+  },
+  "opdb_group": "48od",
+  "rules_url": "",
+  "tutorials": []
+}

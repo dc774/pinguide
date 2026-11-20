@@ -1,0 +1,13 @@
+{
+  "game": "Blood Bank Billiards",
+  "manufacturer": "Ian Harrower Games",
+  "url": "https://www.kineticist.com/games/pinball/blood-bank-billiards-2024",
+  "sections": {
+    "Profile": "Blood Bank Billiards, developed by Ian Harrower Games in 2024, is a pinball game designed as an add-on for the Drained playfield module on Multimorphic's P³ Pinball Platform. Inspired by classic billiards-themed pinball machines, it pays tribute to the electromechanical era with a modern twist.\n\n- Manufacturer: Ian Harrower Games\n- Years made: 2024\n- In production: yes\n- Type: Solid State\n- Display: LCD\n- Players: 1\n- Tags: Single Player, 2020s, Pool (Billiards), Original Theme, Indie, Solid State, Module Game",
+    "Design Team": "- Software: Ian Harrower\n- Design: Ian Harrower\n- Concept: Ian Harrower\n- Callouts: Glenn Waechter",
+    "Editions": "- Blood Bank Billiards: MSRP $199, released 2024-06-06, Multimorphic P3-ROC"
+  },
+  "opdb_group": "PBzy",
+  "rules_url": "",
+  "tutorials": []
+}

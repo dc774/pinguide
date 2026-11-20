@@ -64,6 +64,15 @@
       font-style: italic;
     }
 
+    /* Kineticist's API terms require visible attribution with a link. */
+    .credit {
+      margin-top: 0.2rem;
+      font-size: 0.75rem;
+      color: #888;
+    }
+    .credit a { color: #bbb; text-decoration: underline; }
+    .credit a:hover, .credit a:focus-visible { color: #fff; }
+
     .new-chat {
       flex-shrink: 0;
       padding: 0.4rem 0.85rem;
@@ -289,9 +298,10 @@
         <h1><a href="https://pinguide.info">Pinguide</a></h1>
         <button type="button" class="new-chat" id="newChatBtn">New chat</button>
       </div>
-      <p class="desc">Ask anything about a specific pinball machine — rules, modes, scoring, and strategy. Answers are sourced from real rulesheets and strategy guides across hundreds of machines and powered by AI.</p>
+      <p class="desc">Ask anything about a specific pinball machine: rules, modes, scoring, and strategy. Answers are sourced from real rulesheets, strategy guides, manufacturer pages, and machine profiles, and powered by AI.</p>
       <hr>
       <p class="machine-count" id="machineCount"></p>
+      <p class="credit">Data provided by <a href="https://www.kineticist.com">Kineticist</a></p>
     </header>
 
     <main class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation">
@@ -510,7 +520,9 @@
       if (url.includes('silverballmania.com')) return "Bob's Guide ↗";
       if (url.includes('sternpinball.com')) return 'Stern ↗';
       if (url.includes('chicago-gaming.com')) return 'Chicago Gaming ↗';
-      return '↗';
+      if (url.includes('kineticist.com')) return 'Kineticist ↗';
+      // Other sources (smaller manufacturers): show the site's own name.
+      try { return new URL(url).hostname.replace(/^www\./, '') + ' ↗'; } catch { return '↗'; }
     }
   </script>
 </body>

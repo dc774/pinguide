@@ -1,0 +1,13 @@
+{
+  "game": "Alien",
+  "manufacturer": "Pinball Brothers",
+  "url": "https://www.kineticist.com/games/pinball/alien",
+  "sections": {
+    "Profile": "Alien pinball by Pinball Brothers, released in 2020, immerses players in the thrilling universe of the Alien and Aliens movies. It features a widebody cabinet with four flippers, three steel ramps, and multiple interactive elements like the ball-eating Xenomorph toy and jumping slingshot facehuggers. Players navigate through 14 scenes from the films, using weapons, reviving crew members, and battling Xenomorphs to survive.\n\n- Manufacturer: Pinball Brothers\n- Years made: 2016–2021\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: 2010s, Licensed, Solid State, Widebody, Sci-Fi, Horror",
+    "Design Team": "- Design: Dave Sanders\n- Animation: Kelly Mazurowski\n- Software: Joe Schober\n- Art: Aurich Lawson\n- Mechanics: James Rees\n- Software: Brian Dominy\n- Software: Cato Paus Skrede\n- Music: David Thiel\n- Sound: David Thiel\n- Art: Garret Popek",
+    "Editions": "- Alien (Pro): released 2016-01-01, model number Standard\n- Alien (LE): MSRP $7,500, released 2017-01-01\n- Alien (Remake): MSRP $7,777, released 2021-05-01, Pinball Brothers Razorback\n- Alien (Remake LE): MSRP $10,695, released 2021-09-01, Pinball Brothers Razorback\n- Alien (Ellen Ripley): released 2023-10-01, Pinball Brothers Razorback"
+  },
+  "opdb_group": "4PBO",
+  "rules_url": "https://pinballrulesheets.com/pinball-brothers/pinball-brothers-alien-rulesheet.html",
+  "tutorials": []
+}

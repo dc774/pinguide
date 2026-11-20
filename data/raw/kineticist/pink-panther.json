@@ -1,0 +1,13 @@
+{
+  "game": "Pink Panther",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/pink-panther",
+  "sections": {
+    "Profile": "\"Pink Panther\" is a pinball machine released by D. Gottlieb & Co. in August 1981. It features a theme based on the iconic Pink Panther character, with two flippers, no ramps, and no multiball mode. Part of the Gottlieb System 80 series, the game was designed by John Osborne with artwork by Terry Doerzaph. A total of 2,000 units were produced.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Celebrity, Women, Fictional Character, Original Theme, Solid State, Fantasy, 1980s",
+    "Design Team": "- Software: John Buras\n- Design: John Buras\n- Art: Gerry Simkus",
+    "Editions": "- Pink Panther: 2,840 made, released 1981-03-01, model number 664, Gottlieb System 80"
+  },
+  "opdb_group": "re72",
+  "rules_url": "",
+  "tutorials": []
+}

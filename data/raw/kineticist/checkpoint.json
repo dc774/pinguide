@@ -1,0 +1,13 @@
+{
+  "game": "Checkpoint",
+  "manufacturer": "Data East USA Inc.",
+  "url": "https://www.kineticist.com/games/pinball/checkpoint",
+  "sections": {
+    "Profile": "The Checkpoint pinball machine, released by Data East in 1991, is recognized as the first to feature a dot matrix display (DMD), setting a new standard for pinball games. Designed by Joe Kaminkow and Ed Cebula, it boasts an auto racing theme with Porsche Carrera cars and incorporates an ignition key to start the game, a shaker motor for realistic vibrations, and a radar gun to track ball speed.\n\n- Manufacturer: Data East USA Inc.\n- Years made: 1991\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Racing, Sports, Original Theme, 1990s, Solid State, Cars",
+    "Design Team": "- Design: Ed Cebula\n- Art: Paul Faris\n- Software: Rehman Merchant\n- Animation: Kristina Donofrio\n- Animation: Todd Farris\n- Design: Joe Kaminkow\n- Music: Brian Schmidt\n- Sound: Brian Schmidt",
+    "Editions": "- Checkpoint: 3,500 made, released 1991-02-01, model number 500-5510-01, DataEast/Sega Version 3"
+  },
+  "opdb_group": "4Jdp",
+  "rules_url": "",
+  "tutorials": []
+}

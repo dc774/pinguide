@@ -14,5 +14,6 @@
     "Baptism (Mini-Wizard Mode):": "After defeating all four level 2 **bad guys**, the next shot behind the center drop target will start the Baptism mode.\n\nStarting Baptism is required to qualify **the final wizard mode**.",
     "Honor (Mini-Wizard Mode):": "Honor is qualified at Don's Office by completing all of the inserts seen above the flippers in the stained glass window. This means:\n\n- Playing all **jobs**\n- Playing all **award modes**\n- Playing all four **multiball modes**\n\nStarting Honor is required to qualify **the final wizard mode**.",
     "Kiss the Ring (Wizard Mode):": "To qualify the final wizard mode at Don's Office, the following tasks must be completed:\n\n- Start **Honor** mini-wizard mode\n- Start **Baptism** mini-wizard mode\n- Collect X rings from **award modes**\n- Gather all **territories**\n- Use a **weapon** at 10x playfield X\n- Get to **Presidential** influence level"
-  }
+  },
+  "opdb_group": "d2ox"
 }

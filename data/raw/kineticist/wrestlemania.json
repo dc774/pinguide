@@ -1,0 +1,13 @@
+{
+  "game": "WrestleMania",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/wrestlemania",
+  "sections": {
+    "Profile": "WWE Wrestlemania pinball, designed by John Trudeau and released by Stern Pinball in 2015, invites players to step into the ring as WWE superstars. This game features an innovative upper playfield designed as a wrestling ring where players use flipper buttons to control two \"Slammer\" slingshot-style kickers. Players can rack up points and advance through matches by hitting targets and completing objectives, all set to the backdrop of ten licensed WWE entrance songs. The machine also includes voiceovers by WWE announcers Jerry \"The King\" Lawler and Michael Cole, enhancing the immersive experience.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2015\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Wrestling, 2010s, Licensed, Sports, Solid State",
+    "Design Team": "- Design: John Trudeau\n- Concept: John Trudeau\n- Software: Waison Cheng\n- Concept: Waison Cheng\n- Design: Waison Cheng\n- Mechanics: Elliot Eismin\n- Software: Lonnie D. Ropp\n- Animation: Chuck Ernst\n- Software: Chuck Ernst\n- Art: Kevin O'Connor\n- Animation: Tom Kyzivat\n- Animation: Kevin James\n- Animation: Danai Kittivathana\n- Music: Matt Kern\n- Sound: Matt Kern\n- Animation: Scott Melchionda\n- Animation: Jack Liddon\n- Mechanics: Mike Redoble\n- Animation: Mike Kyzivat\n- Software: Mike Kyzivat\n- Sound: Mike Kyzivat\n- Software: Jack Benson\n- Software: Dwight Sullivan\n- Animation: Mark Galvez\n- Mechanics: John Rotharmel\n- Mechanics: Robert Blakeman\n- Animation: Kurt Andersen",
+    "Editions": "- WrestleMania: MSRP $5,495, released 2015-01-05, model number PINBALL I-00G1, Stern SPIKE System\n- Legends of Wrestlemania: MSRP $8,595, 400 made, released 2015-04-01, model number PINBALL I-00G2, Stern SPIKE System"
+  },
+  "opdb_group": "R6Or",
+  "rules_url": "http://tiltforums.com/t/wrestlemania-wiki-rulesheet/189",
+  "tutorials": []
+}

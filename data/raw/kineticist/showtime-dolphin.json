@@ -1,0 +1,13 @@
+{
+  "game": "Showtime / Dolphin",
+  "manufacturer": "Chicago Coin Machine Mfg. Co.",
+  "url": "https://www.kineticist.com/games/pinball/showtime-dolphin",
+  "sections": {
+    "Profile": "\"Showtime\" and \"Dolphin\" are electro-mechanical pinball machines released by Chicago Coin in 1974. \"Showtime\" is a four-player game, while \"Dolphin\" supports two players. Both machines feature two flippers, two pop bumpers, seven rollover buttons, and three captive balls.\n\n- Manufacturer: Chicago Coin Machine Mfg. Co.\n- Years made: 1974\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 2\n- Tags: Two player, Good Times, Swimming, Original Theme, Dolphins, 1970s",
+    "Design Team": "- Art: Christian Marche\n- Design: Wendell McAdams\n- Design: Albin Peters",
+    "Editions": "- Showtime: released 1974-04-01, model number 431\n- Dolphin: released 1974-03-01, model number 437"
+  },
+  "opdb_group": "RKNz",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Moon Shot",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/moon-shot",
+  "sections": {
+    "Profile": "The \"Moon Shot\" pinball machine, released by Bally Manufacturing Co. in February 1963, is a single-player, electro-mechanical game with a space exploration theme. Designed by Ted Zale, it features two flippers, four pop bumpers, two slingshots, and four standup targets.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1963\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Space, Original Theme, Single level playfield",
+    "Design Team": "- Animation: Ted Zale\n- Design: Ted Zale\n- Mechanics: Ted Zale\n- Design: Wayne Neyens\n- Concept: Wayne Neyens",
+    "Editions": "- Moon Shot: 1,250 made, released 1963-02-01, model number 695"
+  },
+  "opdb_group": "Rp0d",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Q*Bert's Quest",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/qberts-quest",
+  "sections": {
+    "Profile": "\"Q*Bert's Quest\" is a pinball machine released by D. Gottlieb & Co. in March 1983. It features a video game theme inspired by the classic arcade game Q*Bert, with four flippers, no ramps, and no multiball mode. Designed by John Trudeau and featuring artwork by David Moore, Jeff Lee, and Terry Doerzaph, it was part of the Gottlieb System 80A series, with a total production of 884 units.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1983\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Video Game, Licensed, Solid State, 1980s",
+    "Design Team": "- Art: David Moore\n- Design: John Trudeau\n- Art: Jeff Lee\n- Art: Terry Doerzaph\n- Sound: David Thiel\n- Music: Craig Beierwaltes\n- Sound: Craig Beierwaltes",
+    "Editions": "- Q*Bert's Quest: 884 made, released 1983-03-01, model number 677, Gottlieb System 80A"
+  },
+  "opdb_group": "r1qn",
+  "rules_url": "",
+  "tutorials": []
+}

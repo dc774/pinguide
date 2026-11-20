@@ -1,0 +1,13 @@
+{
+  "game": "RockMakers",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/rockmakers",
+  "sections": {
+    "Profile": "The RockMakers pinball machine, produced by Bally in 1968, features a prehistoric theme with dinosaurs and T-Rex imagery. It was designed by Ted Zale, with artwork by Jerry Kelley.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1968\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 4\n- Tags: Original Theme, Fantasy",
+    "Design Team": "- Animation: Ted Zale\n- Design: Ted Zale\n- Mechanics: Ted Zale\n- Concept: Ted Zale\n- Art: Jerry Kelley\n- Concept: Jerry Kelley",
+    "Editions": "- RockMakers: 2,420 made, released 1968-08-01, model number 821"
+  },
+  "opdb_group": "43zw",
+  "rules_url": "",
+  "tutorials": []
+}

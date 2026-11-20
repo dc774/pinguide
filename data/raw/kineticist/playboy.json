@@ -1,0 +1,13 @@
+{
+  "game": "Playboy (Stern Pinball, 2002)",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/playboy",
+  "sections": {
+    "Profile": "The \"Playboy\" pinball machine by Stern, released in January 2002, integrates the iconic Playboy brand with engaging pinball gameplay. Designed by George Gomez and Dwight Sullivan, this machine features artwork by Kevin O'Connor and animations by Mark Galvez. It includes several unique playfield elements such as an unfolding centerfold toy, a \"Tease\" screen, and a Peek-a-Boo beaded curtain, all enhancing its thematic appeal.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2002\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2000s, Licensed, Solid State, Adult themes",
+    "Design Team": "- Art: Kevin O'Connor\n- Software: Dwight Sullivan\n- Design: Dwight Sullivan\n- Concept: Dwight Sullivan\n- Mechanics: George Gomez\n- Design: George Gomez\n- Concept: George Gomez\n- Animation: Mark Galvez\n- Software: Lonnie D. Ropp\n- Mechanics: Wesley Chang\n- Software: Orin Day\n- Music: Kyle Johnson\n- Sound: Kyle Johnson",
+    "Editions": "- Playboy: released 2002-01-01, model number 76, Sega/Stern Whitestar"
+  },
+  "opdb_group": "rPKO",
+  "rules_url": "",
+  "tutorials": []
+}

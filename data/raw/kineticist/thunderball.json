@@ -1,0 +1,13 @@
+{
+  "game": "Thunderball",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/thunderball",
+  "sections": {
+    "Profile": "\"Thunderball\" is a pinball machine from Williams, released in May 1982 but was never mass-produced, with only 10 units made. It features a solid-state design with two flippers, one ramp, and a six-ball multiball feature. The game was part of the Williams System 7 series and has become a rare collector's item due to its limited production.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 2\n- Tags: Two player, Prototype, Space, Original Theme, Solid State, Limited Production, Fantasy, Sci-Fi, 1980s",
+    "Design Team": "- Art: Constantino Mitchell\n- Software: John Kotlarik\n- Sound: John Kotlarik\n- Design: Mark Ritchie\n- Art: Jeanine Mitchell",
+    "Editions": "- Thunderball: 10 made, released 1982-05-01, model number 508, Williams System 7"
+  },
+  "opdb_group": "4J3k",
+  "rules_url": "",
+  "tutorials": []
+}

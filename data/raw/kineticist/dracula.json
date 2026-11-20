@@ -1,0 +1,13 @@
+{
+  "game": "Dracula",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/dracula",
+  "sections": {
+    "Profile": "The Stern Electronics \"Dracula\" pinball machine, released in January 1979, was designed by Harry Williams. It features a supernatural theme with notable gameplay elements such as three flippers, three pop bumpers, a passive bumper, and various targets including a spinning target and horseshoe lane. The game uses the same ROMs as Stern's \"Wild Fyre\" and was also produced in Australia under license by LAI.\n\n- Manufacturer: Stern Electronics\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Ghosts, Fictional Character, Gothic, Stern Electronics, Vampires, 1970s, Solid State, Book, Horror",
+    "Design Team": "- Design: Harry Williams",
+    "Editions": "- Dracula: 3,350 made, released 1979-01-01, model number 109, Stern M-100 MPU"
+  },
+  "opdb_group": "4Zl2",
+  "rules_url": "",
+  "tutorials": []
+}

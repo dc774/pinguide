@@ -1,0 +1,13 @@
+{
+  "game": "Evel Knievel",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/evel-knievel",
+  "sections": {
+    "Profile": "The \"Evel Knievel\" pinball machine, produced by Bally in 1977, is a classic solid-state machine themed around the famous stunt performer. Designed by Gary Gayton with artwork by Paul Faris, this machine is notable for being one of the first solid-state pinball machines and was produced in both solid-state and electro-mechanical versions.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1977–1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Celebrity, Licensed, Racing, Sports, 1970s, Solid State, Stunts, Motorcycles",
+    "Design Team": "- Design: Gary Gayton\n- Art: Paul Faris\n- Art: Michele Martinelli",
+    "Editions": "- Evel Knievel (EM): 155 made, released 1976-09-27, model number 1094\n- Road Racer: released 1985-01-01\n- Evel Knievel: 14,000 made, released 1977-06-01, model number 1094-E, Bally MPU AS-2518-17\n- Race Stars: 200 made, released 1979-03-01, Bally MPU AS-2518-17\n- Challenger II: released 1981-01-01"
+  },
+  "opdb_group": "59wx",
+  "rules_url": "",
+  "tutorials": []
+}

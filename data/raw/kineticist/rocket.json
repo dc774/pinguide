@@ -1,0 +1,13 @@
+{
+  "game": "Rocket",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/rocket",
+  "sections": {
+    "Profile": "\"Rocket\" is a single-player electro-mechanical pinball machine released by Williams Electronic Manufacturing Company in November 1959. Designed by Harry Williams, the game features a space exploration theme, capturing the excitement of the late 1950s space race.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1959\n- In production: no\n- Type: Electro-Mechanical\n- Display: Lights\n- Players: 1\n- Tags: Single Player, Wood Rail, Space, Original Theme, Rockets, Single level playfield",
+    "Design Team": "- Animation: Harry Williams\n- Design: Harry Williams\n- Mechanics: Harry Williams\n- Concept: Harry Williams\n- Art: George Molentin",
+    "Editions": "- Rocket: released 1959-11-01, model number 224"
+  },
+  "opdb_group": "42BY",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Disco",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/disco",
+  "sections": {
+    "Profile": "The Disco pinball machine, launched by Stern Electronics in June 1977, captures the vibrant disco era with a music and dancing theme. Designed by Wendell McAdams and featuring artwork by Christian Marche, it is equipped with two flippers, two bumpers, and a spinner.\n\n- Manufacturer: Stern Electronics\n- Years made: 1977\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 2\n- Tags: Two player, Disco, Singing, Dancing, Stern Electronics, 1970s, Music",
+    "Design Team": "- Design: Wendell McAdams\n- Art: Christian Marche",
+    "Editions": "- Disco: 815 made, released 1977-06-01, model number 100"
+  },
+  "opdb_group": "43bY",
+  "rules_url": "",
+  "tutorials": []
+}

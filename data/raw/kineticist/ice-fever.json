@@ -1,0 +1,13 @@
+{
+  "game": "Ice Fever",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/ice-fever",
+  "sections": {
+    "Profile": "Ice Fever, a pinball machine produced by Premier (Gottlieb) in February 1985, brings the excitement of hockey to the arcade. This solid-state electronic game features two flippers, four pop bumpers, two slingshots, five standup targets, a captive ball, a spinning target, and a unique 3-bank drop target setup. The highlight is its mechanical backbox animation, where a puck slides into the net.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Hockey, Sports, Solid State, 1980s",
+    "Design Team": "- Design: John Trudeau\n- Art: Larry Day\n- Software: John Buras\n- Sound: Craig Beierwaltes",
+    "Editions": "- Ice Mania: released 1986-01-01\n- Ice Fever: 1,585 made, released 1985-02-01, model number 695, Gottlieb System 80A\n- Ice Mania: released 1985-01-01"
+  },
+  "opdb_group": "43DV",
+  "rules_url": "",
+  "tutorials": []
+}

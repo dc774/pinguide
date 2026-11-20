@@ -1,0 +1,13 @@
+{
+  "game": "Atarians",
+  "manufacturer": "Atari Incorporated",
+  "url": "https://www.kineticist.com/games/pinball/atarians",
+  "sections": {
+    "Profile": "\"The Atarians\" pinball machine, released by Atari in November 1976, was the company's first foray into pinball manufacturing. This widebody, solid-state machine featured several innovative designs, including the use of inductive sensors under the playfield rather than traditional rollover switches, offering a smoother, more reliable detection of ball movement. Designed by Bob Jonesi, with artwork by George Opperman, the game includes four flippers, three pop bumpers, and seven kick-out holes.\n\n- Manufacturer: Atari Incorporated\n- Years made: 1976\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, 1970s, Solid State, Widebody, Adventure, Fantasy, Sci-Fi",
+    "Design Team": "- Art: George Opperman\n- Design: Bob Jonesi\n- Mechanics: Bob Jonesi\n- Concept: Bob Jonesi\n- Software: Fred Yates\n- Sound: Fred Yates\n- Software: Eugene Jarvis\n- Sound: Eugene Jarvis",
+    "Editions": "- Atarians: released 1976-01-01, Atari Generation/System 1"
+  },
+  "opdb_group": "ry9N",
+  "rules_url": "",
+  "tutorials": []
+}

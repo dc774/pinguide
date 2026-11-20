@@ -1,0 +1,13 @@
+{
+  "game": "Cybernaut",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/cybernaut",
+  "sections": {
+    "Profile": "The \"Cybernaut\" pinball machine, manufactured by Bally in 1985, is a standout for its futuristic sci-fi theme that revolves around robots and cybernetic elements. Designed by Greg Kmiec with art by Doug Watson, the machine showcases a sleek and modern aesthetic that complements its gameplay mechanics.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1985–1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, Solid State, Robots, Sci-Fi, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Art: Doug Watson\n- Design: Greg Kmiec",
+    "Editions": "- Space Hawks: 250 made, released 1986-01-04, Bally MPU AS-2518-35\n- Cybernaut: 900 made, released 1985-05-01, model number 0B42, Bally MPU A080-91638-D000 (6802)"
+  },
+  "opdb_group": "R69j",
+  "rules_url": "",
+  "tutorials": []
+}

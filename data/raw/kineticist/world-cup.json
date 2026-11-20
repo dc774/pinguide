@@ -1,0 +1,13 @@
+{
+  "game": "World Cup",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/world-cup",
+  "sections": {
+    "Profile": "\"World Cup\" is a solid-state pinball machine released by Williams Electronic Games Inc. in March 1978. Designed by Edward Tomaszewski with artwork by Christian Marche and sound by Randy Pfeiffer, this machine was notable for being the first Williams pinball game to feature electronic sounds instead of traditional chimes, marking a significant technological shift for the company. The game has a soccer theme and includes features like two flippers, pop bumpers, rollover buttons, kick-out holes, standup targets, and a spinning target.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1978–1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Soccer, Sports, 1970s, Solid State",
+    "Design Team": "- Design: Edward Tomaszewski\n- Art: Christian Marche\n- Software: Ron Crouse\n- Sound: Randy Pfeiffer",
+    "Editions": "- World Cup: 6,253 made, released 1978-05-01, model number 481, Williams System 3\n- Volley: released 1980-01-01\n- Football: released 1979-01-01"
+  },
+  "opdb_group": "rNqO",
+  "rules_url": "",
+  "tutorials": []
+}

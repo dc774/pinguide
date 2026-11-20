@@ -1,0 +1,13 @@
+{
+  "game": "Road Runner",
+  "manufacturer": "Atari Incorporated",
+  "url": "https://www.kineticist.com/games/pinball/road-runner",
+  "sections": {
+    "Profile": "Road Runner, developed by Atari Incorporated in 1979, is a widebody pinball machine themed after the popular Looney Tunes cartoon character. Road Runner was designed by Marty Rosenthal.\n\n- Manufacturer: Atari Incorporated\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 2\n- Tags: Two player, Prototype, Licensed, Cartoon, 1970s, Solid State",
+    "Design Team": "- Design: Marty Rosenthal",
+    "Editions": "- Road Runner: 2 made, released 1979-01-01, Atari Generation/System 3"
+  },
+  "opdb_group": "421X",
+  "rules_url": "",
+  "tutorials": []
+}

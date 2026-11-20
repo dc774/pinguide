@@ -1,0 +1,12 @@
+{
+  "game": "Pole Position",
+  "manufacturer": "Segasa",
+  "url": "https://www.kineticist.com/games/pinball/pole-position",
+  "sections": {
+    "Profile": "The \"Pole Position\" pinball machine, produced by Segasa-Sonic in 1986, is a solid-state, four-player game with an auto racing theme. The playfield features two flippers, multiple bumpers, and targets designed to simulate a racing experience.\n\n- Manufacturer: Segasa\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Racing, Sports, Original Theme, Solid State, Cars, 1980s",
+    "Editions": "- Pole Position: released 1986-01-01"
+  },
+  "opdb_group": "rlop",
+  "rules_url": "",
+  "tutorials": []
+}

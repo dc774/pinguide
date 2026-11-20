@@ -1,0 +1,13 @@
+{
+  "game": "Elvis",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/elvis",
+  "sections": {
+    "Profile": "Stern's Elvis pinball machine, released by Stern in 2004 and designed by Steve Ritchie, celebrates the life and music of Elvis Presley. This game features an array of Elvis's hit songs, including \"Hound Dog\" and \"Jailhouse Rock,\" with actual singing by Elvis and voiceovers by Jamie Kelley and Al Dvorin. The gameplay includes unique elements such as an animated Elvis figure that performs signature moves and a mini-playfield themed after \"Heartbreak Hotel.\"\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2004\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2000s, Licensed, Solid State, Music",
+    "Design Team": "- Art: Jerry Vanderstelt\n- Design: Steve Ritchie\n- Software: Dwight Sullivan\n- Animation: Mark Galvez\n- Software: Lonnie D. Ropp\n- Software: Keith P. Johnson\n- Music: Chris Granner\n- Sound: Chris Granner",
+    "Editions": "- Elvis: released 2004-08-01, model number I-0084, Stern Whitestar (modified)\n- Elvis Gold: MSRP $5,000, 500 made, released 2004-08-01, Stern Whitestar (modified)"
+  },
+  "opdb_group": "4qbX",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2018/09/Elvis-Instruction-Cards.jpg",
+  "tutorials": []
+}

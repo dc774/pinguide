@@ -1,0 +1,13 @@
+{
+  "game": "House of Diamonds / Queen's Castle",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/house-of-diamonds-queens-castle",
+  "sections": {
+    "Profile": "House of Diamonds and Queen's Castle are pinball machines released by Italian manufacturer Zaccaria in 1978. House of Diamonds is a four-player solid-state machine, while Queen's Castle is its single-player electro-mechanical counterpart. Both games feature a card and casino theme, incorporating four flippers, two bumpers, a kick-out hole, ten stand-up targets, two slingshots, a roll-under spinner, and a horseshoe lane.\n\n- Manufacturer: Zaccaria\n- Years made: 1978\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Dual Theme, Gambling, Medieval, Card games, Original Theme, 1970s, Solid State, Cars, Fantasy",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Queen's Castle: released 1978-01-04\n- House of Diamonds: released 1978-07-01, Zaccaria Generation 1"
+  },
+  "opdb_group": "RVpL",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Fireball",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/fireball",
+  "sections": {
+    "Profile": "The \"Fireball\" pinball machine, released by Bally in 1972, is an iconic and historically significant game designed by Ted Zale with artwork by Dave Christensen. Known for its unique features, \"Fireball\" includes a spinning disc in the center of the playfield, which creates unpredictable ball movement, adding an element of chaos and excitement to the game. Additionally, it features \"zipper flippers\" that can close together, enhancing ball control, and a three-ball multiball, a rarity for its time.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1972–1985\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 4\n- Tags: Original Theme, 1970s, Fantasy",
+    "Design Team": "- Animation: Ted Zale\n- Design: Ted Zale\n- Mechanics: Ted Zale\n- Concept: Ted Zale\n- Art: Dave Christensen",
+    "Editions": "- Fireball Classic: 2,000 made, released 1985-02-01, model number 0A40, Bally MPU A080-91638-D000 (6802)\n- Fireball (Home Model): 10,000 made, released 1976-01-01, model number 606-1000\n- Fireball: 3,815 made, released 1972-02-01, model number 926"
+  },
+  "opdb_group": "48ZN",
+  "rules_url": "",
+  "tutorials": []
+}

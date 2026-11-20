@@ -1,0 +1,13 @@
+{
+  "game": "Cue",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/cue",
+  "sections": {
+    "Profile": "The \"Cue\" pinball machine, released by Stern Electronics in March 1982, is a rare prototype with only six units produced. Designed by Harry Williams and Brian Poklacki, the game is themed around billiards and pool, featuring two flippers, no ramps, and no multiball mode. It uses the Stern M-200 MPU system and was never released commercially.\n\n- Manufacturer: Stern Electronics\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Pool (Billiards), Original Theme, Stern Electronics, Solid State, Playfield Gimmick, Single level playfield, 1980s",
+    "Design Team": "- Design: Harry Williams\n- Concept: Harry Williams\n- Software: Brian Poklacki\n- Design: Brian Poklacki\n- Mechanics: Brian Poklacki",
+    "Editions": "- Cue: 6 made, released 1982-01-01, Stern M-200 MPU"
+  },
+  "opdb_group": "4kqd",
+  "rules_url": "",
+  "tutorials": []
+}

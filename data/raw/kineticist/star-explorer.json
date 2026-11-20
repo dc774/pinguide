@@ -1,0 +1,12 @@
+{
+  "game": "Star Explorer",
+  "manufacturer": "Sentinel Inc.",
+  "url": "https://www.kineticist.com/games/pinball/star-explorer",
+  "sections": {
+    "Profile": "\"Star Explorer\" is a single-player solid-state pinball machine released in 1977.\n\n- Manufacturer: Sentinel Inc.\n- Years made: 1977\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 1\n- Tags: Aviation, Space Fantasy, Single Player, Space, Original Theme, 1970s, Solid State, Home Pin, Toy",
+    "Editions": "- Star Explorer: released 1977-01-01, model number PH7730WA05\n- Flying Aces: released 1977-01-01, model number PH7730WA01"
+  },
+  "opdb_group": "48DQ",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Looney Tunes",
+  "manufacturer": "Spooky Pinball LLC",
+  "url": "https://www.kineticist.com/games/pinball/looney-tunes-2023",
+  "sections": {
+    "Profile": "Bugs Bunny and Daffy Duck lead their friends through the Acme Factory, collecting film footage to restore it after the Tasmanian Devil tore it apart, in this tribute to the classic Warner Bros. cartoon series that Spooky Pinball revealed in December 2023. Designed by Spooky Luke and Bug Emery, it features a whirling Taz sculpt, a Wile E. Coyote TNT detonator plunger and new voice work by Eric Bauza.\n\n- Manufacturer: Spooky Pinball LLC\n- Years made: 2024\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Looney Tunes, 2020s, Licensed, Cartoon, Solid State",
+    "Design Team": "- Software: Eric Priepke\n- Design: Corwin (Bug) Emery\n- Art: Brad Duke\n- Software: Luke Peters\n- Design: Lukas Kastner (Spooky Luke)\n- Music: Matt “Count D” Montgomery",
+    "Editions": "- Looney Tunes (SE): MSRP $8,299, released 2024-01-01, Spooky Warden\n- Looney Tunes (CE): MSRP $9,699, 888 made, released 2024-01-01, Spooky Warden\n- Looney Tunes (Blood Sucker Edition): MSRP $8,999, released 2024-01-01, Spooky Warden"
+  },
+  "opdb_group": "J2K0",
+  "rules_url": "https://pinballrulesheets.com/spooky/looney-tunes-rulesheet.html",
+  "tutorials": []
+}

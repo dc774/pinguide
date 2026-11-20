@@ -1,0 +1,13 @@
+{
+  "game": "Soccer Kings",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/soccer-kings",
+  "sections": {
+    "Profile": "Soccer Kings is a pinball machine released by Zaccaria in 1982, featuring a soccer theme and solid-state electronics. Known for its unique gameplay, the machine includes two playfields—one main and one upper \"attack zone\"—and uses five flippers, four on the main playfield and one in the attack zone.\n\n- Manufacturer: Zaccaria\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Soccer, Sports, Solid State, 1980s",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Soccer Kings: released 1982-01-09, Zaccaria Generation 2"
+  },
+  "opdb_group": "R0VJ",
+  "rules_url": "http://www.zaccaria-pinball.com/rulesheets/soccerkings.html",
+  "tutorials": []
+}

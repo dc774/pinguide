@@ -1,0 +1,13 @@
+{
+  "game": "Special Force",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/special-force",
+  "sections": {
+    "Profile": "\"Special Force\" is a pinball machine by Bally, released in September 1986. It features a military theme with two flippers, three ramps, and a three-ball multiball mode. Designed by Dennis Nordman, it runs on the Bally MPU A084-91786-AH06 (6803) system and produced 2,750 units.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Military, Original Theme, Solid State, Guns, Action, 1980s",
+    "Design Team": "- Art: Tony Ramunni\n- Design: Dennis Nordman\n- Software: Rehman Merchant\n- Sound: Neil Falconer",
+    "Editions": "- Special Force: 2,750 made, released 1986-01-08, model number 0E47, Bally MPU A084-91786-AH06 (6803)\n- Special Force Girls: released 1986-08-01, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "RDkX",
+  "rules_url": "",
+  "tutorials": []
+}

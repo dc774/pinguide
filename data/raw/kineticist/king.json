@@ -1,0 +1,12 @@
+{
+  "game": "King",
+  "manufacturer": "Bell Games",
+  "url": "https://www.kineticist.com/games/pinball/king",
+  "sections": {
+    "Profile": "King, produced by Bell Coin Matic in 1978, is a solid-state pinball machine. The game features two flippers, three pop bumpers, and a variety of targets designed to challenge players.\n\n- Manufacturer: Bell Games\n- Years made: 1978\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Celebrity, Licensed, 1970s, Solid State",
+    "Editions": "- King: released 1978-01-01, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "4XjW",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Magic (Stern Electronics, 1979)",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/magic",
+  "sections": {
+    "Profile": "The Magic pinball machine, released by Stern Electronics in August 1979, is a solid-state game featuring a fantasy theme. Designed by Mike Kubin with artwork by Bob Timm, this machine was part of Stern’s early foray into solid-state technology, utilizing the Stern M-100 MPU system.\n\n- Manufacturer: Stern Electronics\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Magic, Fairy, Skulls, Stern Electronics, 1970s, Solid State, Dragons, Fantasy",
+    "Design Team": "- Art: Bob Timm\n- Design: Mike Kubin",
+    "Editions": "- Magic: 2,202 made, released 1979-01-08, model number 115, Stern M-100 MPU"
+  },
+  "opdb_group": "4eyp",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2018/08/Magic-Stern-Rulecards.jpg",
+  "tutorials": []
+}

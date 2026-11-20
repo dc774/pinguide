@@ -1,0 +1,13 @@
+{
+  "game": "Rick and Morty",
+  "manufacturer": "Spooky Pinball LLC",
+  "url": "https://www.kineticist.com/games/pinball/rick-and-morty-2019",
+  "sections": {
+    "Profile": "As Morty, the player survives adventures across alternate dimensions in this licensed game based on the Adult Swim cartoon, with each dimension changing the rules and the lighting. Scott Danesi designed the game and wrote its music.\n\n- Manufacturer: Spooky Pinball LLC\n- Years made: 2020\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: 2010s, 2020s, Licensed, Cartoon, Solid State, TV Show",
+    "Design Team": "- Callouts: Justin Roiland\n- Animation: David Van Es\n- Sound: David Van Es\n- Software: Jimmy Lipham\n- Design: Scott Danesi\n- Mechanics: Scott Danesi\n- Music: Scott Danesi\n- Sound: Scott Danesi\n- Software: Bowen Kerins\n- Software: Chris Nietzold\n- Software: Eric Priepke",
+    "Editions": "- Rick and Morty (SE): MSRP $6,995, released 2019-12-01, Multimorphic P3-ROC\n- Rick and Morty (Blood Sucker Edition): released 2020-01-01, model number 00007, Multimorphic P3-ROC"
+  },
+  "opdb_group": "QKb2",
+  "rules_url": "https://pinballrulesheets.com/spooky/rick-morty-rulesheet.html",
+  "tutorials": []
+}

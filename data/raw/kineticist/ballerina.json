@@ -1,0 +1,13 @@
+{
+  "game": "Ballerina",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/ballerina",
+  "sections": {
+    "Profile": "\"Ballerina\" is an electro-mechanical pinball machine released by Bally Manufacturing Co. in 1948. Designed for single-player gameplay, it features two flippers, twelve scoring bumpers, and five kick-out holes, with one uniquely positioned below the outhole for bonus scoring. The machine's ballet-themed artwork, created by Lester Hilbrich, adds to its charm.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1948\n- In production: no\n- Type: Electro-Mechanical\n- Display: Lights\n- Players: 1\n- Tags: Ballet, Single Player, Wood Rail, Dancing",
+    "Design Team": "- Art: Lester Hilbrich",
+    "Editions": "- Ballerina: released 1948-01-01, model number 513"
+  },
+  "opdb_group": "4dyO",
+  "rules_url": "",
+  "tutorials": []
+}

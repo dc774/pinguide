@@ -1,0 +1,13 @@
+{
+  "game": "Willy Wonka & The Chocolate Factory",
+  "manufacturer": "Jersey Jack Pinball",
+  "url": "https://www.kineticist.com/games/pinball/willy-wonka-the-chocolate-factory",
+  "sections": {
+    "Profile": "Based on the 1971 Gene Wilder film, Jersey Jack Pinball's 2019 game takes players on a tour of Willy Wonka's factory, collecting Wonka Bars and shooting the Most Secret Machine and the spinning Everlasting Gobstopper on the way down the chocolate river to three wizard modes, including Pure Imagination. Designed by Pat Lawlor with art by John Youssi.\n\n- Manufacturer: Jersey Jack Pinball\n- Years made: 2019\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Fictional Character, 2010s, Licensed, Solid State, Candy, Fantasy, Family",
+    "Design Team": "- Animation: Jean-Paul de Win\n- Art: John Youssi\n- Design: Pat Lawlor\n- Software: Bill Grupp\n- Mechanics: Wally Welch\n- Software: Ted Estes\n- Mechanics: Dan Molter\n- Animation: Mark Molitor\n- Software: Duncan Brown\n- Mechanics: Peter Dorn\n- Software: Joe Katz\n- Software: JT Harkey\n- Sound: Vikas Deo\n- Animation: Olaf Gremie\n- Software: Keith P. Johnson",
+    "Editions": "- Willy Wonka & The Chocolate Factory: MSRP $7,500, released 2019-04-12, model number 99-600005-01 [WW SE], Intel Celeron\n- Willy Wonka & The Chocolate Factory (LE): MSRP $9,500, released 2019-04-12, model number 99-600005-00 [WW LE], Intel Celeron\n- Willy Wonka & The Chocolate Factory (CE): MSRP $12,500, released 2019-08-01, Intel Celeron"
+  },
+  "opdb_group": "YWBZ",
+  "rules_url": "https://pinballrulesheets.com/jersey-jack/wonka-rulesheet.html",
+  "tutorials": []
+}

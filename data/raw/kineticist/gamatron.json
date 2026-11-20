@@ -1,0 +1,13 @@
+{
+  "game": "Gamatron",
+  "manufacturer": "Pinstar",
+  "url": "https://www.kineticist.com/games/pinball/gamatron",
+  "sections": {
+    "Profile": "\"Gamatron,\" produced by Pinstar in December 1985, is a rare conversion kit that allowed owners to convert Stern or Bally pinball machines into this new game. Designed by Steve Kirk with artwork by Seamus McLaughlin, the machine has a distinct sci-fi theme with outer space elements and features two flippers, three-ball multiball play, and a ball walker mechanism similar to Stern's 1980 game \"Flight 2000.\"\n\n- Manufacturer: Pinstar\n- Years made: 1985–1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, Solid State, Sci-Fi, 1980s",
+    "Design Team": "- Art: Seamus McLaughlin\n- Design: Harry Williams\n- Design: Steve Kirk",
+    "Editions": "- Gamatron: released 1985-01-01, Stern M-200 MPU\n- Gamatron: released 1986-01-01, model number A-01320"
+  },
+  "opdb_group": "Ro6e",
+  "rules_url": "",
+  "tutorials": []
+}

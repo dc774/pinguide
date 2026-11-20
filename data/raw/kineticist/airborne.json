@@ -1,0 +1,13 @@
+{
+  "game": "Airborne",
+  "manufacturer": "Capcom Coin-Op Inc.",
+  "url": "https://www.kineticist.com/games/pinball/airborne",
+  "sections": {
+    "Profile": "The Airborne pinball machine, released by Capcom Coin-Op, Inc. in 1996, features an aviation theme where players participate in international air shows. Designed by Claude Fernandez, this game is notable for its two flippers, multiple ramps, and unique \"injector\" mechanism that propels the ball down ramps.\n\n- Manufacturer: Capcom Coin-Op Inc.\n- Years made: 1996\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Aviation, Original Theme, 1990s, Solid State",
+    "Design Team": "- Software: Bill Pfutzenreuter\n- Animation: Chris Granner\n- Callouts: Chris Granner\n- Music: Chris Granner\n- Sound: Chris Granner\n- Mechanics: Dan Molter\n- Art: Paul Mazur\n- Design: Claude Fernandez\n- Callouts: Claude Fernandez\n- Art: Hugh van Zanten\n- Animation: Kevin Loza\n- Callouts: Jeff Powell\n- Callouts: Mark Ritchie\n- Software: Dan Markham\n- Software: Jeff Marshall",
+    "Editions": "- Airborne: 1,350 made, released 1996-03-01, model number AIR3001, Capcom A0015405"
+  },
+  "opdb_group": "4EZe",
+  "rules_url": "https://pinballrulesheets.com/capcom/airborne-rulesheet.html",
+  "tutorials": []
+}

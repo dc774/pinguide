@@ -1,0 +1,13 @@
+{
+  "game": "Dragonfist",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/dragonfist",
+  "sections": {
+    "Profile": "\"Dragonfist\" is a pinball machine released by Stern Electronics in November 1981. It features a martial arts theme with two flippers, no ramps, and no multiball. The machine is built on the Stern M-200 MPU system, with a total production of only 302 units, making it quite rare. Designed by Joe Joos Jr. with artwork by Doug Watson.\n\n- Manufacturer: Stern Electronics\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Karate, Martial Arts, Sports, Original Theme, Stern Electronics, Solid State, Single level playfield, 1980s",
+    "Design Team": "- Design: Joe Joos Jr.\n- Mechanics: Joe Joos Jr.\n- Art: Doug Watson",
+    "Editions": "- Dragonfist: 302 made, released 1982-01-01, model number 153, Stern M-200 MPU"
+  },
+  "opdb_group": "RQkJ",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Indianapolis 500",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/indianapolis-500",
+  "sections": {
+    "Profile": "Indianapolis 500, designed by Dennis Nordman and released by Bally in June 1995, is a four-player game themed on the famous car race, with art by Dan Hughes and Paul Barker and race call-outs from Paul Page and Bobby Unser.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1995\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Licensed, Racing, Sports, 1990s, Solid State, Driving, Cars",
+    "Design Team": "- Design: Dennis Nordman\n- Animation: Adam Rhine\n- Art: Paul Barker\n- Software: Mike Boon\n- Software: Craig Sylla\n- Art: Dan Hughes\n- Animation: Brian Morris\n- Music: Chris Granner\n- Sound: Chris Granner\n- Mechanics: Armando Zuniga\n- Mechanics: Win Schilling",
+    "Editions": "- Indianapolis 500: 2,249 made, released 1995-06-01, model number 50026, Williams WPC Security (WPC-S)"
+  },
+  "opdb_group": "r8l3",
+  "rules_url": "",
+  "tutorials": []
+}

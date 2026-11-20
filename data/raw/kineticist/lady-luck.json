@@ -1,0 +1,13 @@
+{
+  "game": "Lady Luck (Bally Manufacturing, 1986)",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/lady-luck",
+  "sections": {
+    "Profile": "\"Lady Luck\" is a pinball machine released by Bally in February 1986, featuring a card and gambling theme. It includes three flippers, no ramps, and no multiball mode. Designed by George Christian with artwork by Greg Freres, only 500 units were produced, making it a rare collectible.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Poker, Gambling, Card games, Original Theme, Solid State, 1980s",
+    "Design Team": "- Design: George Christian\n- Art: Greg Freres\n- Software: Rehman Merchant",
+    "Editions": "- Lady Luck: 500 made, released 1986-02-01, model number 0E34, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "R0nO",
+  "rules_url": "",
+  "tutorials": []
+}

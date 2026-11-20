@@ -1,0 +1,13 @@
+{
+  "game": "Nascar",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/nascar",
+  "sections": {
+    "Profile": "The \"NASCAR\" pinball machine by Stern, released in 2005, was designed by Pat Lawlor and features a dynamic racing theme. The gameplay revolves around a racetrack that loops around the playfield, creating an exciting, fast-paced experience.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2005–2007\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2000s, Licensed, Racing, Sports, Solid State, Cars",
+    "Design Team": "- Mechanics: John Krutsch\n- Art: John Youssi\n- Animation: Adam Rhine\n- Design: Pat Lawlor\n- Concept: Pat Lawlor\n- Software: Louis Koziarz\n- Design: Louis Koziarz\n- Animation: Greg Dunlap\n- Music: Chris Granner\n- Sound: Chris Granner\n- Mechanics: John Filz\n- Software: Chip Curtis",
+    "Editions": "- Grand Prix: MSRP $3,500, released 2005-06-29, model number I-0091, Stern Whitestar (modified)\n- Dale Jr.: 600 made, released 2007-01-01, model number PINBALL I-0097, Stern Whitestar (modified)\n- Nascar: released 2005-06-29, model number I-0086, Stern Whitestar (modified)"
+  },
+  "opdb_group": "5YWX",
+  "rules_url": "",
+  "tutorials": []
+}

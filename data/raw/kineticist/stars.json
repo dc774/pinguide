@@ -1,0 +1,13 @@
+{
+  "game": "Stars",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/stars",
+  "sections": {
+    "Profile": "The \"Stars\" pinball machine, produced by Stern Electronics in 1978, is notable for its engaging and straightforward gameplay. Designed by Steve Kirk and featuring art by Jorge Obregon, this machine offers players a mix of drop targets and spinners, each increasing in value as targets are hit. Its space-themed playfield requires players to hit five star targets to activate a special mode, enhancing the game's strategic depth. Despite its simplicity compared to modern pinball machines, \"Stars\" is celebrated for its fast-paced action and skillful shot requirements.\n\n- Manufacturer: Stern Electronics\n- Years made: 1978\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, Stern Electronics, Fast, 1970s, Solid State, Kirk Post, Single level playfield",
+    "Design Team": "- Art: Jorge Obregon\n- Design: Steve Kirk",
+    "Editions": "- Stars: 5,127 made, released 1978-03-01, model number 103, Stern M-100 MPU"
+  },
+  "opdb_group": "rXEW",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2018/08/Stars-Rulecards.jpg",
+  "tutorials": []
+}

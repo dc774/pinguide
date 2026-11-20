@@ -1,0 +1,13 @@
+{
+  "game": "Bazaar",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/bazaar",
+  "sections": {
+    "Profile": "The Bazaar pinball machine, released by Bally Manufacturing in 1966, is known for being the first to feature the innovative \"zipper flippers\" design. This feature allowed the flippers to close the gap between them, preventing the ball from draining, which added a strategic element to gameplay. Designed by Ted Zale, the game also includes six mushroom bumpers, three pop bumpers, and a skill shot feature.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1966\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Travel, Original Theme, Zipper Flippers",
+    "Design Team": "- Animation: Ted Zale\n- Design: Ted Zale\n- Mechanics: Ted Zale\n- Concept: Ted Zale\n- Art: George Molentin",
+    "Editions": "- Bazaar: 2,925 made, released 1966-10-01, model number 792"
+  },
+  "opdb_group": "RKeO",
+  "rules_url": "",
+  "tutorials": []
+}

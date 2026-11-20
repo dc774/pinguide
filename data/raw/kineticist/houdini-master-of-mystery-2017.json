@@ -1,0 +1,13 @@
+{
+  "game": "Houdini: Master of Mystery",
+  "manufacturer": "American Pinball",
+  "url": "https://www.kineticist.com/games/pinball/houdini-master-of-mystery-2017",
+  "sections": {
+    "Profile": "The Houdini pinball machine, released by American Pinball in 2017, is a captivating tribute to the legendary magician. Designed by Joe Balcer, it features intricate mechanics and engaging software by Josh Kugler. The playfield includes unique elements such as three magnets that control the ball's movement, a 20-inch launch into a steamer trunk, and an interactive theater marquee.\n\n- Manufacturer: American Pinball\n- Years made: 2017\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Historical Figure, 2010s, Magic, Original Theme, Solid State",
+    "Design Team": "- Art: Jeff Busch\n- Design: Joe Balcer\n- Mechanics: Joe Balcer\n- Software: Josh Kugler\n- Mechanics: Jim Thornton\n- Animation: Ish Raneses\n- Art: Matt Riesterer\n- Music: Matt Kern\n- Sound: Matt Kern",
+    "Editions": "- Houdini: Master of Mystery: MSRP $6,500, released 2017-10-01, model number GAM0001, Multimorphic P3-ROC\n- Houdini: Master of Mystery (100th Anniversary): released 2026-03-01, Multimorphic P3-ROC\n- Houdini: Master of Mystery (Deluxe): released 2017-10-01, Multimorphic P3-ROC"
+  },
+  "opdb_group": "vBQX",
+  "rules_url": "https://pinballrulesheets.com/american-pinball/houdini-rulesheet.html",
+  "tutorials": []
+}

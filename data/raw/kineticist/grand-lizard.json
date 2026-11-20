@@ -1,0 +1,13 @@
+{
+  "game": "Grand Lizard",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/grand-lizard",
+  "sections": {
+    "Profile": "The Grand Lizard pinball machine, released by Williams in 1986, is known for its unique jungle theme and engaging gameplay. Designed by Barry Oursler and Python Anghelo, with art contributions from Anghelo and Paul Faris, the game features both upper and lower playfields, enhancing the player experience with diverse challenges. Key features include two flippers, three pop bumpers, drop targets, and a distinctive Magna-Save function, which allows players to save their ball using side buttons when they spell \"L-I-Z-A-R-D\".\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Solid State, Adventure, Fantasy, 1980s",
+    "Design Team": "- Art: Python Anghelo\n- Design: Python Anghelo\n- Design: Barry Oursler\n- Software: Ed Suchocki\n- Art: Paul Faris\n- Sound: Bill Parod",
+    "Editions": "- Grand Lizard: 2,750 made, released 1986-01-04, model number 523, Williams System 11"
+  },
+  "opdb_group": "4XPZ",
+  "rules_url": "",
+  "tutorials": []
+}

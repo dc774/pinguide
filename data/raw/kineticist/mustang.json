@@ -1,0 +1,13 @@
+{
+  "game": "Mustang (Stern Pinball, 2014)",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/mustang",
+  "sections": {
+    "Profile": "The \"Mustang\" pinball machine, created by Stern in 2014, is a high-energy game celebrating 50 years of the iconic Ford Mustang. Designed with vibrant artwork by Camilo Pardo, known for his work on the Ford GT, this machine immerses players in the world of classic car racing with a fast-paced, dynamic playfield. Key features include a rotating turntable with a Mustang model, multiple ramps, and interactive targets that enhance the racing theme. The game also features narration by professional drag racer Tanner Foust and a soundtrack spanning five decades of hits from Sony Music, adding to the immersive experience.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2014\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Travel, 2010s, Licensed, Solid State, Cars",
+    "Design Team": "- Animation: Mark Galvez\n- Callouts: Jerry Thompson\n- Software: Waison Cheng\n- Mechanics: John Rotharmel\n- Design: John Trudeau\n- Art: Greg Freres\n- Art: John Youssi\n- Software: Tanio Klyce\n- Software: Mike Kyzivat\n- Sound: Mike Kyzivat\n- Software: Lonnie D. Ropp\n- Software: Jack Benson\n- Music: David Thiel\n- Sound: David Thiel\n- Music: Vince Pontarelli\n- Mechanics: Robert Blakeman\n- Animation: Tom Kyzivat\n- Mechanics: Mike Redoble\n- Art: Camilo Pardo",
+    "Editions": "- Mustang (LE): MSRP $8,495, released 2014-05-15, Stern S.A.M. Board System\n- Mustang (Pro): MSRP $5,395, released 2014-04-01, model number PINBALL I-00F1, Stern S.A.M. Board System\n- Mustang (Premium): MSRP $7,495, released 2014-01-01, Stern S.A.M. Board System"
+  },
+  "opdb_group": "rPOR",
+  "rules_url": "https://pinballrulesheets.com/stern/mustang-wiki-rulesheet.html",
+  "tutorials": []
+}

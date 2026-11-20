@@ -1,0 +1,13 @@
+{
+  "game": "Mercury / Rocket",
+  "manufacturer": "Genco Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/mercury-rocket",
+  "sections": {
+    "Profile": "\"Mercury\" and \"Rocket\" are two electro-mechanical pinball machines released by Genco Manufacturing Co. in 1950, both sharing identical playfield layouts and artwork. Designed by Harvey Heiss, these machines feature two flippers, a single pop bumper, and ten kick-out holes.\n\n- Manufacturer: Genco Manufacturing Co.\n- Years made: 1950\n- In production: no\n- Type: Electro-Mechanical\n- Display: Lights\n- Players: 1\n- Tags: Aviation, Single Player, Travel, Women, Dual Theme, Wood Rail, Space, Beach, Rockets, Water",
+    "Design Team": "- Design: Steve Kordek\n- Art: George Molentin\n- Design: Harvey Heiss",
+    "Editions": "- Rocket: 756 made, released 1950-05-01\n- South Pacific: 2,002 made, released 1950-02-01\n- Mercury: 743 made, released 1950-03-01"
+  },
+  "opdb_group": "r1JJ",
+  "rules_url": "",
+  "tutorials": []
+}

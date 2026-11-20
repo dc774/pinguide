@@ -1,0 +1,13 @@
+{
+  "game": "Freefall",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/freefall",
+  "sections": {
+    "Profile": "\"Freefall\" is a pinball machine released by Stern Electronics in January 1981, featuring an aviation theme. It includes two flippers, no ramps, and supports a three-ball multiball mode. Designed by Harry Williams with artwork by Bob Timm, it was produced in a limited run of 1,300 units.\n\n- Manufacturer: Stern Electronics\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Stern Electronics, Solid State, Widebody, Fantasy, 1980s",
+    "Design Team": "- Art: Bob Timm\n- Design: Harry Williams",
+    "Editions": "- Freefall: 1,300 made, released 1981-01-01, model number 134, Stern M-200 MPU"
+  },
+  "opdb_group": "5W9p",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2018/09/Freefall_instruction_cards.jpg",
+  "tutorials": []
+}

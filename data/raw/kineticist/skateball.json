@@ -1,0 +1,13 @@
+{
+  "game": "Skateball",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/skateball",
+  "sections": {
+    "Profile": "Skateball, released by Bally in September 1980, is a four-player, four-flipper solid-state game with a skateboarding theme, designed by Claude Fernandez with artwork by Greg Freres, Kevin O'Connor and Margaret Hudson.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Sports, Skateboarding, Solid State, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: Claude Fernandez\n- Art: Greg Freres\n- Art: Kevin O'Connor\n- Art: Margaret Hudson",
+    "Editions": "- Skateball: 4,150 made, released 1980-04-30, model number 1210, Bally MPU AS-2518-35\n- Rally: released 1981-04-30"
+  },
+  "opdb_group": "rNpx",
+  "rules_url": "",
+  "tutorials": []
+}

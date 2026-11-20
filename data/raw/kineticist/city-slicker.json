@@ -1,0 +1,13 @@
+{
+  "game": "City Slicker",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/city-slicker",
+  "sections": {
+    "Profile": "\"City Slicker\" is a pinball machine released by Bally in March 1987. The game features a theme based on Americana and mafia influences, with five flippers, one ramp, and a two-ball multiball mode. It was designed by Greg Kmiec, with artwork by Pat McMahon and sound by M. Bartlow. Only 300 units were produced.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Women, Original Theme, Solid State, Mafia, Guns, Police, Cars, Gangster, Crime, 1980s",
+    "Design Team": "- Design: Greg Kmiec\n- Software: Rehman Merchant\n- Art: Pat McMahon\n- Sound: Michael Bartlow",
+    "Editions": "- City Slicker: 300 made, released 1987-03-01, model number 0E79, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "rEVb",
+  "rules_url": "",
+  "tutorials": []
+}

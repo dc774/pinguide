@@ -1,0 +1,13 @@
+{
+  "game": "Wheel of Fortune",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/wheel-of-fortune",
+  "sections": {
+    "Profile": "The \"Wheel of Fortune\" pinball machine, released by Stern Pinball in October 2007, is themed around the popular television game show. Designed by Dennis Nordman with artwork by Kevin O'Connor and Margaret Hudson, the machine features voiceovers from Pat Sajak and Charlie O'Donnell, adding authenticity and excitement to the gameplay.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2007\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2000s, Licensed, Game Show, Solid State, Puzzle, Spelling, TV Show",
+    "Design Team": "- Software: Lonnie D. Ropp\n- Mechanics: Lonnie D. Ropp\n- Animation: Mark Galvez\n- Art: Kevin O'Connor\n- Design: Dennis Nordman\n- Concept: Dennis Nordman\n- Animation: Keith P. Johnson\n- Software: Keith P. Johnson\n- Art: Margaret Hudson\n- Music: David Thiel\n- Sound: David Thiel\n- Software: Lyman F. Sheats Jr.",
+    "Editions": "- Wheel of Fortune: MSRP $4,299, released 2007-10-01, model number I-0098, Stern S.A.M. Board System"
+  },
+  "opdb_group": "417d",
+  "rules_url": "https://pinballrulesheets.com/stern/wheel-of-fortune-rulesheet-wip.html",
+  "tutorials": []
+}

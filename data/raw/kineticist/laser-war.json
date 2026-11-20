@@ -1,0 +1,19 @@
+{
+  "game": "Laser War",
+  "manufacturer": "Data East USA Inc.",
+  "url": "https://www.kineticist.com/games/pinball/laser-war",
+  "sections": {
+    "Profile": "\"Laser War\" is a 1987 pinball machine by Data East, notable for being the company's first pinball release. Designed by Joe Kaminkow with artwork by Kevin O'Connor and Margaret Hudson, it features two flippers, one ramp, and a three-ball multiball mode.\n\n- Manufacturer: Data East USA Inc.\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Lasers, Original Theme, Solid State, Campy, Fantasy, Sci-Fi, 1980s",
+    "Design Team": "- Art: Kevin O'Connor\n- Design: Joe Kaminkow\n- Software: Lonnie D. Ropp\n- Software: Richard Ditton\n- Art: Margaret Hudson\n- Music: David Thiel\n- Sound: David Thiel",
+    "Editions": "- Laser War: 2,569 made, released 1987-03-01, model number 500-5501-01, DataEast/Sega Version 1",
+    "Getting Started (Kineticist tutorial)": "- Always be making progress toward multiball. Complete a set of colored targets to light that color's saucer for a lock, then lock a ball to start 2-ball play. In 2-ball, relock both balls within about 15 seconds of each other to advance to 3-ball, where colored targets advance the jackpot and the ramp scores the jackpot.\n- Be ready to use lane change at all times to rotate which top lanes are lit and get multipliers whenever you can.\n- Successive shots to the ramp qualify a playfield multiplier of up to 5x, but only for about 7 seconds, making it difficult to use on anything other than another ramp shot or a bonus collect at any saucer.\n- Lit in lanes relight the left kickback. If the in lanes are not lit, shoot the ramp to light them both."
+  },
+  "opdb_group": "5one",
+  "rules_url": "",
+  "tutorials": [
+    {
+      "image": "https://media.kineticist.com/7740f6bd-4c65-45de-9469-40f0a9f47b6f.png",
+      "text": "- Always be making progress toward multiball. Complete a set of colored targets to light that color's saucer for a lock, then lock a ball to start 2-ball play. In 2-ball, relock both balls within about 15 seconds of each other to advance to 3-ball, where colored targets advance the jackpot and the ramp scores the jackpot.\n- Be ready to use lane change at all times to rotate which top lanes are lit and get multipliers whenever you can.\n- Successive shots to the ramp qualify a playfield multiplier of up to 5x, but only for about 7 seconds, making it difficult to use on anything other than another ramp shot or a bonus collect at any saucer.\n- Lit in lanes relight the left kickback. If the in lanes are not lit, shoot the ramp to light them both."
+    }
+  ]
+}

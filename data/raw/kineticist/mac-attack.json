@@ -1,0 +1,13 @@
+{
+  "game": "Mac Attack",
+  "manufacturer": "Mr Game",
+  "url": "https://www.kineticist.com/games/pinball/mac-attack",
+  "sections": {
+    "Profile": "\"Mac Attack\" is a solid-state pinball machine released by Mr. Game in 1989, featuring a unique blend of traditional pinball mechanics and integrated video game modes. Designed by Tony Ramunni, the game showcases distinctive artwork and an innovative cabinet design. The playfield includes four flippers and a single ramp, with the notable absence of bumpers, which is uncommon in pinball design. A standout feature of \"Mac Attack\" is its backbox color monitor that displays three integrated video games, enhancing player engagement by combining physical and digital gameplay elements.\n\n- Manufacturer: Mr Game\n- Years made: 1989\n- In production: no\n- Type: Solid State\n- Display: CGA\n- Players: 4\n- Tags: Original Theme, Solid State, Guns, Fantasy, Sci-Fi, 1980s",
+    "Design Team": "- Animation: Alberto Frabetti\n- Software: Alberto Frabetti\n- Music: Alberto Frabetti\n- Sound: Alberto Frabetti\n- Art: Tony Ramunni\n- Design: Tony Ramunni",
+    "Editions": "- Mac Attack: released 1989-01-01, Mr. Game 1B11188/0"
+  },
+  "opdb_group": "rJ07",
+  "rules_url": "",
+  "tutorials": []
+}

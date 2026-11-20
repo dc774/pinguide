@@ -1,0 +1,13 @@
+{
+  "game": "Dolly Parton",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/dolly-parton",
+  "sections": {
+    "Profile": "The \"Dolly Parton\" pinball machine, released by Bally in November 1979, features a design by George Christian and artwork by Dave Christensen. With a production run of 7,350 units, this machine is themed around the iconic country singer Dolly Parton. The game includes two flippers, three pop bumpers, five stand-up targets, and an inline drop target bank. Players aim to spell \"DOLLY\" and \"PARTON\" for bonuses.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1978\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Celebrity, Singing, Licensed, 1970s, Solid State, Country Music, Band, Music",
+    "Design Team": "- Design: George Christian\n- Art: Dave Christensen",
+    "Editions": "- Dolly Parton: 7,350 made, released 1978-10-06, model number 1162-E, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "43Yq",
+  "rules_url": "",
+  "tutorials": []
+}

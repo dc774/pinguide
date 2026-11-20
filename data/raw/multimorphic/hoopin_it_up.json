@@ -1,0 +1,8 @@
+{
+  "game": "Hoopin’ It Up",
+  "manufacturer": "Multimorphic",
+  "url": "https://www.multimorphic.com/store/p3-game-kits/hoopin-it-up/",
+  "sections": {
+    "Overview": "Hoopin’ It Up is a fantastic implementation of a basketball game on a pinball machine. It was developed by pinball hobbyist Greg Goldey of Castle Pines, CO is a free download for all P 3 owners.\nThis game application requires the Lexy Lightspeed – Escape From Earth playfield module .\nTo download Hoopin’ It Up, visit your P 3 software download page at https://www.multimorphic.com/account/software.\nCategory: 3rd-Party Add-On Game Software\nHoopin’ It Up (HIU) is a basketball-themed game that works with the Lexy Lightspeed playfield module . HIU stays true to the fundamentals of basketball by allowing players to score points (two and three pointers and slam dunks), shoot free throws (one point each), as well as earn rebounds and assists while trying to avoid turnovers, shot clock violations, and personal fouls. The player tries to score as many points as possible within two time periods (halves). Between periods, mini-games are played for further challenge and to earn time towards an extra overtime period. From Greg Goldey, the developer of Hoopin’ It Up: “I’m allowing Multimorphic to release HIU for free because my main goal was to learn the development environment, not setting any money-making goals. I want other owners to use and hopefully enjoy what I created, as well as provide an example of a “homebrew” game that anyone with some technical and creative abilities who wants to create a game can do. I feel that if I can do it, most people can too."
+  }
+}

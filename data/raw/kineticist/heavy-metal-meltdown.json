@@ -1,0 +1,13 @@
+{
+  "game": "Heavy Metal Meltdown",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/heavy-metal-meltdown",
+  "sections": {
+    "Profile": "\"Heavy Metal Meltdown,\" released by Bally in January 1987, is a solid-state pinball machine known for its high-energy theme and music-based design. It features two flippers, one ramp, and a multiball option with a capacity for up to five balls. Designed by Dan Langlois with artwork by Tony Ramunni, the machine has an alphanumeric display and was produced in a limited run of 1,600 units.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Ramps, Lock Stealing, Solid State, Rock Music, Music, 1980s",
+    "Design Team": "- Art: Tony Ramunni\n- Software: Rehman Merchant\n- Design: Dan Langlois\n- Sound: Neil Falconer",
+    "Editions": "- Heavy Metal Meltdown: 1,600 made, released 1987-01-08, model number OH03, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "Ro3e",
+  "rules_url": "",
+  "tutorials": []
+}

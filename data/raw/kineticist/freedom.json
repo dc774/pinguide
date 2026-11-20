@@ -1,0 +1,13 @@
+{
+  "game": "Freedom",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/freedom",
+  "sections": {
+    "Profile": "The \"Freedom\" pinball machine, produced by Bally in 1976, celebrates the American Bicentennial with a patriotic theme. Designed by George Christian and featuring artwork by Christian Marche, the game is distinguished by its red, white, and blue color scheme, and imagery of American icons like the eagle and Uncle Sam.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1976\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 4\n- Tags: America, Military, Original Theme, American Revolution, Murica, Politics, 1970s, History, Music",
+    "Design Team": "- Art: Christian Marche\n- Design: George Christian",
+    "Editions": "- Freedom: 1,500 made, released 1976-08-01, model number 1066-E, Bally MPU AS-2518-17\n- Freedom (EM): 5,080 made, released 1976-07-01, model number 1066"
+  },
+  "opdb_group": "R9qY",
+  "rules_url": "",
+  "tutorials": []
+}

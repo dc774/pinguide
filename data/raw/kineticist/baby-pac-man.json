@@ -1,0 +1,13 @@
+{
+  "game": "Baby Pac-Man",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/baby-pac-man",
+  "sections": {
+    "Profile": "\"Baby Pac-Man,\" released by Bally in October 1982, is a unique hybrid that combines a pinball machine with a video game. Designed by Claude Fernandez with artwork by Margaret Hudson and Pat McMahon, this machine integrates the arcade gameplay of Pac-Man with a pinball playfield. The video game section features a maze without power pellets, requiring players to drop into the pinball section to earn these power-ups.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: CGA\n- Players: 2\n- Tags: Two player, Video Game, Licensed, Solid State, 1980s",
+    "Design Team": "- Design: Claude Fernandez\n- Art: Margaret Hudson\n- Software: Rehman Merchant\n- Art: Pat McMahon",
+    "Editions": "- Baby Pac-Man: 7,000 made, released 1982-01-01, model number 1299, Bally MPU AS-2518-133"
+  },
+  "opdb_group": "5Kvx",
+  "rules_url": "",
+  "tutorials": []
+}

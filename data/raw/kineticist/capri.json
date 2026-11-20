@@ -1,0 +1,13 @@
+{
+  "game": "Capri",
+  "manufacturer": "Chicago Coin Machine Mfg. Co.",
+  "url": "https://www.kineticist.com/games/pinball/capri",
+  "sections": {
+    "Profile": "\"Capri\" is a single-player electro-mechanical pinball machine released by Chicago Coin Machine Manufacturing Company in August 1956. The game was designed by John Gore, Jerry Koci, Albin Peters, and Al Schlappa, with artwork by Roy Parker.\n\n- Manufacturer: Chicago Coin Machine Mfg. Co.\n- Years made: 1956\n- In production: no\n- Type: Electro-Mechanical\n- Display: Lights\n- Players: 1\n- Tags: Single Player, Wood Rail, Original Theme",
+    "Design Team": "- Art: Roy Parker\n- Design: John Gore\n- Design: Jerry Koci\n- Design: Albin Peters\n- Design: Al Schlappa",
+    "Editions": "- Capri: released 1956-08-01"
+  },
+  "opdb_group": "ryoo",
+  "rules_url": "",
+  "tutorials": []
+}

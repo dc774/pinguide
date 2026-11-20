@@ -1,0 +1,12 @@
+{
+  "game": "Hi Ball",
+  "manufacturer": "Tecnoplay",
+  "url": "https://www.kineticist.com/games/pinball/hi-ball",
+  "sections": {
+    "Profile": "The \"Hi-Ball\" pinball machine, produced by Italian manufacturer Tecnoplay in 1988, is a solid-state game notable for its unique vertical cabinet design. The playfield is suspended on springs, allowing it to be shaken similarly to a traditional pinball cabinet. A vacuum-formed horseshoe-shaped ramp, labeled \"Space Journey,\" enables the ball to access upper playfield areas, returning to the flippers via clear plastic aerial crossover ramps.\n\n- Manufacturer: Tecnoplay\n- Years made: 1988\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 6\n- Tags: Space Fantasy, Space, Original Theme, Solid State, Weird Pinball Machines, 1980s",
+    "Editions": "- Hi Ball: released 1988-01-01, Technoplay \"2-2C 8008 LS\" (68000 CPU)"
+  },
+  "opdb_group": "R7j6",
+  "rules_url": "",
+  "tutorials": []
+}

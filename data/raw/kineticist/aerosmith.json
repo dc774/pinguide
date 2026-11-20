@@ -1,0 +1,13 @@
+{
+  "game": "Aerosmith",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/aerosmith",
+  "sections": {
+    "Profile": "The Aerosmith pinball machine, released by Stern in January 2017, captures the high-energy vibe of a live Aerosmith concert. Featuring nine of the band's classic hits, players are immersed in an exhilarating gameplay experience with a dynamic concert arena playfield. A standout feature is the \"Jacky in the Box\" toybox mechanism, which allows players to launch pinballs through the air into the box, leading to thrilling multiball opportunities.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2017\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Singing, 2010s, Licensed, Solid State, Band, Music",
+    "Design Team": "- Software: Waison Cheng\n- Design: John Borg\n- Art: Donny Gillies (Dirty Donny)\n- Animation: Zac Stark\n- Callouts: Brendon Small\n- Animation: Chuck Ernst\n- Software: Mike Kyzivat\n- Software: Lonnie D. Ropp\n- Animation: Mark Galvez\n- Sound: Bob Baffy\n- Sound: Ken Hale",
+    "Editions": "- Aerosmith: MSRP $6,199, released 2017-02-01, model number PINBALL I-00I5 * AEROSMT PR, Stern SPIKE 2 System\n- Aerosmith (Premium): MSRP $7,899, released 2017-04-01, Stern SPIKE 2 System\n- Aerosmith (LE): MSRP $8,999, 500 made, released 2017-03-01, model number PINBALL I-00I6 * AEROSMT LE, Stern SPIKE 2 System"
+  },
+  "opdb_group": "r16e",
+  "rules_url": "https://pinballrulesheets.com/stern/aerosmith-rulesheet.html",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Medusa",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/medusa",
+  "sections": {
+    "Profile": "The Medusa pinball machine, released by Bally in 1981, is a solid-state game designed by Wally Welch with artwork by Kevin O'Connor. This machine is known for its Greek mythology theme, featuring the legendary Gorgon Medusa, and incorporates a range of unique gameplay elements.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Myth and Legend, Original Theme, Solid State, Fantasy, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Art: Kevin O'Connor\n- Design: Wally Welch",
+    "Editions": "- Medusa: 3,250 made, released 1981-02-04, model number 1245, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "4xXQ",
+  "rules_url": "",
+  "tutorials": []
+}

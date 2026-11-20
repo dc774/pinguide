@@ -1,0 +1,13 @@
+{
+  "game": "Vector",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/vector",
+  "sections": {
+    "Profile": "\"Vector,\" a pinball machine by Bally released in 1982, offers a rich and dynamic gameplay experience characterized by its futuristic sports arena theme. Designed to compete with the emerging video game market, the machine features multiple playfield levels, including an upper playfield with its own flipper and ball lock. Key features include a \"Flip-O-Meter\" that measures ball speed on the upper ramp, a series of drop targets, and a unique ball lock mechanism. The game also integrates extensive voice interaction and sound effects, which were advanced for its time.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Racing, Sports, Original Theme, Solid State, Upper Playfield, Fantasy, Sci-Fi, 1980s",
+    "Design Team": "- Design: Greg Kmiec\n- Art: Greg Freres\n- Software: Rehman Merchant",
+    "Editions": "- Vector: 3,500 made, released 1981-03-24, model number 1247, Bally MPU AS-2518-35\n- Speed Test: released 1982-01-01"
+  },
+  "opdb_group": "486B",
+  "rules_url": "",
+  "tutorials": []
+}

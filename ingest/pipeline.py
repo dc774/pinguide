@@ -16,6 +16,8 @@ from llama_index.core.node_parser import SentenceSplitter
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
 
+from scraper.makers import MAKERS
+
 RAW_DIR = Path("data/raw")
 PINBALLRULES_DIR = RAW_DIR / "pinballrules"
 # Tiltforums closed in Sept 2026. The few machines not carried over to
@@ -25,26 +27,35 @@ PAPA_DIR = RAW_DIR / "papa"
 BOBS_DIR = RAW_DIR / "bobs"
 STERN_DIR = RAW_DIR / "stern"
 CGC_DIR = RAW_DIR / "cgc"
+KINETICIST_DIR = RAW_DIR / "kineticist"
 VECTOR_STORE_DIR = Path("vector_store")
 COLLECTION_NAME = "rulesheets"
 
-# Rulesheet sources define the canonical machine names. Manufacturer pages are
-# supplementary: their game names (from page <h1> / slug) often differ from the
+# Rulesheet sources define the canonical machine names. Manufacturer pages and
+# Kineticist profiles are supplementary: their game names often differ from the
 # rulesheet naming for the same machine (e.g. "Godzilla" vs "Stern Godzilla",
 # "Kiss" vs "KISS"), so they are reconciled onto a canonical name before ingest.
+# Order matters: a supplementary machine with no match becomes a target for the
+# sources after it (e.g. Kineticist's "Queen" joins Pinball Brothers' "Queen").
 RULESHEET_SOURCES = [
     (PINBALLRULES_DIR, "pinballrules"), (TILTFORUMS_DIR, "tiltforums"),
     (PAPA_DIR, "papa"), (BOBS_DIR, "bobs"),
 ]
-SUPPLEMENTARY_SOURCES = [(STERN_DIR, "stern"), (CGC_DIR, "cgc")]
+SUPPLEMENTARY_SOURCES = [
+    (STERN_DIR, "stern"), (CGC_DIR, "cgc"),
+    *[(RAW_DIR / maker, maker) for maker in MAKERS],
+    (KINETICIST_DIR, "kineticist"),
+]
 
 _MFR_PREFIXES = (
     "stern ", "williams ", "bally ", "gottlieb ", "data east ",
     "sega ", "jersey jack ", "chicago gaming ", "spooky ",
+    "american pinball ", "pinball brothers ", "dutch pinball ", "turner pinball ",
+    "barrels of fun ", "multimorphic ",
 )
 
 
-def _canonical_key(name: str) -> str:
+def _canonical_key(name: str, strip_maker: bool = True) -> str:
     """Normalize a game title so the same machine matches across sources.
 
     Lowercases, drops a rulesheet-title tail ('... Rulesheet Version ...'),
@@ -52,6 +63,9 @@ def _canonical_key(name: str) -> str:
     "Stern Godzilla", "Godzilla" and "Godzilla Pinball" all reduce to "godzilla".
     A subtitle after ':' is kept, because Stern reuses franchise names for
     different machines ("Avengers" 2012 vs "Avengers: Infinity Quest" 2020).
+    Finally a leading "the", spaces and punctuation are dropped, so PAPA's
+    run-together titles match: "Whitewater" = "White Water",
+    "Addamsfamily" = "The Addams Family".
     """
     # Fold accents ("Pokémon" -> "pokemon") and drop apostrophes, straight or
     # curly ("Batman '66" -> "batman 66", "Elvira’s" -> "elviras").
@@ -62,11 +76,35 @@ def _canonical_key(name: str) -> str:
     for suffix in (" pinball", " rules"):
         if s.endswith(suffix):
             s = s[: -len(suffix)]
-    for prefix in _MFR_PREFIXES:
+    for prefix in _MFR_PREFIXES if strip_maker else ():
         if s.startswith(prefix):
             s = s[len(prefix):]
             break
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"^the\s+", "", s.strip())
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
+def _exact_matches() -> dict[str, str]:
+    """Kineticist profile URL -> rulesheet machine name, by OPDB ID or rulesheet link.
+
+    Exact IDs beat name matching: Kineticist repeats titles across eras
+    ("Godzilla" by Sega and by Stern), which names alone can't tell apart.
+    """
+    by_opdb: dict[str, str] = {}
+    by_link: dict[str, str] = {}
+    for path in PINBALLRULES_DIR.glob("*.json"):
+        d = json.loads(path.read_text(encoding="utf-8"))
+        if d.get("opdb_group"):
+            by_opdb[d["opdb_group"]] = d["game"]
+        by_link[d["url"]] = d["game"]
+    matches: dict[str, str] = {}
+    for path in KINETICIST_DIR.glob("*.json"):
+        d = json.loads(path.read_text(encoding="utf-8"))
+        rules = re.sub(r"\.html$", "", d.get("rules_url") or "")
+        canon = by_opdb.get(d.get("opdb_group") or "") or by_link.get(rules)
+        if canon:
+            matches[d["url"]] = canon
+    return matches
 
 
 def load_documents(raw_dir: Path) -> tuple[int, list[Document]]:
@@ -93,7 +131,7 @@ def load_documents(raw_dir: Path) -> tuple[int, list[Document]]:
     return len(files), documents
 
 
-def main() -> int:
+def main(dry_run: bool = False) -> int:
     # override=True so .env wins over any stale key exported in the shell. See
     # the matching note in api/app.py. Safe in production (no .env is deployed).
     load_dotenv(override=True)
@@ -115,16 +153,36 @@ def main() -> int:
         total_files += n
         all_documents.extend(docs)
 
-    # Map each canonical key to its rulesheet name. Skip keys claimed by more than
-    # one distinct rulesheet name (ambiguous), so a supplementary page is only
-    # merged when the target machine is unambiguous.
+    # Rulesheet sources sometimes name one machine differently (PAPA's
+    # "Addamsfamily", Bob's "The Addams Family"). Unify them under the most
+    # readable name (most words, then longest). The key here keeps the maker
+    # name: "Stern Jurassic Park" (2019) is not Data East's "Jurassic Park".
+    same_title: dict[str, set[str]] = defaultdict(set)
+    for doc in all_documents:
+        same_title[_canonical_key(doc.metadata["game"], strip_maker=False)].add(doc.metadata["game"])
+    renames: dict[str, str] = {}
+    for key, names in same_title.items():
+        if key and len(names) > 1:
+            best = max(names, key=lambda n: (n.count(" "), len(n)))
+            renames.update({n: best for n in names if n != best})
+    for doc in all_documents:
+        doc.metadata["game"] = renames.get(doc.metadata["game"], doc.metadata["game"])
+    if renames:
+        print(f"Unified {len(renames)} rulesheet names:", flush=True)
+        for src, best in sorted(renames.items()):
+            print(f"    {src!r} → {best!r}", flush=True)
+    # Map each canonical key to its rulesheet name. Skip keys still claimed by
+    # more than one name (e.g. "Jurassic Park" and "Stern Jurassic Park"), so a
+    # supplementary page is only merged when the target machine is unambiguous.
     key_to_names: dict[str, set[str]] = defaultdict(set)
     for doc in all_documents:
         key_to_names[_canonical_key(doc.metadata["game"])].add(doc.metadata["game"])
     # An empty key (e.g. a title with no Latin characters) must never match.
     canonical_by_key = {k: next(iter(v)) for k, v in key_to_names.items() if k and len(v) == 1}
 
-    # Pass 2: supplementary (manufacturer) sources, reconciled onto canonical names.
+    # Pass 2: supplementary sources, reconciled onto canonical names: exact IDs
+    # first, then names.
+    exact = {url: renames.get(name, name) for url, name in _exact_matches().items()}
     merges: dict[str, str] = {}
     for src_dir, label in SUPPLEMENTARY_SOURCES:
         if not src_dir.exists():
@@ -133,7 +191,8 @@ def main() -> int:
         n, docs = load_documents(src_dir)
         for doc in docs:
             game = doc.metadata["game"]
-            canon = canonical_by_key.get(_canonical_key(game))
+            key = _canonical_key(game)
+            canon = exact.get(doc.metadata["url"]) or canonical_by_key.get(key)
             if canon is None and ":" in game:
                 # Franchise-prefixed titles: "Star Wars: The Mandalorian" matches
                 # the rulesheet "The Mandalorian" by its subtitle.
@@ -141,6 +200,10 @@ def main() -> int:
             if canon and canon != game:
                 doc.metadata["game"] = canon
                 merges[game] = canon
+            elif canon is None and key and key not in key_to_names:
+                # A new machine: later sources can merge onto it.
+                key_to_names[key].add(game)
+                canonical_by_key[key] = game
         print(f"  {src_dir}/ → {n} files, {len(docs)} documents [{label}]", flush=True)
         total_files += n
         all_documents.extend(docs)
@@ -154,6 +217,11 @@ def main() -> int:
         print("No documents found. Run the scrapers first.", file=sys.stderr)
         return 1
     print(f"Total: {total_files} files → {len(all_documents)} documents", flush=True)
+    machines = len({d.metadata["game"] for d in all_documents})
+    print(f"Machines: {machines}", flush=True)
+    if dry_run:
+        print("Dry run: nothing embedded or stored.", flush=True)
+        return 0
 
     splitter = SentenceSplitter(chunk_size=512, chunk_overlap=50)
     nodes = splitter.get_nodes_from_documents(all_documents)
@@ -179,4 +247,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(dry_run="--dry-run" in sys.argv[1:]))

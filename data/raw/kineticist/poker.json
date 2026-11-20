@@ -1,0 +1,12 @@
+{
+  "game": "Poker",
+  "manufacturer": "Playmatic",
+  "url": "https://www.kineticist.com/games/pinball/poker",
+  "sections": {
+    "Profile": "\"Poker\" is a single-player electro-mechanical pinball machine released by Playmatic in 1969. The game features two flippers, four pop bumpers, two slingshots, and four captive balls.\n\n- Manufacturer: Playmatic\n- Years made: 1969\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Poker, Wedgehead, Gambling, Card games, Original Theme",
+    "Editions": "- Poker: released 1969-01-01"
+  },
+  "opdb_group": "rlwk",
+  "rules_url": "",
+  "tutorials": []
+}

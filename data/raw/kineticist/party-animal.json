@@ -1,0 +1,13 @@
+{
+  "game": "Party Animal",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/party-animal",
+  "sections": {
+    "Profile": "\"Party Animal\" is a 1987 pinball machine by Bally with a vibrant party theme. Designed by Dennis Nordman, it features three flippers, two ramps, and a three-ball multiball mode. The game is known for its lively sound effects, including music by Michael Bartlow, and its playful artwork by Pat McMahon.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Party, Original Theme, Solid State, Humor, Beer, Animals, 1980s",
+    "Design Team": "- Art: Pat McMahon\n- Design: Dennis Nordman\n- Software: Rehman Merchant\n- Sound: Michael Bartlow",
+    "Editions": "- Party Animal: 2,250 made, released 1987-05-01, model number 0H01, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "42Zz",
+  "rules_url": "",
+  "tutorials": []
+}

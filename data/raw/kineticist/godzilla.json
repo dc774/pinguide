@@ -1,0 +1,13 @@
+{
+  "game": "Godzilla (Sega Pinball, 1998)",
+  "manufacturer": "Sega Pinball Inc. (US)",
+  "url": "https://www.kineticist.com/games/pinball/godzilla",
+  "sections": {
+    "Profile": "The \"Godzilla\" pinball machine, manufactured by Sega in 1998, is based on the Godzilla movie released that same year. Designed by Joe Balcer and Joe Kaminkow, with artwork by Morgan Weistling, this machine features several notable elements, including a large Godzilla toy on the playfield, a ball diverter that drops the ball out of Godzilla's mouth, four electromagnets under the playfield, and a shaker motor that adds to the immersive experience. The game was one of the last produced by Sega Pinball before the company transitioned to Stern Pinball.\n\n- Manufacturer: Sega Pinball Inc. (US)\n- Years made: 1998\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 6\n- Tags: Licensed, 1990s, Solid State",
+    "Design Team": "- Software: Orin Day\n- Art: Morgan Weistling\n- Animation: Kurt Andersen\n- Design: Joe Balcer\n- Design: Joe Kaminkow\n- Software: Neil Falconer\n- Music: Kyle Johnson\n- Sound: Kyle Johnson",
+    "Editions": "- Godzilla: released 1998-01-08, model number 40, Sega/Stern Whitestar"
+  },
+  "opdb_group": "5po2",
+  "rules_url": "",
+  "tutorials": []
+}

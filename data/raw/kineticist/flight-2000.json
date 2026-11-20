@@ -1,0 +1,13 @@
+{
+  "game": "Flight 2000",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/flight-2000",
+  "sections": {
+    "Profile": "\"Flight 2000,\" a pinball machine released by Stern Electronics in 1980, stands out as the company's first talking pinball game. Designed by Harry Williams with artwork by Gerry Simkus and Doug Watson, this widebody machine features a futuristic space flight theme. A key highlight is its 3-ball multiball feature, where each ball undergoes three distinct \"lift-off\" stages through a maze-like ball lock mechanism.\n\n- Manufacturer: Stern Electronics\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, Stern Electronics, Planets, Solid State, Widebody, Rockets, 1980s",
+    "Design Team": "- Software: Bill Pfutzenreuter\n- Art: Doug Watson\n- Design: Harry Williams\n- Art: Gerry Simkus",
+    "Editions": "- Flight 2000: 6,301 made, released 1980-01-01, model number 128, Stern M-200 MPU"
+  },
+  "opdb_group": "48kY",
+  "rules_url": "",
+  "tutorials": []
+}

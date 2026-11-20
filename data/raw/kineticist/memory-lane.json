@@ -1,0 +1,13 @@
+{
+  "game": "Memory Lane",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/memory-lane",
+  "sections": {
+    "Profile": "The Memory Lane pinball machine, released by Stern Electronics in June 1978, is a solid-state game with a bowling theme. Designed by Sam Stern and Mike Kubin, it features two flippers, two pop bumpers, three standup targets, and ten rollover buttons arranged like bowling pins. This machine was one of the last from Stern to use an electro-mechanical chime unit before moving to electronic sound boards in later models like Lectronamo .\n\n- Manufacturer: Stern Electronics\n- Years made: 1978\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Nostalgia, Bowling, Sports, Original Theme, Stern Electronics, 1970s, Solid State, Cars",
+    "Design Team": "- Art: Christian Marche\n- Design: Mike Kubin\n- Design: Sam Stern",
+    "Editions": "- Memory Lane: 2,624 made, released 1978-06-01, model number 104, Stern M-100 MPU"
+  },
+  "opdb_group": "ry0Z",
+  "rules_url": "",
+  "tutorials": []
+}

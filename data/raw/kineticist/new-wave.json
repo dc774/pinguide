@@ -1,0 +1,13 @@
+{
+  "game": "New Wave",
+  "manufacturer": "Bell Games",
+  "url": "https://www.kineticist.com/games/pinball/new-wave",
+  "sections": {
+    "Profile": "New Wave, released by Bell Games (Nuova 11) in April 1985, is a solid-state pinball machine designed as a conversion kit for Bally's Black Pyramid. The playfield layout mirrors that of Black Pyramid, excluding the kick-out hole, and features two flippers, two pop bumpers, a set of three in-line drop targets, four stand-up targets, two star rollovers, and a swinging target.\n\n- Manufacturer: Bell Games\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Conversion Kit, Original Theme, Awesome Art, Solid State, 1980s",
+    "Design Team": "- Design: George Christian",
+    "Editions": "- New Wave: released 1985-01-04, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "RB8Z",
+  "rules_url": "",
+  "tutorials": []
+}

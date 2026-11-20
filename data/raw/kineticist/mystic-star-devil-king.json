@@ -1,0 +1,12 @@
+{
+  "game": "Mystic Star / Devil King",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/mystic-star-devil-king",
+  "sections": {
+    "Profile": "Mystic Star, released by Zaccaria in 1986, is a solid-state pinball machine with a wizard and magic theme. It was distributed as a conversion kit, shipped as a complete game minus the circuit boards, and utilized the Bally MPU AS-2518-35 board set. The following year, Tecnoplay, a subsidiary of Zaccaria, re-released this game as Devil King, maintaining the same gameplay elements but featuring updated artwork and branding.\n\n- Manufacturer: Zaccaria\n- Years made: 1986–1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Wizards, Mystical, Dual Theme, Original Theme, Solid State, Fantasy, 1980s",
+    "Editions": "- Devil King: released 1987-01-01, Bally MPU AS-2518-35\n- Mystic Star: released 1986-01-01, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "5QOw",
+  "rules_url": "",
+  "tutorials": []
+}

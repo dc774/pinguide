@@ -1,0 +1,13 @@
+{
+  "game": "Eight Ball",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/eight-ball",
+  "sections": {
+    "Profile": "\"Eight Ball,\" released by Bally in September 1977, is a classic pinball machine that was one of the most successful games of its era, holding a production run of 20,230 units. Designed by George Christian with artwork by Margaret Hudson and Paul Faris, the game features a pool theme and integrates elements of billiards into its playfield design.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1977–1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Pool (Billiards), 1970s, Solid State, Fantasy",
+    "Design Team": "- Design: George Christian\n- Art: Margaret Hudson\n- Art: Paul Faris\n- Art: Michele Martinelli",
+    "Editions": "- Stellar Airship: 200 made, released 1980-03-01, Bally MPU AS-2518-17\n- Challenger: released 1981-01-01\n- Eight Ball: 20,230 made, released 1977-01-17, model number 1118-E, Bally MPU AS-2518-17\n- Space Wars: released 1985-01-01\n- Challenger I: released 1981-01-01"
+  },
+  "opdb_group": "rN7J",
+  "rules_url": "",
+  "tutorials": []
+}

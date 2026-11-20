@@ -1,0 +1,13 @@
+{
+  "game": "Pool Sharks",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/pool-sharks",
+  "sections": {
+    "Profile": "The \"Pool Sharks\" pinball machine, released by Bally in 1990, features a billiards theme with art by Doug Watson and design by Tony Kraemer. This solid-state machine includes two flippers, three pop bumpers, multiple drop targets, and a unique 8-ball or 9-ball game option.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1990\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Sharks, Pool (Billiards), Original Theme, 1990s, Solid State",
+    "Design Team": "- Software: Brian Eddy\n- Design: Tony Kraemer\n- Mechanics: Zofia Ryan\n- Art: Doug Watson\n- Concept: Doug Watson\n- Music: Paul Heitsch\n- Sound: Paul Heitsch\n- Sound: Robin Seaver",
+    "Editions": "- Pool Sharks: 2,250 made, released 1990-06-01, model number 2014, Williams System 11C"
+  },
+  "opdb_group": "R68o",
+  "rules_url": "",
+  "tutorials": []
+}

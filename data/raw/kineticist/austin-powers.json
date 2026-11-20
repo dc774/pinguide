@@ -1,0 +1,13 @@
+{
+  "game": "Austin Powers",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/austin-powers",
+  "sections": {
+    "Profile": "The \"Austin Powers\" pinball machine, released by Stern Pinball in June 2001, captures the quirky and humorous essence of the popular film series. Designed by John Borg and Lonnie D. Ropp, the game features vibrant artwork, memorable quotes, and music from the movies, contributing to an engaging and thematic experience.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2001\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2000s, Licensed, Spy, Solid State, Comedy",
+    "Design Team": "- Mechanics: John Borg\n- Concept: John Borg\n- Software: Lonnie D. Ropp\n- Design: Lonnie D. Ropp\n- Concept: Lonnie D. Ropp\n- Animation: Mark Galvez\n- Software: Keith P. Johnson\n- Mechanics: Wesley Chang\n- Music: Kyle Johnson\n- Sound: Kyle Johnson",
+    "Editions": "- Austin Powers: released 2001-06-01, model number 74, Sega/Stern Whitestar"
+  },
+  "opdb_group": "43BW",
+  "rules_url": "https://web.archive.org/web/20250119091737/http://pinball.org/rules/austinpowers.html",
+  "tutorials": []
+}

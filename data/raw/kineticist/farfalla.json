@@ -1,0 +1,13 @@
+{
+  "game": "Farfalla",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/farfalla",
+  "sections": {
+    "Profile": "The Farfalla pinball machine, released by Zaccaria in 1983, is renowned for its striking artwork and unique gameplay elements. Named after the Italian word for \"butterfly,\" Farfalla features two playfields with six flippers—two on the main playfield, two on an upper transparent playfield, and two more as outlane save flippers.\n\n- Manufacturer: Zaccaria\n- Years made: 1983\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Butterfly, Original Theme, Solid State, Colorful, Fantasy, 1980s",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Farfalla: released 1983-01-09, Zaccaria Generation 2"
+  },
+  "opdb_group": "RVw2",
+  "rules_url": "http://www.zaccaria-pinball.com/rulesheets/farfalla.html",
+  "tutorials": []
+}

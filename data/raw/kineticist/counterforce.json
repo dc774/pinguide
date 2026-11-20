@@ -1,0 +1,13 @@
+{
+  "game": "Counterforce",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/counterforce",
+  "sections": {
+    "Profile": "\"Counterforce\" is a pinball machine released by D. Gottlieb & Co. in August 1980. It features a sci-fi theme with four flippers, no ramps, and no multiball. Designed by Ed Krynski with artwork by Gordon Morison, this wide-body machine is part of the Gottlieb System 80 series and had a production run of 3,870 units.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, Solid State, Widebody, Fantasy, 1980s",
+    "Design Team": "- Design: Ed Krynski\n- Mechanics: Ed Krynski\n- Concept: Ed Krynski\n- Art: Gordon Morison",
+    "Editions": "- Counterforce: 3,870 made, released 1980-01-08, model number 656, Gottlieb System 80"
+  },
+  "opdb_group": "RYPN",
+  "rules_url": "",
+  "tutorials": []
+}

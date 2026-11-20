@@ -1,0 +1,13 @@
+{
+  "game": "The Big Lebowski",
+  "manufacturer": "Dutch Pinball",
+  "url": "https://www.kineticist.com/games/pinball/the-big-lebowski",
+  "sections": {
+    "Profile": "The Big Lebowski pinball machine, developed by Dutch Pinball in 2015, is a tribute to the cult classic film \"The Big Lebowski.\" It features a highly immersive experience with over 200 quotes and clips from the movie. The machine boasts a unique multi-level playfield with three flippers, five-ball multiball, and interactive elements such as a replica Brunswick bowling alley and \"bash toys\" like the rug and Dude’s car.\n\n- Manufacturer: Dutch Pinball\n- Years made: 2015\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Drinking, 2010s, Licensed, Bowling, Sports, Solid State",
+    "Design Team": "- Software: Koen Heltzel\n- Design: Koen Heltzel\n- Art: Freek van Haagen\n- Animation: Barry Driessen\n- Design: Barry Driessen\n- Mechanics: Barry Driessen\n- Animation: Jean-Paul de Win\n- Art: Jean-Paul de Win\n- Mechanics: Guus Fingskes\n- Music: Jules Reivers\n- Sound: Jules Reivers\n- Music: Roel Gommans",
+    "Editions": "- The Big Lebowski: 95 made, released 2015-05-31, model number DP-069, Multimorphic P3-ROC\n- The Big Lebowski (Jesus Edition): released 2026-08-10"
+  },
+  "opdb_group": "5WBr",
+  "rules_url": "",
+  "tutorials": []
+}

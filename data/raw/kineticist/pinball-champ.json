@@ -1,0 +1,13 @@
+{
+  "game": "Pinball Champ",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/pinball-champ",
+  "sections": {
+    "Profile": "Zaccaria released Pinball Champ '82 in 1982 and reissued it in 1983 as Pinball Champ , with slightly modified artwork by Lorenzo Rimondini; both are four-player solid-state games from the company's second generation. Two of the four flippers sit on a timed upper playfield, where the ball can stay only while time remains on the clock.\n\n- Manufacturer: Zaccaria\n- Years made: 1983\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Pinball, Medieval, Sports, Original Theme, Boxing, Solid State, Upper Playfield, Fantasy, 1980s",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Flesh and Blood: released 1985-07-01, Zaccaria Generation 2\n- Pinball Champ '82: released 1982-04-01, Zaccaria Generation 2\n- Pinball: released 1983-02-01, Bally MPU AS-2518-35\n- Pinball Champ: released 1983-01-04, Zaccaria Generation 2"
+  },
+  "opdb_group": "rPdq",
+  "rules_url": "http://www.zaccaria-pinball.com/rulesheets/pinballchamp.html",
+  "tutorials": []
+}

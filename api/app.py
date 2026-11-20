@@ -1,4 +1,4 @@
-"""Flask API — single /query endpoint for the pinguide RAG system."""
+"""Flask API: single /query endpoint for the pinguide RAG system."""
 
 from __future__ import annotations
 
@@ -55,13 +55,17 @@ _MAX_HISTORY = 20       # prior chat messages sent to the LLM for context
 
 _SYSTEM_PROMPT = (
     f"You are a pinball machine expert assistant. This system covers roughly "
-    f"{len(_KNOWN_GAMES)} machines, drawing on community rulesheets, strategy guides, and "
-    "official manufacturer pages. "
+    f"{len(_KNOWN_GAMES)} machines, drawing on community rulesheets, strategy guides, "
+    "official manufacturer pages, and Kineticist machine profiles. "
     "Questions are about pinball machines and their rules, modes, and strategies, not the "
     "bands, films, or other things those names may also refer to. "
     "Each excerpt below is labeled with its machine (GAME), manufacturer, and section, so "
     "attribute information to the correct machine. Some excerpts come from manufacturer "
     "marketing pages; prefer concrete gameplay, scoring, and mode detail over promotional language. "
+    "Many machines have only a Kineticist profile (description, years, design team, editions, "
+    "and sometimes a short tutorial) and no full rulesheet. For those, answer from what the "
+    "profile says, and when asked about rules it doesn't cover, say that no detailed rulesheet "
+    "is available for that machine. "
     "Ground specific factual claims about a machine, exact scoring values, mode and wizard-mode "
     "names, multiball rules, layout, in the excerpts. For these specifics, if the excerpts don't "
     "contain the answer, say so rather than inventing details; do not guess scoring numbers or "
@@ -123,15 +127,26 @@ def _hyde_embed(question: str, games: list[str]) -> list[float]:
 _MFR_PREFIXES = (
     "Stern ", "Williams ", "Bally ", "Gottlieb ", "Data East ",
     "Sega ", "Jersey Jack ", "Chicago Gaming ", "Spooky ",
+    "American Pinball ", "Pinball Brothers ", "Dutch Pinball ", "Turner Pinball ",
+    "Barrels of Fun ", "Multimorphic ",
 )
 
-# Generic words that appear in game names but also mean the hobby itself —
+# Generic words that appear in game names but also mean the hobby itself:
 # blocking them prevents false-positive game filters on general questions.
-_MATCH_BLOCKLIST = frozenset({"pinball"})
+# The list (approved 2026-11-20) is the machine titles that appear as ordinary
+# words in at least 10% of other machines' rulesheets, e.g. "What is a jackpot?"
+# must not be narrowed to the 1970s game "Jackpot". Those machines stay
+# reachable through general (unfiltered) retrieval.
+_MATCH_BLOCKLIST = frozenset({
+    "pinball", "flipper", "full", "24", "21", "touch", "colors", "400", "bumper",
+    "suspense", "orbit", "jackpot", "action", "now", "pop", "wizard!", "thing",
+    "flash", "master", "tournament", "fire!",
+})
 
 
 def _short_name(game: str) -> str:
-    """Strip a leading manufacturer prefix from a game name."""
+    """Strip a leading manufacturer prefix and a trailing "(...)" tag from a game name."""
+    game = re.sub(r"\s*\([^()]*\)$", "", game) or game
     for pfx in _MFR_PREFIXES:
         if game.startswith(pfx):
             return game[len(pfx):]
@@ -149,7 +164,7 @@ def _extract_games(question: str) -> list[str]:
 
     Finds the longest game name present in the query (by full name or by
     manufacturer-stripped short name), then expands to include any games
-    whose short name shares the same prefix — e.g. "Trident" → "Trident 2022",
+    whose short name shares the same prefix, e.g. "Trident" → "Trident 2022",
     "Godzilla" → "Stern Godzilla", "Metallica" → "Metallica Remastered".
 
     Uses word-boundary matching to avoid e.g. "Now" matching inside "know".
@@ -167,6 +182,8 @@ def _extract_games(question: str) -> list[str]:
         None,
     )
     if matched is None:
+        # Short name: no maker prefix and no trailing "(Maker, Year)" tag, so
+        # "Ski Jump" finds "Ski Jump (Zaccaria, 1978, Solid State)".
         matched = next(
             (g for g in _KNOWN_GAMES
              if _word_in(_short_name(g).lower()) and _short_name(g).lower() not in _MATCH_BLOCKLIST),

@@ -1,0 +1,13 @@
+{
+  "game": "Mr. & Mrs. Pac-Man",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/mr-mrs-pac-man",
+  "sections": {
+    "Profile": "The \"Mr. & Mrs. Pac-Man\" pinball machine, released by Bally in 1982, integrates traditional pinball with elements from the iconic video game. Designed by George Christian with artwork by Margaret Hudson and Pat McMahon, it features three flippers, 11 drop targets, six standup targets, and a unique 5x5 Pac-Maze grid on the playfield. Players collect 'moves' and navigate the Pac-Maze, replicating the classic Pac-Man chase.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Good Times, Licensed, Solid State, Games, 1980s",
+    "Design Team": "- Design: George Christian\n- Software: Rehman Merchant\n- Art: Margaret Hudson\n- Art: Pat McMahon",
+    "Editions": "- Mr. & Mrs. Pac-Man: 10,600 made, released 1982-05-01, model number 1283, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "r2Dk",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Pinball",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/pinball",
+  "sections": {
+    "Profile": "\"Pinball\" is a solid-state pinball machine released by Stern Electronics in September 1977. It was the first solid-state machine produced by Stern and marked their first original design after acquiring Chicago Coin earlier that year.\n\n- Manufacturer: Stern Electronics\n- Years made: 1977\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Pinball, Sports, Stern Electronics, 1970s, Solid State",
+    "Design Team": "- Design: Mike Kubin",
+    "Editions": "- Pinball (EM): 594 made, released 1977-08-01, model number 101\n- Pinball: 1,654 made, released 1977-01-08, model number 101, Stern M-100 MPU"
+  },
+  "opdb_group": "rZXj",
+  "rules_url": "",
+  "tutorials": []
+}

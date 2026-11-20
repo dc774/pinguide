@@ -1,0 +1,12 @@
+{
+  "game": "Master",
+  "manufacturer": "ManilaMatic",
+  "url": "https://www.kineticist.com/games/pinball/master-1988",
+  "sections": {
+    "Profile": "- Manufacturer: ManilaMatic\n- Years made: 1988\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Solid State, 1980s",
+    "Editions": "- Master: released 1988-01-01"
+  },
+  "opdb_group": "QKED",
+  "rules_url": "",
+  "tutorials": []
+}

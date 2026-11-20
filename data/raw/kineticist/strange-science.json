@@ -1,0 +1,13 @@
+{
+  "game": "Strange Science",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/strange-science",
+  "sections": {
+    "Profile": "\"Strange Science,\" a pinball machine released by Bally in 1986, blends the whimsical nature of 1980s campy science themes with innovative gameplay features. Designed by Dan Langlois with artwork by Greg Freres, the machine includes three flippers, three pop bumpers, and a unique 5-ball multiball mode triggered by the \"atom smasher\" mechanism. The game also features an anti-gravity up-loop and a particle-separator ramp, adding layers of complexity and excitement.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Solid State, Fantasy, Sci-Fi, 1980s",
+    "Design Team": "- Art: Greg Freres\n- Mechanics: Greg Tasted\n- Design: Dan Langlois\n- Software: Howard Shere",
+    "Editions": "- Strange Science: 2,350 made, released 1986-01-01, model number 0E35, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "5nzJ",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Beat the Clock (Bally Manufacturing, 1985)",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/beat-the-clock",
+  "sections": {
+    "Profile": "\"Beat the Clock,\" released by Bally in September 1985, is a unique pinball machine that combines traditional gameplay with a timed scoring challenge. Players can extend their playtime by hitting certain targets and ramps, adding a strategic element to the game. Designed by Bernard U. Kocarek with artwork by Pat McMahon, it features two flippers and a digital display.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Sports, Original Theme, Solid State, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: George Christian\n- Art: Tony Ramunni",
+    "Editions": "- Beat the Clock: 500 made, released 1985-01-01, model number 0C70, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "RY9k",
+  "rules_url": "",
+  "tutorials": []
+}

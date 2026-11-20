@@ -1,0 +1,13 @@
+{
+  "game": "Seawitch",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/seawitch",
+  "sections": {
+    "Profile": "The Seawitch pinball machine, produced by Stern Electronics in 1980, is a solid-state game designed by Mike Kubin with artwork by Bob Timm. It features a nautical fantasy theme, incorporating ocean wave background sounds to enhance the experience.\n\n- Manufacturer: Stern Electronics\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Ocean, Original Theme, Stern Electronics, Solid State, Water, Fantasy, 1980s",
+    "Design Team": "- Design: Mike Kubin\n- Software: Bill Pfutzenreuter\n- Art: Bob Timm",
+    "Editions": "- Seawitch: 2,503 made, released 1980-05-01, model number 123, Stern M-200 MPU"
+  },
+  "opdb_group": "R6kB",
+  "rules_url": "https://rules.silverballmania.com/rules/GR6kB-MDz81",
+  "tutorials": []
+}

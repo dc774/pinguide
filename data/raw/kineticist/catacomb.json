@@ -1,0 +1,13 @@
+{
+  "game": "Catacomb",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/catacomb",
+  "sections": {
+    "Profile": "The \"Catacomb\" pinball machine, produced by Stern Electronics in October 1981, is renowned for its unique fantasy and sci-fi theme. Designed by Joe Joos Jr. with artwork by Larry Day, it features intricate gameplay elements like a backbox bonus game, three-ball multiball, and a distinctive use of drop targets.\n\n- Manufacturer: Stern Electronics\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Backbox Gimmick, Original Theme, Stern Electronics, Solid State, Adventure, 1980s",
+    "Design Team": "- Art: Larry Day\n- Design: Joe Joos Jr.",
+    "Editions": "- Catacomb: released 1981-01-01, model number 147, Stern M-200 MPU"
+  },
+  "opdb_group": "RoQ6",
+  "rules_url": "",
+  "tutorials": []
+}

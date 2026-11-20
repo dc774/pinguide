@@ -1,0 +1,13 @@
+{
+  "game": "Future Spa",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/future-spa",
+  "sections": {
+    "Profile": "The \"Future Spa\" pinball machine, produced by Bally in 1979, is known for its distinctive wide body design and retro-futuristic artwork by Dave Christensen and Paul Faris. It was the first Bally machine to feature continuous background sound and in-line drop targets.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Bizarre, Leisure, Fitness, Sports, Original Theme, Healthcare, Spa, 1970s, Solid State, Widebody, Comedy, Fantasy",
+    "Design Team": "- Art: Paul Faris\n- Design: George Christian\n- Software: Rehman Merchant\n- Art: Dave Christensen",
+    "Editions": "- Future Spa: 6,400 made, released 1979-03-20, model number 1173-E, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "5Dbo",
+  "rules_url": "",
+  "tutorials": []
+}

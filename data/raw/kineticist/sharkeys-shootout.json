@@ -1,0 +1,13 @@
+{
+  "game": "Sharkey's Shootout",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/sharkeys-shootout",
+  "sections": {
+    "Profile": "\"Sharkey's Shootout,\" released by Stern Pinball in September 2000, is a billiards-themed pinball machine designed by John Borg and Dwight Sullivan. It features three flippers, one ramp, and a four-ball multiball mode. The game includes detailed artwork by John Youssi and sound by Kyle Johnson.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2000\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2000s, Pool (Billiards), Original Theme, Solid State",
+    "Design Team": "- Design: John Borg\n- Mechanics: John Borg\n- Art: John Youssi\n- Animation: Mark Galvez\n- Software: Dwight Sullivan\n- Concept: Dwight Sullivan\n- Software: Lonnie D. Ropp\n- Software: Keith P. Johnson\n- Music: Kyle Johnson\n- Sound: Kyle Johnson",
+    "Editions": "- Sharkey's Shootout: released 2000-09-01, model number 72, Sega/Stern Whitestar"
+  },
+  "opdb_group": "Rwv0",
+  "rules_url": "https://pinballrulesheets.com/stern/creating-a-rulesheet-for-sharkeys-shootout.html",
+  "tutorials": []
+}

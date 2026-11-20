@@ -1,0 +1,13 @@
+{
+  "game": "Raven",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/raven",
+  "sections": {
+    "Profile": "The \"Raven\" pinball machine, produced by Gottlieb in March 1986, features a military theme with design by John Trudeau and artwork by Don Marshall and Larry Day. It is a solid-state machine that includes two flippers, one ramp, and an alphanumeric display. The game is noted for its unique backglass art, depicting a female soldier.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Spoof, Military, Original Theme, Solid State, Guns, Action, 1980s",
+    "Design Team": "- Art: Larry Day\n- Design: John Trudeau\n- Software: John Buras\n- Art: Don Marshall\n- Music: Ken Hale\n- Sound: Ken Hale\n- Concept: Jeff Walker",
+    "Editions": "- Raven: 3,550 made, released 1986-03-01, model number 702, Gottlieb System 80B"
+  },
+  "opdb_group": "rJWP",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -24,6 +24,8 @@ from pathlib import Path
 
 import requests
 
+from scraper.kineticist import opdb_group
+
 REPO = "heyrocker/pinballrules"
 TARBALL_URL = f"https://codeload.github.com/{REPO}/tar.gz/refs/heads/main"
 SITE_URL = "https://pinballrulesheets.com"
@@ -117,7 +119,9 @@ def parse_rulesheet(rel_path: str, text: str) -> dict | None:
         "manufacturer": meta.get("manufacturer", ""),
         "url": f"{SITE_URL}/{rel_path[:-3]}",
         "sections": parse_sections(body),
-        "opdb_id": meta.get("opdb_id", ""),  # used for de-duplication, not saved
+        # OPDB group ID: de-duplicates rulesheets here, and lets the ingest match
+        # Kineticist profiles to this machine exactly.
+        "opdb_group": opdb_group(meta.get("opdb_id")),
     }
 
 
@@ -162,7 +166,7 @@ def main() -> int:
             print(f"  {rel_path}: no content, skipped", flush=True)
             empty += 1
             continue
-        key = data.pop("opdb_id") or slugify(data["game"])
+        key = data["opdb_group"] or slugify(data["game"])
         prev = by_machine.get(key)
         if prev is None:
             by_machine[key] = data

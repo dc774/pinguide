@@ -1,0 +1,13 @@
+{
+  "game": "Space Invaders",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/space-invaders",
+  "sections": {
+    "Profile": "The \"Space Invaders\" pinball machine, released by Bally in April 1980, is a distinctive widebody game designed by Jim Patla with artwork by Paul Faris. It was the first pinball machine based on a video game, capitalizing on the success of the original 1978 \"Space Invaders\" arcade game. This machine features striking artwork heavily inspired by the 1979 film \"Alien,\" leading to legal issues due to its resemblance to H. R. Giger's designs.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Licensed, Space, Solid State, Fantasy, 1980s",
+    "Design Team": "- Art: Paul Faris\n- Software: Rehman Merchant\n- Design: Jim Patla",
+    "Editions": "- Space Invaders: 11,400 made, released 1980-04-01, model number 1178-E, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "42PX",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,12 @@
+{
+  "game": "The Big Lebowski",
+  "manufacturer": "Dutch Pinball",
+  "url": "https://dutchpinball.com/games/the-big-lebowski",
+  "sections": {
+    "Overview": "Launch the ball and enter the world of The Dude.",
+    "Introduction": "Immerse yourself in the cult classic. Featuring deep rule-sets, a Brunswick™ Bowling Alley with 10 controlled pins under the playfield, more than 200 quotes and clips from the movie, and rugged Dutch engineering.",
+    "Key Features": "- Brunswick™ Bowling Alley with 10 controlled pins\n- More than 200 quotes and clips from the movie",
+    "Download Software": "TBL v1.15 (Latest - Delta Update) zip 80 MB Latest Changelog html Operations Manual pdf 6,4 MB Score Cards pdf 3,9 MB Rules Flowchart pdf 1018 KB Operations Manual (Hi-Res) pdf 58 MB Rules Flowchart (JPG) jpg 1,9 MB Leaflet pdf 3,7 MB\nTBL v1.15 (Latest - Delta Update) zip 80 MB\n- 01 Download the .zip file of the update (without renaming or extracting).\n- 02 Copy the .zip file to the root of a USB stick (not in a subfolder).\n- 03 Start your pinball machine and insert the USB stick in one of the USB ports of the computer in the backbox.\n- 04 Enter the Service Menu and go to \"Software Menu\" → \"USB Update\".\n- 05 Select the new version from the list. If not visible, reseat the USB stick.\n- 06 Wait for \"Preparing delta update\", \"Copying\" and \"Installing\" to finish. Do not turn off the machine!\n- 07 Select the new version and confirm by pressing the Volume + button.\n- 08 The game will restart using the new version.\nWhen you install an update, the previous version stays available so you can switch back.\nAll profiles, settings, highscores, and trophies carry over when updating.\nTBL v1.13 (Delta) zip 1.13 80 MB TBL v1.12 (Delta) zip 1.12 80 MB TBL v1.10 (Full) zip 1.10 998 MB TBL v1.00 (Full) zip 1.00 936 MB",
+    "Owner Area": "Register Your Game Report Issue Support Documents Find a Distributor"
+  }
+}

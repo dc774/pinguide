@@ -1,0 +1,19 @@
+{
+  "game": "KISS (Bally Manufacturing, 1979)",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/kiss",
+  "sections": {
+    "Profile": "The \"KISS\" pinball machine, manufactured by Bally in 1979, is a classic piece themed around the iconic rock band KISS. Designed by Jim Patla with artwork by Kevin O'Connor, the game features the band members in their \"Love Gun\" era costumes.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1979–1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Licensed, 1970s, Solid State, Fantasy, Music",
+    "Design Team": "- Art: Michele Martinelli",
+    "Editions": "- Miss World: 150 made, released 1985-01-01, Bally MPU AS-2518-35\n- KISS: 17,000 made, released 1979-06-01, model number 1152-E, Bally MPU AS-2518-35",
+    "Getting Started (Kineticist tutorial)": "Getting Started\n\n- K-I-S-S letters are awarded by hitting the top lanes or standup targets. Each letter is worth bonus points and fills up a grid for even more bonus points.\n- All bonus in Kiss carries over from ball-to-ball. Bonus advances on ball 1 are more valuable than those on ball 3!\n- The center lane up top will instantly complete KISS when Light A Line is lit, as will completing the bank of drop targets on the left.\n- Switch hits will alternate whether the lane is lit to spot a line or to open a gate over the right outlane. Both are good, though.\n- The center lane also lights both spinners for 1,000/spin for the rest of the ball, which is great value!\n- Completing A-B-C-D will double your bonus at the end of the ball."
+  },
+  "opdb_group": "4jXr",
+  "rules_url": "",
+  "tutorials": [
+    {
+      "image": "https://media.kineticist.com/games/kiss-1979/tutorial/67acc35ea04cf0da89df07c6_OlrO61GObB9uGkp7UvSS9nLPTR0jrS9y6OlrcVK7-iM.webp",
+      "text": "Getting Started\n\n- K-I-S-S letters are awarded by hitting the top lanes or standup targets. Each letter is worth bonus points and fills up a grid for even more bonus points.\n- All bonus in Kiss carries over from ball-to-ball. Bonus advances on ball 1 are more valuable than those on ball 3!\n- The center lane up top will instantly complete KISS when Light A Line is lit, as will completing the bank of drop targets on the left.\n- Switch hits will alternate whether the lane is lit to spot a line or to open a gate over the right outlane. Both are good, though.\n- The center lane also lights both spinners for 1,000/spin for the rest of the ball, which is great value!\n- Completing A-B-C-D will double your bonus at the end of the ball."
+    }
+  ]
+}

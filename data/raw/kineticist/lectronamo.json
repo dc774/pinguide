@@ -1,0 +1,13 @@
+{
+  "game": "Lectronamo",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/lectronamo",
+  "sections": {
+    "Profile": "\"Lectronamo\" is a solid-state pinball machine released by Stern Electronics in August 1978. Designed by Mike Kubin, it features a digital display and uses the Stern M-100 MPU system. The machine includes two flippers, three pop bumpers, and a 5-bank drop target, catering to up to four players.\n\n- Manufacturer: Stern Electronics\n- Years made: 1978\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Pegasus, Stern Electronics, 1970s, Solid State, Fantasy",
+    "Design Team": "- Design: Mike Kubin",
+    "Editions": "- Lectronamo: 2,423 made, released 1978-01-08, model number 105, Stern M-100 MPU"
+  },
+  "opdb_group": "RWd2",
+  "rules_url": "",
+  "tutorials": []
+}

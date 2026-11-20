@@ -1,0 +1,13 @@
+{
+  "game": "Dialed In!",
+  "manufacturer": "Jersey Jack Pinball",
+  "url": "https://www.kineticist.com/games/pinball/dialed-in",
+  "sections": {
+    "Profile": "\"Dialed In!\" by Jersey Jack Pinball, designed by Pat Lawlor, is an innovative machine that integrates modern technology with classic pinball mechanics. This game is the first to feature Bluetooth connectivity, a camera, and smartphone interaction.\n\n- Manufacturer: Jersey Jack Pinball\n- Years made: 2017\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Disaster, 2010s, Arts & Entertainment, City, Original Theme, Emojis, Solid State",
+    "Design Team": "- Design: Pat Lawlor\n- Concept: Pat Lawlor\n- Mechanics: Wally Welch\n- Animation: Jean-Paul de Win\n- Software: Ted Estes\n- Concept: Ted Estes\n- Art: John Youssi\n- Animation: J Zielinski\n- Software: Joe Katz\n- Mechanics: Dan Molter\n- Mechanics: Yolanda Whisenton\n- Software: JT Harkey\n- Software: Alex Levy\n- Software: Keith P. Johnson\n- Music: David Thiel\n- Sound: David Thiel",
+    "Editions": "- Dialed In!: MSRP $8,000, released 2017-08-01, model number 99-500003-01 [DISE], Intel Celeron\n- Dialed In! (LE): MSRP $9,000, released 2017-06-01, model number 99-500003-00 [DILE], Intel Celeron\n- Dialed In! (CE): MSRP $12,500, released 2017-08-01, Intel Celeron"
+  },
+  "opdb_group": "4X2l",
+  "rules_url": "https://pinballrulesheets.com/jersey-jack/dialed-in-rulesheet-wiki.html",
+  "tutorials": []
+}

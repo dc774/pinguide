@@ -1,0 +1,13 @@
+{
+  "game": "Go-Cart",
+  "manufacturer": "Keeney and Sons",
+  "url": "https://www.kineticist.com/games/pinball/go-cart",
+  "sections": {
+    "Profile": "The \"Go-Cart\" pinball machine, produced by J.H. Keeney & Co. in May 1963, is an electro-mechanical game designed for single-player enjoyment. The playfield features two flippers, three pop bumpers, five passive bumpers, two slingshots, six standup targets, and two rollover buttons. The backglass art reflects the go-cart racing theme, capturing the excitement of the sport\n\n- Manufacturer: Keeney and Sons\n- Years made: 1963\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Go karts, Single Player, Racing, Original Theme, Recreation, Cars",
+    "Design Team": "- Design: Ed Krynski",
+    "Editions": "- Go-Cart: released 1963-05-01"
+  },
+  "opdb_group": "rZE0",
+  "rules_url": "",
+  "tutorials": []
+}

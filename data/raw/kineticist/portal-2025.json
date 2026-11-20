@@ -1,0 +1,13 @@
+{
+  "game": "Portal",
+  "manufacturer": "Multimorphic",
+  "url": "https://www.kineticist.com/games/pinball/portal-2025",
+  "sections": {
+    "Profile": "Run Aperture Science's test chambers under the watch of GLaDOS, taking objectives in a central Hub mode from a Personality Core named Reggie and finishing with a face-to-face battle against GLaDOS herself. Built for Multimorphic's P3 platform, the game hides illuminated portals beneath two lifting ramps, uses a Companion Cube to enable physical ball locks on the upper playfield, and has Ellen McLain reprising her role from the video games.\n\n- Manufacturer: Multimorphic\n- Years made: 2025\n- In production: yes\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Video Game, 2020s, Licensed, Solid State, P3, Puzzle, Sci-Fi",
+    "Design Team": "- Software: Ian Harrower\n- Design: Ian Harrower\n- Callouts: Ellen McLain\n- Animation: Rory Cernuda\n- Art: Rory Cernuda\n- Art: Brad Albright\n- Mechanics: Trey Jones\n- Software: Michael Ocean\n- Design: Michael Ocean\n- Callouts: Marc Silk\n- Animation: Stephen Silver\n- Design: Stephen Silver\n- Mechanics: TJ Weaver\n- Music: Scott Danesi\n- Sound: Scott Danesi",
+    "Editions": "- Portal (Extended): released 2025-03-01, Multimorphic P3-ROC\n- Portal (Standard): released 2025-03-01, Multimorphic P3-ROC"
+  },
+  "opdb_group": "pebN",
+  "rules_url": "",
+  "tutorials": []
+}

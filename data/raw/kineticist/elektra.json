@@ -1,0 +1,13 @@
+{
+  "game": "Elektra",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/elektra",
+  "sections": {
+    "Profile": "Elektra was the first solid-state pinball machine to include a three-level playfield, making it a significant innovation in pinball history. Despite its challenging gameplay and complex features, it remains a beloved classic among pinball enthusiasts.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Solid State, Fantasy, 1980s",
+    "Design Team": "- Art: Tony Ramunni\n- Design: Claude Fernandez\n- Software: Rehman Merchant",
+    "Editions": "- Elektra: 2,950 made, released 1981-03-24, model number 1248, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "RVld",
+  "rules_url": "",
+  "tutorials": []
+}

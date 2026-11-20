@@ -1,0 +1,13 @@
+{
+  "game": "Star Wars (Stern Pinball, 2017)",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/star-wars",
+  "sections": {
+    "Profile": "The Star Wars pinball machine by Stern, released in 2017, offers a highly immersive experience based on the original Star Wars trilogy. Designed by Steve Ritchie, it features select speech and footage from the movies, color-changing LED inserts, and interactive elements like a sculpted Millennium Falcon and TIE Fighter.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2017–2019\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: 2010s, Licensed, Space, Solid State, Fantasy, Sci-Fi",
+    "Design Team": "- Mechanics: Elliot Eismin\n- Design: Steve Ritchie\n- Software: Dwight Sullivan\n- Animation: Zac Stark\n- Software: Waison Cheng\n- Animation: Danai Kittivathana\n- Mechanics: John Rotharmel\n- Software: Corey Stup\n- Music: Jerry Thompson\n- Sound: Jerry Thompson\n- Animation: Alex Borre\n- Animation: Mark Galvez\n- Software: Jim Sullivan\n- Software: Mike Kyzivat\n- Software: Tanio Klyce\n- Mechanics: Robert Blakeman\n- Art: Randy Martinez",
+    "Editions": "- Star Wars (LE): MSRP $8,999, 800 made, released 2017-08-01, model number PINBALL I-00J6 * STRWR LE, Stern SPIKE 2 System\n- Star Wars (Premium): MSRP $7,899, released 2017-08-01, model number PINBALL I-00J7 * STARWR PRE, Stern SPIKE 2 System\n- Star Wars (Pro): MSRP $6,199, released 2017-06-01, model number PINBALL I-00J5 * STRWR PRO, Stern SPIKE 2 System\n- Star Wars Comic Art (Premium): MSRP $7,599, released 2019-10-01, Stern SPIKE 2 System\n- Star Wars Comic Art (Pro): MSRP $5,999, released 2019-10-01, Stern SPIKE 2 System"
+  },
+  "opdb_group": "5vLR",
+  "rules_url": "https://pinballrulesheets.com/stern/star-wars-stern-rulesheet.html",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "World Poker Tour",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/world-poker-tour",
+  "sections": {
+    "Profile": "\"World Poker Tour\" pinball, released by Stern in February 2006, is a poker-themed game designed by Steve Ritchie. The machine incorporates features from the popular TV show, including the voices and images of commentators Vince Van Patten and Mike Sexton, as well as host Courtney Friel. This pinball machine aims to capture the excitement of playing Texas Hold 'Em, with a playfield that includes a dot matrix display showing players' hole cards and community cards as they progress through the game.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2006\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Poker, 2000s, Licensed, Gambling, Solid State, Cars",
+    "Design Team": "- Animation: Mark Galvez\n- Software: Dwight Sullivan\n- Design: Steve Ritchie\n- Software: Keith P. Johnson\n- Design: Keith P. Johnson\n- Art: Brian Rood\n- Music: Chris Granner\n- Sound: Chris Granner",
+    "Editions": "- World Poker Tour: released 2006-02-20, model number I-0088, Stern S.A.M. Board System"
+  },
+  "opdb_group": "5poe",
+  "rules_url": "https://pinballrulesheets.com/stern/world-poker-tour-rulesheet.html",
+  "tutorials": []
+}

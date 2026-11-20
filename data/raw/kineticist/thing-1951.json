@@ -1,0 +1,13 @@
+{
+  "game": "Thing",
+  "manufacturer": "Chicago Coin Machine Mfg. Co.",
+  "url": "https://www.kineticist.com/games/pinball/thing-1951",
+  "sections": {
+    "Profile": "The \"Thing\" pinball machine, manufactured by Chicago Coin Machine Co. in 1951, is known for its unique gameplay, featuring a \"mystery score\" area at the center of the playfield, representing the game's \"thing\" box.\n\n- Manufacturer: Chicago Coin Machine Mfg. Co.\n- Years made: 1951\n- In production: no\n- Type: Electro-Mechanical\n- Display: Lights\n- Players: 1\n- Tags: Single Player, Wood Rail, Original Theme",
+    "Design Team": "- Art: Roy Parker",
+    "Editions": "- Thing: released 1951-02-01"
+  },
+  "opdb_group": "RB6P",
+  "rules_url": "",
+  "tutorials": []
+}

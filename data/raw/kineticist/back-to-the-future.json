@@ -1,0 +1,13 @@
+{
+  "game": "Back to the Future",
+  "manufacturer": "Data East USA Inc.",
+  "url": "https://www.kineticist.com/games/pinball/back-to-the-future",
+  "sections": {
+    "Profile": "The \"Back to the Future: The Pinball\" machine, produced by Data East in 1990, is based on the popular movie trilogy. Designed by Joe Kaminkow and Ed Cebula, it features vibrant artwork by Paul Faris and music by Brian Schmidt.\n\n- Manufacturer: Data East USA Inc.\n- Years made: 1990\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Time Travel, Licensed, 1990s, Solid State, Movie, Cars, Sci-Fi",
+    "Design Team": "- Art: Paul Faris\n- Software: Rehman Merchant\n- Design: Ed Cebula\n- Design: Joe Kaminkow\n- Music: Brian Schmidt\n- Sound: Brian Schmidt",
+    "Editions": "- Back to the Future: 3,000 made, released 1990-06-01, model number 500-5509-01, DataEast/Sega Version 3"
+  },
+  "opdb_group": "RpbW",
+  "rules_url": "",
+  "tutorials": []
+}

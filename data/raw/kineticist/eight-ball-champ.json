@@ -1,0 +1,13 @@
+{
+  "game": "Eight Ball Champ",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/eight-ball-champ",
+  "sections": {
+    "Profile": "\"Eight Ball Champ\" is a 1985 pinball machine by Bally that combines pool-themed elements with engaging gameplay. Designed by George Christian with artwork by Tony Ramunni, the game features three flippers but no ramps or multiball, focusing instead on precise ball control and target shooting.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Pool (Billiards), Solid State, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: George Christian\n- Art: Tony Ramunni",
+    "Editions": "- Eight Ball Champ: 1,500 made, released 1985-01-09, model number 0B38, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "439V",
+  "rules_url": "",
+  "tutorials": []
+}

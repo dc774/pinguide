@@ -1,0 +1,19 @@
+{
+  "game": "Mata Hari",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/mata-hari",
+  "sections": {
+    "Profile": "The \"Mata Hari\" pinball machine, manufactured by Bally and released in April 1978, is a classic game known for its elegant design and historical theme. Designed by Jim Patla with artwork by Dave Christensen, it features a symmetrical playfield layout that makes it both visually appealing and challenging to play. The game's theme is based on the infamous exotic dancer and spy Mata Hari, which is reflected in its richly detailed artwork.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1977–1983\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Historical Figure, Vampires, 1970s, Solid State, History, Fantasy",
+    "Design Team": "- Art: Dave Christensen\n- Design: Jim Patla",
+    "Editions": "- Mata Hari: 16,260 made, released 1977-09-26, model number 1104-E, Bally MPU AS-2518-17\n- Lady Death: 150 made, released 1983-01-01\n- Mata Hari (EM): 170 made, released 1977-05-01, model number 1104",
+    "Getting Started (Kineticist tutorial)": "James' Keys to the Game\n- This is a Bonus Game: the goal is to advance your bonus as much as possible, collecting it when the ball ends.\n- Shoot the upper saucer until your bonus is maxed out. You need to lob into the saucer - the divot around it makes direct shots often lip out. Also, try to nudge the ball back into the saucer when it's up top, and try to land it in there on the plunge.\n- Saucer advances bonus multipliers up to 5X, and lights outlanes for 50k a piece. Lit outlanes are very valuable - don't tilt to try and save a lit outlane drain.\n- If the saucer is killing you instantly, shake the machine a bit to keep the ball wiggling while it's in the saucer. It's less likely to fire straight down the middle.\n- A/B lanes aren't worth a ton but getting A/B when Special is lit awards 50,000 points plus a special.\n- Drop targets also advance bonus but are dangerous. Getting all eight down awards 50,000 points, getting them all down twice is 50,000 plus a special.\n- In competition mode, specials are worth 50,000 points. Those 50,000 + specials are actually worth 100,000 points total."
+  },
+  "opdb_group": "417e",
+  "rules_url": "",
+  "tutorials": [
+    {
+      "image": "https://media.kineticist.com/games/mata-hari-1977/tutorial/644c1e0293711fb113150f62_iARhqEIdYeRBmsCke2JEse2r6HQroDUZWHqgDnqyhdk.webp",
+      "text": "James' Keys to the Game\n- This is a Bonus Game: the goal is to advance your bonus as much as possible, collecting it when the ball ends.\n- Shoot the upper saucer until your bonus is maxed out. You need to lob into the saucer - the divot around it makes direct shots often lip out. Also, try to nudge the ball back into the saucer when it's up top, and try to land it in there on the plunge.\n- Saucer advances bonus multipliers up to 5X, and lights outlanes for 50k a piece. Lit outlanes are very valuable - don't tilt to try and save a lit outlane drain.\n- If the saucer is killing you instantly, shake the machine a bit to keep the ball wiggling while it's in the saucer. It's less likely to fire straight down the middle.\n- A/B lanes aren't worth a ton but getting A/B when Special is lit awards 50,000 points plus a special.\n- Drop targets also advance bonus but are dangerous. Getting all eight down awards 50,000 points, getting them all down twice is 50,000 plus a special.\n- In competition mode, specials are worth 50,000 points. Those 50,000 + specials are actually worth 100,000 points total."
+    }
+  ]
+}

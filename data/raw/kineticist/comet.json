@@ -1,0 +1,13 @@
+{
+  "game": "Comet",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/comet",
+  "sections": {
+    "Profile": "The \"Comet\" pinball machine, released by Williams in June 1985, is a significant piece in the history of pinball for being the first to feature a one-million-point shot. Designed by Barry Oursler with artwork by Python Anghelo, the machine draws inspiration from the Comet roller coaster at Riverview Park in Chicago. This game is part of an amusement park-themed trilogy, followed by \"Cyclone\" (1988) and \"Hurricane\" (1991).\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Roller Coaster, Good Times, Carnival, Circus, Original Theme, Fair, Solid State, Theme park, 1980s",
+    "Design Team": "- Art: Python Anghelo\n- Software: Bill Pfutzenreuter\n- Design: Barry Oursler\n- Software: Brian Dolatowski",
+    "Editions": "- Comet: 8,100 made, released 1985-06-01, model number 540, Williams System 9"
+  },
+  "opdb_group": "ryd3",
+  "rules_url": "",
+  "tutorials": []
+}

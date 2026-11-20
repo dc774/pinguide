@@ -1,0 +1,13 @@
+{
+  "game": "Winter Sports",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/winter-sports",
+  "sections": {
+    "Profile": "Winter Sports, produced by the Italian manufacturer Zaccaria in January 1978, is a solid-state pinball machine with a skiing theme. The game features three flippers, two pop bumpers, two slingshots, a five-bank drop target, a single drop target, two standup targets, a kick-out hole, and a spinning target.\n\n- Manufacturer: Zaccaria\n- Years made: 1978\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Sports, Original Theme, Skiing, 1970s, Solid State, Winter, Single level playfield",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Winter Sports: released 1978-01-01, Zaccaria Generation 1"
+  },
+  "opdb_group": "rxWp",
+  "rules_url": "http://www.zaccaria-pinball.com/rulesheets/wintersports.html",
+  "tutorials": []
+}

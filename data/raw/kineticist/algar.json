@@ -1,0 +1,13 @@
+{
+  "game": "Algar",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/algar",
+  "sections": {
+    "Profile": "The Algar pinball machine, produced by Williams in 1980, is a solid-state game with a wide-body cabinet and digital display, designed for up to four players. It features two flippers and no ramps or multiball options, reflecting a classic pinball style from the early 80s. With only 349 units produced, Algar is a rare find in the pinball community. The game's design was led by Tony Kraemer, with distinctive artwork by Constantino and Jeanine Mitchell.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Solid State, Adventure, Fantasy, 1980s",
+    "Design Team": "- Art: Constantino Mitchell\n- Software: Paul Dussault\n- Design: Tony Kraemer\n- Art: Jeanine Mitchell\n- Sound: Kristina Donofrio",
+    "Editions": "- Algar: 349 made, released 1980-01-09, model number 499, Williams System 6A"
+  },
+  "opdb_group": "5nQQ",
+  "rules_url": "",
+  "tutorials": []
+}

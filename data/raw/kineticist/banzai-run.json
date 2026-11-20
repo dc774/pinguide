@@ -1,0 +1,19 @@
+{
+  "game": "Banzai Run",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/banzai-run",
+  "sections": {
+    "Profile": "The \"Banzai Run\" pinball machine, released by Williams in 1988, is notable for its innovative dual-level playfield design, which allows gameplay both on the main playfield and a vertical playfield in the backglass. Designed by Pat Lawlor, this machine was his first foray into pinball design and features a motorcycle racing theme. Players can enjoy unique gameplay mechanics such as a magnetic ball lift and multiple flippers to navigate the challenging terrain.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1988\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Backbox Gimmick, Sports, Solid State, Weird Pinball Machines, Motorcycles, 1980s",
+    "Design Team": "- Design: Larry DeMar\n- Software: Larry DeMar\n- Art: Mark Sprenger\n- Software: Ed Boon\n- Mechanics: John Krutsch\n- Design: Pat Lawlor\n- Concept: Pat Lawlor\n- Music: Brian Schmidt\n- Sound: Brian Schmidt",
+    "Editions": "- Banzai Run: 1,751 made, released 1988-05-01, model number 566, Williams System 11B",
+    "Getting Started (Kineticist tutorial)": "KEYS TO BANZAI RUN\n\n- Don't forget to appreciate the soundtrack.\n- The hill is opened by challenging riders. You can challenge a rider by clearing their bank of targets/set of lanes, and you can also spot lanes/targets by either shooting the center Spot saucer or by shooting the right ramp (before the first multiball).\n- Familiarize yourself with the hill and its weird physics. Navigating it well is crucial for any high-scoring strategy you may be interested in.\n- The big points up top are awarded in the form of Cliff Jumps. Completing A-B-C or hitting the Captive Ball up top will double the value of the cliff jump, which increases each time you score it.\n- The hill closes if you beat all of the riders you've challenged. Since you want to keep scoring Cliff Jumps, keep the hill open by deliberately not beating riders.\n- Exception: if you can beat all remaining riders, go for it. Beating all four riders lights multiball, which has a simple sequence:\n- Start multiball by locking a ball on the hill\n- During multiball, lock one ball in the Spot saucer\n- Collect the jackpot at the hill's captive ball\n- Shoot the ramp repeatedly for Victory Laps"
+  },
+  "opdb_group": "R9lZ",
+  "rules_url": "https://web.archive.org/web/20241214213558/http://www.pinball.org/rules/banzairun.html",
+  "tutorials": [
+    {
+      "image": "https://media.kineticist.com/games/banzai-run-1988/tutorial/64944ccbe82aa6fff265aac2_moNA0Vgtxpj_Rmt2v2fdyGTFtvTQbMCvcGg0P7ki3Xc.webp",
+      "text": "KEYS TO BANZAI RUN\n\n- Don't forget to appreciate the soundtrack.\n- The hill is opened by challenging riders. You can challenge a rider by clearing their bank of targets/set of lanes, and you can also spot lanes/targets by either shooting the center Spot saucer or by shooting the right ramp (before the first multiball).\n- Familiarize yourself with the hill and its weird physics. Navigating it well is crucial for any high-scoring strategy you may be interested in.\n- The big points up top are awarded in the form of Cliff Jumps. Completing A-B-C or hitting the Captive Ball up top will double the value of the cliff jump, which increases each time you score it.\n- The hill closes if you beat all of the riders you've challenged. Since you want to keep scoring Cliff Jumps, keep the hill open by deliberately not beating riders.\n- Exception: if you can beat all remaining riders, go for it. Beating all four riders lights multiball, which has a simple sequence:\n- Start multiball by locking a ball on the hill\n- During multiball, lock one ball in the Spot saucer\n- Collect the jackpot at the hill's captive ball\n- Shoot the ramp repeatedly for Victory Laps"
+    }
+  ]
+}

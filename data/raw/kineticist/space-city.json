@@ -1,0 +1,13 @@
+{
+  "game": "Space City",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/space-city",
+  "sections": {
+    "Profile": "Space City, produced by the Italian manufacturer Zaccaria in January 1979, is a solid-state pinball machine with a space exploration theme. The game is a single-player version of Zaccaria's four-player machine, Future World.\n\n- Manufacturer: Zaccaria\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 1\n- Tags: Space Fantasy, Single Player, Space, Original Theme, 1970s, Solid State, Sci-Fi",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Future World: released 1978-01-01, Zaccaria Generation 1\n- Space City: released 1979-01-09"
+  },
+  "opdb_group": "5Kl7",
+  "rules_url": "",
+  "tutorials": []
+}

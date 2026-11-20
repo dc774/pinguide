@@ -1,0 +1,13 @@
+{
+  "game": "Locomotion",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/locomotion",
+  "sections": {
+    "Profile": "Locomotion, a solid-state pinball machine by Zaccaria released in September 1981, features a railroad and travel theme. Known for its vibrant backglass artwork and mechanical gameplay, it captures the nostalgia of classic train journeys.\n\n- Manufacturer: Zaccaria\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Travel, Original Theme, Railroad, Solid State, Single level playfield, 1980s",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Locomotion: released 1981-01-09, Zaccaria Generation 1"
+  },
+  "opdb_group": "4d7B",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "The Hobbit",
+  "manufacturer": "Jersey Jack Pinball",
+  "url": "https://www.kineticist.com/games/pinball/the-hobbit",
+  "sections": {
+    "Profile": "The Hobbit pinball machine, released by Jersey Jack Pinball in 2016, is an immersive experience based on the popular film trilogy directed by Peter Jackson. This wide-body machine features a vibrant 27-inch LCD monitor, a multi-color RGB LED lighting system, and an interactive Smaug the Dragon toy that adds to the thematic depth. Players navigate through 31 modes and various multiball stages, facing challenges like pop-up monsters and individually controlled drop targets.\n\n- Manufacturer: Jersey Jack Pinball\n- Years made: 2015–2016\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Wizards, 2010s, Licensed, Solid State, Adventure, Fantasy, Book",
+    "Design Team": "- Software: Keith P. Johnson\n- Animation: Jean-Paul de Win\n- Art: Jean-Paul de Win\n- Mechanics: Wally Welch\n- Design: Joe Balcer\n- Software: Ted Estes\n- Software: Joe Katz\n- Art: Matt Riesterer\n- Software: JT Harkey\n- Mechanics: Eric Meunier\n- Software: Alex Levy\n- Sound: David Thiel",
+    "Editions": "- The Hobbit: MSRP $8,000, released 2015-12-31, model number STANDARD, Intel Celeron\n- The Hobbit (Black Arrow): released 2015-12-01, model number TH BASE, Intel Celeron\n- The Hobbit (Smaug Gold): released 2015-12-01, model number TH SMAUG, Intel Celeron\n- The Hobbit (LE): released 2016-01-01, Intel Celeron\n- The Hobbit (Motion Picture Trilogy): released 2016-01-01, model number THLE, Intel Celeron"
+  },
+  "opdb_group": "5bYr",
+  "rules_url": "https://pinballrulesheets.com/jersey-jack/hobbit-pinball-rulesheet.html",
+  "tutorials": []
+}

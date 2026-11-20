@@ -1,0 +1,13 @@
+{
+  "game": "Jungle",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/jungle",
+  "sections": {
+    "Profile": "The Jungle pinball machine, manufactured by Williams Electronic Games in 1960, is an electro-mechanical, single-player game designed by Harry Mabs with artwork by George Molentin. It features a jungle and hunting theme, with unique backbox animations where jungle animals appear behind undergrowth.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1960\n- In production: no\n- Type: Electro-Mechanical\n- Display: Lights\n- Players: 1\n- Tags: Single Player, Backbox Gimmick, Hunting, Guns, Animals, Single level playfield",
+    "Design Team": "- Animation: Harry Mabs\n- Design: Harry Mabs\n- Mechanics: Harry Mabs\n- Concept: Harry Mabs\n- Art: George Molentin",
+    "Editions": "- Jungle: released 1960-09-01, model number 239"
+  },
+  "opdb_group": "RL7N",
+  "rules_url": "",
+  "tutorials": []
+}

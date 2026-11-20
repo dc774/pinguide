@@ -1,0 +1,13 @@
+{
+  "game": "Hot Hand",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/hot-hand",
+  "sections": {
+    "Profile": "\"Hot Hand\" is a solid-state pinball machine released by Stern Electronics in May 1979. Designed by Harry Williams, this game features a card and gambling theme, with a notable feature being a large rotating flipper at the top of the playfield that interacts with ten rollover pockets, scoring points continuously until the ball is dislodged.\n\n- Manufacturer: Stern Electronics\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Gambling, Card games, Original Theme, Stern Electronics, 1970s, Solid State, Playfield Gimmick",
+    "Design Team": "- Design: Harry Williams",
+    "Editions": "- Hot Hand: 3,793 made, released 1979-06-01, model number 112, Stern M-100 MPU"
+  },
+  "opdb_group": "RvNk",
+  "rules_url": "",
+  "tutorials": []
+}

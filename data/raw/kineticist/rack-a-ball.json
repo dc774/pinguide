@@ -1,0 +1,13 @@
+{
+  "game": "Rack-A-Ball",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/rack-a-ball",
+  "sections": {
+    "Profile": "The Rack-A-Ball pinball machine, manufactured by D. Gottlieb & Co. in 1962, features a billiards theme and is part of the electro-mechanical (EM) era. Designed by Wayne Neyens with artwork by Roy Parker, the game is notable for its distinctive mechanical backbox animation, which simulates pool balls lining up as the game progresses.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1962\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Wedgehead, Pool (Billiards), Sports",
+    "Design Team": "- Art: Roy Parker\n- Animation: Wayne Neyens\n- Design: Wayne Neyens\n- Mechanics: Wayne Neyens\n- Concept: Wayne Neyens",
+    "Editions": "- Rack-A-Ball: 2,700 made, released 1962-12-01, model number 194"
+  },
+  "opdb_group": "rqN3",
+  "rules_url": "",
+  "tutorials": []
+}

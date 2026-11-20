@@ -1,0 +1,13 @@
+{
+  "game": "X's & O's",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/xs-os",
+  "sections": {
+    "Profile": "The X's & O's pinball machine by Bally Midway, produced in 1984, features a unique tic-tac-toe theme integrated into its playfield. Designed by George Christian, it incorporates three flippers, three pop bumpers, and a drop target bank, providing dynamic gameplay without ramps or multiball.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1983–1984\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Tic-Tac-Toe, Sports, Original Theme, Solid State, Playfield Gimmick, Games, Single level playfield, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Art: Pat McMahon\n- Art: Margaret Hudson\n- Design: George Christian",
+    "Editions": "- Super Bowl: released 1984-01-01, Bally MPU AS-2518-35\n- X's & O's: 3,300 made, released 1983-01-01, model number 1391, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "RpWD",
+  "rules_url": "",
+  "tutorials": []
+}

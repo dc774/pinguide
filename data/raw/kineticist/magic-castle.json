@@ -1,0 +1,13 @@
+{
+  "game": "Magic Castle",
+  "manufacturer": "Zaccaria",
+  "url": "https://www.kineticist.com/games/pinball/magic-castle",
+  "sections": {
+    "Profile": "Magic Castle , released by Zaccaria in 1984, is a four-player solid-state game with a fantasy and vampire theme, and its mechanical backglass opens a pair of castle doors to reveal the vampire Zaccula. On the playfield, a ramp leads to a small raised upper playfield, and a small React flipper at the right outlane can knock a draining ball back into play.\n\n- Manufacturer: Zaccaria\n- Years made: 1984\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Vampires, Solid State, Fantasy, Horror, 1980s",
+    "Design Team": "- Art: Lorenzo Rimondini",
+    "Editions": "- Magic Castle: released 1984-01-09, Zaccaria Generation 2"
+  },
+  "opdb_group": "5v2B",
+  "rules_url": "http://www.zaccaria-pinball.com/rulesheets/magiccastle.html",
+  "tutorials": []
+}

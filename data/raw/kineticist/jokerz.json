@@ -1,0 +1,13 @@
+{
+  "game": "Jokerz!",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/jokerz",
+  "sections": {
+    "Profile": "\"Jokerz!\" is a pinball machine released by Williams in December 1988, designed by Barry Oursler and Python Anghelo with artwork by John Youssi. It features a card and casino theme, integrating two flippers, three ramps, and a two-ball multiball mode. The machine is part of the Williams System 11B series and includes music and sound by Chris Granner and Jon Hey.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1988\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Gambling, Card games, Original Theme, Solid State, Fantasy, 1980s",
+    "Design Team": "- Design: Barry Oursler\n- Software: Bill Pfutzenreuter\n- Mechanics: Joe Joos Jr.\n- Art: John Youssi\n- Design: Python Anghelo\n- Music: Chris Granner\n- Sound: Chris Granner\n- Music: Jon Hey",
+    "Editions": "- Jokerz!: 5,403 made, released 1988-01-01, model number 567, Williams System 11B"
+  },
+  "opdb_group": "ry3j",
+  "rules_url": "",
+  "tutorials": []
+}

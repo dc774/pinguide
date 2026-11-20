@@ -1,0 +1,13 @@
+{
+  "game": "Nine Ball",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/nine-ball",
+  "sections": {
+    "Profile": "The Nine Ball pinball machine, released by Stern Electronics in 1980, is notable for its intricate gameplay and unique theme. Designed by Steve Kirk, this machine features a distinctive combination of billiards and space wizardry, with art by Jorge Obregon and Robert Quinn.\n\n- Manufacturer: Stern Electronics\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Wizards, Pool (Billiards), Original Theme, Stern Electronics, Solid State, Kirk Post, 1980s",
+    "Design Team": "- Animation: Jorge Obregon\n- Art: Jorge Obregon\n- Software: Rob Quinn\n- Design: Steve Kirk\n- Concept: Steve Kirk\n- Art: Robert Quinn",
+    "Editions": "- Nine Ball: 2,279 made, released 1980-12-01, model number 125, Stern M-200 MPU"
+  },
+  "opdb_group": "4jjx",
+  "rules_url": "https://www.colorado-pinball.com/nine_ball_instruction_cards/",
+  "tutorials": []
+}

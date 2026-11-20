@@ -1,0 +1,13 @@
+{
+  "game": "Truck Stop",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/truck-stop",
+  "sections": {
+    "Profile": "\"Truck Stop\" is a 1988 pinball machine by Bally, designed after the merger with Williams and based on Bally’s prototype “Ramp Warrior.” It features a mix of parts from both companies, including Williams lower flipper mechanisms and Bally upper flipper mechanisms. The game has a unique truck driving theme with four flippers, four ramps, and a two-ball multiball mode, providing engaging gameplay.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1988\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: America, Travel, Vocations, Trucking, Solid State, Cars, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: Dan Langlois\n- Art: Pat McMahon\n- Design: Steve Kirk",
+    "Editions": "- Truck Stop: 1,598 made, released 1988-01-01, model number 2001, Bally MPU A084-91786-AH06 (6803)\n- Ramp Warrior: 3 made, released 1988-06-01, Bally MPU A084-91786-AH06 (6803)"
+  },
+  "opdb_group": "5Y6O",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Superman",
+  "manufacturer": "Atari Incorporated",
+  "url": "https://www.kineticist.com/games/pinball/superman",
+  "sections": {
+    "Profile": "The Superman pinball machine, released by Atari in March 1979, was designed by Steve Ritchie with artwork by George Opperman. It was based on the popular DC Comics superhero and became one of Atari's most successful pinball machines, with 5,124 units produced.\n\n- Manufacturer: Atari Incorporated\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Celebrity, Fictional Character, Licensed, 1970s, Solid State",
+    "Design Team": "- Art: George Opperman\n- Design: Steve Ritchie\n- Software: Eugene Jarvis\n- Sound: Eugene Jarvis",
+    "Editions": "- Superman: 5,124 made, released 1979-03-01, Atari Generation/System 2"
+  },
+  "opdb_group": "R73N",
+  "rules_url": "",
+  "tutorials": []
+}

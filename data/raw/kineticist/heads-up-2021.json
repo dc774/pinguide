@@ -1,0 +1,13 @@
+{
+  "game": "Heads Up!",
+  "manufacturer": "Multimorphic",
+  "url": "https://www.kineticist.com/games/pinball/heads-up-2021",
+  "sections": {
+    "Profile": "\"Heads Up!\" is a competitive pinball game developed by Multimorphic for their P3 Pinball Platform, released in August 2019. Designed for two players, it enables real-time head-to-head matches either on two connected P3 machines in the same location or over the internet.\n\n- Manufacturer: Multimorphic\n- Years made: 2021\n- In production: yes\n- Type: Solid State\n- Display: LCD\n- Players: 2\n- Tags: Two player, 2020s, Original Theme, Solid State, P3, Module Game",
+    "Design Team": "- Animation: Rory Cernuda\n- Mechanics: TJ Weaver\n- Design: Gerry Stellenberg\n- Sound: David Thiel",
+    "Editions": "- Heads Up!: released 2021-08-01, Multimorphic P3-ROC"
+  },
+  "opdb_group": "ELLO",
+  "rules_url": "",
+  "tutorials": []
+}

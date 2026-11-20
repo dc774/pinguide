@@ -1,0 +1,12 @@
+{
+  "game": "Saturn",
+  "manufacturer": "Nordamatic",
+  "url": "https://www.kineticist.com/games/pinball/saturn",
+  "sections": {
+    "Profile": "\"Saturn\" is an electro-mechanical pinball machine released by Nordamatic in 1977. Designed for single-player action, it features two flippers, two pop bumpers, three kick-out holes, three standup targets, and a spinning target.\n\n- Manufacturer: Nordamatic\n- Years made: 1977\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Space, Original Theme, 1970s, Sci-Fi",
+    "Editions": "- Saturn: released 1977-01-01"
+  },
+  "opdb_group": "41bD",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Torch",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/torch",
+  "sections": {
+    "Profile": "\"Torch\" is a pinball machine released by D. Gottlieb & Co. in February 1980 as part of the Gottlieb System 1 series. The game features a sports theme with two flippers, no ramps, and does not have a multiball mode. Designed by John Buras with artwork by Gordon Morison, it has a production run of 3,880 units.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Olympics, Sports, Original Theme, Solid State, 1980s",
+    "Design Team": "- Software: John Buras\n- Design: John Buras\n- Art: Gordon Morison",
+    "Editions": "- Torch: 3,880 made, released 1980-02-01, model number 438, Gottlieb System 1"
+  },
+  "opdb_group": "4JbV",
+  "rules_url": "",
+  "tutorials": []
+}

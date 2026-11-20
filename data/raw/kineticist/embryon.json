@@ -1,0 +1,13 @@
+{
+  "game": "Embryon",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/embryon",
+  "sections": {
+    "Profile": "The Embryon pinball machine, manufactured by Bally in 1981, is a notable widebody game designed by Claude Fernandez with artwork by Tony Ramunni. This machine stands out for its distinctive sci-fi theme and unique gameplay features. The playfield includes four flippers, two multiball modes, and a special \"Flipsave\" feature that allows players to save balls from draining out the right outlane.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Solid State, Widebody, Fantasy, Sci-Fi, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: Claude Fernandez\n- Art: Tony Ramunni",
+    "Editions": "- Embryon: 2,250 made, released 1981-06-01, model number 1222, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "4qk7",
+  "rules_url": "",
+  "tutorials": []
+}

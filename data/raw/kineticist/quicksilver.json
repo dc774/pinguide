@@ -1,0 +1,13 @@
+{
+  "game": "Quicksilver",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/quicksilver",
+  "sections": {
+    "Profile": "The Quicksilver pinball machine, produced by Stern Electronics in 1980, is celebrated for its fast-paced gameplay and distinctive sci-fi theme. Designed by Joe Joos Jr., the machine features a sleek playfield layout with dual spinners, numerous drop targets, and three pop bumpers, offering players a variety of challenging shots.\n\n- Manufacturer: Stern Electronics\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Stern Electronics, Solid State, Fantasy, 1980s",
+    "Design Team": "- Design: Joe Joos Jr.\n- Mechanics: Joe Joos Jr.\n- Art: Doug Watson\n- Software: Bill Pfutzenreuter",
+    "Editions": "- Quicksilver: 1,201 made, released 1980-06-01, model number 117, Stern M-200 MPU"
+  },
+  "opdb_group": "RBZl",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2019/07/Quicksilver_Instruction_Card.jpg",
+  "tutorials": []
+}

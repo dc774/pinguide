@@ -1,0 +1,13 @@
+{
+  "game": "Twister",
+  "manufacturer": "Sega Pinball Inc. (US)",
+  "url": "https://www.kineticist.com/games/pinball/twister",
+  "sections": {
+    "Profile": "The \"Twister\" pinball machine by Sega, released in April 1996, is based on the popular disaster film of the same name. Designed by John Borg, this machine features unique elements such as a spinning disc with a magnet, a fan mounted on top that activates during certain modes, and a \"Dorothy II\" canister on the playfield. It includes two flippers, 13 standup targets, and five multiball modes. The game captures the chaotic nature of storm chasing with fast-paced gameplay and immersive sound effects, including memorable quotes from the movie.\n\n- Manufacturer: Sega Pinball Inc. (US)\n- Years made: 1996\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 6\n- Tags: Licensed, Weather, 1990s, Solid State",
+    "Design Team": "- Software: Lonnie D. Ropp\n- Mechanics: Joe Balcer\n- Art: Jeff Busch\n- Animation: Kurt Andersen\n- Design: John Borg\n- Art: Paul Faris\n- Animation: Mark Raneses\n- Software: Orin Day\n- Software: Neil Falconer\n- Music: Brian Schmidt\n- Sound: Brian Schmidt",
+    "Editions": "- Twister: released 1996-01-04, model number 41, Sega/Stern Whitestar"
+  },
+  "opdb_group": "Rwbv",
+  "rules_url": "",
+  "tutorials": []
+}

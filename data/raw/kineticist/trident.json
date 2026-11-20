@@ -1,0 +1,13 @@
+{
+  "game": "Trident",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/trident",
+  "sections": {
+    "Profile": "\"Trident\" is a solid-state pinball machine released by Stern Electronics in March 1979. Designed by Mike Kubin, it features a straightforward playfield layout with two flippers, two pop bumpers, and a set of five drop targets, along with rollunder spinners that add to the gameplay dynamics. The machine is built on the Stern M-100 MPU system and does not include features like multiball, ramps, or speech.\n\n- Manufacturer: Stern Electronics\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Sharks, Myth and Legend, Fish, Stern Electronics, Underwater, 1970s, Solid State, Water, Fantasy",
+    "Design Team": "- Design: Mike Kubin",
+    "Editions": "- Trident: 3,757 made, released 1979-03-01, model number 110, Stern M-100 MPU"
+  },
+  "opdb_group": "R0KD",
+  "rules_url": "",
+  "tutorials": []
+}

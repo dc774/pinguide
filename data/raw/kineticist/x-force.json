@@ -1,0 +1,13 @@
+{
+  "game": "X Force",
+  "manufacturer": "Tecnoplay",
+  "url": "https://www.kineticist.com/games/pinball/x-force",
+  "sections": {
+    "Profile": "The \"X Force\" pinball machine, produced by Italian manufacturer Tecnoplay in 1987, is a solid-state, six-player game featuring a cops and robbers theme. The playfield is equipped with steep ramps, some angled up to 45 degrees, and a rotating target on the upper left playfield, offering a dynamic and challenging gameplay experience.\n\n- Manufacturer: Tecnoplay\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 6\n- Tags: Fictional Character, Original Theme, Solid State, Guns, Police, Action, Crime, 1980s",
+    "Design Team": "- Art: Michele Martinelli",
+    "Editions": "- X Force: released 1987-01-01, Technoplay \"2-2C 8008 LS\" (68000 CPU)"
+  },
+  "opdb_group": "RzJ1",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Joust (Williams Electronic Games, 1983)",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/joust",
+  "sections": {
+    "Profile": "\"Joust\" is a unique head-to-head pinball machine released by Williams in April 1983, designed for two players to compete simultaneously on opposing sides of the playfield. It features four flippers, no ramps, and supports a four-ball multiball mode. Designed by Barry Oursler with a total production of 402 units, it is known for its competitive gameplay and rare design.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1983\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 2\n- Tags: Two player, Knights, Medieval, Head-to-Head, Original Theme, Solid State, Fantasy, 1980s",
+    "Design Team": "- Software: Cary Kolker\n- Design: Barry Oursler\n- Art: Constantino Mitchell\n- Art: Jeanine Mitchell\n- Sound: Tim Murphy\n- Sound: John Kotlarik",
+    "Editions": "- Joust: 402 made, released 1983-01-04, model number 519, Williams System 7"
+  },
+  "opdb_group": "4den",
+  "rules_url": "",
+  "tutorials": []
+}

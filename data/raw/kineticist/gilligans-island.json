@@ -1,0 +1,19 @@
+{
+  "game": "Gilligan's Island",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/gilligans-island",
+  "sections": {
+    "Profile": "The \"Gilligan's Island\" pinball machine, produced by Bally in 1991, is based on the popular television series. Designed by Dan Langlois and Ward Pemberton, it features artwork by John Youssi and sound by Jon Hey. This game was notable for being the first Williams WPC machine released with a high-resolution dot matrix display. ​ The gameplay centers around collecting ingredients for the Professor's secret formula to calm the island god Kona and win \"Kona's Treasure.\"\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1991\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Celebrity, Fictional Character, Licensed, 1990s, Solid State, Island",
+    "Design Team": "- Software: Mike Boon\n- Design: Dan Langlois\n- Art: John Youssi\n- Callouts: Tim Kitzrow\n- Mechanics: Greg Tasted\n- Design: Ward Pemberton\n- Software: Dan Lee\n- Music: Jon Hey\n- Sound: Jon Hey\n- Animation: John Newcomer",
+    "Editions": "- Gilligan's Island: 4,100 made, released 1991-04-30, model number 20003, Williams WPC (Dot Matrix)",
+    "Getting Started (Kineticist tutorial)": "Getting Started\n\n- Collect ingredients to light the VUK to brew the lava seltzer. Shoot all the flashing shots to fill out the list above the flippers or collect them at the top hole.\n  - After shooting the VUK, shoot all five sides of the jungle run ramp to deliver the seltzer to Kona, the volcano god. Then, for as long as the mode is running, keep shooting the ramp to score 50M for every shot!\n- Light jungle run at the top hole. Keep shooting the ramp to score increasing values with every shot for a short time.\n- Spell LAGOON to light the shells lane for mystery award (can be either points, bonus ball, special, or multiball).\n- Light the kickback at the top hole. Advance the kickback by rolling through return lanes. Whatever you do, don't get \"gift of the gods\" in a competitive match.\n- Increase the bonus multiplier by making strong shots to the loop under the jungle run ramp.\n- Earn bonus balls from the kickback or as a LAGOON award. Bonus balls are played after all regulation balls have been played in a multiplayer game."
+  },
+  "opdb_group": "RBxQ",
+  "rules_url": "",
+  "tutorials": [
+    {
+      "image": "https://media.kineticist.com/games/gilligans-island-1991/tutorial/68d181be01da248cb854cd9f_PUQQrP15TmeZ6L8A9wI6ay5QU8v8mphbdP_QGEx9AN0.webp",
+      "text": "Getting Started\n\n- Collect ingredients to light the VUK to brew the lava seltzer. Shoot all the flashing shots to fill out the list above the flippers or collect them at the top hole.\n  - After shooting the VUK, shoot all five sides of the jungle run ramp to deliver the seltzer to Kona, the volcano god. Then, for as long as the mode is running, keep shooting the ramp to score 50M for every shot!\n- Light jungle run at the top hole. Keep shooting the ramp to score increasing values with every shot for a short time.\n- Spell LAGOON to light the shells lane for mystery award (can be either points, bonus ball, special, or multiball).\n- Light the kickback at the top hole. Advance the kickback by rolling through return lanes. Whatever you do, don't get \"gift of the gods\" in a competitive match.\n- Increase the bonus multiplier by making strong shots to the loop under the jungle run ramp.\n- Earn bonus balls from the kickback or as a LAGOON award. Bonus balls are played after all regulation balls have been played in a multiplayer game."
+    }
+  ]
+}

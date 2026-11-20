@@ -1,0 +1,13 @@
+{
+  "game": "Beatles",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/beatles-2018",
+  "sections": {
+    "Profile": "The Beatles pinball machine, released by Stern Pinball in 2018, captures the essence of 1960s Beatlemania. It features nine classic Beatles songs, including \"A Hard Day’s Night,\" \"Can’t Buy Me Love,\" and \"Ticket to Ride.\" The game also includes iconic introductions by Ed Sullivan and custom callouts by DJ Cousin Brucie, who famously introduced the band at Shea Stadium in 1965.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2018\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: Singing, 2010s, Licensed, Solid State, Music, Single level playfield, Modern Retro",
+    "Design Team": "- Software: Dean Grover\n- Art: Christopher Franchi\n- Design: George Gomez\n- Animation: Eric Drucker\n- Sound: Jerry Thompson\n- Concept: Joe Kaminkow\n- Mechanics: Tom Kopera",
+    "Editions": "- The Beatles (Gold): MSRP $7,999, 1,614 made, released 2018-11-01, Stern SPIKE 2 System\n- The Beatles (Platinum): MSRP $12,500, 250 made, released 2018-11-01, Stern SPIKE 2 System\n- The Beatles (Diamond): MSRP $25,000, 100 made, released 2018-11-01, Stern SPIKE 2 System"
+  },
+  "opdb_group": "0l8P",
+  "rules_url": "https://pinballrulesheets.com/stern/stern-the-beatles-rulesheet.html",
+  "tutorials": []
+}

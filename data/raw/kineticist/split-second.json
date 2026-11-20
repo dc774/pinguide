@@ -1,0 +1,13 @@
+{
+  "game": "Split Second",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/split-second",
+  "sections": {
+    "Profile": "\"Split Second\" is a pinball machine released by Stern Electronics in August 1981. It features a carnival and amusement park theme with four flippers, one ramp, and a three-ball multiball mode. Designed by Harry Williams with artwork by Doug Watson and Gerry Simkus, it is a wide-body game running on the Stern M-200 MPU system.\n\n- Manufacturer: Stern Electronics\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Good Times, Circus, Original Theme, Stern Electronics, Solid State, Upper Playfield, Widebody, 1980s",
+    "Design Team": "- Design: Harry Williams\n- Art: Doug Watson\n- Art: Gerry Simkus",
+    "Editions": "- Split Second: released 1981-01-08, model number 144, Stern M-200 MPU"
+  },
+  "opdb_group": "RLbz",
+  "rules_url": "",
+  "tutorials": []
+}

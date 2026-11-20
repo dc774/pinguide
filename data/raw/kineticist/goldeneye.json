@@ -1,0 +1,13 @@
+{
+  "game": "Goldeneye",
+  "manufacturer": "Sega Pinball Inc. (US)",
+  "url": "https://www.kineticist.com/games/pinball/goldeneye",
+  "sections": {
+    "Profile": "The \"Goldeneye\" pinball machine, manufactured by Sega in March 1996, is based on the James Bond film of the same name. Designed by Ward Pemberton, it features art by Jeff Busch and Paul Faris, and sound and music by Brian Schmidt.\n\n- Manufacturer: Sega Pinball Inc. (US)\n- Years made: 1996\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 6\n- Tags: James Bond, Licensed, Spy, 1990s, Solid State",
+    "Design Team": "- Design: Ward Pemberton\n- Animation: Kurt Andersen\n- Software: Lonnie D. Ropp\n- Art: Jeff Busch\n- Mechanics: Rob Hurtado\n- Software: Orin Day\n- Art: Paul Faris\n- Animation: Mark Raneses\n- Software: Neil Falconer\n- Software: John Carpenter\n- Music: Brian Schmidt\n- Sound: Brian Schmidt",
+    "Editions": "- Goldeneye: 2,200 made, released 1996-03-01, model number 42, Sega/Stern Whitestar"
+  },
+  "opdb_group": "43wE",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Vulcan",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/vulcan",
+  "sections": {
+    "Profile": "The \"Vulcan\" pinball machine, manufactured by D. Gottlieb & Co. in October 1977, is a classic electro-mechanical game designed by Ed Krynski with artwork by Gordon Morison. This four-player machine features a mythological theme centered around the Roman god Vulcan, known for his association with fire and metalworking.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1977–1982\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 4\n- Tags: Fire, Myth, Original Theme, 1970s, Fantasy",
+    "Design Team": "- Design: Ed Krynski\n- Art: Gordon Morison",
+    "Editions": "- Vulcan: 3,860 made, released 1977-10-01, model number 405\n- Fire Queen: 1,114 made, released 1977-12-01, model number 406\n- Vulcan IV: released 1982-01-01"
+  },
+  "opdb_group": "RoDo",
+  "rules_url": "",
+  "tutorials": []
+}

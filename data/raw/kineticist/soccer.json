@@ -1,0 +1,13 @@
+{
+  "game": "Soccer",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/soccer",
+  "sections": {
+    "Profile": "\"Soccer\" is a single-player electro-mechanical pinball machine released by Williams Electronic Manufacturing Corporation in March 1964. Designed by Norm Clark, the game features a soccer theme, with artwork depicting players and stadium scenes. The playfield includes two flippers, four pop bumpers, one passive bumper, two slingshots, six standup targets, two kick-out holes, two rollover buttons, and a ball kicker.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1964\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Soccer, Sports",
+    "Design Team": "- Design: Norm Clark",
+    "Editions": "- Soccer: 2,850 made, released 1964-03-01, model number 292"
+  },
+  "opdb_group": "RoJk",
+  "rules_url": "",
+  "tutorials": []
+}

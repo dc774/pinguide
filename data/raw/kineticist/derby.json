@@ -1,0 +1,13 @@
+{
+  "game": "Derby",
+  "manufacturer": "A.M.I.",
+  "url": "https://www.kineticist.com/games/pinball/derby",
+  "sections": {
+    "Profile": "The \"Derby\" pinball machine, produced by Italian manufacturer A.M.I. in 1975, features a horse racing theme. This electro-mechanical game includes two flippers, three pop bumpers, two slingshots, five standup targets, and two star rollovers. Notably, it has an up-post between the flippers and a wedge head design.\n\n- Manufacturer: A.M.I.\n- Years made: 1975\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Wedgehead, Sports, Horses, Original Theme, Horse Racing, 1970s, Single level playfield",
+    "Design Team": "- Art: Michele Martinelli",
+    "Editions": "- Derby: released 1975-01-01"
+  },
+  "opdb_group": "43O1",
+  "rules_url": "",
+  "tutorials": []
+}

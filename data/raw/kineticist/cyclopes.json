@@ -1,0 +1,13 @@
+{
+  "game": "Cyclopes",
+  "manufacturer": "Game Plan Inc.",
+  "url": "https://www.kineticist.com/games/pinball/cyclopes",
+  "sections": {
+    "Profile": "Cyclopes, released by Game Plan Inc. in November 1985, is a solid-state pinball machine with a fantasy theme inspired by Greek mythology. Designed by Roger Sharpe, the game features three flippers, three pop bumpers, two banks of four drop targets (each with standup targets behind them), two spinning targets, two kick-out holes, and a messenger ball. The backglass artwork, created by Seamus McLaughlin, includes depictions of Roger Sharpe as the rider on the horse and his wife in the clutches of the Cyclops, adding a personal touch to the game's design.\n\n- Manufacturer: Game Plan Inc.\n- Years made: 1985\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Myth and Legend, Myth, Original Theme, Solid State, Fantasy, 1980s",
+    "Design Team": "- Art: Seamus McLaughlin\n- Design: Roger Sharpe\n- Software: Rehman Merchant",
+    "Editions": "- Cyclopes: 400 made, released 1985-01-01, model number 800, Game Plan MPU-2"
+  },
+  "opdb_group": "RwZ7",
+  "rules_url": "",
+  "tutorials": []
+}

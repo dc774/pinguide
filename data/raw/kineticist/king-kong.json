@@ -1,0 +1,13 @@
+{
+  "game": "King Kong",
+  "manufacturer": "Data East USA Inc.",
+  "url": "https://www.kineticist.com/games/pinball/king-kong",
+  "sections": {
+    "Profile": "The \"King Kong\" pinball machine by Data East, released in January 1990, is a rare game with only nine units produced. It features three flippers, two ramps, and no multiball mode, showcasing a classic gameplay style. Designed by Jerry Armstrong with artwork by Kevin O'Connor, this machine is noted for its unique theme and limited availability.\n\n- Manufacturer: Data East USA Inc.\n- Years made: 1990\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Fictional Character, 1990s, Solid State, Limited Production, Book, Monsters",
+    "Design Team": "- Art: Kevin O'Connor\n- Software: Rehman Merchant\n- Design: Jerry Armstrong\n- Mechanics: John Lund\n- Music: Brian Schmidt\n- Sound: Brian Schmidt",
+    "Editions": "- King Kong: 9 made, released 1990-01-04"
+  },
+  "opdb_group": "5BNq",
+  "rules_url": "",
+  "tutorials": []
+}

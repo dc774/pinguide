@@ -1,0 +1,13 @@
+{
+  "game": "Flash Gordon",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/flash-gordon",
+  "sections": {
+    "Profile": "\"Flash Gordon,\" a pinball machine released by Bally in February 1981, is renowned for its innovative design and challenging gameplay. It was the first split-level pinball machine from Bally, featuring a distinctive upper playfield, and it was also the first to use the \"Squawk and Talk\" sound board, which added voice and sound effects to enhance the gaming experience.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Fictional Character, Licensed, Solid State, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: Claude Fernandez\n- Art: Kevin O'Connor",
+    "Editions": "- Flash Gordon: 10,000 made, released 1980-05-13, model number 1215, Bally MPU AS-2518-35\n- Flash Gordon: released 1981-01-01, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "5728",
+  "rules_url": "",
+  "tutorials": []
+}

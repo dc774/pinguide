@@ -1,0 +1,13 @@
+{
+  "game": "Flipper Football",
+  "manufacturer": "Capcom Coin-Op Inc.",
+  "url": "https://www.kineticist.com/games/pinball/flipper-football",
+  "sections": {
+    "Profile": "Flipper Football , released by Capcom in 1996, is a six-player solid-state soccer game designed by Bryan Hansen and Python Anghelo, with artwork by Hugh Van Zanten. Its dot-matrix display sits beneath the playfield glass, where shots at drop targets send a virtual ball toward the goalkeeper, and Capcom built 750.\n\n- Manufacturer: Capcom Coin-Op Inc.\n- Years made: 1996\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 6\n- Tags: Soccer, Sports, Original Theme, 1990s, Solid State",
+    "Design Team": "- Art: Paul Mazur\n- Mechanics: Dan Molter\n- Design: Bryan Hansen\n- Design: Python Anghelo\n- Art: Hugh van Zanten\n- Sound: Jeff Powell",
+    "Editions": "- Flipper Football: 750 made, released 1996-10-01, model number FFB3004, Capcom A0015405"
+  },
+  "opdb_group": "RKKk",
+  "rules_url": "",
+  "tutorials": []
+}

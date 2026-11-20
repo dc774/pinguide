@@ -1,0 +1,13 @@
+{
+  "game": "Monte Carlo (D. Gottlieb, 1987)",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/monte-carlo",
+  "sections": {
+    "Profile": "\"Monte Carlo\" is a pinball machine released by D. Gottlieb & Co. in February 1987. It features a gambling and casino theme, with two flippers, two ramps, and a three-ball multiball mode. Notably, it includes a functional roulette wheel integrated into the gameplay. Designed by John Trudeau, with a production run of 4,315 units, the machine captures the essence of casino excitement.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1987\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Gambling, Casino, Original Theme, Solid State, 1980s",
+    "Design Team": "- Art: Larry Day\n- Design: John Trudeau\n- Software: John Buras\n- Art: Don Marshall\n- Music: Ken Hale\n- Sound: Ken Hale",
+    "Editions": "- Monte Carlo: 4,315 made, released 1987-02-01, model number 708, Gottlieb System 80B"
+  },
+  "opdb_group": "578Y",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -28,3 +28,4 @@ voyageai==0.3.7
 
 # Config
 python-dotenv==1.2.2
+pillow==12.2.0

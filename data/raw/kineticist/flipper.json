@@ -1,0 +1,13 @@
+{
+  "game": "Flipper",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/flipper",
+  "sections": {
+    "Profile": "The Flipper pinball machine, produced by D. Gottlieb & Co. in October 1960, is historically significant as it was the company's first \"add-a-ball\" machine. This feature allowed players to earn additional balls during gameplay instead of replays, extending their playing time. The game was designed by Wayne Neyens, with artwork by Roy Parker.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1960\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Wedgehead, Magic, Card games, Original Theme",
+    "Design Team": "- Art: Roy Parker\n- Animation: Wayne Neyens\n- Design: Wayne Neyens\n- Mechanics: Wayne Neyens\n- Concept: Wayne Neyens\n- Concept: Alvin Gottlieb",
+    "Editions": "- Flipper: 1,100 made, released 1960-10-01, model number 175"
+  },
+  "opdb_group": "rNXw",
+  "rules_url": "",
+  "tutorials": []
+}

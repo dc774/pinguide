@@ -1,0 +1,13 @@
+{
+  "game": "Rock",
+  "manufacturer": "D. Gottlieb & Co.",
+  "url": "https://www.kineticist.com/games/pinball/rock",
+  "sections": {
+    "Profile": "Rock , released by Gottlieb in October 1985, is a four-player solid-state game with a rock 'n' roll music theme, designed by John Trudeau with artwork by Larry Day. A mini-playfield with its own pair of flippers and drop targets sits at the upper left, Trudeau has described it as the first pinball machine to use a translite in place of a screened backglass, and 1,875 were built.\n\n- Manufacturer: D. Gottlieb & Co.\n- Years made: 1985–1986\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Singing, Original Theme, Solid State, Rock Music, Music, 1980s",
+    "Design Team": "- Design: John Trudeau\n- Art: Larry Day\n- Software: John Buras\n- Music: Ken Hale\n- Sound: Ken Hale\n- Music: David Thiel",
+    "Editions": "- Top Sound: released 1988-01-01\n- Rock: 1,875 made, released 1985-01-01, model number 697, Gottlieb System 80B\n- Rock Encore: 245 made, released 1986-04-01, model number 704, Gottlieb System 80B\n- Punky Willy: released 1986-01-01"
+  },
+  "opdb_group": "rk62",
+  "rules_url": "",
+  "tutorials": []
+}

@@ -1,0 +1,13 @@
+{
+  "game": "Motor Show",
+  "manufacturer": "Mr Game",
+  "url": "https://www.kineticist.com/games/pinball/motor-show",
+  "sections": {
+    "Profile": "\"Motor Show\" is a solid-state pinball machine released by Mr. Game in 1989, featuring a racing theme that integrates traditional pinball elements with video game modes.\n\n- Manufacturer: Mr Game\n- Years made: 1989\n- In production: no\n- Type: Solid State\n- Display: CGA\n- Players: 4\n- Tags: Original Theme, Monster Trucks, Solid State, Cars, Motorcycles, 1980s",
+    "Design Team": "- Mechanics: Gianni Maccagnani\n- Software: Alessandro Scardovi\n- Animation: Alberto Frabetti\n- Art: Tony Ramunni\n- Design: Tony Ramunni\n- Software: Mauro Ferrari\n- Design: Mauro Ferrari",
+    "Editions": "- Motor Show: released 1989-06-01, model number A10203\n- Fast Track: released 1988-06-01"
+  },
+  "opdb_group": "Rb2y",
+  "rules_url": "",
+  "tutorials": []
+}

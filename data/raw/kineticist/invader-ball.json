@@ -1,0 +1,12 @@
+{
+  "game": "Invader Ball",
+  "manufacturer": "Red Baron Amusements",
+  "url": "https://www.kineticist.com/games/pinball/invader-ball",
+  "sections": {
+    "Profile": "\"Invader Ball\" is a solid-state pinball machine produced by Red Baron Amusements in 1980. This game uniquely combines traditional pinball elements with a video game component, featuring a monitor behind the backglass that displays a \"Space Invaders\"-style game. The playfield design mirrors that of Gottlieb's 1980 \"Buck Rogers\" pinball machine, incorporating two flippers, two pop bumpers, a four-bank drop target, two two-bank drop targets, a kick-out hole, and a messenger ball.\n\n- Manufacturer: Red Baron Amusements\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: CGA\n- Players: 1\n- Tags: Single Player, Video Game, Solid State, Hybrid pinball, 1980s",
+    "Editions": "- Invader Ball: released 1980-01-01"
+  },
+  "opdb_group": "5ow6",
+  "rules_url": "",
+  "tutorials": []
+}

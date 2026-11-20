@@ -1,0 +1,13 @@
+{
+  "game": "Pinball Circus",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/pinball-circus",
+  "sections": {
+    "Profile": "A heavily experimental pinball machine conceptualized by Python Anghelo, emphasizing verticality in an arcade cabinet.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1994\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: Carnival, Circus, Original Theme, 1990s, Solid State, Weird Pinball Machines",
+    "Design Team": "- Design: Python Anghelo\n- Animation: Scott Slomiany\n- Software: Dan Lee\n- Art: Pat McMahon\n- Animation: Eugene Geer\n- Music: Dan Forden\n- Sound: Dan Forden",
+    "Editions": "- Pinball Circus: 2 made, released 1994-06-01, model number 60020, Williams WPC Security (WPC-S)"
+  },
+  "opdb_group": "4qdD",
+  "rules_url": "",
+  "tutorials": []
+}

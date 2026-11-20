@@ -1,0 +1,13 @@
+{
+  "game": "Barracora",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/barracora",
+  "sections": {
+    "Profile": "The \"Barracora\" pinball machine, produced by Williams Electronics in 1981, is a solid-state game designed by Barry Oursler, Roger Sharpe, and Steve Epstein. It features artwork by Doug Watson, which draws inspiration from H.R. Giger, known for his work on the film \"Alien\". The game has a sci-fi and fantasy theme, highlighted by its striking and somewhat controversial backglass art depicting a morphing predatory fish and a model's head.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1981\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Solid State, Fantasy, Single level playfield, 1980s",
+    "Design Team": "- Software: Ed Suchocki\n- Sound: Ed Suchocki\n- Art: Doug Watson\n- Design: Barry Oursler\n- Design: Roger Sharpe\n- Design: Steve Epstein",
+    "Editions": "- Barracora: 2,350 made, released 1981-01-09, model number 510, Williams System 7\n- Titan: released 1983-01-01"
+  },
+  "opdb_group": "Ro7K",
+  "rules_url": "https://pinballrulesheets.com/williams/barracora-williams-1981.html",
+  "tutorials": []
+}

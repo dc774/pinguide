@@ -1,0 +1,13 @@
+{
+  "game": "MiniZag",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/minizag",
+  "sections": {
+    "Profile": "MiniZag, released by Bally Manufacturing Co. in November 1968, is a single-player electro-mechanical pinball machine with a dance and music theme. Designed by Ted Zale, the game features two zipper flippers, three pop bumpers, five mushroom bumpers, three slingshots, eleven rollover buttons, two kick-out holes, and a unique \"Zagger Lane\" with a captive ball. The right outlane includes a ball return gate, enhancing gameplay dynamics. The backglass showcases vibrant artwork by Jerry Kelley, contributing to the game's visual appeal.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1968\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 1\n- Tags: Single Player, Dancing, Original Theme, Music",
+    "Design Team": "- Animation: Ted Zale\n- Design: Ted Zale\n- Mechanics: Ted Zale\n- Concept: Ted Zale\n- Art: Jerry Kelley\n- Concept: Jerry Kelley",
+    "Editions": "- MiniZag: 1,172 made, released 1968-11-01, model number 823"
+  },
+  "opdb_group": "4q68",
+  "rules_url": "",
+  "tutorials": []
+}

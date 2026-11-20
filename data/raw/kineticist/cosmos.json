@@ -1,0 +1,13 @@
+{
+  "game": "Cosmos",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/cosmos",
+  "sections": {
+    "Profile": "The Cosmos pinball machine, released by Bally Manufacturing Co. in January 1969, was designed by Ted Zale with artwork by Jerry Kelley. This electro-mechanical game accommodates up to four players and is known for its \"zipper flippers,\" a feature where the flippers close together, allowing for better ball control. Additionally, the game includes a unique backbox animation depicting the moon orbiting the Earth.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1969\n- In production: no\n- Type: Electro-Mechanical\n- Display: Reels\n- Players: 4\n- Tags: Space, Original Theme, Planets, Sci-Fi",
+    "Design Team": "- Animation: Ted Zale\n- Design: Ted Zale\n- Mechanics: Ted Zale\n- Concept: Ted Zale\n- Art: Jerry Kelley\n- Concept: Jerry Kelley",
+    "Editions": "- Cosmos: 2,160 made, released 1969-01-01, model number 825\n- Cosmint: released 1969-01-01, model number 825"
+  },
+  "opdb_group": "5p2Y",
+  "rules_url": "",
+  "tutorials": []
+}

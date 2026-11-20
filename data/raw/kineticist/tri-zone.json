@@ -1,0 +1,13 @@
+{
+  "game": "Tri Zone",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/tri-zone",
+  "sections": {
+    "Profile": "The \"Tri Zone\" pinball machine by Williams, released in 1979, features a solid-state design with two flippers and no ramps or multiball options. It was designed by Tony Kraemer with artwork by Christian Marche and sound by Paul Dussault. Approximately 7,250 units were produced.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1979\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, 1970s, Solid State, Fantasy, Sci-Fi",
+    "Design Team": "- Design: Tony Kraemer\n- Software: Paul Dussault\n- Sound: Paul Dussault\n- Art: Christian Marche",
+    "Editions": "- Tri Zone: 7,250 made, released 1979-07-01, model number 487, Williams System 6"
+  },
+  "opdb_group": "rxNK",
+  "rules_url": "",
+  "tutorials": []
+}

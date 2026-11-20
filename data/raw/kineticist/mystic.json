@@ -1,0 +1,13 @@
+{
+  "game": "Mystic",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/mystic",
+  "sections": {
+    "Profile": "The Mystic pinball machine, produced by Bally in June 1980, is a solid-state game designed by George Christian with artwork by Kevin O'Connor. The machine features a magic theme with elements inspired by mythology and cards.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Circus, Magic, Original Theme, Solid State, 1980s",
+    "Design Team": "- Software: Rehman Merchant\n- Design: George Christian\n- Art: Kevin O'Connor",
+    "Editions": "- Mystic: 3,950 made, released 1980-06-01, model number 1192, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "5Bnl",
+  "rules_url": "",
+  "tutorials": []
+}

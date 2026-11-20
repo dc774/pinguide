@@ -1,0 +1,13 @@
+{
+  "game": "4X4",
+  "manufacturer": "Atari Incorporated",
+  "url": "https://www.kineticist.com/games/pinball/4x4",
+  "sections": {
+    "Profile": "4X4, developed by Atari Incorporated in 1983, is a rare prototype pinball machine with only two units produced. Designed by Milt Loper, the game features a unique three-heat structure, where each heat automatically launches three balls into play, and a heat concludes once all three balls have drained.\n\n- Manufacturer: Atari Incorporated\n- Years made: 1983\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Original Theme, Solid State, Widebody, Cars, 1980s",
+    "Design Team": "- Design: Milt Loper",
+    "Editions": "- 4X4: 2 made, released 1983-01-01, Atari Generation/System 3"
+  },
+  "opdb_group": "59VQ",
+  "rules_url": "",
+  "tutorials": []
+}

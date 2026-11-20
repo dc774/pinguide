@@ -1,0 +1,13 @@
+{
+  "game": "Ali",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/ali",
+  "sections": {
+    "Profile": "The Ali pinball machine, manufactured by Stern Electronics in 1980, celebrates the legendary boxer Muhammad Ali. Designed by Harry Williams with artwork by Bob Timm, this solid-state pinball game features vibrant backglass art depicting Ali in action, one of the few games from that era to prominently feature African Americans.\n\n- Manufacturer: Stern Electronics\n- Years made: 1980\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Licensed, Sports, Stern Electronics, Boxing, Solid State, 1980s",
+    "Design Team": "- Art: Bob Timm\n- Design: Harry Williams",
+    "Editions": "- Ali: 2,971 made, released 1980-03-01, model number 119, Stern M-200 MPU"
+  },
+  "opdb_group": "43kO",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2018/09/Ali-Rulecard.jpg",
+  "tutorials": []
+}

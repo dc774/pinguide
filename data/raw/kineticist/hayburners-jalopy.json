@@ -1,0 +1,13 @@
+{
+  "game": "Hayburners / Jalopy",
+  "manufacturer": "Williams Electronic Games Inc.",
+  "url": "https://www.kineticist.com/games/pinball/hayburners-jalopy",
+  "sections": {
+    "Profile": "Hayburners is an electro-mechanical pinball machine released by Williams Electronic Games Inc. in June 1951. Designed by Harry Williams and Sam Stern, the game features a horse-racing theme, with artwork by George Molentin.\n\n- Manufacturer: Williams Electronic Games Inc.\n- Years made: 1951\n- In production: no\n- Type: Electro-Mechanical\n- Display: Lights\n- Players: 1\n- Tags: Single Player, Dual Theme, Backbox Gimmick, Racing, Sports, Horses, Original Theme, Horse Racing",
+    "Design Team": "- Animation: Harry Williams\n- Design: Harry Williams\n- Mechanics: Harry Williams\n- Concept: Harry Williams\n- Art: George Molentin\n- Design: Sam Stern\n- Concept: Sam Stern",
+    "Editions": "- Hayburners: released 1951-06-01, model number 55\n- Jalopy: released 1951-08-01, model number 57"
+  },
+  "opdb_group": "Rojj",
+  "rules_url": "",
+  "tutorials": []
+}

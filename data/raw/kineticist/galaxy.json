@@ -1,0 +1,13 @@
+{
+  "game": "Galaxy (Stern Electronics, 1980)",
+  "manufacturer": "Stern Electronics",
+  "url": "https://www.kineticist.com/games/pinball/galaxy",
+  "sections": {
+    "Profile": "The \"Galaxy\" pinball machine, produced by Stern Electronics in 1980, is renowned for its space-themed gameplay and distinctive artwork. Designed by Harry Williams with art by Bob Timm, this solid-state machine features a combination of three pop bumpers, a four-bank drop target, a rollunder spinner, a kick-out hole, and a kickback lane, creating a dynamic and engaging playfield. It is also notable for being one of the first machines to incorporate computer-controlled general illumination, enhancing the visual experience.\n\n- Manufacturer: Stern Electronics\n- Years made: 1980–1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Space, Original Theme, Stern Electronics, Planets, Solid State, Fantasy, 1980s",
+    "Design Team": "- Design: Harry Williams\n- Art: Bob Timm\n- Software: Rob Quinn",
+    "Editions": "- Galaxy: 4,947 made, released 1980-01-01, model number 114, Stern M-200 MPU\n- Cosmic: released 1982-01-01"
+  },
+  "opdb_group": "rdDB",
+  "rules_url": "https://www.colorado-pinball.com/wp-content/uploads/2019/08/Galaxy-Instruction-Card.jpg",
+  "tutorials": []
+}

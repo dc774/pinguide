@@ -1,0 +1,13 @@
+{
+  "game": "Dakar",
+  "manufacturer": "Mr Game",
+  "url": "https://www.kineticist.com/games/pinball/dakar",
+  "sections": {
+    "Profile": "\"Dakar\" is a solid-state pinball machine released by Mr. Game in June 1988, inspired by the renowned Paris-Dakar Rally. The game features a backbox color monitor that displays integrated video game modes, enhancing player engagement by combining traditional pinball elements with digital gameplay. The playfield includes two flippers, two pop bumpers, and a spinning target, providing dynamic gameplay opportunities. Players aim to navigate challenging terrains and obstacles, simulating the adventurous spirit of the Dakar Rally.\n\n- Manufacturer: Mr Game\n- Years made: 1988\n- In production: no\n- Type: Solid State\n- Display: CGA\n- Players: 4\n- Tags: Futuristic, Racing, Original Theme, Solid State, Weird Pinball Machines, Cars, 1980s",
+    "Design Team": "- Art: Tony Ramunni\n- Design: Tony Ramunni",
+    "Editions": "- Dakar: released 1988-06-01, Mr. Game 1B11188/0"
+  },
+  "opdb_group": "R02j",
+  "rules_url": "",
+  "tutorials": []
+}

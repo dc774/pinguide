@@ -1,0 +1,13 @@
+{
+  "game": "Speakeasy",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/speakeasy",
+  "sections": {
+    "Profile": "The \"Speakeasy\" pinball machine by Bally, released in 1982, blends a card game motif with a roulette theme. Key features include a working roulette wheel, flyaway targets, and the \"Sacrifice\" button that allows players to reset card sequences.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 2\n- Tags: Two player, Card games, Original Theme, Solid State, History, 1980s",
+    "Design Team": "- Design: George Christian\n- Art: Greg Freres\n- Software: Rehman Merchant",
+    "Editions": "- Speakeasy: 3,000 made, released 1982-01-08, model number 1273, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "Rbl7",
+  "rules_url": "",
+  "tutorials": []
+}

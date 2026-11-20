@@ -1,0 +1,13 @@
+{
+  "game": "Batman 66",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/batman-66",
+  "sections": {
+    "Profile": "The Batman 66 pinball machine by Stern, released in December 2016, is based on the classic 1966 TV series. Designed by George Gomez, it features custom voice work by Adam West and includes dynamic LCD animations, two ramps, six multiball modes, and themed callouts by original cast members. The game is part of Stern's SPIKE 2 system and showcases vibrant artwork by Christopher Franchi. With its rich theming and engaging gameplay, it has become a popular collector's item among pinball enthusiasts.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2016–2019\n- In production: no\n- Type: Solid State\n- Display: LCD\n- Players: 4\n- Tags: 2010s, Licensed, Batman, Solid State, Comics, Superhero, TV Show",
+    "Design Team": "- Callouts: Rick Zieff\n- Animation: Zac Stark\n- Design: George Gomez\n- Art: Christopher Franchi\n- Software: Lyman F. Sheats Jr.\n- Sound: Jerry Thompson\n- Concept: Joe Kaminkow",
+    "Editions": "- Batman 66 (Premium): MSRP $8,599, released 2016-01-01, model number PINBALL I-00I2 * BATMAN-PRE, Stern SPIKE 2 System\n- Batman 66 (LE): 240 made, released 2016-01-01, model number PINBALL I-00I0 * BATMAN-LE, Stern SPIKE 2 System\n- Batman 66 (Super LE): 80 made, released 2016-01-01, Stern SPIKE 2 System\n- Batman 66 (Catwoman Signature Edition): MSRP $8,599, released 2019-06-01, Stern SPIKE 2 System"
+  },
+  "opdb_group": "Roz4",
+  "rules_url": "https://pinballrulesheets.com/stern/batman-66-rulesheet.html",
+  "tutorials": []
+}

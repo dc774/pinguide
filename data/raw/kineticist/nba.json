@@ -1,0 +1,13 @@
+{
+  "game": "NBA",
+  "manufacturer": "Stern Pinball Inc.",
+  "url": "https://www.kineticist.com/games/pinball/nba",
+  "sections": {
+    "Profile": "The \"NBA\" pinball machine by Stern Pinball, released in 2009, is themed around basketball and designed by Gary Stern, Ray Tanzer, and John Borg. This game features two flippers, nine standup targets, a spinning disc, and a unique ramp system that shoots the ball towards a hoop.\n\n- Manufacturer: Stern Pinball Inc.\n- Years made: 2009\n- In production: no\n- Type: Solid State\n- Display: DMD\n- Players: 4\n- Tags: 2000s, Licensed, Basketball, Sports, Solid State",
+    "Design Team": "- Animation: Mark Galvez\n- Art: Kevin O'Connor\n- Software: Lonnie D. Ropp\n- Design: John Borg\n- Software: Lyman F. Sheats Jr.\n- Design: Ray Tanzer\n- Music: David Thiel\n- Sound: David Thiel\n- Design: Gary Stern",
+    "Editions": "- NBA: MSRP $3,550, released 2009-05-21, Stern S.A.M. Board System"
+  },
+  "opdb_group": "5K19",
+  "rules_url": "",
+  "tutorials": []
+}

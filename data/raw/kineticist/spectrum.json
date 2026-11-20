@@ -1,0 +1,13 @@
+{
+  "game": "Spectrum",
+  "manufacturer": "Bally Manufacturing Co.",
+  "url": "https://www.kineticist.com/games/pinball/spectrum",
+  "sections": {
+    "Profile": "\"Spectrum\" is a 1982 pinball machine by Bally, featuring a futuristic computer theme. Designed by Claude Fernandez with artwork by Margaret Hudson, it stands out for its strategic gameplay, requiring players to hit specific targets to unlock colors and sequences.\n\n- Manufacturer: Bally Manufacturing Co.\n- Years made: 1982\n- In production: no\n- Type: Solid State\n- Display: Alphanumeric\n- Players: 4\n- Tags: Solid State, Weird Pinball Machines, Fantasy, 1980s",
+    "Design Team": "- Design: Claude Fernandez\n- Software: Rehman Merchant\n- Art: Margaret Hudson",
+    "Editions": "- Spectrum: 994 made, released 1982-08-01, model number 1262, Bally MPU AS-2518-35"
+  },
+  "opdb_group": "Rw7z",
+  "rules_url": "",
+  "tutorials": []
+}
