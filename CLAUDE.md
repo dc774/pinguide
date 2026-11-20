@@ -65,7 +65,7 @@ pinguide-rag/
 ├── docs/                   # logo.png and screenshot.png for the README
 ├── gunicorn.conf.py        # 1 worker, gthread with 8 threads, 120s timeout
 └── frontend/
-    ├── index.html          # Page layout: sidebar, chat, composer, footer, sign-in dialog
+    ├── index.html          # Page layout: sidebar, chat, composer, footer, sign-in and help dialogs
     ├── app.css             # Styles (dark theme, WCAG AA contrast, phone drawer)
     ├── app.js              # Chat state, streaming reader, Markdown, sidebar, account
     └── logo.png, favicon.png, apple-touch-icon.png   # made from the owner's logo artwork
@@ -205,7 +205,8 @@ Limits and the database path have `PINGUIDE_*` overrides, listed in `.env.exampl
 
 4. SERVE     → Frontend (index.html + app.js): sidebar of chats (Today / Previous 7 days /
                Older, search, rename, delete), streamed Markdown answers, Stop, Copy,
-               Retry, Edit, source chips (library + web), sign-in dialog, footer
+               Retry, Edit, source chips (library + web), sign-in dialog, "How to use" help
+               dialog (its limits and machine count come from /api/config), footer
 ```
 
 ---

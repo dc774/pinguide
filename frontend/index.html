@@ -40,6 +40,9 @@
 
       <nav class="chat-list" id="chatList" aria-label="Chat history"></nav>
 
+      <button type="button" class="support-link" id="helpSidebar" aria-haspopup="dialog">
+        <span class="help-icon" aria-hidden="true">?</span> How to use Pinguide
+      </button>
       <a class="support-link" id="supportSidebar" hidden target="_blank" rel="noopener noreferrer">
         <span aria-hidden="true">&#9749;</span> Support Pinguide
       </a>
@@ -76,6 +79,8 @@
           <span aria-hidden="true">·</span>
           Powered by the <a href="https://www.kineticist.com">Kineticist API</a>
           <span id="machineCount"></span>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="link-btn" id="helpFooter" aria-haspopup="dialog">How to use</button>
           <span id="supportFooter" hidden>
             <span aria-hidden="true">·</span>
             <a id="supportFooterLink" target="_blank" rel="noopener noreferrer">Buy me a coffee</a>
@@ -98,6 +103,42 @@
     </form>
     <p class="dialog-note" id="emailSent" role="status"></p>
     <div class="dialog-actions"><button type="button" class="btn" id="signinClose">Close</button></div>
+  </dialog>
+
+  <dialog id="helpDialog" class="help-dialog" aria-labelledby="helpTitle">
+    <h2 id="helpTitle">How to use Pinguide</h2>
+    <p>Pinguide is an AI pinball expert. Ask it anything about pinball, the way you'd ask a knowledgeable friend.</p>
+
+    <h3>What you can ask</h3>
+    <ul>
+      <li>Rules and strategy for a specific machine: &ldquo;How do I start multiball in Godzilla?&rdquo;</li>
+      <li>Playing technique: flipper skills, nudging, tournament play</li>
+      <li>Buying, owning and repairing machines</li>
+      <li>History, designers, news and new releases</li>
+    </ul>
+
+    <h3>How answers work</h3>
+    <ul>
+      <li>Name a machine and Pinguide reads its library of rulesheets, strategy guides and manufacturer pages<span id="helpMachines"></span>. The chips under the answer link to those sources.</li>
+      <li>For anything current (new releases, code updates, events, prices) it searches the web and links the pages it used.</li>
+      <li>&ldquo;Thought process&rdquo; opens a summary of how it worked the answer out.</li>
+      <li>Follow-up questions keep the context, so you don't need to repeat the machine name.</li>
+    </ul>
+
+    <h3>Tips</h3>
+    <ul>
+      <li>Use the machine's full name. If several machines share a name (Star Wars, for example), you get an answer for each.</li>
+      <li>Stop ends an answer early. Edit (on your message) and Retry (on the last answer) ask again. Copy copies the text.</li>
+      <li>Pinguide is AI and can make mistakes. For rule details that matter, check the linked rulesheet.</li>
+    </ul>
+
+    <h3>Saving chats</h3>
+    <ul>
+      <li>No account is needed. Without one, your chats disappear when you close the tab.</li>
+      <li>Sign in with Google or an emailed link to keep your chats in the sidebar on any device, where you can search, rename and delete them. You can delete your account at any time.</li>
+      <li id="helpLimits" hidden></li>
+    </ul>
+    <div class="dialog-actions"><button type="button" class="btn" id="helpClose">Close</button></div>
   </dialog>
 
   <div class="sr-only" id="srStatus" role="status" aria-live="polite"></div>

@@ -8,7 +8,7 @@ const els = {
   chatList: $('chatList'), account: $('account'), chatTitle: $('chatTitle'),
   signin: $('signinDialog'), signinError: $('signinError'), googleBtn: $('googleBtn'),
   signinOr: $('signinOr'), emailForm: $('emailForm'), emailInput: $('emailInput'),
-  emailSent: $('emailSent'),
+  emailSent: $('emailSent'), help: $('helpDialog'),
   messages: $('messages'), thread: $('thread'), composer: $('composer'),
   input: $('composerInput'), sendBtn: $('sendBtn'), srStatus: $('srStatus'),
 };
@@ -124,7 +124,10 @@ function renderWelcome() {
   box.innerHTML = '<img class="welcome-logo" src="/static/logo.png" alt="Pinguide" width="240" height="161">'
     + '<h2>Your pinball companion</h2>'
     + '<p>Rules and strategy for thousands of machines, playing tips, buying and repair advice, '
-    + 'and the latest pinball news.</p>';
+    + 'and the latest pinball news.</p>'
+    + '<p class="welcome-help">New here? <button type="button" class="link-btn" aria-haspopup="dialog">'
+    + 'See how to use Pinguide</button></p>';
+  box.querySelector('.welcome-help button').addEventListener('click', openHelp);
   const grid = document.createElement('div');
   grid.className = 'suggestions';
   for (const s of SUGGESTIONS) {
@@ -773,6 +776,25 @@ function renderAccount() {
   els.account.append(who, actions);
 }
 
+let linkMinutes = 0;  // from /api/config at startup
+
+function openHelp() { els.help.showModal(); }
+$('helpSidebar').addEventListener('click', () => { closeDrawer(); openHelp(); });
+$('helpFooter').addEventListener('click', openHelp);
+$('helpClose').addEventListener('click', () => els.help.close());
+
+function fillHelp(config) {
+  if (config.machines) $('helpMachines').textContent = ` (${config.machines.toLocaleString()} machines)`;
+  const limits = config.searches_per_day;
+  if (limits) {
+    const item = $('helpLimits');
+    item.textContent = `Web searches are limited to ${limits.anon} a day without an account and ${limits.user} `
+      + 'a day when signed in. Past the limit Pinguide still answers, but it can\u2019t check the web.';
+    item.hidden = false;
+  }
+  if (config.link_minutes) linkMinutes = config.link_minutes;
+}
+
 function openSignin(error) {
   els.signinError.hidden = !error;
   els.signinError.textContent = error || '';
@@ -787,7 +809,8 @@ els.emailForm.addEventListener('submit', async (e) => {
   els.signinError.hidden = true;
   try {
     await api('/auth/email', { method: 'POST', body: JSON.stringify({ email: els.emailInput.value }) });
-    els.emailSent.textContent = 'Check your email for a sign-in link. It expires in 15 minutes.';
+    els.emailSent.textContent = 'Check your email for a sign-in link.'
+      + (linkMinutes ? ` It expires in ${linkMinutes} minutes.` : '');
   } catch (err) {
     els.signinError.textContent = err.message;
     els.signinError.hidden = false;
@@ -818,6 +841,7 @@ async function start() {
   ]);
   if (config.machines) $('machineCount').textContent = `\u00b7 ${config.machines.toLocaleString()} machines`;
   showSupport(config.support_url);
+  fillHelp(config);
   els.googleBtn.hidden = !config.google;
   els.signinOr.hidden = !config.google;
 

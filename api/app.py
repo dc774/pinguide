@@ -579,6 +579,8 @@ def config():
         "machines": len(_KNOWN_GAMES),
         "support_url": _SUPPORT_URL,
         "google": auth.google_enabled(),
+        "searches_per_day": {"anon": _SEARCHES_PER_DAY_ANON, "user": _SEARCHES_PER_DAY_USER},
+        "link_minutes": auth.LINK_MINUTES,
     })
 
 

@@ -253,6 +253,7 @@ button { cursor: pointer; }
 .welcome-logo { display: block; width: 240px; max-width: 60%; height: auto; margin: 0 auto 1.5rem; }
 .welcome h2 { margin: 0 0 0.4rem; font-size: 1.6rem; color: #fff; letter-spacing: -0.02em; }
 .welcome p { margin: 0 0 1.5rem; color: var(--muted); }
+.welcome .welcome-help { margin: -0.8rem 0 1.5rem; font-size: 0.9rem; }
 .suggestions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
 .suggestion {
   padding: 0.75rem 0.9rem;
@@ -489,6 +490,26 @@ dialog h2 { margin: 0 0 0.5rem; font-size: 1.2rem; color: #fff; }
   text-decoration: none;
 }
 .support-link:hover { background: var(--panel-2); }
+button.support-link { width: 100%; background: none; border: none; font: inherit; font-size: 0.875rem; cursor: pointer; text-align: left; }
+.help-icon {
+  display: inline-grid; place-items: center;
+  width: 1.1rem; height: 1.1rem;
+  border: 1.5px solid currentColor; border-radius: 50%;
+  font-size: 0.7rem; font-weight: 700;
+}
+
+.link-btn {
+  padding: 0; background: none; border: none;
+  font: inherit; color: #cfcfcf; text-decoration: underline; cursor: pointer;
+}
+.link-btn:hover, .link-btn:focus-visible { color: #fff; }
+
+.help-dialog { width: min(560px, calc(100vw - 2rem)); max-height: calc(100vh - 2rem); overflow-y: auto; }
+.help-dialog p, .help-dialog li { font-size: 0.9rem; line-height: 1.5; }
+.help-dialog h3 { margin: 1.1rem 0 0.4rem; font-size: 0.95rem; color: #fff; }
+.help-dialog ul { margin: 0; padding-left: 1.2rem; }
+.help-dialog li + li { margin-top: 0.3rem; }
+.help-dialog .dialog-actions { margin-top: 1.2rem; }
 
 
 /* ---------- Phones: the sidebar becomes a drawer ---------- */

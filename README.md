@@ -34,6 +34,7 @@ Built as a personal project. Not commercial (an optional "Buy me a coffee" tip l
 - Streaming answers with a Stop button; Markdown formatting; Copy, Retry and Edit
 - "Thought process" panel (the model's reasoning summary) and "Searched the web for ..." lines
 - Source chips for library rulesheets and web pages
+- "How to use Pinguide" help for first-time visitors (sidebar, footer and welcome screen)
 - Phone layout with a slide-out sidebar; keyboard accessible, WCAG AA contrast
 
 ---
